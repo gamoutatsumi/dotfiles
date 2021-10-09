@@ -1,0 +1,39 @@
+Config { font             = "xft:HackGen Regular:size=10:antialias=true"
+       , bgColor          = "#1c1c1c"
+       , fgColor          = "#555555"
+       , position         = TopP 0 150
+       , lowerOnStart     = False
+       , overrideRedirect = False
+       , sepChar          = "%"
+       , alignSep         = "}{"
+       , template         = " %StdinReader% }{ %multicpu%%memory%%battery% %volumelevel% <fc=#ece391>%date%</fc> "
+       , commands         = [ Run MultiCpu        [ "-t"       , "■ <total0>.<total1>.<total2>.<total3>.<total4>.<total5>.<total6>.<total7>  "
+                                                  , "--Low"    , "40"
+                                                  , "--High"   , "85"
+                                                  , "-m"       , "2"
+                                                  , "--normal" , "#b0bdbd"
+                                                  , "--high"   , "#ef9a9a"
+                                                  ] 10
+                            , Run Memory          [ "-t"       , "□ <usedratio>%  "
+                                                  , "--Low"    , "40"
+                                                  , "--High"   , "90"
+                                                  , "-m"       , "2"
+                                                  , "--normal" , "#b0bdbd"
+                                                  , "--high"   , "#ef9a9a"
+                                                  ] 10
+                            , Run BatteryP        ["BAT0"]
+                                                  [ "-t"       , "⌇ <acstatus>  "
+                                                  , "--Low"    , "20"
+                                                  , "--High"   , "80"
+                                                  , "--low"    , "#ef9a9a"
+                                                  , "--normal" , "#b0bdbd"
+                                                  , "--"
+                                                        , "-o" , "<left>% (<timeleft>)"
+                                                        , "-O" , "Charging <left>%"
+                                                        , "-i" , "<left>%"
+                                                  ] 50
+                            , Run DateZone "%F (%a) %T" "ja_JP.utf8" "Japan" "date" 10
+                            , Run Com      "bash" ["-c", "$HOME/.xmonad/getPulseVolume"] "volumelevel" 10
+                            , Run StdinReader
+                            ]
+}

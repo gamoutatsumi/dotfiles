@@ -1,0 +1,69 @@
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'gamoutatsumi/dps-ghosttext.vim'
+hook_add = '''
+let g:dps_ghosttext#ftmap = {
+\  "qiita.com": "markdown"
+\}
+'''
+
+[[plugins]]
+repo = 'skanehira/denops-docker.vim'
+
+# [[plugins]]
+# repo = 'vim-skk/skkeleton'
+# hook_add = '''
+#   autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true
+#   autocmd User skkeleton-disable-pre let b:coc_suggest_disable = v:false
+#   imap <C-j> <Plug>(skkeleton-toggle)
+#   cmap <C-j> <Plug>(skkeleton-toggle)
+#   autocmd User skkeleton-initialize-post call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true})
+#   if has('mac')
+#     autocmd User skkeleton-initialize-post call skkeleton#config({"globalJisyo": expand("~/Library/Application Support/AquaSKK/SKK-JISYO.L")})
+#   else
+#   endif
+#   call skkeleton#register_kanatable('rom', {
+#     \ "z\<Space>": ["\u3000", ''],
+#     \ "z,": ['―', ''],
+#     \ "<<": ['《', ''],
+#     \ ">>": ['》', ''],
+#     \ "(": ['（', ''],
+#     \ ")": ["）", ''],
+#     \ "z|": ['｜', ''],
+#   \ })
+# '''
+
+[[plugins]]
+repo = 'gamoutatsumi/denops-skkeleton.vim'
+rev = 'feature/skk-server'
+hook_post_source = '''
+  autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true
+  autocmd User skkeleton-disable-pre let b:coc_suggest_disable = v:false
+  imap <C-j> <Plug>(skkeleton-toggle)
+  cmap <C-j> <Plug>(skkeleton-toggle)
+  autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
+  if has('mac')
+    autocmd User skkeleton-initialize-pre call skkeleton#config({"globalJisyo": expand("~/Library/Application Support/AquaSKK/SKK-JISYO.L")})
+  else
+  endif
+  function s:skkeleton_init_kanatable()
+    call skkeleton#register_kanatable('rom', {
+      \ "z\<Space>": ["\u3000", ''],
+      \ "z,": ['―', ''],
+      \ "<<": ['《', ''],
+      \ ">>": ['》', ''],
+      \ "(": ['（', ''],
+      \ ")": ["）", ''],
+      \ "z|": ['｜', ''],
+    \ })
+  endfunction
+  autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
+'''
+
+[[plugins]]
+repo = 'gamoutatsumi/dps-gyazo.vim'
+hook_add = '''
+  let g:gyazo#token=$GYAZO_TOKEN
+'''

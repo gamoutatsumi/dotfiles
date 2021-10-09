@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+if [[ -e "/usr/lib/pentablet/pentablet.sh" ]]; then
+  exec /usr/lib/pentablet/pentablet.sh
+fi

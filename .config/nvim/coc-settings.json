@@ -1,0 +1,63 @@
+{
+  "coc.preferences.formatOnType": true,
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["go", "markdown", "sh", "dockerfile"]
+    },
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal","stack.yaml", "cabal.project", "package.yanl", "hie.yanl"],
+      "filetypes": ["haskell", "lhaskell"]
+    },
+    "satysfi-ls": {
+      "command": "satysfi-language-server",
+      "args": ["-w"],
+      "filetypes": ["satysfi"],
+      "trace.server": "verbose"
+    }
+  },
+  "rust-analyzer.procMacro.enable": true,
+  "tsserver.enable": false,
+  "deno.enable": false,
+  "deno.unstable": true,
+  "cSpell.userWords": [
+    "Deno",
+    "Neovim",
+    "autocmd",
+    "denops",
+    "epub",
+    "ftmap",
+    "ghosttext",
+    "msgpack",
+    "ojichat",
+    "pynvim",
+    "qiita",
+    "servest",
+    "webp"
+  ],
+  "tailwindCSS.includeLanguages": {
+    "htmldjango": "html"
+  },
+  "nginx.enable": true,
+  "hover.floatConfig": {
+    "winblend": 15
+  },
+  "suggest.floatConfig": {
+    "winblend": 15
+  }
+}

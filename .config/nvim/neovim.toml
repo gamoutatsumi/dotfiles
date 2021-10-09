@@ -1,0 +1,136 @@
+[[plugins]]
+repo = 'tversteeg/registers.nvim'
+
+[[plugins]]
+repo = 'folke/which-key.nvim'
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+hook_add = '''
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>
+noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap # #<Cmd>lua require('hlslens').start()<CR>
+noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+hook_post_source = '''
+lua require('gitsigns').setup()
+'''
+
+[[plugins]]
+repo = 'glepnir/galaxyline.nvim'
+hook_post_source = '''
+lua require('plugins.galaxyline_setting')
+'''
+
+[[plugins]]
+repo = 'antoinemadec/FixCursorHold.nvim'
+
+[[plugins]]
+repo = 'APZelos/blamer.nvim'
+hook_add = '''
+lua << EOF
+  vim.g.blamer_enabled = 1
+  vim.g.blamer_date_format = '%Y/%m/%d %H:%M'
+EOF
+'''
+
+[[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+hook_post_source = '''
+lua require'colorizer'.setup()
+'''
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'romgrk/barbar.nvim'
+hook_add = '''
+lua << EOF
+  vim.api.nvim_set_keymap('n', '<C-s>', '<cmd>BufferPick<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>BufferOrderByDirectory<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<leader>bl', '<cmd>BufferOrderByLanguage<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<S-TAB>', '<cmd>BufferPrevious<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<TAB>', '<cmd>BufferNext<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-<>', '<cmd>BufferMovePrevious<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A->>', '<cmd>BufferMoveNext<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-1>', '<cmd>BufferGoto 1<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-2>', '<cmd>BufferGoto 2<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-3>', '<cmd>BufferGoto 3<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-4>', '<cmd>BufferGoto 4<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-5>', '<cmd>BufferGoto 5<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-6>', '<cmd>BufferGoto 6<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-7>', '<cmd>BufferGoto 7<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-8>', '<cmd>BufferGoto 8<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-9>', '<cmd>BufferLast<CR>', { silent = true, noremap = true })
+  vim.api.nvim_set_keymap('n', '<A-c>', '<cmd>BufferClose<CR>', { silent = true, noremap = true })
+EOF
+'''
+
+[[plugins]]
+repo = 'monaqa/dial.nvim'
+hook_post_source = '''
+lua << EOF
+  vim.api.nvim_set_keymap('n', '<C-a>', '<Plug>(dial-increment)', { silent = true , noremap = false })
+  vim.api.nvim_set_keymap('n', '<C-x>', '<Plug>(dial-decrement)', { silent = true , noremap = false })
+  local dial = require"dial"
+  dial.config.searchlist = {
+    normal = {
+      "number#decimal#fixed#zero",
+      "date#[%Y/%m/%d]",
+      "date#[%m/%d]",
+      "date#[%H:%M]",
+    },
+    visual = {
+      "number#decimal",
+      "date#[%Y/%m/%d]",
+      "date#[%m/%d]",
+      "date#[%H:%M]",
+      "color#hex",
+      "char#alph#small#word",
+      "char#alph#capital#word",
+    }
+  }
+EOF
+'''
+
+[[plugins]]
+repo = 'nvim-lua/popup.nvim'
+
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+hook_add = '''
+lua require('plugins.telescope')
+'''
+
+[[plugins]]
+repo = 'phaazon/hop.nvim'
+hook_post_source = '''
+lua require'hop'.setup()
+'''
+hook_add = '''
+nmap $ <cmd>lua require'hop'.hint_words()<CR>
+'''
+
+[[plugins]]
+repo = 'b3nj5m1n/kommentary'
+hook_post_source = '''
+lua << EOF
+  require('kommentary.config').configure_language("typescriptreact", {
+    single_line_comment_string = "//",
+    multi_line_comment_strings = {"{/*", "*/}"}
+  })
+EOF
+'''
+
+[[plugins]]
+repo = 'kwkarlwang/bufresize.nvim'

@@ -1,0 +1,36 @@
+add_newline = false
+[aws]
+style = "bold blue"
+displayed_items = "all"
+symbol = " "
+
+[aws.region_aliases]
+ap-northeast-1 = "jp"
+
+[python]
+symbol = " "
+scan_for_pyfiles = false
+
+[nodejs]
+symbol = " "
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+
+[gcloud]
+format = "on [$symbol$active]($style) "
+symbol = " "
+
+[git_status]
+modified = "!${count}"
+staged = "+${count}"
+deleted = "✘${count}"
+ahead = "↑${count}"
+behind = "↓${count}"
+
+[java]
+symbol = " "
+
+[package]
+symbol = " "

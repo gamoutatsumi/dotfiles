@@ -1,0 +1,6 @@
+#!/bin/bash
+FILENAME="${HOME}/Pictures/screenshot-$(date +%Y-%m-%d-%T).png"
+
+maim "${FILENAME}" 
+
+xclip -selection c -t image/png "${FILENAME}"

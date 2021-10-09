@@ -1,0 +1,25 @@
+{
+  "plugins": {
+    "prefix": ["plugin"],
+    "body": [
+      "[[plugins]]",
+      "repo = \"$1\""
+    ]
+  },
+  "hook_add": {
+    "prefix": ["add"],
+    "body": [
+      "hook_add = '''",
+      "$1",
+      "'''"
+    ]
+  },
+  "hook_post_source": {
+    "prefix": ["post_source"],
+    "body": [
+      "hook_post_source = '''",
+      "$1",
+      "'''"
+    ]
+  }
+}

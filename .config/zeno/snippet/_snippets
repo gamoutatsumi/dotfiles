@@ -1,0 +1,10 @@
+gs:   git status --short --branch
+ga:   git add {{file}}
+gaa:  git add --all
+gci:  git commit
+gcim: git commit -m '{{commit_message}}'
+gcif: git commit --fixup {{commit_id}}
+gd:   git diff {{branch}}
+gd:   git diff -- {{file}}
+gd:   git diff {{branch}} -- {{file}}
+gd:   git diff {{branch1}} {{branch2}} -- {{file}}

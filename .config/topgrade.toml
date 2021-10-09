@@ -1,0 +1,10 @@
+only = ["system", "custom_commands", "cargo", "vim", "go", "tmux", "rustup", "pipx"]
+
+[commands]
+"Deploy dotfiles" = "~/dotfiles/install.sh"
+
+[linux]
+yay_arguments = "--nodevel"
+
+[git]
+arguments = "--rebase --autostash"

@@ -1,0 +1,52 @@
+version: 2
+root-markers:
+  - .git/
+
+tools:
+  markdown-textlint: &markdown-textlint
+    lint-command: 'npx --no-install textlint -f unix --stdin --stdin-filename ${INPUT}'
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l:%c: %m [%trror/%r]'
+      - '%f:%l:%c: %m [%tarning/%r]'
+    commands:
+      - command: 'npx --no textlint --fix ${INPUT}'
+        title: 'textlint fix'
+    root-markers:
+      - .textlintrc
+  dockerfile-hadolint: &dockerfile-hadolint
+    lint-command: 'hadolint --no-color'
+    lint-formats:
+      - '%f:%l %r %tnfo: %m'
+      - '%f:%l %r %trror: %m'
+      - '%f:%l %r %tarning: %m'
+  sh-shellcheck: &sh-shellcheck
+    lint-command: 'shellcheck -f gcc -x'
+    lint-source: 'shellcheck'
+    lint-formats:
+      - '%f:%l:%c: %troor: %m'
+      - '%f:%l:%c: %tarning: %m'
+      - '%f:%l:%c: %tote: %m'
+  sh-shfmt: &sh-shfmt
+    format-command: 'shfmt -ci -s -bn'
+    format-stdin: true
+  go-golint: &go-golint
+    lint-command: "golint ${INPUT} | sed 's/^/I:/'"
+    lint-ignore-exit-code: true
+    lint-formats:
+      - '%t:%f:%l:%c:%m'
+
+languages:
+  # markdown:
+  #   - <<: *markdown-textlint
+  dockerfile:
+    - <<: *dockerfile-hadolint
+  sh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+  zsh:
+    - <<: *sh-shellcheck
+    - <<: *sh-shfmt
+  go:
+    - <<: *go-golint

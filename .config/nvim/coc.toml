@@ -1,0 +1,20 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+hook_add = '''
+lua require('plugins.coc')
+'''
+
+[[plugins]]
+repo = 'antoinemadec/coc-fzf'
+rev = 'release'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+hook_add = '''
+lua << EOF
+  vim.g.UltiSnipsExpandTrigger = '<NUL>'
+  vim.g.UltiSnipsListSnippets = '<NUL>'
+EOF
+'''

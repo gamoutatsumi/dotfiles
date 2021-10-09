@@ -1,0 +1,38 @@
+[user]
+	name = gamoutatsumi
+	email = 47162587+gamoutatsumi@users.noreply.github.com 
+	signingkey = 24BD09DF8D0AC302E6C2E7ABD031D287D0BB4DE0
+[ghq]
+  user = gamoutatsumi
+  root = ~/Repositories
+[pull]
+	rebase = false
+; [url "github.com:"]
+; 	pushInsteadOf = https://github.com/
+; 	insteadOf = https://github.com/
+[alias]
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+[core]
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+	quotepath = false
+[interactive]
+  diffFilter = delta --color-only
+[push]
+	default = current
+[init]
+	defaultBranch = master
+[commit]
+  gpgsign = false
+[gpg]
+	program = /usr/bin/gpg
+[color "status"]
+  added     = green
+  changed   = red
+  untracked = yellow
+  unmerged  = magenta
+[fetch]
+  prune = true
+[status]
+  showUntrackedFiles = all
+[rerere]
+  enabled = true

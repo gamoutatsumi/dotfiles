@@ -1,0 +1,122 @@
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['html', 'php', 'vue']
+hook_add = '''
+lua << EOF
+  vim.g.closetag_filenames = '*.html,*.php,*.vue'
+EOF
+'''
+
+[[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'sharat87/roast.vim'
+on_ft = ['roast']
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && yarn install"'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+hook_add = '''
+lua << EOF
+  vim.g.vim_markdown_conceal = 0
+  vim.g.vim_markdown_folding_disabled = 1
+EOF
+'''
+
+[[plugins]]
+on_ft = ['tjs']
+repo = 'vim-scripts/tjs.vim'
+
+[[plugins]]
+on_ft = ['rust']
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['terraform']
+
+[[plugins]]
+repo = 'segeljakt/vim-silicon'
+on_cmd = ['Silicon']
+hook_add = '''
+  let g:silicon = {}
+  let g:silicon['theme'] = 'Dracula'
+  let g:silicon['font'] = 'HackGen'
+  let g:silicon['background'] = '#AAAAFF'
+  let g:silicon['shadow-color'] = '#555555'
+  let g:silicon['line-pad'] = 2
+  let g:silicon['pad-horiz'] = 80
+  let g:silicon['pad-vert'] = 10
+  let g:silicon['shadow-blur-radius'] = 0
+  let g:silicon['shadow-offset-x'] = 0
+  let g:silicon['shadow-offset-y'] = 0
+  let g:silicon['line-number'] = v:true
+  let g:silicon['round-corner'] = v:true
+  let g:silicon['window-controls'] = v:true
+  let g:silicon['output'] = '~/Pictures/silicon-{time:%Y-%m-%d-%H%M%S}.png'
+'''
+
+[[plugins]]
+repo = 'mmisono/viminesweeper'
+on_cmd = ['MineSweeper']
+
+[[plugins]]
+repo = 'skanehira/badapple.vim'
+on_cmd = ['BadApple']
+
+[[plugins]]
+repo = 'bellflower2015/vim-syntax-tyranoscript'
+on_ft = ['TyranoScript']
+
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'koron/nyancat-vim'
+on_cmd = ['Nyancat', 'Nyancat2']
+
+[[plugins]]
+repo = 'rhysd/vim-goyacc'
+on_path = '*.go.y'
+
+[[plugins]]
+repo = 'qnighy/satysfi.vim'
+on_path = '*.saty?h'
+
+[[plugins]]
+repo = 'jceb/vim-orgmode'
+on_path = '*.org'
+
+# [[plugins]]
+# repo = 'skanehira/gyazo.vim'
+# on_cmd = 'GyazoUplaod'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+on_ft = ['toml']
+hook_post_source = '''
+  let g:precious_enable_switch_CursorMoved = {
+  \ "*": 0,
+  \ }
+  let g:precious_enable_switch_CursorMoved_i = {
+  \ "*": 0,
+  \ }
+  let g:precious_enable_switch_CursorHold = {
+  \ "*": 0,
+  \ }
+  augroup VimPrecious
+    autocmd!
+    autocmd InsertEnter * PreciousSwitch
+    autocmd InsertLeave * PreciousReset
+    autocmd User PreciousFileType :LspRestart
+  augroup END
+'''

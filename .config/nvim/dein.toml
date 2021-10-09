@@ -1,0 +1,202 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'bluz71/vim-nightfly-guicolors'
+hook_add = '''
+  colorscheme nightfly
+  highlight Normal ctermbg=NONE guibg=NONE
+  highlight NonText ctermbg=NONE guibg=NONE
+  highlight LineNr ctermbg=NONE guibg=NONE
+  highlight Folded ctermbg=NONE guibg=NONE
+'''
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+hook_add = '''
+  let sandwich_no_default_key_mappings=1
+  let operator_sandwich_no_default_key_mappings=1
+  nmap <silent> ys <Plug>(operator-sandwich-add)
+  nmap <silent> ds <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+  nmap <silent> cs <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+'''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+  let g:WebDevIconsNerdTreeBeforeGlyphPadding=''
+  let g:WebDevIconsUnicodeDecorateFolderNodes=v:true
+  if exists('g:loaded_webdevicons')
+    webdevicons#refresh()
+  endif
+'''
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'itchyny/vim-parenmatch'
+
+#[[plugins]]
+#repo = 'edkolev/tmuxline.vim'
+#hook_add = '''
+#let g:tmuxline_preset = {
+  #\ 'a': '[#S:#I:#P]',
+  #\ 'win': ['#I', '#{?#{m:ssh,#W},#{ssh-host},#W} #F'],
+  #\ 'cwin': ['#I','#{?#{m:ssh,#W},#{ssh-host},#W} #F'],
+  #\ 'y': ['%Y-%m-%d', '%H:%M'],
+  #\ 'options': {
+    #\ 'status': 'on',
+    #\ 'status-left-style': 'none',
+    #\ 'status-right-style': 'none',
+    #\ 'status-right-length': '100',
+    #\ 'status-left-length': '100',
+  #\   }
+  #\ }
+#let g:tmuxline_status_justify = 'left'
+#'''
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+  let g:fern#drawer_width=30
+  let g:fern#renderer="nerdfont"
+  let g:fern#renderer#nerdfont#padding='  '
+  let g:fern#disable_default_mappings=1
+  let g:fern#hide_cursor=0
+  let g:fern#default_hidden=1
+  nnoremap <silent> <C-e> <cmd>Fern . -drawer -reveal=% -toggle<CR>
+  nnoremap <silent> <Plug>(fern-close-drawer) <cmd>FernDo close -drawer -stay<CR>
+  function FernSettings()
+    nmap <buffer><silent><nowait> <Plug>(fern-action-open-and-close) <Plug>(fern-action-open:select)<Plug>(fern-close-drawer)
+    nmap <buffer><silent><nowait><expr> <Plug>(fern-expand-or-collapse) fern#smart#leaf("<Plug>(fern-action-collapse)", "<Plug>(fern-action-expand)", "<Plug>(fern-action-collapse)")
+    nmap <buffer><silent><nowait><expr> <Plug>(fern-open-or-expand) fern#smart#leaf("<Plug>(fern-action-open-and-close)", "<Plug>(fern-action-expand)")
+    nmap <buffer><silent><nowait> a <Plug>(fern-choice)
+    nmap <buffer><silent><nowait> t <Plug>(fern-expand-or-collapse)
+    nmap <buffer><silent><nowait> <CR> <Plug>(fern-open-or-expand)
+    nmap <buffer><silent><nowait> o <Plug>(fern-action-open-and-close)
+    nmap <buffer><silent><nowait> l <Plug>(fern-action-expand)
+    nmap <buffer><silent><nowait> h <Plug>(fern-action-collapse)
+    nmap <buffer><silent><nowait> x <Plug>(fern-action-mark:toggle)
+    vmap <buffer><silent><nowait> x <Plug>(fern-action-mark:toggle)
+    nmap <buffer><silent><nowait> N <Plug>(fern-action-new-file)
+    nmap <buffer><silent><nowait> K <Plug>(fern-action-new-dir)
+    nmap <buffer><silent><nowait> d <Plug>(fern-action-trash)
+    nmap <buffer><silent><nowait> r <Plug>(fern-action-rename)
+    nmap <buffer><silent><nowait> c <Plug>(fern-action-copy)
+    nmap <buffer><silent><nowait> m <Plug>(fern-action-move)
+    nmap <buffer><silent><nowait> ! <Plug>(fern-action-hidden-toggle)
+    nmap <buffer><silent><nowait> <C-g> <Plug>(fern-action-debug)
+    nmap <buffer><silent><nowait> ? <Plug>(fern-action-help)
+    nmap <buffer><silent><nowait> <C-c> <Plug>(fern-action-cancel)
+    nmap <buffer><silent><nowait> . <Plug>(fern-action-repeat)
+    nmap <buffer><silent><nowait> R <Plug>(fern-action-redraw)
+    nmap <buffer><silent><nowait> q <cmd>quit<CR>
+    nmap <buffer><silent><nowait> Q <cmd>bwipe!<CR>
+    setlocal nonu
+    setlocal signcolumn="no"
+    setlocal nornu
+  endfunction
+  autocmd FileType fern call FernSettings()
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+  autocmd FileType fern call glyph_palette#apply()
+'''
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+# [[plugins]]
+# repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'mbbill/undotree'
+hook_add = '''
+  nnoremap <Leader>u <cmd>UndotreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'lambdalisue/suda.vim'
+hook_add = '''
+  let g:suda_smart_edit=1
+'''
+
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i denite#do_map('open_fileter_buffer')
+  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+endfunction
+'''
+
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'
+
+# [[plugins]]
+# repo = 'vim-jp/vital.vim'
+# merged = 0
+
+# [[plugins]]
+# repo = 'lambdalisue/vital-Whisky'
+# merged = 0
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = '''
+  set helplang=ja,en
+'''
+
+[[plugins]]
+repo = 'tweekmonster/helpful.vim'
+
+[[plugins]]
+repo = 'LeafCage/vimhelpgenerator'
+
+[[plugins]]
+repo = 'chr4/nginx.vim'
+
+[[plugins]]
+repo = 'tyru/capture.vim'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+  nnoremap <silent> <C-o> <cmd>Deol -split=otherwise -toggle -winheight=10<CR>
+  tnoremap <Esc> <C-\><C-n>
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'

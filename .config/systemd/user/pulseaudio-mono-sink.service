@@ -1,0 +1,11 @@
+[Unit]
+Description=Load Pulseaudio mono sink
+After=pipewire-pulse.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "${HOME}/.xmonad/pulse-config.sh"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

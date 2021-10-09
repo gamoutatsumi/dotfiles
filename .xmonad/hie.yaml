@@ -1,0 +1,4 @@
+cradle:
+  stack:
+    - path: .
+      component: "xmonad-config:exe:xmonad-config"
