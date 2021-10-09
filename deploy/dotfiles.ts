@@ -1,5 +1,5 @@
-import { $ } from "https://deno.land/x/zx_deno@1.2.2/mod.mjs";
 import { join } from "https://deno.land/std@0.110.0/path/mod.ts";
+import { $ } from "https://deno.land/x/zx_deno@1.2.2/mod.mjs";
 
 const DOT_DIRECTORY = join((Deno.env.get("HOME") ?? "/root"), "dotfiles");
 
@@ -39,7 +39,7 @@ export async function dotfiles() {
   const entries = await getEntries(DOT_DIRECTORY);
   for await (const entry of entries) {
     const dest = entry.replace(/dotfiles\//, "");
-    $`ln -snfv ${entry} ${dest}`;
+    await $`ln -snfv ${entry} ${dest}`;
   }
-  console.log(`completed.`)
+  console.log(`completed.`);
 }

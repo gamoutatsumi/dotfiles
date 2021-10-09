@@ -4,10 +4,8 @@ if (Deno.build.os === "windows") Deno.exit();
 
 switch (Deno.args[0]) {
   case "dotfiles":
-    await dotfiles()
-    Deno.exit(0)
+    await dotfiles();
+    break;
   default:
-    const msg = `Available deployments: dotfiles`
-    console.log(msg)
-    Deno.exit(0)
+    console.log("Available deployments: dotfiles");
 }
