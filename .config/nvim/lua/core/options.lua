@@ -31,7 +31,8 @@ local opts = {
   matchpairs = vim.bo.matchpairs .. ',「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”',
   clipboard = 'unnamedplus',
   pumblend = 15,
-  cursorline = true
+  cursorline = true,
+  winblend = 15,
 }
 
 for opt, val in pairs(opts) do

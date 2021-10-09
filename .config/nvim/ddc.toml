@@ -13,9 +13,6 @@ hook_add = '''
 repo = 'Shougo/ddc-cmdline-history'
 
 [[plugins]]
-repo = 'matsui54/ddc-converter_truncate'
-
-[[plugins]]
 repo = 'weilbith/nvim-lsp-smag'
 
 [[plugins]]
@@ -68,9 +65,6 @@ hook_add = '''
   let g:vsnip_snippet_dir = join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')
 
   function! PumInit() abort
-    if has('nvim')
-      call pum#set_option('winblend', 15)
-    endif
     imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
     imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<C-n>'
     smap <silent><expr> <TAB> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
