@@ -13,7 +13,7 @@
 [alias]
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
 [core]
-  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+  pager = delta
 	quotepath = false
 [interactive]
   diffFilter = delta --color-only
@@ -36,3 +36,9 @@
   showUntrackedFiles = all
 [rerere]
   enabled = true
+[delta]
+  features = line-numbers decorations
+  syntax-theme = fly16
+  plus-style = syntax "#012800"
+  minus-style = syntax "#340001"
+  hunk-header-style = file line-number
