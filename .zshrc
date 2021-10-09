@@ -195,6 +195,8 @@ else
   alias pbcopy='xsel --clipboard --input'
 fi
 
+alias sudo='sudo '
+
 # ls alias
 alias ls='exa --icons'
 alias ll='ls -lg --git'
@@ -381,10 +383,11 @@ fi
 # Setting PATH
 #export PYENV_ROOT="$HOME/.pyenv"
 #export NODENV_ROOT="$HOME/.nodenv"
+export LUAROCKS_HOME="$HOME/.luarocks"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export CARGO_HOME="$HOME/.cargo"
 export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
+export PATH="$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000

@@ -1,4 +1,5 @@
 local util = require 'lspconfig/util'
+local configs = require("lspconfig/configs")
 local lsp_installer = require 'nvim-lsp-installer'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -59,3 +60,19 @@ require'lspconfig'.denols.setup{
   root_dir = util.root_pattern(".git"),
   capabilities = capabilities,
 }
+
+if not require'lspconfig'.teal then
+  configs.teal = {
+    default_config = {
+      cmd = {
+        "teal-language-server",
+      },
+      filetypes = {
+        "teal",
+      },
+      root_dir = util.root_pattern("tlconfig.lua", ".git"),
+      settings = {},
+    },
+  }
+end
+require'lspconfig'.teal.setup{}
