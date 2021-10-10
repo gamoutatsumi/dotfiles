@@ -13,31 +13,7 @@ let g:dps_ghosttext#ftmap = {
 repo = 'skanehira/denops-docker.vim'
 
 # [[plugins]]
-# repo = 'vim-skk/skkeleton'
-# hook_add = '''
-#   autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true
-#   autocmd User skkeleton-disable-pre let b:coc_suggest_disable = v:false
-#   imap <C-j> <Plug>(skkeleton-toggle)
-#   cmap <C-j> <Plug>(skkeleton-toggle)
-#   autocmd User skkeleton-initialize-post call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true})
-#   if has('mac')
-#     autocmd User skkeleton-initialize-post call skkeleton#config({"globalJisyo": expand("~/Library/Application Support/AquaSKK/SKK-JISYO.L")})
-#   else
-#   endif
-#   call skkeleton#register_kanatable('rom', {
-#     \ "z\<Space>": ["\u3000", ''],
-#     \ "z,": ['―', ''],
-#     \ "<<": ['《', ''],
-#     \ ">>": ['》', ''],
-#     \ "(": ['（', ''],
-#     \ ")": ["）", ''],
-#     \ "z|": ['｜', ''],
-#   \ })
-# '''
-
-[[plugins]]
-repo = 'gamoutatsumi/denops-skkeleton.vim'
-rev = 'feature/skk-server'
+repo = 'vim-skk/skkeleton'
 hook_post_source = '''
   autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true
   autocmd User skkeleton-disable-pre let b:coc_suggest_disable = v:false
