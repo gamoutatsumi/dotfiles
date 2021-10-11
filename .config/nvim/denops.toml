@@ -12,7 +12,7 @@ let g:dps_ghosttext#ftmap = {
 [[plugins]]
 repo = 'skanehira/denops-docker.vim'
 
-# [[plugins]]
+[[plugins]]
 repo = 'vim-skk/skkeleton'
 hook_post_source = '''
   autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true

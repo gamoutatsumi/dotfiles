@@ -21,8 +21,8 @@ repo = 'Shougo/ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 
-[[plugins]]
-repo = 'tani/ddc-fuzzy'
+# [[plugins]]
+# repo = 'tani/ddc-fuzzy'
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
@@ -53,7 +53,7 @@ repo = 'gamoutatsumi/ddc-emoji'
 
 [[multiple_plugins]]
 plugins = [
-  'ddc.vim', 'ddc-fuzzy',
+  'ddc.vim', 'ddc-matcher_head', 'ddc-sorter_rank',
   'ddc-nvim-lsp', 'denops-popup-preview.vim', 'ddc-file',
   'ddc-around', 'pum.vim',
   'neco-vim', 'lexima.vim', 'vim-vsnip',
@@ -86,13 +86,8 @@ hook_add = '''
       \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
     call ddc#custom#patch_global('sources', ['nvim-lsp', 'vsnip', 'around', 'file', 'emoji'])
     call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
-    call ddc#custom#patch_global('filterParams', {
-      \ 'matcher_fuzzy': {
-      \   'splitMode': 'word',
-      \ },
-      \ })
     call ddc#custom#patch_global('sourceOptions', {
-    \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'] , 'converters': ['converter_fuzzy'] },
+    \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank']},
     \ 'nvim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
     \ 'file': {
     \   'mark': 'F',

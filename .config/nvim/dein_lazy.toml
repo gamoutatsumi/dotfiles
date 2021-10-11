@@ -95,10 +95,6 @@ on_path = '*.saty?h'
 repo = 'jceb/vim-orgmode'
 on_path = '*.org'
 
-# [[plugins]]
-# repo = 'skanehira/gyazo.vim'
-# on_cmd = 'GyazoUplaod'
-
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
