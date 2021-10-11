@@ -107,12 +107,6 @@ repo = 'nvim-lua/popup.nvim'
 repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-hook_add = '''
-lua require('plugins.telescope')
-'''
-
-[[plugins]]
 repo = 'phaazon/hop.nvim'
 hook_post_source = '''
 lua require'hop'.setup()

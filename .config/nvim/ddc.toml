@@ -19,13 +19,7 @@ repo = 'weilbith/nvim-lsp-smag'
 repo = 'Shougo/ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-
-# [[plugins]]
-# repo = 'tani/ddc-fuzzy'
-
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
+repo = 'tani/ddc-fuzzy'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
@@ -38,6 +32,7 @@ repo = 'LumaKernel/ddc-file'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+rev = '7756995'
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
@@ -53,11 +48,11 @@ repo = 'gamoutatsumi/ddc-emoji'
 
 [[multiple_plugins]]
 plugins = [
-  'ddc.vim', 'ddc-matcher_head', 'ddc-sorter_rank',
-  'ddc-nvim-lsp', 'denops-popup-preview.vim', 'ddc-file',
-  'ddc-around', 'pum.vim',
+  'ddc.vim', 'ddc-fuzzy',
+  'ddc-nvim-lsp', 'denops-popup-preview.vim',
+  'ddc-around', 'pum.vim', 'ddc-emoji',
   'neco-vim', 'lexima.vim', 'vim-vsnip',
-  'vim-vsnip-integ', 'ddc-emoji', 'ddc-cmdline-history'
+  'vim-vsnip-integ', 'ddc-cmdline-history'
 ]
 hook_add = '''
   let g:lexima_map_escape = '<Plug>(lexima-escape)'
@@ -66,10 +61,10 @@ hook_add = '''
 
   function! PumInit() abort
     imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
-    imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<C-n>'
+    imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<C-n>'
     smap <silent><expr> <TAB> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
     imap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-TAB>'
-    imap <silent><expr> <C-p> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-p>'
+    imap <silent><expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' : '<C-p>'
     smap <silent><expr> <S-TAB> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-TAB>'
     inoremap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : lexima#expand('<LT>CR>', 'i')
     imap <silent><expr> <Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Plug>(lexima-escape)'
@@ -84,32 +79,30 @@ hook_add = '''
     call ddc#custom#patch_global('backspaceCompletion', v:true)
     call ddc#custom#patch_global('autoCompleteEvents',
       \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
-    call ddc#custom#patch_global('sources', ['nvim-lsp', 'vsnip', 'around', 'file', 'emoji'])
+    call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'around', 'emoji'])
     call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
     call ddc#custom#patch_global('sourceOptions', {
-    \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_rank']},
+    \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy']},
     \ 'nvim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
-    \ 'file': {
-    \   'mark': 'F',
-    \   'isVolatile': v:true,
-    \   'forceCompletionPattern': '.*\/',
-    \ },
     \ 'around': {
     \   'mark': 'A',
     \   'isVolatile': v:true,
+    \ },
+    \ 'vsnip': {
+    \   'mark': 'VS',
+    \   'dup': v:true,
+    \ },
+    \ 'file': {
+    \   'mark': 'F',
+    \   'isVolatile': v:true,
+    \   'forceCompletionPattern': '\S/\S*',
     \ },
     \ 'emoji': {
     \   'mark': 'emoji',
     \   'matchers': ['emoji'],
     \   'sorters': [],
     \ },
-    \ 'vsnip': {
-    \   'mark': 'VS',
-    \   'dup': v:true,
-    \ },
     \ })
-
-    LspStart
 
     call ddc#enable()
     call popup_preview#enable()
@@ -117,7 +110,7 @@ hook_add = '''
 
   function! CommandlinePre() abort
     let s:prev_buffer_config = ddc#custom#get_buffer()
-    call ddc#custom#patch_buffer('sources', ['necovim', 'around', 'file', 'cmdline-history'])
+    call ddc#custom#patch_buffer('sources', ['necovim', 'around', 'cmdline-history'])
     call ddc#custom#patch_buffer('sourceOptions', {
     \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 3, 'ignoreCase': v:true},
     \ 'around': {'mark': 'A', 'minAutoCompleteLength': 3},
@@ -151,57 +144,3 @@ repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-
-[[plugins]]
-repo = 'RishabhRD/popfix'
-
-[[plugins]]
-repo = 'RishabhRD/nvim-lsputils'
-hook_post_source = '''
-lua << EOF
-  if vim.fn.has('nvim-0.5.1') == 1 then
-      vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-      vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
-      vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
-      vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-      vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-      vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-      vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-      vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
-  else
-      local bufnr = vim.api.nvim_buf_get_number(0)
-
-      vim.lsp.handlers['textDocument/codeAction'] = function(_, _, actions)
-          require('lsputil.codeAction').code_action_handler(nil, actions, nil, nil, nil)
-      end
-
-      vim.lsp.handlers['textDocument/references'] = function(_, _, result)
-          require('lsputil.locations').references_handler(nil, result, { bufnr = bufnr }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/definition'] = function(_, method, result)
-          require('lsputil.locations').definition_handler(nil, result, { bufnr = bufnr, method = method }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/declaration'] = function(_, method, result)
-          require('lsputil.locations').declaration_handler(nil, result, { bufnr = bufnr, method = method }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/typeDefinition'] = function(_, method, result)
-          require('lsputil.locations').typeDefinition_handler(nil, result, { bufnr = bufnr, method = method }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/implementation'] = function(_, method, result)
-          require('lsputil.locations').implementation_handler(nil, result, { bufnr = bufnr, method = method }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/documentSymbol'] = function(_, _, result, _, bufn)
-          require('lsputil.symbols').document_handler(nil, result, { bufnr = bufn }, nil)
-      end
-
-      vim.lsp.handlers['textDocument/symbol'] = function(_, _, result, _, bufn)
-          require('lsputil.symbols').workspace_handler(nil, result, { bufnr = bufn }, nil)
-      end
-  end
-EOF
-'''

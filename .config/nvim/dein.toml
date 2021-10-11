@@ -38,9 +38,6 @@ hook_add = '''
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
 repo = 'itchyny/vim-parenmatch'
 
 #[[plugins]]
@@ -124,9 +121,6 @@ hook_add = '''
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
 
-# [[plugins]]
-# repo = 'wakatime/vim-wakatime'
-
 [[plugins]]
 repo = 'mbbill/undotree'
 hook_add = '''
@@ -162,14 +156,6 @@ endfunction
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 
-# [[plugins]]
-# repo = 'vim-jp/vital.vim'
-# merged = 0
-
-# [[plugins]]
-# repo = 'lambdalisue/vital-Whisky'
-# merged = 0
-
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
@@ -178,12 +164,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tweekmonster/helpful.vim'
-
-[[plugins]]
-repo = 'LeafCage/vimhelpgenerator'
-
-[[plugins]]
-repo = 'chr4/nginx.vim'
 
 [[plugins]]
 repo = 'tyru/capture.vim'

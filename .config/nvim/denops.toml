@@ -15,8 +15,6 @@ repo = 'skanehira/denops-docker.vim'
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 hook_post_source = '''
-  autocmd User skkeleton-enable-pre let b:coc_suggest_disable = v:true
-  autocmd User skkeleton-disable-pre let b:coc_suggest_disable = v:false
   imap <C-j> <Plug>(skkeleton-toggle)
   cmap <C-j> <Plug>(skkeleton-toggle)
   autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
@@ -39,7 +37,7 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'gamoutatsumi/dps-gyazo.vim'
+repo = 'gamoutatsumi/gyazoupload.vim'
 hook_add = '''
   let g:gyazo#token=$GYAZO_TOKEN
 '''
