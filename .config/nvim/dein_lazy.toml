@@ -90,24 +90,24 @@ on_path = '*.saty?h'
 repo = 'jceb/vim-orgmode'
 on_path = '*.org'
 
-# [[plugins]]
-# repo = 'osyo-manga/vim-precious'
-# depends = ['context_filetype.vim']
-# on_ft = ['toml']
-# hook_post_source = '''
-#   let g:precious_enable_switch_CursorMoved = {
-#   \ "*": 0,
-#   \ }
-#   let g:precious_enable_switch_CursorMoved_i = {
-#   \ "*": 0,
-#   \ }
-#   let g:precious_enable_switch_CursorHold = {
-#   \ "*": 0,
-#   \ }
-#   augroup VimPrecious
-#     autocmd!
-#     autocmd InsertEnter * PreciousSwitch
-#     autocmd InsertLeave * PreciousReset
-#     autocmd User PreciousFileType :LspRestart
-#   augroup END
-# '''
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+on_ft = ['toml']
+hook_post_source = '''
+  let g:precious_enable_switch_CursorMoved = {
+  \ "*": 0,
+  \ }
+  let g:precious_enable_switch_CursorMoved_i = {
+  \ "*": 0,
+  \ }
+  let g:precious_enable_switch_CursorHold = {
+  \ "*": 0,
+  \ }
+  augroup VimPrecious
+    autocmd!
+    autocmd InsertEnter * PreciousSwitch
+    autocmd InsertLeave * PreciousReset
+    autocmd User PreciousFileType :LspRestart
+  augroup END
+'''

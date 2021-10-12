@@ -178,8 +178,8 @@ hook_add = '''
   tnoremap <Esc> <C-\><C-n>
 '''
 
-# [[plugins]]
-# repo = 'Shougo/context_filetype.vim'
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = "machakann/vim-swap"
