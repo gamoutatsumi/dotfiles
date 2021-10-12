@@ -25,12 +25,6 @@ repo = 'tani/ddc-fuzzy'
 repo = 'Shougo/ddc-around'
 
 [[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
-
-[[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 
 [[plugins]]
@@ -84,6 +78,9 @@ hook_add = '''
     call ddc#custom#patch_global('autoCompleteEvents',
       \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
     call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'emoji', 'around'])
+    call ddc#custom#patch_buffer('filterParams', {
+    \   'matcher_fuzzy': {'splitMode': 'word',}
+    \ })
     call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
     call ddc#custom#patch_global('sourceOptions', {
     \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
@@ -118,7 +115,6 @@ hook_add = '''
     call ddc#custom#patch_buffer('sources', ['necovim', 'cmdline-history'])
     call ddc#custom#patch_buffer('autoCompleteEvents', ['CmdlineChanged'])
     call ddc#custom#patch_buffer('sourceOptions', {
-    \ '_': {'matchers': ['matcher_head'], 'sorters': ['sorter_rank'], 'converters': []},
     \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 3, 'ignoreCase': v:true},
     \ 'cmdline-history': {'mark': 'history', 'minAutoCompleteLength': 3},
     \ })
