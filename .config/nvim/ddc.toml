@@ -25,6 +25,12 @@ repo = 'tani/ddc-fuzzy'
 repo = 'Shougo/ddc-around'
 
 [[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 
 [[plugins]]
@@ -32,7 +38,6 @@ repo = 'LumaKernel/ddc-file'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-rev = '7756995'
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
@@ -48,9 +53,8 @@ repo = 'gamoutatsumi/ddc-emoji'
 
 [[multiple_plugins]]
 plugins = [
-  'ddc.vim', 'ddc-fuzzy',
-  'ddc-nvim-lsp', 'denops-popup-preview.vim',
-  'ddc-around', 'pum.vim', 'ddc-emoji',
+  'ddc.vim', 'ddc-fuzzy', 'ddc-emoji', 'ddc-nvim-lsp',
+  'ddc-around', 'pum.vim', 'denops-popup-preview.vim',
   'neco-vim', 'lexima.vim', 'vim-vsnip',
   'vim-vsnip-integ', 'ddc-cmdline-history'
 ]
@@ -78,11 +82,11 @@ hook_add = '''
     call ddc#custom#patch_global('completionMenu', 'pum.vim')
     call ddc#custom#patch_global('backspaceCompletion', v:true)
     call ddc#custom#patch_global('autoCompleteEvents',
-      \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
-    call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'around', 'emoji'])
+      \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
+    call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'emoji', 'around'])
     call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
     call ddc#custom#patch_global('sourceOptions', {
-    \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy']},
+    \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
     \ 'nvim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
     \ 'around': {
     \   'mark': 'A',
@@ -110,13 +114,17 @@ hook_add = '''
 
   function! CommandlinePre() abort
     let s:prev_buffer_config = ddc#custom#get_buffer()
-    call ddc#custom#patch_buffer('sources', ['necovim', 'around', 'cmdline-history'])
+
+    call ddc#custom#patch_buffer('sources', ['necovim', 'cmdline-history'])
+    call ddc#custom#patch_buffer('autoCompleteEvents', ['CmdlineChanged'])
     call ddc#custom#patch_buffer('sourceOptions', {
+    \ '_': {'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_rank']},
     \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 3, 'ignoreCase': v:true},
-    \ 'around': {'mark': 'A', 'minAutoCompleteLength': 3},
     \ 'cmdline-history': {'mark': 'history', 'minAutoCompleteLength': 3},
     \ })
+
     call ddc#enable_cmdline_completion()
+
     cmap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<TAB>'
     cmap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-h>'
     cmap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
