@@ -128,7 +128,6 @@ hook_add = '''
     cmap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<TAB>'
     cmap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-h>'
     cmap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
-    cmap <silent><expr> <Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
 
     autocmd CmdlineLeave * ++once call CommandlinePost()
   endfunction
@@ -137,7 +136,6 @@ hook_add = '''
     cunmap <TAB>
     cunmap <S-TAB>
     cunmap <CR>
-    cunmap <Esc>
     call ddc#custom#set_buffer(s:prev_buffer_config)
   endfunction
 
