@@ -16,7 +16,7 @@ myStartupHook = do
         spawn     "$HOME/.config/polybar/launch.sh"
         spawnOnce "nm-applet"
         spawnOnce "blueman-applet"
-        spawnOnce "fcitx"
+        spawnOnce "fcitx5"
         spawnOnce "$HOME/.xmonad/pentablet"
         spawnOnce "gnome-keyring-daemon --start --components=secrets"
         spawnOnce "albert"
