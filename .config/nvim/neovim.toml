@@ -19,7 +19,19 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 hook_post_source = '''
-lua require('gitsigns').setup()
+lua << EOF
+  require('gitsigns').setup{
+    current_line_blame = true,
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol',
+      delay = 1000
+    },
+    current_line_blame_formatter_opts = {
+      relative_time = false
+    }
+  }
+EOF
 '''
 
 [[plugins]]
@@ -30,15 +42,6 @@ lua require('plugins.galaxyline_setting')
 
 [[plugins]]
 repo = 'antoinemadec/FixCursorHold.nvim'
-
-[[plugins]]
-repo = 'APZelos/blamer.nvim'
-hook_add = '''
-lua << EOF
-  vim.g.blamer_enabled = 1
-  vim.g.blamer_date_format = '%Y/%m/%d %H:%M'
-EOF
-'''
 
 [[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'

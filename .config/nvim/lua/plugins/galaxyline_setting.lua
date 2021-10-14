@@ -45,24 +45,22 @@ gls.left[2] = {
       local alias = { n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'L-VISUAL', [''] = 'B-VISUAL', v = 'VISUAL', s = 'SELECT', t = 'TEMRINAL', R = 'REPLACE' }
       return alias[vim.fn.mode()] .. ' '
     end,
-    separator = ' ',
     separator_highlight = { colors.blue, colors.slateblue },
     highlight = { colors.fg, colors.blue, 'bold' },
   }
 }
 
---[[ gls.left[3] = {
-  SKkStatus = {
+gls.left[3] = {
+  SkkStatus = {
     provider = function()
-      local alias = { hira = 'あ', kata = 'ア' }
-      return '  ' .. alias[vim.fn['skkeleton#mode']()]
+      local alias = { disabled = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ' }
+      return '  ' .. alias[vim.g['skkeleton_status']] .. ' '
     end,
     separator = ' ',
     separator_highlight = { colors.blue, colors.slateblue },
-    condition = vim.g['skkeleton#init'] == true,
-    highlight = { colors.fg, colors.blue, 'bold' }
-  }
-} ]]
+    highlight = { colors.fg, colors.blue, 'bold' },
+  },
+}
 
 gls.left[4] = {
   DiffAdd = {

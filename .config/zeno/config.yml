@@ -17,6 +17,9 @@ snippets:
   - name: git commit fixup
     keyword: gcif
     snippet: git commit --fixup {{commit_id}}
+  - name: git empty commit
+    keyword: gcie
+    snippet: git commit --allow-empty -m 'Initial Commit'
   - name: git diff
     keyword: gd
     snippet: git diff {{branch}}

@@ -108,6 +108,5 @@ hook_post_source = '''
     autocmd!
     autocmd InsertEnter * PreciousSwitch
     autocmd InsertLeave * PreciousReset
-    autocmd User PreciousFileType :LspRestart
   augroup END
 '''

@@ -1,19 +1,36 @@
 [[plugins]]
-repo = 'neovim/nvim-lspconfig'
-
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
+repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
-  if dein#tap('nvim-lsp-installer') && dein#tap('nvim-lspconfig')
-    lua require("plugins.lsp")
-  endif
+  let g:lsp_diagnostics_float_cursor = 1
+  let g:lsp_diagnostics_virtual_text_enabled = 0
+  let g:lsp_document_code_action_signs_enabled = 0
+  highlight LspWarningHighlight cterm=underline term=underline gui=underline
+  highlight LspErrorHighlight cterm=underline term=underline gui=underline
+  highlight LspInformationHighlight cterm=underline term=underline gui=underline
+  highlight LspHintHighlight cterm=underline term=underline gui=underline
+  function s:on_lsp_buffer_enabled() abort
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  endfunction
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 '''
 
 [[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
+repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
-repo = 'weilbith/nvim-lsp-smag'
+repo = 'Shougo/ddc-cmdline-history'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
@@ -23,9 +40,6 @@ repo = 'tani/ddc-fuzzy'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
-
-[[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
 
 [[plugins]]
 repo = 'LumaKernel/ddc-file'
@@ -45,9 +59,12 @@ repo = 'matsui54/denops-popup-preview.vim'
 [[plugins]]
 repo = 'gamoutatsumi/ddc-emoji'
 
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
+
 [[multiple_plugins]]
 plugins = [
-  'ddc.vim', 'ddc-fuzzy', 'ddc-emoji', 'ddc-nvim-lsp',
+  'ddc.vim', 'ddc-fuzzy', 'ddc-emoji', 'ddc-vim-lsp',
   'ddc-around', 'pum.vim', 'denops-popup-preview.vim',
   'neco-vim', 'lexima.vim', 'vim-vsnip',
   'vim-vsnip-integ', 'ddc-cmdline-history'
@@ -77,14 +94,14 @@ hook_add = '''
     call ddc#custom#patch_global('backspaceCompletion', v:true)
     call ddc#custom#patch_global('autoCompleteEvents',
       \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-    call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'emoji', 'around'])
+    call ddc#custom#patch_global('sources', ['vim-lsp', 'file', 'vsnip', 'emoji', 'around'])
     call ddc#custom#patch_buffer('filterParams', {
     \   'matcher_fuzzy': {'splitMode': 'word',}
     \ })
     call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
     call ddc#custom#patch_global('sourceOptions', {
     \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
-    \ 'nvim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
+    \ 'vim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
     \ 'around': {
     \   'mark': 'A',
     \   'isVolatile': v:true,

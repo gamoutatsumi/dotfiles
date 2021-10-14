@@ -3,7 +3,7 @@
     "prefix": ["plugin"],
     "body": [
       "[[plugins]]",
-      "repo = \"$1\""
+      "repo = '$1'"
     ]
   },
   "hook_add": {
