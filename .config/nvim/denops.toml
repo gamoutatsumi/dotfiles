@@ -13,7 +13,7 @@ let g:dps_ghosttext#ftmap = {
 repo = 'skanehira/denops-docker.vim'
 
 [[plugins]]
-repo = '~/Repositories/github.com/gamoutatsumi/denops-skkeleton.vim'
+repo = 'vim-skk/denops-skkeleton.vim'
 hook_post_source = '''
   let g:skkeleton_status = 'disabled'
   imap <C-j> <Plug>(skkeleton-toggle)
