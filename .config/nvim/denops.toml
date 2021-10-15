@@ -46,3 +46,6 @@ repo = 'gamoutatsumi/gyazoupload.vim'
 hook_add = '''
   let g:gyazo#token=$GYAZO_TOKEN
 '''
+
+[[plugins]]
+repo = 'kat0h/bufpreview.vim'
