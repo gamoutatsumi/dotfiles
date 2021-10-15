@@ -75,7 +75,7 @@ myLayout = spacingRaw
 -- Scatchpad setting
 myScratchpads :: [NamedScratchpad]
 myScratchpads =
-  [ NS "alacritty"  "XMODIFIERS= alacritty --title 'Alacritty(floating)' -o background_opacity=0.95" (title =? "Alacritty(floating)")
+  [ NS "alacritty"  "XMODIFIERS= alacritty --title 'Alacritty(floating)' -o background_opacity=0.90" (title =? "Alacritty(floating)")
         myTermFloating
   , NS "bashtop"    "XMODIFIERS= alacritty -o shell=bashtop" (title =? "BashTOP")
         myFullFloating
