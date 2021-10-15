@@ -36,6 +36,9 @@ repo = 'Shougo/ddc-cmdline-history'
 repo = 'Shougo/ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
 repo = 'tani/ddc-fuzzy'
 
 [[plugins]]
@@ -66,8 +69,9 @@ repo = 'shun/ddc-vim-lsp'
 plugins = [
   'ddc.vim', 'ddc-fuzzy', 'ddc-emoji', 'ddc-vim-lsp',
   'ddc-around', 'pum.vim', 'denops-popup-preview.vim',
-  'neco-vim', 'lexima.vim', 'vim-vsnip',
+  'neco-vim', 'lexima.vim', 'vim-vsnip', 'ddc-file',
   'vim-vsnip-integ', 'ddc-cmdline-history'
+  'ddc-matcher_head'
 ]
 hook_add = '''
   let g:lexima_map_escape = '<Plug>(lexima-escape)'
@@ -114,11 +118,15 @@ hook_add = '''
     \   'mark': 'F',
     \   'isVolatile': v:true,
     \   'forceCompletionPattern': '\S/\S*',
+    \   'matchers': ['matcher_head'],
+    \   'sorters': [],
+    \   'converters': [],
     \ },
     \ 'emoji': {
     \   'mark': 'emoji',
     \   'matchers': ['emoji'],
     \   'sorters': [],
+    \   'converters': []
     \ },
     \ })
 
