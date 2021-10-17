@@ -189,3 +189,6 @@ hook_add = '''
   omap a, <Plug>(swap-textobject-a)
   xmap a, <Plug>(swap-textobject-a)
 '''
+
+[[plugins]]
+repo = 'lambdalisue/vim-manpager'
