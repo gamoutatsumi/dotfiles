@@ -2,6 +2,26 @@ local gl = require('galaxyline')
 local gls = gl.section
 gl.short_line_list = { 'fern' }
 
+function VimLspWarning()
+  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+  return counts.warning == 0 and '' or '  W:' .. counts.warning
+end
+
+function VimLspError()
+  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+  return counts.error == 0 and '' or '  E:' .. counts.error
+end
+
+function VimLspHint()
+  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+  return counts.hint == 0 and '' or '  H:' .. counts.hint
+end
+
+function VimLspInfo()
+  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+  return counts.information == 0 and '' or '  I:' .. counts.information
+end
+
 local colors = {
   bg = '#282c34',
   fg = '#092236',
@@ -159,34 +179,30 @@ gls.right[6] = {
 
 gls.right[7] = {
   DiagnosticError = {
-    provider = 'DiagnosticError',
+    provider = VimLspError,
     separator = ' ',
     separator_highlight = { colors.slateblue, colors.blue },
-    icon = '  E:',
     highlight = { colors.white, colors.slateblue }
   }
 }
 
 gls.right[8] = {
   DiagnosticWarn = {
-    provider = 'DiagnosticWarn',
-    icon = '  W:',
+    provider = VimLspWarning,
     highlight = { colors.white, colors.slateblue },
   }
 }
 
 gls.right[9] = {
   DiagnosticHint = {
-    provider = 'DiagnosticHint',
-    icon = '  H:',
+    provider = VimLspHint,
     highlight = { colors.white, colors.slateblue },
   }
 }
 
 gls.right[10] = {
   DiagnosticInfo = {
-    provider = 'DiagnosticInfo',
-    icon = '  I:',
+    provider = VimLspInfo,
     highlight = { colors.white, colors.slateblue },
   }
 }
