@@ -175,3 +175,10 @@ completions:
       --preview-window: "right:50%"
       --preview: "bat --color=always {} 2>/dev/null"
     callback: "awk '{print $1}'"
+  - name: ssh
+    patterns:
+      - "^ssh $"
+    sourceCommand: "grep '^Host' ~/.ssh/config | awk '{print $2}'"
+    options:
+      --prompt: "'Connect to> '"
+    callback: "awk '{print $1}'"
