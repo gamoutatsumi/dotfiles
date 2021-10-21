@@ -31,7 +31,6 @@ local opts = {
   matchpairs = vim.bo.matchpairs .. ',「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”',
   clipboard = 'unnamedplus',
   pumblend = 15,
-  cursorline = true,
   winblend = 15,
   showmode = false,
 }

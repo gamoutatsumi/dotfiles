@@ -115,7 +115,7 @@ hook_post_source = '''
 lua require'hop'.setup()
 '''
 hook_add = '''
-nmap $ <cmd>lua require'hop'.hint_words()<CR>
+nmap f <cmd>lua require'hop'.hint_words()<CR>
 '''
 
 [[plugins]]
