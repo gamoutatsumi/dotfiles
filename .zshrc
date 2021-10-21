@@ -3,16 +3,16 @@
 # }}}
 
 # INITIALIZE {{{
-if [[ ! -v XDG_DATA_HOME ]]; then
+if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
-if [[ ! -v XDG_CONFIG_HOME ]]; then
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
   export XDG_CONFIG_HOME="$HOME/.config"
 fi
-if [[ ! -v XDG_CACHE_HOME ]]; then
+if [[ -z "$XDG_CACHE_HOME" ]]; then
   export XDG_CACHE_HOME="$HOME/.cache"
 fi
-if [ "$ZSHRC_PROFILE" != "" ]; then
+if [ ! -z "$ZSHRC_PROFILE" ]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi
 
@@ -23,20 +23,18 @@ ostype() {
 }
 
 # os_detect export the PLATFORM variable as you see fit
-os_detect() {
-  case "$(ostype)" in
-    *'linux'*)  
-      if grep -iq 'microsoft' "/proc/sys/kernel/osrelease"; then
-        PLATFORM='wsl'
-      else
-        PLATFORM='linux'
-        fi                         ;;
+case "$(ostype)" in
+  *'linux'*)  
+    if grep -iq 'microsoft' "/proc/sys/kernel/osrelease"; then
+      PLATFORM='wsl'
+    else
+      PLATFORM='linux'
+      fi                         ;;
     *'darwin'*) PLATFORM='osx'     ;;
     *'bsd'*)    PLATFORM='bsd'     ;;
     *)          PLATFORM='unknown' ;;
   esac
   export PLATFORM
-}
 
 # is_osx returns true if running OS is Macintosh
 is_osx() {
@@ -135,7 +133,6 @@ zinit ice wait silent as'program' from'gh-r' bpick"*-$(uname -m)-*-$(ostype)*" p
 zinit ice wait silent as'program' from'gh-r' mv'cargo-compete* -> cargo-compete' pick'cargo-compete/cargo-compete'; zinit light 'qryxip/cargo-compete'
 zinit ice wait silent as'program' from'gh-r' mv'actionlint* -> actionlint' pick'actionlint/actionlint'; zinit light 'rhysd/actionlint'
 zinit ice wait silent as'program' from'gh-r' mv'kubeval* -> kubeval' pick'kubeval/kubeval'; zinit light 'instrumenta/kubeval'
-zinit ice wait silent as'program' from'gh-r' mv'efm-langserver* -> efm-langserver' pick'efm-langserver/efm-langserver'; zinit light 'mattn/efm-langserver'
 zinit ice wait silent as'program' from'gh-r' mv'hadolint* -> hadolint' pick'hadolint/hadolint'; zinit light 'hadolint/hadolint'
 zinit ice wait silent as'program' from'gh-r' mv'shellcheck* -> shellcheck' pick'shellcheck/shellcheck'; zinit light 'koalaman/shellcheck'
 #zinit ice wait silent as'completion' mv'completions.zsh -> _exa' silent; zinit snippet 'https://github.com/ogham/exa/blob/master/completions/completions.zsh'
