@@ -36,6 +36,9 @@ repo = 'Shougo/ddc-cmdline-history'
 repo = 'Shougo/ddc.vim'
 
 [[plugins]]
+repo = 'gamoutatsumi/ddc-sorter_ascii'
+
+[[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 
 [[plugins]]
@@ -71,7 +74,7 @@ plugins = [
   'ddc-around', 'pum.vim', 'denops-popup-preview.vim',
   'neco-vim', 'lexima.vim', 'vim-vsnip', 'ddc-file',
   'vim-vsnip-integ', 'ddc-cmdline-history'
-  'ddc-matcher_head'
+  'ddc-matcher_head', 'ddc-sorter_ascii'
 ]
 hook_add = '''
   let g:lexima_map_escape = '<Plug>(lexima-escape)'
@@ -140,13 +143,14 @@ hook_add = '''
     call ddc#custom#patch_buffer('sources', ['necovim', 'cmdline-history'])
     call ddc#custom#patch_buffer('autoCompleteEvents', ['CmdlineChanged'])
     call ddc#custom#patch_buffer('sourceOptions', {
-    \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 3, 'ignoreCase': v:true},
-    \ 'cmdline-history': {'mark': 'history', 'minAutoCompleteLength': 3},
+    \ '_': {'matchers': ['matcher_head'], 'sorters': ['sorter_ascii']},
+    \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 255, 'ignoreCase': v:true},
+    \ 'cmdline-history': {'mark': 'history', 'minAutoCompleteLength': 255},
     \ })
 
     call ddc#enable_cmdline_completion()
 
-    cmap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<TAB>'
+    cmap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : ddc#map#manual_complete(['necovim', 'cmdline-history'])
     cmap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-h>'
     cmap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 

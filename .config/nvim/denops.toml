@@ -10,7 +10,7 @@ let g:dps_ghosttext#ftmap = {
 '''
 
 [[plugins]]
-repo = 'vim-skk/denops-skkeleton.vim'
+repo = 'vim-skk/skkeleton'
 hook_post_source = '''
   let g:skkeleton_status = 'disabled'
   imap <C-j> <Plug>(skkeleton-toggle)
