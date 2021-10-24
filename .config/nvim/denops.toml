@@ -14,7 +14,7 @@ repo = 'vim-skk/skkeleton'
 hook_post_source = '''
   let g:skkeleton_status = 'disabled'
   imap <C-j> <Plug>(skkeleton-toggle)
-  cmap <C-j> <Plug>(skkeleton-toggle)
+  cmap <C-j> <Plug>(skkeleton-enable)
   autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
   if has('mac')
     autocmd User skkeleton-initialize-pre call skkeleton#config({"globalJisyo": expand("~/Library/Application Support/AquaSKK/SKK-JISYO.L")})

@@ -62,7 +62,7 @@ gls.left[1] = {
 gls.left[2] = {
   ViMode = {
     provider = function()
-      local alias = { n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'L-VISUAL', [''] = 'B-VISUAL', v = 'VISUAL', s = 'SELECT', t = 'TEMRINAL', R = 'REPLACE' }
+      local alias = { n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V = 'L-VISUAL', [''] = 'B-VISUAL', v = 'VISUAL', s = 'SELECT', t = 'TEMRINAL', R = 'REPLACE', r = 'REPLACE' }
       return alias[vim.fn.mode()] .. ' '
     end,
     separator_highlight = { colors.blue, colors.slateblue },
