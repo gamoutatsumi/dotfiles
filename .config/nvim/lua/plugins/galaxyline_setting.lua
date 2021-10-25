@@ -46,13 +46,6 @@ local buffer_not_empty = function()
   return false
 end
 
-local eskk_enabled = function()
-  if vim.fn.exists('g:loaded_eskk') == 1 and vim.g.loaded_eskk == 1 then
-    return true
-  end
-  return false
-end
-
 gls.left[1] = {
   FirstElement = {
     provider = function() return ' ' end,
@@ -73,9 +66,8 @@ gls.left[2] = {
 gls.left[3] = {
   SkkStatus = {
     provider = function()
-      local mode = vim.g['skkeleton#mode'] ~= '' and vim.g['skkeleton#mode'] or 'disabled'
-      local alias = { disabled = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ' }
-      return '  ' .. alias[mode] .. ' '
+      local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ' }
+      return '  ' .. alias[vim.g['skkeleton#mode']] .. ' '
     end,
     separator = ' ',
     separator_highlight = { colors.blue, colors.slateblue },

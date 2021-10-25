@@ -11,6 +11,9 @@ let g:dps_ghosttext#ftmap = {
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
+hook_add = '''
+  let g:skkeleton#mode = ''
+'''
 hook_post_source = '''
   imap <C-j> <Plug>(skkeleton-toggle)
   cmap <C-j> <Plug>(skkeleton-enable)
