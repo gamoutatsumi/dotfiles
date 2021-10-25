@@ -123,7 +123,7 @@ zinit ice wait silent as'program' from'gh-r' mv'dog* -> dog' pick'bin/dog'; zini
 zinit ice wait silent as'program' from'gh-r' mv'bat* -> bat' atclone'mv bat/autocomplete/bat.zsh bat/autocomplete/_bat' pick'bat/bat'; zinit light 'sharkdp/bat'
 zinit ice wait silent as'program' from'gh-r' mv'fd* -> fd' pick'fd/fd'; zinit light 'sharkdp/fd'
 zinit ice wait silent as'program' from'gh-r' mv'ghq* -> ghq' pick'ghq/ghq'; zinit light 'x-motemen/ghq'
-zinit ice wait silent as'program' from'gh-r' mv'gh* -> gh' bpick'*.tar.gz' pick'gh/bin/gh'; zinit light 'cli/cli'
+zinit ice wait silent as'program' from'gh-r' ver'latest' mv'gh* -> gh' bpick'*.tar.gz' pick'gh/bin/gh'; zinit light 'cli/cli'
 zinit ice wait silent as'program' from'gh-r' pick'gron/gron'; zinit light 'tomnomnom/gron'
 zinit ice wait silent as'program' from'gh-r' mv'delta* -> delta' pick'delta/delta'; zinit light 'dandavison/delta'
 zinit ice wait silent as'program' from'gh-r' mv'dust* -> dust' pick'dust/dust'; zinit light 'bootandy/dust'
