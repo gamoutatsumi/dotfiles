@@ -12,7 +12,6 @@ let g:dps_ghosttext#ftmap = {
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 hook_post_source = '''
-  let g:skkeleton_status = 'disabled'
   imap <C-j> <Plug>(skkeleton-toggle)
   cmap <C-j> <Plug>(skkeleton-enable)
   autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
@@ -31,11 +30,8 @@ hook_post_source = '''
       \ "z|": ['｜', ''],
     \ })
   endfunction
-  function s:skkeleton_mode_changed() abort
-    let g:skkeleton_status = skkeleton#mode() == '' ? 'disabled' : skkeleton#mode()
-  endfunction
   autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
-  autocmd User skkeleton-mode-changed call s:skkeleton_mode_changed()[]
+  autocmd User skkeleton-mode-changed redrawstatus
 '''
 
 [[plugins]]

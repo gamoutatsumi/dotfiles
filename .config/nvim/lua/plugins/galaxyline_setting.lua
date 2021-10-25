@@ -73,8 +73,9 @@ gls.left[2] = {
 gls.left[3] = {
   SkkStatus = {
     provider = function()
+      local mode = vim.g['skkeleton#mode'] ~= '' and vim.g['skkeleton#mode'] or 'disabled'
       local alias = { disabled = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ' }
-      return '  ' .. alias[vim.g['skkeleton_status']] .. ' '
+      return '  ' .. alias[mode] .. ' '
     end,
     separator = ' ',
     separator_highlight = { colors.blue, colors.slateblue },
