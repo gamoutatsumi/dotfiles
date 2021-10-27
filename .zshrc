@@ -114,7 +114,7 @@ zinit ice wait'0' depth'1' atload'!_zsh_autosuggest_start; set_fast_theme' silen
 zinit ice wait lucid depth'1' silent atload'zicdreplay' silent blockf; zinit light 'zsh-users/zsh-completions'
 zinit ice wait lucid depth'1' silent light-mode as'command' id-as'fzf-tmux'; zinit snippet 'https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux'
 zinit ice wait lucid depth'1' silent light-mode as'command' sbin'ytfzf' pick'ytfzf'; zinit light 'pystardust/ytfzf'
-zinit ice wait lucid ver'c91f047' atinit'export ZENO_ENABLE_SOCK=1; export ZENO_ENABLE_FZF_TMUX=1' blockf; zinit light 'yuki-yano/zeno.zsh'
+zinit ice wait lucid atinit'export ZENO_ENABLE_SOCK=1; export ZENO_ENABLE_FZF_TMUX=1' blockf; zinit light 'yuki-yano/zeno.zsh'
 zinit ice wait lucid depth'1' silent from'gh-r' as'null' sbin'fzf' id-as'fzf'; zinit light 'junegunn/fzf'
 zinit ice wait silent as'program' from'gh-r' mv'ripgrep* -> rg' pick'rg/rg'; zinit light 'BurntSushi/ripgrep'
 zinit ice wait silent as'program' from'gh-r' mv'ripgrep_all* -> rga' pick'rga/rga'; zinit light 'phiresky/ripgrep-all'
