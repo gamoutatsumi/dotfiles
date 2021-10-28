@@ -12,10 +12,10 @@ packages:
   original:
     hackage: xmonad-0.15
 - completed:
-    hackage: xmonad-contrib-0.16@sha256:a47da91613dc8e04c040424ab605acb2e8693bcf76e397f924b39af89b954da1,15927
+    hackage: xmonad-contrib-0.16@sha256:2180158db559b2a0507c2246b129ee0918b5143be6eff5fb7fdae027fc9a356e,16297
     pantry-tree:
       size: 19578
-      sha256: 934bc533bb08aebb72e51cb0fa5aab9e27e5c6c25a0a1edaa2c76058f8771167
+      sha256: 207bed7f14f59d8e08427f062089ead64f871ee3ba633c2b181d0b5ab2775a4f
   original:
     hackage: xmonad-contrib-0.16
 - completed:
