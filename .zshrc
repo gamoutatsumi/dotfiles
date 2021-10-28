@@ -109,7 +109,6 @@ zinit ice wait'0' depth'1' atload'ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snip
 zinit light 'chrissicool/zsh-256color'
 zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tmk'
 zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tms'
-zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'b4b4r07/enhancd'
 zinit ice wait'0' depth'1' atload'!_zsh_autosuggest_start; set_fast_theme' silent; zinit light 'zdharma/fast-syntax-highlighting'
 zinit ice wait lucid depth'1' silent atload'zicdreplay' silent blockf; zinit light 'zsh-users/zsh-completions'
 zinit ice wait lucid depth'1' silent light-mode as'command' id-as'fzf-tmux'; zinit snippet 'https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux'

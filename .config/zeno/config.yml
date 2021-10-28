@@ -182,3 +182,12 @@ completions:
     options:
       --prompt: "'Connect to> '"
     callback: "awk '{print $1}'"
+  - name: cd
+    patterns:
+      - "^cd $"
+    sourceCommand: "fd --type=d"
+    options:
+      --prompt: "'To> '" 
+      --preview-window: "right:50%"
+      --preview: "exa --icons -l --no-user"
+    callback: "awk '{print $1}'"

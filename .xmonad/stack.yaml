@@ -42,8 +42,8 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 extra-deps:
-  - xmonad-0.15
-  - xmonad-contrib-0.16
+  - xmonad-0.17
+  - xmonad-contrib-0.17
   - netlink-1.1.1.0
   - libmpd-0.9.3.0
   - timezone-olson-0.2.0
