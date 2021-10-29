@@ -54,7 +54,7 @@ is_wsl() {
 }
 
 exists() {
-  if type "$@" > /dev/null 2>&1; then
+  if (( $+commands[$@] )); then
     return 0
   else
     return 1
