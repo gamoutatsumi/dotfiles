@@ -75,9 +75,9 @@ fi
 # {{{ PLUGINS
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
   command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin"
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin"
   local isok=$!
   if [[ $isok == 1 ]]; then
     print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b"
@@ -90,13 +90,13 @@ source "${HOME}/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-      zinit-zsh/z-a-rust \
-      zinit-zsh/z-a-as-monitor \
-      zinit-zsh/z-a-patch-dl \
-      zinit-zsh/z-a-bin-gem-node
+# # Load a few important annexes, without Turbo
+# # (this is currently required for annexes)
+# zinit light-mode for \
+#       zinit-zsh/z-a-rust \
+#       zinit-zsh/z-a-as-monitor \
+#       zinit-zsh/z-a-patch-dl \
+#       zinit-zsh/z-a-bin-gem-node
 
 zinit snippet OMZT::gnzh
 
@@ -109,7 +109,7 @@ zinit ice wait'0' depth'1' atload'ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snip
 zinit light 'chrissicool/zsh-256color'
 zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tmk'
 zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tms'
-zinit ice wait'0' depth'1' atload'!_zsh_autosuggest_start; set_fast_theme' silent; zinit light 'zdharma/fast-syntax-highlighting'
+zinit ice wait'0' depth'1' atload'!_zsh_autosuggest_start; set_fast_theme' silent; zinit light 'zdharma-continuum/fast-syntax-highlighting'
 zinit ice wait lucid depth'1' silent atload'zicdreplay' silent blockf; zinit light 'zsh-users/zsh-completions'
 zinit ice wait lucid depth'1' silent light-mode as'command' id-as'fzf-tmux'; zinit snippet 'https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux'
 zinit ice wait lucid depth'1' silent light-mode as'command' sbin'ytfzf' pick'ytfzf'; zinit light 'pystardust/ytfzf'
