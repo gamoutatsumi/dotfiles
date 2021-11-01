@@ -79,7 +79,7 @@ if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
 fi
 . ~/.zpm/zpm.zsh
 
-export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source,source:asdf.sh,hook:'sed -i 1i0=\$ZERO asdf.sh'
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source:fpath,fpath:/completions,source:asdf.sh,hook:'sed -i 1i0=\$ZERO asdf.sh'
 zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
 zpm load romkatv/powerlevel10k,apply:source
 zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
