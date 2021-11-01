@@ -79,7 +79,7 @@ if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
 fi
 . ~/.zpm/zpm.zsh
 
-export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source,hook:"sed -i '1s/^/0=\$ZERO\n/' asdf.sh",source:asdf.sh
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source,source:asdf.sh,hook:'sed -i 1i0=\$ZERO asdf.sh'
 zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
 zpm load romkatv/powerlevel10k,apply:source
 zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
@@ -89,19 +89,18 @@ zpm load yuki-yano/tms,apply:source
 zpm load zdharma-continuum/fast-syntax-highlighting,apply:source
 zpm load zsh-users/zsh-completions,apply:fpath,fpath:/src
 zpm load junegunn/fzf,apply:path,hook:"./install --bin"
-exists deno && zpm load @empty/deno,gen-completion:"deno completion zsh"
+exists deno && zpm load @empty/deno,gen-completion:"deno completions zsh"
 exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
-exists npm && zpm load @empty/npm,gen-completion:"npm completion"
+exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
 exists gh && zpm load @empty/gh,gen-completion:"gh completion -s zsh"
-exists pip && zpm load @empty/pip,gen-completion:"pip completion --zsh"
+exists pip && zpm load @empty/pip,gen-plugin:"pip completion --zsh"
 zpm load yuki-yano/zeno.zsh,apply:source,source:/zeno.zsh
 
 setopt nonomatch
 
 function set_fast_theme() {
   FAST_HIGHLIGHT_STYLES[path]='fg=cyan,underline'
-  FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan,underline'
-  FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=blue'
+  FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan,underline' FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=blue'
   FAST_HIGHLIGHT_STYLES[alias]='fg=blue'
   FAST_HIGHLIGHT_STYLES[precommand]='fg=blue'
   FAST_HIGHLIGHT_STYLES[command]='fg=blue'
