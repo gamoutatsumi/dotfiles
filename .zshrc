@@ -77,9 +77,9 @@ fi
 if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
   git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"
 fi
-source ~/.zpm/zpm.zsh
+. ~/.zpm/zpm.zsh
 
-export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source,hook:"sed -i '1s/^/0=\$ZERO\n/' asdf.sh",source:asdf.sh
 zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
 zpm load romkatv/powerlevel10k,apply:source
 zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
