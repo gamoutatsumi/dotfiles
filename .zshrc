@@ -3,6 +3,7 @@
 # }}}
 
 # INITIALIZE {{{
+
 if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
@@ -12,7 +13,7 @@ fi
 if [[ -z "$XDG_CACHE_HOME" ]]; then
   export XDG_CACHE_HOME="$HOME/.cache"
 fi
-if [ ! -z "$ZSHRC_PROFILE" ]; then
+if [[ -n "$ZSHRC_PROFILE" ]]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi
 
@@ -73,72 +74,27 @@ fi
 # }}}
 
 # {{{ PLUGINS
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-  command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin"
-  local isok=$!
-  if [[ $isok == 1 ]]; then
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b"
-  else
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
-  fi
+if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
+  git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"
 fi
+source ~/.zpm/zpm.zsh
 
-source "${HOME}/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# # Load a few important annexes, without Turbo
-# # (this is currently required for annexes)
-# zinit light-mode for \
-#       zinit-zsh/z-a-rust \
-#       zinit-zsh/z-a-as-monitor \
-#       zinit-zsh/z-a-patch-dl \
-#       zinit-zsh/z-a-bin-gem-node
-
-zinit snippet OMZT::gnzh
-
-zicompinit
-
-zinit ice depth'1' atinit"export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf" atload'zicdreplay' silent; zinit light 'asdf-vm/asdf'
-zinit ice wait'0' depth'1' silent; zinit light 'Tarrasch/zsh-autoenv'
-zinit ice depth'1'; zinit light 'romkatv/powerlevel10k'
-zinit ice wait'0' depth'1' atload'ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"; _zsh_autosuggest_start' silent; zinit light 'zsh-users/zsh-autosuggestions'
-zinit light 'chrissicool/zsh-256color'
-zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tmk'
-zinit ice wait'0' depth'1' lucid light-mode silent; zinit light 'yuki-yano/tms'
-zinit ice wait'0' depth'1' atload'!_zsh_autosuggest_start; set_fast_theme' silent; zinit light 'zdharma-continuum/fast-syntax-highlighting'
-zinit ice wait lucid depth'1' silent atload'zicdreplay' silent blockf; zinit light 'zsh-users/zsh-completions'
-zinit ice wait lucid atinit'export ZENO_ENABLE_SOCK=1; export ZENO_ENABLE_FZF_TMUX=1' blockf; zinit light 'yuki-yano/zeno.zsh'
-zinit ice id-as"deno" depth'1' wait as"completion" atclone"source *.zsh" atpull"%atclone" silent; zinit light 'NotTheDr01ds/zsh-plugin-deno'
-zinit ice id-as"rustup" depth'1' wait as"completion" atclone"source *.zsh" atpull"%atclone" silent; zinit light 'gamoutatsumi/zsh-plugin-rustup'
-
-zinit ice wait lucid depth'1' silent from'gh-r' as'null' sbin'fzf' id-as'fzf'; zinit light 'junegunn/fzf'
-zinit ice wait lucid depth'1' silent light-mode as'command' id-as'fzf-tmux'; zinit snippet 'https://github.com/junegunn/fzf/blob/master/bin/fzf-tmux'
-zinit ice wait lucid depth'1' silent light-mode as'command' sbin'ytfzf' pick'ytfzf'; zinit light 'pystardust/ytfzf'
-zinit ice wait silent as'program' from'gh-r' mv'ripgrep* -> rg' pick'rg/rg'; zinit light 'BurntSushi/ripgrep'
-zinit ice wait silent as'program' from'gh-r' mv'ripgrep_all* -> rga' pick'rga/rga'; zinit light 'phiresky/ripgrep-all'
-zinit ice wait silent as'program' from'gh-r' mv'exa* -> exa' pick'bin/exa'; zinit light 'ogham/exa'
-zinit ice wait silent as'program' from'gh-r' mv'dog* -> dog' pick'bin/dog'; zinit light 'ogham/dog'
-zinit ice wait silent as'program' from'gh-r' mv'bat* -> bat' atclone'mv bat/autocomplete/bat.zsh bat/autocomplete/_bat' pick'bat/bat'; zinit light 'sharkdp/bat'
-zinit ice wait silent as'program' from'gh-r' mv'fd* -> fd' pick'fd/fd'; zinit light 'sharkdp/fd'
-zinit ice wait silent as'program' from'gh-r' mv'ghq* -> ghq' pick'ghq/ghq'; zinit light 'x-motemen/ghq'
-zinit ice wait silent as'program' from'gh-r' ver'latest' mv'gh* -> gh' bpick'*.tar.gz' pick'gh/bin/gh'; zinit light 'cli/cli'
-zinit ice wait silent as'program' from'gh-r' pick'gron/gron'; zinit light 'tomnomnom/gron'
-zinit ice wait silent as'program' from'gh-r' mv'delta* -> delta' pick'delta/delta'; zinit light 'dandavison/delta'
-zinit ice wait silent as'program' from'gh-r' mv'dust* -> dust' pick'dust/dust'; zinit light 'bootandy/dust'
-zinit ice wait silent as'program' from'gh-r' pick'silicon/silicon'; zinit light 'Aloxaf/silicon'
-zinit ice wait silent as'program' from'gh-r' mv'xh* -> xh' pick'xh/xh'; zinit light 'ducaale/xh'
-zinit ice wait silent as'program' from'gh-r' mv'cargo-compete* -> cargo-compete' pick'cargo-compete/cargo-compete'; zinit light 'qryxip/cargo-compete'
-zinit ice wait silent as'program' from'gh-r' mv'actionlint* -> actionlint' pick'actionlint/actionlint'; zinit light 'rhysd/actionlint'
-zinit ice wait silent as'program' from'gh-r' mv'kubeval* -> kubeval' pick'kubeval/kubeval'; zinit light 'instrumenta/kubeval'
-zinit ice wait silent as'program' from'gh-r' mv'hadolint* -> hadolint' pick'hadolint/hadolint'; zinit light 'hadolint/hadolint'
-zinit ice wait silent as'program' from'gh-r' mv'shellcheck* -> shellcheck' pick'shellcheck/shellcheck'; zinit light 'koalaman/shellcheck'
-zinit ice wait silent as'program' from'gh-r' pick'gomi/gomi'; zinit light 'b4b4r07/gomi'
-zinit ice wait as'program' from'gh-r' pick'flarectl' silent; zinit light 'cloudflare/cloudflare-go'
-zinit ice wait as'program' from'gh-r' bpick'bw-*.zip' pick'bw/bw' silent; zinit light 'bitwarden/cli'
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf; zpm load asdf-vm/asdf,apply:source
+zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
+zpm load romkatv/powerlevel10k,apply:source
+zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
+zpm load chrissicool/zsh-256color,apply:source
+zpm load yuki-yano/tmk,apply:source
+zpm load yuki-yano/tms,apply:source
+zpm load zdharma-continuum/fast-syntax-highlighting,apply:source
+zpm load zsh-users/zsh-completions,apply:fpath,fpath:/src
+zpm load junegunn/fzf,apply:path,hook:"./install --bin"
+exists deno && zpm load @empty/deno,gen-completion:"deno completion zsh"
+exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
+exists npm && zpm load @empty/npm,gen-completion:"npm completion"
+exists gh && zpm load @empty/gh,gen-completion:"gh completion -s zsh"
+exists pip && zpm load @empty/pip,gen-completion:"pip completion --zsh"
+zpm load yuki-yano/zeno.zsh,apply:source,source:/zeno.zsh
 
 setopt nonomatch
 
@@ -167,7 +123,8 @@ FZF_PREVIEW_ENABLE_TMUX=1
 
 FZF_PREVIEW_DEFAULT_SETTING="--sync --height='80%' --preview-window='right:50%' --expect='ctrl-space' --header='C-Space: continue fzf completion'"
 FZF_PREVIEW_DEFAULT_BIND="ctrl-d:preview-page-down,ctrl-u:preview-page-up,?:toggle-preview"
-### End of Zinit's installer chunk
+
+set_fast_theme
 
 # }}}
 
@@ -194,19 +151,21 @@ fi
 alias sudo='sudo '
 
 # ls alias
-alias ls='exa --icons'
-alias ll='ls -lg --git'
-alias la='ll -a'
-alias tree='ls -T'
+if exists exa; then
+  alias ls='exa --icons'
+  alias ll='exa --icons -lg --git'
+  alias la='exa --icons -lga --git'
+  alias tree='exa --icons -T'
+fi
 
 # Utilities
 alias du='du -sh *'
-alias filecount='\ls -lF | grep -v / | wc -l'
+alias filecount='/usr/bin/ls -lF | grep -v / | wc -l'
 alias ..='cd ..'
 alias q='exit'
 alias top='htop'
 alias k='kubectl'
-alias rm='gomi'
+exists gomi && alias rm='gomi'
 
 # editors
 alias vim='nvim'
@@ -216,7 +175,7 @@ alias vimdiff='nvim -d'
 alias emacs='TERM=xterm-direct emacs -nw'
 
 # dotfiles
-alias dot='cd ~/dotfiles'
+alias dot='builtin cd ~/dotfiles'
 alias zshconfig='nvim ~/.zshrc'
 alias vimconfig='nvim ~/.config/nvim/lua/core/init.lua -c "cd ~/dotfiles/.config/nvim"'
 alias cocconfig='nvim -c CocConfig'
@@ -242,8 +201,6 @@ alias dcdv='docker-compose down -v'
 alias dcdall='docker-compose down --rmi all -v'
 alias dcst='docker-compose stop'
 alias dcrs='docker-compose restart'
-
-alias zu='zinit update'
 
 globalias() {
   if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
@@ -491,34 +448,6 @@ if is_wsl; then
 fi
 # }}}
 
-# {{{ COMPLETIONS
-# GitHub-Cli Completions
-if exists gh; then
-  if ! [ -f /tmp/gh-completion.cache ]; then
-    gh completion -s zsh > /tmp/gh-completion.cache
-    zcompile /tmp/gh-completion.cache
-  fi
-  source /tmp/gh-completion.cache
-fi
-
-if exists pip; then
-  if ! [ -f /tmp/pip-completion.cache ]; then
-    pip completion --zsh > /tmp/pip-completion.cache
-    zcompile /tmp/pip-completion.cache
-  fi
-  source /tmp/pip-completion.cache
-fi
-
-if exists aws; then
-  zinit snippet 'https://github.com/aws/aws-cli/blob/v2/bin/aws_zsh_completer.sh'
-fi
-
-if exists npm; then
-  zinit light 'lukechilds/zsh-better-npm-completion'
-fi
-
-# }}}
-
 # {{{ TMUX
 autoload -Uz add-zsh-hook
 function tmux_ssh_preexec() {
@@ -638,33 +567,6 @@ bindkey '^j' accept-line-or-down-pane
 # }}}
 
 # FUNCTIONS {{{
-# function emacs() {
-#   echo "
-#                     ■■                                        ■■                                                                                    
-#                    ■■■■                                      ■■■■                               ■■■■■■■             ■■■■■■           ■■■■■■■■■      
-#                    ■■■■                                      ■■■■                             ■■■■■■■■■■          ■■■■■■■■■■         ■■■■■■■■■■■    
-#                                                                                              ■■■■■■ ■■■■■■       ■■■■■ ■■■■■■        ■■■    ■■■■■■  
-#                                                                                             ■■■■       ■■       ■■■■      ■■■■       ■■■       ■■■  
-#                                                                                            ■■■■                ■■■         ■■■■      ■■■        ■■■ 
-#                                                                                            ■■■                 ■■■          ■■■      ■■■        ■■■■
-#   ■■■         ■■■   ■■      ■■   ■■■■      ■■■■               ■■       ■■■■■■             ■■■                 ■■■           ■■■      ■■■         ■■■
-#    ■■■        ■■    ■■      ■■  ■■■■■■■  ■■■■■■■              ■■      ■■■■■■■■■           ■■■                 ■■■            ■■■     ■■■         ■■■
-#    ■■■       ■■■    ■■      ■■■■■■ ■■■■ ■■■■■■■■■             ■■     ■■■■   ■■■           ■■■                 ■■■            ■■■     ■■■         ■■■
-#     ■■       ■■■    ■■      ■■■■     ■■■■■    ■■■             ■■     ■■■                  ■■■                 ■■■            ■■■     ■■■          ■■
-#     ■■■      ■■     ■■      ■■■      ■■■       ■■■            ■■     ■■                   ■■■                 ■■■            ■■■     ■■■          ■■
-#     ■■■     ■■■     ■■      ■■       ■■■       ■■■            ■■     ■■■                  ■■■      ■■■■■■■    ■■■            ■■■     ■■■          ■■
-#      ■■     ■■■     ■■      ■■       ■■■       ■■■            ■■     ■■■■■                ■■■      ■■■■■■■    ■■■            ■■■     ■■■         ■■■
-#      ■■■    ■■      ■■      ■■       ■■■       ■■■            ■■       ■■■■■■             ■■■          ■■■    ■■■            ■■■     ■■■         ■■■
-#      ■■■   ■■■      ■■      ■■       ■■■       ■■■            ■■         ■■■■■            ■■■          ■■■    ■■■            ■■■     ■■■         ■■■
-#       ■■   ■■■      ■■      ■■       ■■■       ■■■            ■■           ■■■■           ■■■          ■■■    ■■■           ■■■      ■■■         ■■■
-#       ■■■  ■■       ■■      ■■       ■■■       ■■■            ■■             ■■            ■■■         ■■■     ■■■          ■■■      ■■■        ■■■ 
-#       ■■■ ■■■       ■■      ■■       ■■■       ■■■            ■■             ■■■           ■■■■        ■■■     ■■■■        ■■■■      ■■■        ■■■ 
-#        ■■ ■■■       ■■      ■■       ■■■       ■■■            ■■     ■       ■■             ■■■■       ■■■      ■■■■      ■■■■       ■■■      ■■■■  
-#        ■■■■■        ■■      ■■       ■■■       ■■■            ■■    ■■■■    ■■■              ■■■■■■ ■■■■■■       ■■■■■ ■■■■■■        ■■■    ■■■■■   
-#         ■■■■        ■■      ■■       ■■■       ■■■            ■■     ■■■■■■■■■                ■■■■■■■■■■■         ■■■■■■■■■■         ■■■■■■■■■■■    
-#         ■■■         ■■      ■■       ■■■       ■■■            ■■       ■■■■■■                   ■■■■■■■             ■■■■■■           ■■■■■■■■■      
-#   " && sleep 1 && if [[ "$@" =~  - ]]; then vim $2; else vim $@; fi
-# }
 function vim-startuptime-detail() {
   local time_file
   time_file=$(mktemp --suffix "_vim_startuptime.txt")
