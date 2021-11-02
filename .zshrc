@@ -89,6 +89,7 @@ zpm load yuki-yano/tms,apply:source
 zpm load zdharma-continuum/fast-syntax-highlighting,apply:source
 zpm load zsh-users/zsh-completions,apply:fpath,fpath:/src
 zpm load junegunn/fzf,apply:path,hook:"./install --bin"
+zpm load @empty/docker-compose,gen-completion:"curl -qL https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
 exists deno && zpm load @empty/deno,gen-completion:"deno completions zsh"
 exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
 exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
@@ -317,6 +318,8 @@ bindkey '^x^s' zeno-insert-snippet-fallback
 bindkey '^i'   zeno-completion-fallback
 bindkey '^r'   zeno-history-selection-fallback
 bindkey '^x^f' zeno-ghq-cd-fallback
+
+bindkey '\e[Z' reverse-menu-complete
 
 bindkey '^[k' tmk
 bindkey '^[t' tms
