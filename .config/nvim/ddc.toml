@@ -105,7 +105,7 @@ hook_add = '''
     call ddc#custom#patch_buffer('filterParams', {
     \   'matcher_fuzzy': {'splitMode': 'word',}
     \ })
-    call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:\.\/]\w*')
+    call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
     call ddc#custom#patch_global('sourceOptions', {
     \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
     \ 'vim-lsp': { 'mark': 'lsp', 'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*', 'ignoreCase': v:true },
