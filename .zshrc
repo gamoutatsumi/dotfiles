@@ -4,6 +4,9 @@
 
 # INITIALIZE {{{
 
+autoload -U bashcompinit
+bashcompinit
+
 if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
@@ -95,6 +98,7 @@ exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
 exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
 exists gh && zpm load @empty/gh,gen-completion:"gh completion -s zsh"
 exists pip && zpm load @empty/pip,gen-plugin:"pip completion --zsh"
+exists pipx && zpm load @empty/pipx,gen-plugin:"register-python-argcomplete pipx"
 zpm load yuki-yano/zeno.zsh,apply:source,source:/zeno.zsh
 
 setopt nonomatch
