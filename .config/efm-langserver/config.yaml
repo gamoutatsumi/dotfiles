@@ -3,50 +3,102 @@ root-markers:
   - .git/
 
 tools:
-  markdown-textlint: &markdown-textlint
+  vint-lint: &vint-lint
+    prefix: vint
+    lint-command: 'vint --enable-neovim --style-problem --stdin-display-name ${INPUT} -'
+    lint-stdin: true
+  markdownlint-lint: &markdownlint-lint
+    prefix: markdownlint
+    lint-command: 'markdownlint --stdin'
+    lint-stdin: true
+    lint-formats:
+      - '%f:%l:%c MD%n/%*[^ ] %m'
+      - '%f:%l MD%n/%*[^ ] %m'
+    commands:
+      - title: 'markdownlint fix'
+        command: markdownlint
+        arguments:
+          - '--fix'
+          - '${INPUT}'
+  textlint-lint: &textlint-lint
+    prefix: textlint
     lint-command: 'npx --no-install textlint -f unix --stdin --stdin-filename ${INPUT}'
     lint-ignore-exit-code: true
     lint-stdin: true
     lint-formats:
       - '%f:%l:%c: %m [%trror/%r]'
-      - '%f:%l:%c: %m [%tarning/%r]'
-    commands:
-      - command: 'npx --no textlint --fix ${INPUT}'
-        title: 'textlint fix'
+      - '%f:%l:%c: 【%r】 %m'
+      - '%E%f:%l:%c: %m'
+      - '%Z%m [%trror/%r]'
+      - '%C%m'
     root-markers:
       - .textlintrc
-  dockerfile-hadolint: &dockerfile-hadolint
-    lint-command: 'hadolint --no-color'
+    commands:
+      - title: 'textlint fix'
+        command: npx
+        arguments:
+          - '--no-install'
+          - 'textlint'
+          - '--fix'
+          - '${INPUT}'
+  hadolint-lint: &hadolint-lint
+    prefix: hadolint
+    lint-command: 'hadolint'
     lint-formats:
       - '%f:%l %r %tnfo: %m'
       - '%f:%l %r %trror: %m'
       - '%f:%l %r %tarning: %m'
-  sh-shellcheck: &sh-shellcheck
-    lint-command: 'shellcheck -f gcc -x'
-    lint-source: 'shellcheck'
+  shellcheck-lint: &shellcheck-lint
+    prefix: shellcheck
+    lint-command: 'shellcheck -f gcc -x -'
+    lint-stdin: true
     lint-formats:
-      - '%f:%l:%c: %troor: %m'
-      - '%f:%l:%c: %tarning: %m'
-      - '%f:%l:%c: %tote: %m'
-  sh-shfmt: &sh-shfmt
-    format-command: 'shfmt -ci -s -bn'
+      - '%f:%l:%c: %t%*[^:]: %m [SC%n]'
+  shfmt-format: &shfmt-format
+    format-command: 'shfmt -ln bash -i 2 -bn -ci -sr -kp'
     format-stdin: true
-  go-golint: &go-golint
+  golint-lint: &golint-lint
     lint-command: "golint ${INPUT} | sed 's/^/I:/'"
     lint-ignore-exit-code: true
     lint-formats:
       - '%t:%f:%l:%c:%m'
+  eslint-lint: &eslint-lint
+    prefix: eslint
+    lint-command: 'npx --no-install eslint -f unix --stdin --stdin-filename ${INPUT}'
+    lint-ignore-exit-code: true
+    lint-stdin: true
+    root-markers:
+      - package.json
+      - .eslintrc.js
+      - .eslintrc.yaml
+      - .eslintrc.yml
+      - .eslintrc.json
+    commands:
+      - title: 'eslint fix'
+        command: npx
+        arguments:
+          - '--no-install'
+          - 'eslint'
+          - '--fix'
+          - '${INPUT}'
 
 languages:
-  # markdown:
-  #   - <<: *markdown-textlint
+  markdown:
+    - <<: *textlint-lint
+    - <<: *markdownlint-lint
   dockerfile:
-    - <<: *dockerfile-hadolint
+    - <<: *hadolint-lint
   sh:
-    - <<: *sh-shellcheck
-    - <<: *sh-shfmt
+    - <<: *shellcheck-lint
+    - <<: *shfmt-format
   zsh:
-    - <<: *sh-shellcheck
-    - <<: *sh-shfmt
+    - <<: *shellcheck-lint
+    - <<: *shfmt-format
   go:
-    - <<: *go-golint
+    - <<: *golint-lint
+  javascript:
+    - <<: *lint-lint
+  typescript:
+    - <<: *eslint-lint
+  vim:
+    - <<: *vint-lint
