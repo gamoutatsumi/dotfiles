@@ -411,7 +411,7 @@ setopt HIST_REDUCE_BLANKS
 
 # {{{ STYLE
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.p10k.zsh ]] || . ~/.p10k.zsh
 
 zstyle ':completion:*:default' menu select=2
 

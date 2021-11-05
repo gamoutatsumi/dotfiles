@@ -192,3 +192,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/vim-manpager'
+
+[[plugins]]
+repo = 'tpope/vim-dadbod'
+
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-ui'

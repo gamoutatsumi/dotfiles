@@ -110,3 +110,7 @@ hook_post_source = '''
     autocmd InsertLeave * PreciousReset
   augroup END
 '''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']

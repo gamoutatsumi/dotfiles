@@ -115,6 +115,11 @@ snippets:
     snippet: "| grep '{{pattern}}'"
     context:
       lbuffer: '\s*'
+  - name: pipe head
+    keyword: "H"
+    snippet: "| head -n "
+    context:
+      lbuffer: '\s*'
   - name: copy stdout
     keyword: "C"
     snippet: "| pbcopy"
