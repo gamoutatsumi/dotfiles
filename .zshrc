@@ -90,7 +90,13 @@ if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
 fi
 . ~/.zpm/zpm.zsh
 
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && zpm load @file/tabtab,origin:"${HOME}/.config/tabtab/zsh/__tabtab.zsh"
+if [[ ! -f ~/.config/tabtab/zsh/__tabtab.zsh ]]; then
+  if exists pnpm; then
+    pnpm install-completion zsh > /dev/null 2>&1 /dev/null
+  fi
+else
+  zpm load @file/tabtab,origin:"${HOME}/.config/tabtab/zsh/__tabtab.zsh"
+fi
 zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
 zpm load romkatv/powerlevel10k,apply:source
 zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"

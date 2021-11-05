@@ -33,6 +33,7 @@ local opts = {
   pumblend = 15,
   winblend = 15,
   showmode = false,
+  grepprg = 'rg --vimgrep --smart-case --follow '
 }
 
 for opt, val in pairs(opts) do
