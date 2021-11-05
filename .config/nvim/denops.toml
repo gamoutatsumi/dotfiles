@@ -10,7 +10,8 @@ let g:dps_ghosttext#ftmap = {
 '''
 
 [[plugins]]
-repo = 'vim-skk/skkeleton'
+# repo = 'vim-skk/skkeleton'
+repo = '~/Repositories/github.com/gamoutatsumi/denops-skkeleton.vim'
 hook_add = '''
   let g:skkeleton#mode = ''
 '''
@@ -25,7 +26,7 @@ hook_post_source = '''
   function s:skkeleton_init_kanatable() abort
     call skkeleton#register_kanatable('rom', {
       \ "z\<Space>": ["\u3000", ''],
-      \ "z,": ['―', ''],
+      \ "x-": ['―', ''],
       \ "<<": ['《', ''],
       \ ">>": ['》', ''],
       \ "(": ['（', ''],
