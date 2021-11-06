@@ -3,3 +3,9 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_source = '''
 lua require('plugins.treesitter_setting')
 '''
+
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-refactor'

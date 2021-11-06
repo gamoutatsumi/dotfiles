@@ -14,7 +14,10 @@ require'nvim-treesitter.configs'.setup {
         smart_rename = "grr"
       }
     }
-  }
+  },
+  autotag = {
+    enable = true
+    }
   --[[ rainbow = {
     enable = true,
     extended_mode = true,

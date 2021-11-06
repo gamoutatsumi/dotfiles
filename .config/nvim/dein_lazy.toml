@@ -1,13 +1,4 @@
 [[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['html', 'php', 'vue']
-hook_add = '''
-lua << EOF
-  vim.g.closetag_filenames = '*.html,*.php,*.vue'
-EOF
-'''
-
-[[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
 on_ft = ['python']
 
