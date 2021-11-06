@@ -97,7 +97,7 @@ languages:
   go:
     - <<: *golint-lint
   javascript:
-    - <<: *lint-lint
+    - <<: *eslint-lint
   typescript:
     - <<: *eslint-lint
   vim:
