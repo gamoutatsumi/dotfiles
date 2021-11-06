@@ -10,8 +10,7 @@ let g:dps_ghosttext#ftmap = {
 '''
 
 [[plugins]]
-# repo = 'vim-skk/skkeleton'
-repo = '~/Repositories/github.com/gamoutatsumi/denops-skkeleton.vim'
+repo = 'vim-skk/skkeleton'
 hook_add = '''
   let g:skkeleton#mode = ''
 '''
