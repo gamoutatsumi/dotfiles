@@ -174,7 +174,7 @@ repo = 'reireias/vim-cheatsheet'
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = '''
-  nnoremap <silent> <C-o> <cmd>Deol -split=otherwise -toggle -winheight=10<CR>
+  nnoremap <silent> <C-o> <Cmd>Deol -split=otherwise -toggle -winheight=10<CR>
   tnoremap <Esc> <C-\><C-n>
 '''
 
