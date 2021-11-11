@@ -5,10 +5,12 @@ repo = 'Shougo/dein.vim'
 repo = 'bluz71/vim-nightfly-guicolors'
 hook_add = '''
   colorscheme nightfly
-  highlight Normal ctermbg=NONE guibg=NONE
-  highlight NonText ctermbg=NONE guibg=NONE
-  highlight LineNr ctermbg=NONE guibg=NONE
-  highlight Folded ctermbg=NONE guibg=NONE
+  if !exists('g:nvui')
+    highlight Normal ctermbg=NONE guibg=NONE
+    highlight NonText ctermbg=NONE guibg=NONE
+    highlight LineNr ctermbg=NONE guibg=NONE
+    highlight Folded ctermbg=NONE guibg=NONE
+  endif
 '''
 
 [[plugins]]
@@ -140,34 +142,6 @@ repo = 'lambdalisue/gina.vim'
 repo = 'AndrewRadev/switch.vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-autocmd FileType denite call s:denite_my_settings()
-nnoremap <silent> ,f <Cmd>Denite file/rec<CR>
-nnoremap <silent> ,h <Cmd>Denite help<CR>
-nnoremap <silent> ,g <Cmd>Denite grep<CR>
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
-endfunction
-'''
-hook_post_source = '''
-  call denite#custom#var('grep', 'command', ['rg', '--follow'])
-  call denite#custom#var('file_rec', 'command', ['rg', '--follow', '--files', '--glob', '!.git'])
-  call denite#custom#option('_', {
-    \ 'match_highlight': v:true,
-    \ 'prompt': '> ',
-    \ 'highlight_matched_char': 'None',
-    \ 'highlight_matched_range': 'Search',
-    \ 'start_filter': v:true,
-    \})
-'''
-
-[[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 
 [[plugins]]
@@ -186,13 +160,6 @@ repo = 'tyru/capture.vim'
 repo = 'reireias/vim-cheatsheet'
 
 [[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-  nnoremap <silent> <C-o> <Cmd>Deol -split=otherwise -toggle -winheight=10<CR>
-  tnoremap <Esc> <C-\><C-n>
-'''
-
-[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
@@ -208,7 +175,33 @@ hook_add = '''
 repo = 'lambdalisue/vim-manpager'
 
 [[plugins]]
-repo = 'tpope/vim-dadbod'
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  let g:lsp_settings_filetype_typescript = ['deno']
+  let g:lsp_diagnostics_float_cursor = 1
+  let g:lsp_diagnostics_virtual_text_enabled = 0
+  let g:lsp_document_code_action_signs_enabled = 0
+  highlight LspWarningHighlight cterm=underline term=underline gui=underline
+  highlight LspErrorHighlight cterm=underline term=underline gui=underline
+  highlight LspInformationHighlight cterm=underline term=underline gui=underline
+  highlight LspHintHighlight cterm=underline term=underline gui=underline
+  function s:on_lsp_buffer_enabled() abort
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  endfunction
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+'''
 
 [[plugins]]
-repo = 'kristijanhusak/vim-dadbod-ui'
+repo = 'mattn/vim-lsp-settings'

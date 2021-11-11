@@ -7,6 +7,10 @@ vim.cmd('augroup END')
 vim.cmd('filetype off')
 vim.cmd('syntax off')
 
+if vim.fn.exists('g:nvui') == 1 then
+  require('core.nvui')
+end
+
 vim.g.mapleader = " "
 
 local vars = {

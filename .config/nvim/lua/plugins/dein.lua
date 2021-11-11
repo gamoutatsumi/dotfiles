@@ -26,9 +26,8 @@ if (dein.load_state(dein_dir) == 1) then
   local ts_toml = rc_dir..'/treesitter.toml'
   dein.load_toml(toml, { lazy = 0 })
   dein.load_toml(lazy_toml, { lazy = 1 })
-  dein.load_toml(ddc_toml, { lazy = 0 })
-  -- dein.load_toml(coc_toml, { lazy = 0 })
-  dein.load_toml(denops_toml, { lazy = 0 })
+  dein.load_toml(ddc_toml, { lazy = 1 })
+  dein.load_toml(denops_toml, { lazy = 1 })
   dein.load_toml(ts_toml, { lazy = 0 })
   dein.load_toml(nvim_toml, { lazy = 0 })
   dein['end']()

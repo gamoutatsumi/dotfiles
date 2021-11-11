@@ -78,10 +78,14 @@ EOF
 
 [[plugins]]
 repo = 'monaqa/dial.nvim'
-hook_post_source = '''
+lazy = 1
+on_map = ['<Plug>']
+hook_add = '''
+  nmap <silent> <C-a> <Plug>(dial-increment)
+  nmap <silent> <C-x> <Plug>(dial-decrement)
+'''
+hook_source = '''
 lua << EOF
-  vim.api.nvim_set_keymap('n', '<C-a>', '<Plug>(dial-increment)', { silent = true , noremap = false })
-  vim.api.nvim_set_keymap('n', '<C-x>', '<Plug>(dial-decrement)', { silent = true , noremap = false })
   local dial = require"dial"
   dial.config.searchlist = {
     normal = {
