@@ -13,7 +13,7 @@ let g:dps_ghosttext#ftmap = {
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
-on_map = ['<Plug>']
+on_map = { ic = '<Plug>(skkeleton-toggle)' }
 hook_add = '''
   let g:skkeleton#mode = ''
   imap <C-j> <Plug>(skkeleton-toggle)

@@ -79,7 +79,7 @@ EOF
 [[plugins]]
 repo = 'monaqa/dial.nvim'
 lazy = 1
-on_map = ['<Plug>']
+on_map = { n = '<Plug>'}
 hook_add = '''
   nmap <silent> <C-a> <Plug>(dial-increment)
   nmap <silent> <C-x> <Plug>(dial-decrement)
