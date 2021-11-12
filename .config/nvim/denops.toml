@@ -17,7 +17,7 @@ on_map = { ic = '<Plug>(skkeleton-toggle)' }
 hook_add = '''
   let g:skkeleton#mode = ''
   imap <C-j> <Plug>(skkeleton-toggle)
-  cmap <C-j> <Plug>(skkeleton-enable)
+  cmap <C-j> <Plug>(skkeleton-toggle)
   autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
   if has('mac')
     autocmd User skkeleton-initialize-pre call skkeleton#config({"globalJisyo": "~/Library/Application Support/AquaSKK/SKK-JISYO.L"})

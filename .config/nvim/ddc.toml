@@ -29,6 +29,7 @@ hook_source = '''
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
   call ddc#custom#patch_global('sources', ['vim-lsp', 'file', 'vsnip', 'emoji', 'around'])
+  call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
   call ddc#custom#patch_buffer('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word',}
   \ })
