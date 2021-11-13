@@ -14,10 +14,6 @@ import XmonadConfig.Workspace
 import XmonadConfig.Layouts
 import XmonadConfig.Keys
 
-import System.Directory
-import Data.String
-import GHC.Base
-
 main = xmonad
       $ ewmhFullscreen . ewmh
       $ withSB (myPolybarConf "$HOME/.config/polybar/launch.sh")
