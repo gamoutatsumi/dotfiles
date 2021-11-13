@@ -177,6 +177,13 @@ repo = 'lambdalisue/vim-manpager'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+  if (executable('haskell-language-server-wrapper'))
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'haskell-language-server-wrapper',
+        \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+        \ 'whitelist': ['haskell'],
+        \ })
+  endif
   let g:lsp_settings_filetype_typescript = ['deno']
   let g:lsp_diagnostics_float_cursor = 1
   let g:lsp_diagnostics_virtual_text_enabled = 0

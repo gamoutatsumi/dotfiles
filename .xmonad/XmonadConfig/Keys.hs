@@ -45,9 +45,6 @@ myAdditionalKeysP = [
        , ("M-C-h", withFocused (keysMoveWindow (-moveWD, 0)))
        , ("M-C-k", withFocused (keysMoveWindow (0, -moveWD)))
        , ("M-C-j", withFocused (keysMoveWindow (0, moveWD)))
-       -- Resize the focused window
-       , ("M-s"    , withFocused (keysResizeWindow (-resizeWD, resizeWD) (0.5, 0.5)))
-       , ("M-i"    , withFocused (keysResizeWindow (resizeWD, resizeWD) (0.5, 0.5)))
        -- Increase / Decrese the number of master pane
        , ("M-S-;"  , sendMessage $ IncMasterN 1)
        , ("M--"    , sendMessage $ IncMasterN (-1))
