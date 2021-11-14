@@ -20,7 +20,8 @@ if (dein.load_state(dein_dir) == 1) then
   local toml = rc_dir..'/dein.toml'
   local lazy_toml = rc_dir..'/dein_lazy.toml'
   local ddc_toml = rc_dir..'/ddc.toml'
-  local coc_toml = rc_dir..'/coc.toml'
+  local vim_lsp = rc_dir..'/vim_lsp.toml'
+  local nvim_lsp = rc_dir..'/nvim_lsp.toml'
   local nvim_toml = rc_dir..'/neovim.toml'
   local denops_toml = rc_dir..'/denops.toml'
   local ts_toml = rc_dir..'/treesitter.toml'
@@ -29,7 +30,12 @@ if (dein.load_state(dein_dir) == 1) then
   dein.load_toml(ddc_toml, { lazy = 1 })
   dein.load_toml(denops_toml, { lazy = 1 })
   dein.load_toml(ts_toml, { lazy = 0 })
-  dein.load_toml(nvim_toml, { lazy = 0 })
+  if (vim.fn.has("nvim") == 1) then
+    dein.load_toml(nvim_toml, { lazy = 0 })
+    dein.load_toml(nvim_lsp, { lazy = 1 })
+  else
+    dein.load_toml(vim_lsp, { lazy = 1 })
+  end
   dein['end']()
   dein.save_state()
 end

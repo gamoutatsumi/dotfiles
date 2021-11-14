@@ -96,9 +96,9 @@ languages:
     - <<: *shfmt-format
   go:
     - <<: *golint-lint
-  javascript:
-    - <<: *eslint-lint
-  typescript:
-    - <<: *eslint-lint
+  # javascript:
+  #   - <<: *eslint-lint
+  # typescript:
+  #   - <<: *eslint-lint
   vim:
     - <<: *vint-lint

@@ -1,0 +1,53 @@
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+  if (executable('haskell-language-server-wrapper'))
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'haskell-language-server-wrapper',
+        \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+        \ 'whitelist': ['haskell'],
+        \ })
+  endif
+  let g:lsp_settings_filetype_typescript = ['deno']
+  let g:lsp_diagnostics_float_cursor = 1
+  let g:lsp_diagnostics_virtual_text_enabled = 0
+  let g:lsp_document_code_action_signs_enabled = 0
+  highlight LspWarningHighlight cterm=underline term=underline gui=underline
+  highlight LspErrorHighlight cterm=underline term=underline gui=underline
+  highlight LspInformationHighlight cterm=underline term=underline gui=underline
+  highlight LspHintHighlight cterm=underline term=underline gui=underline
+  function s:on_lsp_buffer_enabled() abort
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+  endfunction
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
+on_source = ['ddc.vim']
+hook_post_source = '''
+  call ddc#custom#patch_global('sources', ['vim-lsp'])
+  call ddc#custom#patch_global('sourceOptions', {
+  \ 'vim-lsp': { 
+  \   'mark': 'lsp', 
+  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*',
+  \   'ignoreCase': v:true,
+  \   'isVolatile': v:true
+  \ },
+  \ })
+'''

@@ -28,19 +28,13 @@ hook_source = '''
   call ddc#custom#patch_global('completionMenu', 'pum.vim')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-  call ddc#custom#patch_global('sources', ['vim-lsp', 'file', 'vsnip', 'emoji', 'around'])
+  call ddc#custom#patch_global('sources', ['file', 'vsnip', 'emoji', 'around'])
   call ddc#custom#patch_global('keywordPattern', '[a-zA-Z_:]\w*')
   call ddc#custom#patch_buffer('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word',}
   \ })
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
-  \ 'vim-lsp': { 
-  \   'mark': 'lsp', 
-  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*',
-  \   'ignoreCase': v:true,
-  \   'isVolatile': v:true
-  \ },
   \ 'around': {
   \   'mark': 'A',
   \   'isVolatile': v:true,
@@ -136,10 +130,6 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'gamoutatsumi/ddc-emoji'
-on_source = ['ddc.vim']
-
-[[plugins]]
-repo = 'shun/ddc-vim-lsp'
 on_source = ['ddc.vim']
 
 [[plugins]]

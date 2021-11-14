@@ -1,0 +1,25 @@
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = ['BufEnter']
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+on_source = ['nvim-lspconfig']
+hook_post_source = '''
+  lua require("plugins.lsp")
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+hook_post_source = '''
+  call ddc#custom#patch_global('sources', ['nvim-lsp'])
+  call ddc#custom#patch_global('sourceOptions', {
+  \ 'nvim-lsp': {
+  \   'mark': 'lsp',
+  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*',
+  \   'ignoreCase': v:true,
+  \   'isVolatile': v:true
+  \ },
+  \ })
+'''

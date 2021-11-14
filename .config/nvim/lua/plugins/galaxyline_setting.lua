@@ -1,25 +1,33 @@
 local gl = require('galaxyline')
 local gls = gl.section
+local diagnostic = require('galaxyline.provider_diagnostic')
 gl.short_line_list = { 'fern' }
 
-function VimLspWarning()
-  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-  return counts.warning == 0 and '' or '  W:' .. counts.warning
-end
+if (vim.fn.has("nvim") == 1) then
+  LspWarning = diagnostic.get_diagnostic_warn
+  LspError = diagnostic.get_diagnostic_error
+  LspHint = diagnostic.get_diagnostic_hint
+  LspInfo = diagnostic.get_diagnostic_info
+else
+  function LspWarning()
+    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+    return counts.warning == 0 and '' or '  W:' .. counts.warning
+  end
 
-function VimLspError()
-  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-  return counts.error == 0 and '' or '  E:' .. counts.error
-end
+  function LspError()
+    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+    return counts.error == 0 and '' or '  E:' .. counts.error
+  end
 
-function VimLspHint()
-  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-  return counts.hint == 0 and '' or '  H:' .. counts.hint
-end
+  function LspHint()
+    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+    return counts.hint == 0 and '' or '  H:' .. counts.hint
+  end
 
-function VimLspInfo()
-  local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-  return counts.information == 0 and '' or '  I:' .. counts.information
+  function LspInfo()
+    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
+    return counts.information == 0 and '' or '  I:' .. counts.information
+  end
 end
 
 local colors = {
@@ -172,7 +180,7 @@ gls.right[6] = {
 
 gls.right[7] = {
   DiagnosticError = {
-    provider = VimLspError,
+    provider = LspError,
     separator = ' ',
     separator_highlight = { colors.slateblue, colors.blue },
     highlight = { colors.white, colors.slateblue }
@@ -181,21 +189,21 @@ gls.right[7] = {
 
 gls.right[8] = {
   DiagnosticWarn = {
-    provider = VimLspWarning,
+    provider = LspWarning,
     highlight = { colors.white, colors.slateblue },
   }
 }
 
 gls.right[9] = {
   DiagnosticHint = {
-    provider = VimLspHint,
+    provider = LspHint,
     highlight = { colors.white, colors.slateblue },
   }
 }
 
 gls.right[10] = {
   DiagnosticInfo = {
-    provider = VimLspInfo,
+    provider = LspInfo,
     highlight = { colors.white, colors.slateblue },
   }
 }
