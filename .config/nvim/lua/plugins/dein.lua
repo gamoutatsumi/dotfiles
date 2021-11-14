@@ -30,12 +30,8 @@ if (dein.load_state(dein_dir) == 1) then
   dein.load_toml(ddc_toml, { lazy = 1 })
   dein.load_toml(denops_toml, { lazy = 1 })
   dein.load_toml(ts_toml, { lazy = 0 })
-  if (vim.fn.has("nvim") == 1) then
-    dein.load_toml(nvim_toml, { lazy = 0 })
-    dein.load_toml(nvim_lsp, { lazy = 1 })
-  else
-    dein.load_toml(vim_lsp, { lazy = 1 })
-  end
+  dein.load_toml(nvim_toml, { lazy = 0 })
+  dein.load_toml(nvim_lsp, { lazy = 1 })
   dein['end']()
   dein.save_state()
 end

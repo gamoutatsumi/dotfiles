@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-on_event = ['BufEnter']
+on_event = ['VimEnter']
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
@@ -12,8 +12,8 @@ hook_post_source = '''
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 on_source = 'ddc.vim'
-hook_post_source = '''
-  call ddc#custom#patch_global('sources', ['nvim-lsp'])
+hook_source = '''
+  call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'emoji', 'around'])
   call ddc#custom#patch_global('sourceOptions', {
   \ 'nvim-lsp': {
   \   'mark': 'lsp',
@@ -22,4 +22,11 @@ hook_post_source = '''
   \   'isVolatile': v:true
   \ },
   \ })
+'''
+
+[[plugins]]
+repo = 'matsui54/denite-nvim-lsp'
+on_source = ['denite.nvim']
+hook_source = '''
+nnoremap <silent> ,d <Cmd>Denite lsp/diagnostic_all<CR>
 '''

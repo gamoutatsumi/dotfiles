@@ -141,13 +141,6 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'gamoutatsumi/denite-vim-lsp'
-depends = ['denite.nvim']
-hook_add = '''
-nnoremap <silent> ,d <Cmd>Denite lsp/workspace_diagnostic<CR>
-'''
-
-[[plugins]]
 repo = 'Jagua/vim-denite-ghq'
 depends = ['denite.nvim']
 hook_add = '''
