@@ -3,31 +3,21 @@ local gls = gl.section
 local diagnostic = require('galaxyline.provider_diagnostic')
 gl.short_line_list = { 'fern' }
 
-if (vim.fn.has("nvim") == 1) then
-  LspWarning = diagnostic.get_diagnostic_warn
-  LspError = diagnostic.get_diagnostic_error
-  LspHint = diagnostic.get_diagnostic_hint
-  LspInfo = diagnostic.get_diagnostic_info
-else
-  function LspWarning()
-    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-    return counts.warning == 0 and '' or '  W:' .. counts.warning
-  end
-
-  function LspError()
-    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-    return counts.error == 0 and '' or '  E:' .. counts.error
-  end
-
-  function LspHint()
-    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-    return counts.hint == 0 and '' or '  H:' .. counts.hint
-  end
-
-  function LspInfo()
-    local counts = vim.fn['lsp#get_buffer_diagnostics_counts']()
-    return counts.information == 0 and '' or '  I:' .. counts.information
-  end
+function LspWarning()
+  local count = diagnostic.get_diagnostic_warn()
+  return count == nil and '' or "  W:" .. count
+end
+function LspError()
+  local count = diagnostic.get_diagnostic_error()
+  return count == nil and '' or "  E:" .. count
+end
+function LspHint()
+  local count = diagnostic.get_diagnostic_hint()
+  return count == nil and '' or "  H:" .. count
+end
+function LspInfo()
+  local count = diagnostic.get_diagnostic_info()
+  return count == nil and '' or "  I:" .. count
 end
 
 local colors = {
@@ -203,6 +193,7 @@ gls.right[9] = {
 
 gls.right[10] = {
   DiagnosticInfo = {
+    icon = 'I: ',
     provider = LspInfo,
     highlight = { colors.white, colors.slateblue },
   }

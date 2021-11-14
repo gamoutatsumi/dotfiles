@@ -34,7 +34,7 @@ lsp_installer.on_server_ready(function(server)
   opts.capabilities = capabilities
   if server.name == "tsserver" then
     opts.root_dir = util.root_pattern("package.json")
-    opts.autostart = false
+    opts.autostart = true
   elseif server.name == "eslintls" then
     opts.on_attach = function (client, bufnr)
       client.resolved_capabilities.document_formatting = true
@@ -42,7 +42,7 @@ lsp_installer.on_server_ready(function(server)
     end
     opts.root_dir = util.root_pattern(".eslintrc")
     opts.autostart = false
-  elseif server.name == "eslintls" then
+  elseif server.name == "tailwindcss" then
     opts.root_dir = util.root_pattern("tailwind.config.js")
     opts.autostart = false
   else
@@ -54,11 +54,14 @@ end)
 
 vim.cmd[[ autocmd FileType typescript,typescriptreact command! -nargs=* TSOrganizeImports lua require'nvim-lsp-installer.extras.tsserver'.organize_imports(<f-args>) ]]
 
-require'lspconfig'.denols.setup{
-  on_attach = on_attach,
-  root_dir = util.root_pattern(".git"),
-  capabilities = capabilities,
-}
+if (vim.fn.executable("deno")) then
+  require'lspconfig'.denols.setup{
+    on_attach = on_attach,
+    root_dir = util.root_pattern(".git"),
+    capabilities = capabilities,
+  }
+end
+
 
 if not require'lspconfig'.teal then
   configs.teal = {
