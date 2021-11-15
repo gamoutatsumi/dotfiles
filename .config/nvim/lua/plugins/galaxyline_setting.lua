@@ -5,19 +5,19 @@ gl.short_line_list = { 'fern' }
 
 function LspWarning()
   local count = diagnostic.get_diagnostic_warn()
-  return count == nil and '' or "  W:" .. count
+  return (not count or count == "") and '' or "  W:" .. count
 end
 function LspError()
   local count = diagnostic.get_diagnostic_error()
-  return count == nil and '' or "  E:" .. count
+  return (not count or count == "") and '' or "  E:" .. count
 end
 function LspHint()
   local count = diagnostic.get_diagnostic_hint()
-  return count == nil and '' or "  H:" .. count
+  return (not count or count == "") and '' or "  H:" .. count
 end
 function LspInfo()
   local count = diagnostic.get_diagnostic_info()
-  return count == nil and '' or "  I:" .. count
+  return (not count or count == "") and '' or "  I:" .. count
 end
 
 local colors = {
@@ -193,7 +193,6 @@ gls.right[9] = {
 
 gls.right[10] = {
   DiagnosticInfo = {
-    icon = 'I: ',
     provider = LspInfo,
     highlight = { colors.white, colors.slateblue },
   }

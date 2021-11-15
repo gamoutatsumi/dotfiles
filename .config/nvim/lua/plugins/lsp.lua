@@ -62,19 +62,10 @@ if (vim.fn.executable("deno")) then
   }
 end
 
-
-if not require'lspconfig'.teal then
-  configs.teal = {
-    default_config = {
-      cmd = {
-        "teal-language-server",
-      },
-      filetypes = {
-        "teal",
-      },
-      root_dir = util.root_pattern("tlconfig.lua", ".git"),
-      settings = {},
-    },
+if (vim.fn.executable("haskell-language-server-wrapper")) then
+  require'lspconfig'.hls.setup{
+    on_attach = on_attach,
+    autostart = true,
+    capabilities = capabilities
   }
 end
-require'lspconfig'.teal.setup{}
