@@ -97,37 +97,37 @@ snippets:
     snippet: tmux swap-pane -t
   - name: "null"
     keyword: "null"
-    snippet: "> /dev/null 2>&1"
+    snippet: " > /dev/null 2>&1"
     context:
       lbuffer: '.+\s+'
   - name: stdout to null
     keyword: null1
-    snippet: "> /dev/null"
+    snippet: " > /dev/null"
     context:
       lbuffer: '.+\s+'
   - name: stderr to null
     keyword: null2
-    snippet: "2> /dev/null"
+    snippet: " 2> /dev/null"
     context:
       lbuffer: '.+\s+'
   - name: pipe grep
     keyword: "G"
-    snippet: "| grep '{{pattern}}'"
+    snippet: " | grep '{{pattern}}'"
     context:
       lbuffer: '\s*'
   - name: pipe head
     keyword: "H"
-    snippet: "| head -n "
+    snippet: " | head -n "
     context:
       lbuffer: '\s*'
   - name: copy stdout
     keyword: "C"
-    snippet: "| pbcopy"
+    snippet: " | pbcopy"
     context:
       lbuffer: '.+\s+'
   - name: pipe less
     keyword: "L"
-    snippet: "| less"
+    snippet: " | less"
     context:
       lbuffer: '.+\s+'
   - name: pipe jq
@@ -137,19 +137,14 @@ snippets:
       lbuffer: '.+\s+'
   - name: pipe gron
     keyword: "JG"
-    snippet: "| gron | grep"
+    snippet: " | gron | grep"
     context:
       lbuffer: '.+\s+'
   - name: ungron
     keyword: "UG"
-    snippet: "| gron -u"
+    snippet: " | gron -u"
     context:
       lbuffer: '.+\s+'
-  - name: pipe to piping-server
-    keyword: "P"
-    snippet: "| curl -T - https://ppng.wcdi.tech/{{path}}"
-    context:
-      lbuffer: '.+\s+'  
   - name: branch
     keyword: B
     snippet: git symbolic-ref --short HEAD
