@@ -142,9 +142,16 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'Jagua/vim-denite-ghq'
-depends = ['denite.nvim']
+on_source = ['denite.nvim']
 hook_add = '''
 nnoremap <silent> ,r <Cmd>Denite ghq<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.nvim']
+hook_add = '''
+nnoremap <silent> ,m <Cmd>Denite file_mru<CR>
 '''
 
 [[plugins]]
