@@ -32,7 +32,6 @@ hook_source = '''
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
   call ddc#custom#patch_global('sources', ['file', 'vsnip', 'emoji', 'around'])
-  call ddc#custom#patch_filetype('markdown', 'sources', [])
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word',}
   \ })
