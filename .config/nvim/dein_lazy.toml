@@ -127,7 +127,7 @@ hook_post_source = '''
   let s:preview_width_ratio = 0.5
   let s:height_ratio = 0.7
   call denite#custom#var('grep', 'command', ['rg', '--follow'])
-  call denite#custom#var('file_rec', 'command', ['rg', '--follow', '--files', '--glob', '!.git'])
+  call denite#custom#var('file/rec', 'command', ['rg', '--follow', '--files', '--glob', '!.git'])
   call denite#custom#option('_', {
     \ 'match_highlight': v:true,
     \ 'prompt': '> ',
