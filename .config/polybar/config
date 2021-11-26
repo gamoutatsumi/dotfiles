@@ -221,38 +221,3 @@ label-connected = %upspeed:9% %downspeed:9%
 type = custom/script
 exec = uname -rm
 interval = 0
-
-[module/mopidy]
-type = internal/mpd
-format-online = %{A1:alacritty --title mopidy -e ncmpcpp -h mopidy.local:}<label-time> <label-song>%{A} <icon-prev> <icon-stop> <toggle> <icon-next>
-format-online-padding = 1
-format-stopped = %{A1:alacritty --title mopidy -e ncmpcpp -h mopidy.local:}%{A}
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-host = mopidy.local
-port = 6600
-interval = 1
-
-[module/playerctl]
-type = custom/script
-format-margin = 1
-exec = $HOME/.xmonad/playerctl_status
-exec-if = [[ "$(playerctl -l 2>&1)" != "No players were found" ]]
-tail = true
-
-[module/mpd]
-type = internal/mpd
-format-online = %{A1:alacritty --title ncmpcpp -e ncmpcpp:}<label-time> <label-song>%{A} <icon-prev> <icon-stop> <toggle> <icon-next>
-format-online-padding = 1
-format-stopped = %{A1:alacritty --title ncmpcpp -e ncmpcpp:}%{A}
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-host = localhost
-port = 6600
-interval = 1

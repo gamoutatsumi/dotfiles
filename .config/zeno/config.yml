@@ -169,11 +169,11 @@ completions:
   - name: vim
     patterns:
       - "^v(i(m)?)? $"
-    sourceCommand: "git ls-files 2>/dev/null"
+    sourceCommand: "rg --files --follow --glob '!.git'"
     options:
       --prompt: "'Open File> '"
       --preview-window: "right:50%"
-      --preview: "bat --color=always {} 2>/dev/null"
+      --preview: "bat --color=always --style=plain {} 2>/dev/null"
     callback: "awk '{print $1}'"
   - name: ssh
     patterns:

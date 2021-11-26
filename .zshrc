@@ -360,8 +360,9 @@ fi
 export LUAROCKS_HOME="$HOME/.luarocks"
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export CARGO_HOME="$HOME/.cargo"
+export DENO_BIN="$HOME/.deno/bin"
 export GOPATH="$HOME/go"
-export PATH="$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
+export PATH="$DENO_BIN:$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
 export MANPAGER='nvim -c MANPAGER -'
 
 export HISTFILE=${HOME}/.zsh_history
