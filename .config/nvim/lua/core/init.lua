@@ -42,3 +42,5 @@ vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
 
 vim.cmd('command! ToggleNum set rnu!')
+
+vim.notify = function (msg) return nil end
