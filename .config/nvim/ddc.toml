@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'cohama/lexima.vim'
+rev = 'dev'
 on_event = 'VimEnter'
 hook_source = '''
   " lexima.vim
