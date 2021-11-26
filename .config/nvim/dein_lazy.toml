@@ -111,9 +111,9 @@ repo = 'Shougo/denite.nvim'
 on_cmd = ['Denite']
 hook_add = '''
 autocmd FileType denite call s:denite_my_settings()
-nnoremap <silent> ,f <Cmd>Denite file/rec<CR>
-nnoremap <silent> ,h <Cmd>Denite help<CR>
-nnoremap <silent> ,g <Cmd>Denite grep<CR>
+nnoremap <silent> ;f <Cmd>Denite file/rec<CR>
+nnoremap <silent> ;h <Cmd>Denite help<CR>
+nnoremap <silent> ;g <Cmd>Denite grep<CR>
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
   nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')

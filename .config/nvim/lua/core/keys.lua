@@ -14,5 +14,4 @@ api.nvim_set_keymap('n', 'A', 'len(getline(".")) ? "A" : "cc"', { noremap = true
 api.nvim_set_keymap('n', 'Y', '"+y$', { noremap = true })
 api.nvim_set_keymap('n', 'Y', '"+y$', { noremap = true })
 api.nvim_set_keymap('n', '0', "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'", { noremap = true, expr = true })
-api.nvim_set_keymap('n', ';', ":", { noremap = true })
 api.nvim_set_keymap('n', '<Leader>w', '<Cmd>update<CR>', { noremap = true })
