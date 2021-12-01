@@ -48,6 +48,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
+on_ft = ['markdown']
 hook_add = '''
   let g:bufpreview_browser = 'firefox'
 '''

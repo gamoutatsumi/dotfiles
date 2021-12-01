@@ -43,16 +43,16 @@ colors:
 font:
   size: 11.5
   normal:
-    family: HackGenNerd Console
+    family: PlemolJP Console NF
     style: Regular
   bold:
-    family: HackGenNerd Console
+    family: PlemolJP Console NF
     style: Bold
   italic:
-    family: HackGenNerd Console
+    family: PlemolJP Console NF
     style: italic
   bold_italic:
-    family: HackGenNerd Console
+    family: PlemolJP Console NF
     style: Bold Italic
 
 env:

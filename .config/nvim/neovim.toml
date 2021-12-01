@@ -1,8 +1,10 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
+on_func = ['registers#peek']
 
 [[plugins]]
 repo = 'folke/which-key.nvim'
+on_cmd = ['WhichKey']
 
 [[plugins]]
 repo = 'kevinhwang91/nvim-hlslens'
@@ -124,6 +126,7 @@ nmap f <cmd>lua require'hop'.hint_words()<CR>
 
 [[plugins]]
 repo = 'b3nj5m1n/kommentary'
+on_map = ['<Plug>']
 hook_post_source = '''
 lua << EOF
   require('kommentary.config').configure_language("typescriptreact", {

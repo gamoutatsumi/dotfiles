@@ -170,7 +170,48 @@ on_cmd = ['DB']
 repo = 'kristijanhusak/vim-dadbod-ui'
 on_cmd = ['DBUI']
 
-
 [[plugins]]
 repo = 'whatyouhide/vim-textobj-xmlattr'
 on_ft = ['typescriptreact', 'javascriptreact', 'html', 'xml']
+
+[[plugins]]
+repo = "machakann/vim-swap"
+on_map = ['<Plug>']
+hook_add = '''
+  let g:swap_no_default_key_mappings = 1
+  map g< <Plug>(swap-prev)
+  map g> <Plug>(swap-next)
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+on_map = ['<Plug>']
+hook_add = '''
+  let g:switch_mapping = ''
+  nmap gsf <Plug>(Switch)
+'''
+
+[[plugins]]
+repo = 'arthurxavierx/vim-caser'
+on_map = ['<Plug>']
+hook_add = '''
+  let g:caser_no_mappings = 1
+  nmap gss <Plug>CaserSnakeCase
+  nmap gsc <Plug>CaserCamelCase
+  nmap gst <Plug>CaserMixedCase
+'''
+[[plugins]]
+repo = 'tweekmonster/helpful.vim'
+on_cmd = ['HelpfulVersion']
+
+[[plugins]]
+repo = 'tyru/capture.vim'
+on_cmd = ['Capture']
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+on_cmd = ['Cheat']
+
+[[plugins]]
+repo = 'lambdalisue/vim-manpager'
+on_cmd = ['MANPAGER']
