@@ -14,7 +14,7 @@ let g:dps_ghosttext#ftmap = {
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 depends = ['denops.vim']
-on_map = { ic = '<Plug>(skkeleton-toggle)' }
+on_map = { ic = '<Plug>' }
 hook_add = '''
   let g:skkeleton#mode = ''
   imap <C-j> <Plug>(skkeleton-toggle)
@@ -48,7 +48,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
-on_ft = ['markdown']
+on_cmd = ['PreviewMarkdown']
 hook_add = '''
   let g:bufpreview_browser = 'firefox'
 '''

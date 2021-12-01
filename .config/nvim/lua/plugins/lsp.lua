@@ -45,16 +45,13 @@ lsp_installer.on_server_ready(function(server)
     opts.autostart = true
   end
   server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
 end)
-
-vim.cmd[[ autocmd FileType typescript,typescriptreact command! -nargs=* TSOrganizeImports lua require'nvim-lsp-installer.extras.tsserver'.organize_imports(<f-args>) ]]
 
 if (vim.fn.executable("deno")) then
   require'lspconfig'.denols.setup{
     on_attach = on_attach,
-    root_dir = util.root_pattern("deno.json", "deno.jsonc"),
     capabilities = capabilities,
+    root_dir = util.root_pattern("deno.json", "deno.jsonc")
   }
 end
 
@@ -65,3 +62,5 @@ if (vim.fn.executable("haskell-language-server-wrapper")) then
     capabilities = capabilities
   }
 end
+
+vim.cmd('LspStart')

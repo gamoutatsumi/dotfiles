@@ -3,6 +3,12 @@ repo = 'tversteeg/registers.nvim'
 on_func = ['registers#peek']
 
 [[plugins]]
+repo = 'nathom/filetype.nvim'
+hook_post_source = '''
+  syntax on
+'''
+
+[[plugins]]
 repo = 'folke/which-key.nvim'
 on_cmd = ['WhichKey']
 
@@ -57,25 +63,11 @@ repo = 'kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
 hook_add = '''
-lua << EOF
-  vim.api.nvim_set_keymap('n', '<C-s>', '<cmd>BufferPick<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>BufferOrderByDirectory<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<leader>bl', '<cmd>BufferOrderByLanguage<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<S-TAB>', '<cmd>BufferPrevious<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<TAB>', '<cmd>BufferNext<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-<>', '<cmd>BufferMovePrevious<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A->>', '<cmd>BufferMoveNext<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-1>', '<cmd>BufferGoto 1<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-2>', '<cmd>BufferGoto 2<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-3>', '<cmd>BufferGoto 3<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-4>', '<cmd>BufferGoto 4<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-5>', '<cmd>BufferGoto 5<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-6>', '<cmd>BufferGoto 6<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-7>', '<cmd>BufferGoto 7<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-8>', '<cmd>BufferGoto 8<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-9>', '<cmd>BufferLast<CR>', { silent = true, noremap = true })
-  vim.api.nvim_set_keymap('n', '<A-c>', '<cmd>BufferClose<CR>', { silent = true, noremap = true })
-EOF
+  nnoremap <silent> <C-s> <Cmd>BufferPick<CR>
+  nnoremap <silent> <leader>bd <Cmd>BufferOrderByDirectory<CR>
+  nnoremap <silent> <leader>bl <Cmd>BufferOrderByLanguage<CR>
+  nnoremap <silent> <S-TAB> <Cmd>BufferPrevious<CR>
+  nnoremap <silent> <TAB> <Cmd>BufferNext<CR>
 '''
 
 [[plugins]]
