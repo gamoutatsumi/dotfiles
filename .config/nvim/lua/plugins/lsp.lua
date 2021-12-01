@@ -29,7 +29,7 @@ lsp_installer.on_server_ready(function(server)
   opts.on_attach = on_attach
   opts.capabilities = capabilities
   if server.name == "tsserver" then
-    opts.root_dir = util.root_pattern("package.json")
+    opts.root_dir = util.root_pattern("package.json", "node_modules")
     opts.autostart = true
   elseif server.name == "eslintls" then
     opts.on_attach = function (client, bufnr)
@@ -53,7 +53,7 @@ vim.cmd[[ autocmd FileType typescript,typescriptreact command! -nargs=* TSOrgani
 if (vim.fn.executable("deno")) then
   require'lspconfig'.denols.setup{
     on_attach = on_attach,
-    root_dir = util.root_pattern(".git"),
+    root_dir = util.root_pattern("deno.json", "deno.jsonc"),
     capabilities = capabilities,
   }
 end

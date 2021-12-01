@@ -169,3 +169,8 @@ on_cmd = ['DB']
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-ui'
 on_cmd = ['DBUI']
+
+
+[[plugins]]
+repo = 'whatyouhide/vim-textobj-xmlattr'
+on_ft = ['typescriptreact', 'javascriptreact', 'html', 'xml']
