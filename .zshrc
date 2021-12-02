@@ -195,7 +195,7 @@ alias emacs='TERM=xterm-direct emacs -nw'
 # dotfiles
 alias dot='builtin cd ~/dotfiles'
 alias zshconfig='nvim ~/.zshrc'
-alias vimconfig='nvim ~/.config/nvim/lua/core/init.lua -c "cd ~/dotfiles/.config/nvim"'
+alias vimconfig='nvim ~/.config/nvim/init/core/init.vim -c "cd ~/dotfiles/.config/nvim"'
 alias cocconfig='nvim -c CocConfig'
 alias tmuxconfig='nvim ~/.tmux.conf'
 alias sshconfig='nvim ~/.ssh/config'
