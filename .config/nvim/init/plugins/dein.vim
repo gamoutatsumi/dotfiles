@@ -38,7 +38,7 @@ endif
 
 let s:removed_plugins = dein#check_clean()
 if len(s:removed_plugins) > 0
-  map(s:removed_plugins, 'delete(v:val, "rf")')
+  call execute(map(s:removed_plugins, 'delete(v:val, "rf")'))
   call dein#recache_runtimepath()
 endif
 

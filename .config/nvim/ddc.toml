@@ -126,6 +126,7 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/neco-vim'

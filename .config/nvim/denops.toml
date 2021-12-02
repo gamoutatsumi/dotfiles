@@ -1,6 +1,5 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'gamoutatsumi/dps-ghosttext.vim'
@@ -42,6 +41,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'gamoutatsumi/gyazoupload.vim'
+depends = ['denops.vim']
 on_cmd = ['GyazoUpload']
 hook_add = '''
   let g:gyazo#token=$GYAZO_TOKEN
@@ -49,6 +49,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
+depends = ['denops.vim']
 on_cmd = ['PreviewMarkdown']
 hook_add = '''
   let g:bufpreview_browser = 'firefox'
