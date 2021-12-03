@@ -14,6 +14,7 @@ export async function getEntries(currentPath: string): Promise<string[]> {
       case ".github":
       case "deploy.ts":
       case "deploy":
+      case "deno.json":
         continue;
       case ".hammerspoon":
         if (Deno.build.os !== "darwin") {
