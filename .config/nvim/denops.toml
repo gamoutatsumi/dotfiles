@@ -59,3 +59,8 @@ hook_add = '''
 repo = 'skanehira/denops-gh.vim'
 depends = ['denops.vim']
 on_cmd = ['GhGetAssociatedPullRequest']
+
+[[plugins]]
+repo = 'skanehira/denops-docker.vim'
+depends = ['denops.vim']
+on_cmd = ['DockerImages']
