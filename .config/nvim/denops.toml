@@ -54,3 +54,8 @@ on_cmd = ['PreviewMarkdown']
 hook_add = '''
   let g:bufpreview_browser = 'firefox'
 '''
+
+[[plugins]]
+repo = 'skanehira/denops-gh.vim'
+depends = ['denops.vim']
+on_cmd = ['GhGetAssociatedPullRequest']
