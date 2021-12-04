@@ -10,3 +10,4 @@ packages:
   - name: b4b4r07/gomi@v1.1.1
   - name: ogham/exa@v0.10.1
   - name: dandavison/delta@0.10.3
+  - name: stedolan/jq@jq-1.6
