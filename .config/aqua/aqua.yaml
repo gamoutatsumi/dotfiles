@@ -11,3 +11,6 @@ packages:
   - name: ogham/exa@v0.10.1
   - name: dandavison/delta@0.10.3
   - name: stedolan/jq@jq-1.6
+  - name: bootandy/dust@v0.7.5
+  - name: sharkdp/fd@v8.3.0
+  - name: ogham/dog@v0.1.0

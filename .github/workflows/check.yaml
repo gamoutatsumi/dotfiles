@@ -9,9 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install required packages
-        run: apt-get update && apt-get install -y git curl unzip grep zsh ruby
+        run: apt-get update && apt-get install -y git zsh
+      - name: setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
       - name: Install dotfiles
-        run: ./install.sh
+        run: ./deploy.sh
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -21,9 +25,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install required packages
-        run: yum install -y git curl unzip grep zsh ruby
+        run: yum install -y git zsh
+      - name: setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
       - name: Install dotfiles
-        run: ./install.sh
+        run: ./deploy.sh
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -35,9 +43,13 @@ jobs:
       - name: Update packages
         run: pacman -Syu --noconfirm
       - name: Install required packages
-        run: pacman -S --noconfirm git curl unzip grep zsh ruby
+        run: pacman -S --noconfirm git zsh
+      - name: setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
       - name: Install dotfiles
-        run: ./install.sh
+        run: ./deploy.sh
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -45,15 +57,16 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: set PATH
-        run: echo "/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin" >> $GITHUB_PATH
       - name: Update packages
         run: brew update
       - name: Install required packages
-        run: brew install git curl coreutils grep ruby
-      - run: grep --version
+        run: brew install git coreutils
+      - name: setup deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
       - name: Install dotfiles
-        run: ./install.sh
+        run: ./deploy.sh
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
