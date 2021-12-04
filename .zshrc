@@ -499,7 +499,7 @@ function f() {
   local project dir repository session current_session out
   local ghq_root=$(ghq root)
   local ghq_command="ghq list -p | sed -e \"s|$HOME|~|\""
-  local fzf_options_="--expect=ctrl-space --preview='eval bat --paging=never --style=plain --color=always {}/README.md 2>/dev/null'"
+  local fzf_options_="--expect=ctrl-space --preview='eval AQUA_CONFIG=$XDG_CONFIG_HOME/aqua/aqua.yaml bat --paging=never --style=plain --color=always {}/README.md 2>/dev/null'"
   local fzf_command="fzf-tmux ${fzf_options_}"
   fzf_command+=" ${FZF_PREVIEW_DEFAULT_SETTING}"
   fzf_command+=" --bind='${FZF_PREVIEW_DEFAULT_BIND}'"
