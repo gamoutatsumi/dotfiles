@@ -18,7 +18,7 @@ jobs:
         with:
           deno-version: v1.x
       - name: Install dotfiles
-        run: ./deploy.sh
+        run: ./deploy.sh dotfiles
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -34,7 +34,7 @@ jobs:
         with:
           deno-version: v1.x
       - name: Install dotfiles
-        run: ./deploy.sh
+        run: ./deploy.sh dotfiles
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -52,7 +52,7 @@ jobs:
         with:
           deno-version: v1.x
       - name: Install dotfiles
-        run: ./deploy.sh
+        run: ./deploy.sh dotfiles
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
@@ -69,7 +69,7 @@ jobs:
         with:
           deno-version: v1.x
       - name: Install dotfiles
-        run: ./deploy.sh
+        run: ./deploy.sh dotfiles
       - name: Test zshrc
         run: zsh -i -c "[[ $? = 0 ]] && exit 0 || exit 1"
 
