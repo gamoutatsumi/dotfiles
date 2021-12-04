@@ -1,0 +1,33 @@
+name: aqua
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.config/aqua/aqua.yaml'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '.config/aqua/aqua.yaml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: cache ~/.aqua
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.aqua/pkgs
+            ~/.aqua/registries
+          key: ${{ runner.os }}-${{ hashFiles('.config/aqua/aqua.yaml' }}
+
+      - uses: aquaproj/aqua-installer@main
+        with:
+          version: v0.8.0 # renovate: depName=aquaproj/aqua
+      - run: aqua -c .config/aqua/aqua.yaml i --test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
