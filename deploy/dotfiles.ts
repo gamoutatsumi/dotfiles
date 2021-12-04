@@ -1,7 +1,7 @@
 import { join } from "https://deno.land/std@0.110.0/path/mod.ts";
 import { $ } from "https://deno.land/x/zx_deno@1.2.2/mod.mjs";
 
-const DOT_DIRECTORY = join((Deno.env.get("HOME") ?? "/root"), "dotfiles");
+const DOT_DIRECTORY = Deno.cwd();
 
 export async function getEntries(currentPath: string): Promise<string[]> {
   const entries: string[] = [];
