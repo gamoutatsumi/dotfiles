@@ -16,7 +16,7 @@
   pager = delta
 	quotepath = false
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = delta --color-only --features=interactive
 [push]
 	default = current
 [init]
@@ -42,3 +42,5 @@
   plus-style = syntax "#012800"
   minus-style = syntax "#340001"
   hunk-header-style = file line-number
+[delta "interactive"]
+  keep-plus-minus-markers = false
