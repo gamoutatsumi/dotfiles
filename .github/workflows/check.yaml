@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install required packages
-        run: apt-get update && apt-get install -y git zsh
+        run: apt-get update && apt-get install -y git zsh unzip
       - name: setup deno
         uses: denoland/setup-deno@v1
         with:
@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install required packages
-        run: yum install -y git zsh
+        run: yum install -y git zsh unzip
       - name: setup deno
         uses: denoland/setup-deno@v1
         with:
@@ -46,7 +46,7 @@ jobs:
       - name: Update packages
         run: pacman -Syu --noconfirm
       - name: Install required packages
-        run: pacman -S --noconfirm git zsh
+        run: pacman -S --noconfirm git zsh unzip
       - name: setup deno
         uses: denoland/setup-deno@v1
         with:
@@ -63,7 +63,7 @@ jobs:
       - name: Update packages
         run: brew update
       - name: Install required packages
-        run: brew install git coreutils
+        run: brew install git coreutils unzip
       - name: setup deno
         uses: denoland/setup-deno@v1
         with:
