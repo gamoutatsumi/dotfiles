@@ -80,11 +80,19 @@ fi
 if [[ ! -d $HOME/.asdf ]]; then
   git clone https://github.com/asdf-vm/asdf.git "${HOME}/.asdf"
 fi
+export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 . "${HOME}/.asdf/asdf.sh"
 fpath=(${ASDF_DIR}/completions $fpath)
 # }}}
 
 # {{{ PLUGINS
+
+export POWERLEVEL9K_INSTALLATION_DIR="${HOME}/.zpm/plugins/romkatv---powerlevel10k"
+
+export ZENO_ROOT="${HOME}/.zpm/plugins/yuki-yano---zeno.zsh"
+export ZENO_ENABLE_SOCK=1
+export ZENO_ENABLE_FZF_TMUX=1
+
 if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
   git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"
 fi
@@ -362,7 +370,7 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 export CARGO_HOME="$HOME/.cargo"
 export DENO_BIN="$HOME/.deno/bin"
 export GOPATH="$HOME/go"
-export PATH="$DENO_BIN:$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
+export PATH="$HOME/.aqua/bin:$DENO_BIN:$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
 export MANPAGER='nvim -c MANPAGER -'
 
 export HISTFILE=${HOME}/.zsh_history
