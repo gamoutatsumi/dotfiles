@@ -81,7 +81,7 @@ jobs:
       - name: Update packages
         run: apt-get update
       - name: Install packages for install repository
-        run: apt-get install -y git software-properties-common sudo
+        run: apt-get install -y git
       - name: Install required repository
         run: apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe"
       - name: Install required packages
