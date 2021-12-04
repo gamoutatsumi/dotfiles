@@ -154,93 +154,6 @@ set_fast_theme
 
 # }}}
 
-# ALIAS {{{
-# OS Settings
-if is_osx; then
-  if exists pyenv; then
-    alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
-  fi
-else
-  alias mozc_dic='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
-  alias mozc_word='/usr/lib/mozc/mozc_tool --mode=word_register_dialog'
-  alias open='xdg-open'
-fi
-
-if is_wsl; then
-  alias pbcopy='/mnt/c/Windows/System32/clip.exe'
-elif is_osx; then
-  :
-else
-  alias pbcopy='xsel --clipboard --input'
-fi
-
-alias sudo='sudo '
-
-# ls alias
-if exists exa; then
-  alias ls='exa --icons'
-  alias ll='exa --icons -lg --git'
-  alias la='exa --icons -lga --git'
-  alias tree='exa --icons -T'
-fi
-
-# Utilities
-alias du='du -sh *'
-alias filecount='/usr/bin/ls -lF | grep -v / | wc -l'
-alias ..='cd ..'
-alias q='exit'
-alias top='htop'
-alias k='kubectl'
-exists gomi && alias rm='gomi'
-
-# editors
-alias vim='nvim'
-alias vi='vim'
-alias v='vi'
-alias vimdiff='nvim -d'
-alias emacs='TERM=xterm-direct emacs -nw'
-
-# dotfiles
-alias dot='builtin cd ~/dotfiles'
-alias zshconfig='nvim ~/.zshrc'
-alias vimconfig='nvim ~/.config/nvim/init/core/init.vim -c "cd ~/dotfiles/.config/nvim"'
-alias cocconfig='nvim -c CocConfig'
-alias tmuxconfig='nvim ~/.tmux.conf'
-alias sshconfig='nvim ~/.ssh/config'
-alias gitconfig='nvim ~/.gitconfig'
-alias deinconfig='nvim ~/.config/nvim/dein.toml'
-alias deinlzconfig='nvim ~/.config/nvim/dein_lazy.toml'
-alias ssconfig='nvim ~/.config/starship.toml'
-alias reload='source ~/.zshrc'
-alias path='echo $PATH'
-
-# TMUX
-alias ssh='TERM=xterm ssh'
-
-# Docker
-alias dc='docker-compose'
-alias dce='docker-compose exec'
-alias dcu='docker-compose up'
-alias dcud='docker-compose up -d'
-alias dcd='docker-compose down'
-alias dcdv='docker-compose down -v'
-alias dcdall='docker-compose down --rmi all -v'
-alias dcst='docker-compose stop'
-alias dcrs='docker-compose restart'
-
-globalias() {
-  if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
-    zle _expand_alias
-    zle expand-word
-    zle self-insert
-  else
-    zle zeno-auto-snippet
-  fi
-}
-
-# zle -N globalias
-# }}}
-
 # KEY {{{
 typeset -A key
 
@@ -382,6 +295,8 @@ export EDITOR="nvim"
 
 export DOCKER_BUILDKIT=1
 
+export AQUA_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
+
 # sccache
 if exists sccache; then
   export SCCACHE_REDIS="redis://localhost:6379/1"
@@ -393,6 +308,93 @@ export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
 if is_wsl; then
   export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}';)
 fi
+# }}}
+
+# ALIAS {{{
+# OS Settings
+if is_osx; then
+  if exists pyenv; then
+    alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+  fi
+else
+  alias mozc_dic='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
+  alias mozc_word='/usr/lib/mozc/mozc_tool --mode=word_register_dialog'
+  alias open='xdg-open'
+fi
+
+if is_wsl; then
+  alias pbcopy='/mnt/c/Windows/System32/clip.exe'
+elif is_osx; then
+  :
+else
+  alias pbcopy='xsel --clipboard --input'
+fi
+
+alias sudo='sudo '
+
+# ls alias
+if exists exa; then
+  alias ls='exa --icons'
+  alias ll='exa --icons -lg --git'
+  alias la='exa --icons -lga --git'
+  alias tree='exa --icons -T'
+fi
+
+# Utilities
+alias du='du -sh *'
+alias filecount='/usr/bin/ls -lF | grep -v / | wc -l'
+alias ..='cd ..'
+alias q='exit'
+alias top='htop'
+alias k='kubectl'
+exists gomi && alias rm='gomi'
+
+# editors
+alias vim='nvim'
+alias vi='vim'
+alias v='vi'
+alias vimdiff='nvim -d'
+alias emacs='TERM=xterm-direct emacs -nw'
+
+# dotfiles
+alias dot='builtin cd ~/dotfiles'
+alias zshconfig='nvim ~/.zshrc'
+alias vimconfig='nvim ~/.config/nvim/init/core/init.vim -c "cd ~/dotfiles/.config/nvim"'
+alias cocconfig='nvim -c CocConfig'
+alias tmuxconfig='nvim ~/.tmux.conf'
+alias sshconfig='nvim ~/.ssh/config'
+alias gitconfig='nvim ~/.gitconfig'
+alias deinconfig='nvim ~/.config/nvim/dein.toml'
+alias deinlzconfig='nvim ~/.config/nvim/dein_lazy.toml'
+alias ssconfig='nvim ~/.config/starship.toml'
+alias reload='source ~/.zshrc'
+alias path='echo $PATH'
+
+# TMUX
+alias ssh='TERM=xterm ssh'
+
+# Docker
+alias dc='docker-compose'
+alias dce='docker-compose exec'
+alias dcu='docker-compose up'
+alias dcud='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dcdv='docker-compose down -v'
+alias dcdall='docker-compose down --rmi all -v'
+alias dcst='docker-compose stop'
+alias dcrs='docker-compose restart'
+
+globalias() {
+  if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
+    zle _expand_alias
+    zle expand-word
+    zle self-insert
+  else
+    zle zeno-auto-snippet
+  fi
+}
+
+# zle -N globalias
 # }}}
 
 # GENERAL {{{
