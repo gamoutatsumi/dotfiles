@@ -2,6 +2,9 @@ snippets:
   - name: git status
     keyword: gs
     snippet: git status --short --branch
+  - name: git now
+    keyword: gn
+    snippet: git now
   - name: git add
     keyword: ga
     snippet: git add {{file}}

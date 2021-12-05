@@ -115,6 +115,7 @@ zpm load zdharma-continuum/fast-syntax-highlighting,apply:source
 zpm load zsh-users/zsh-completions,apply:fpath,fpath:/src
 zpm load junegunn/fzf,apply:path,hook:"./install --bin"
 zpm load @empty/docker-compose,gen-completion:"curl -qL https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
+zpm load iwata/git-now,apply:path,hook:"mkdir bin; make prefix=./ install"
 exists deno && zpm load @empty/deno,gen-completion:"deno completions zsh"
 exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
 exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
