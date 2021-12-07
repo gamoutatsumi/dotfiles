@@ -9,6 +9,7 @@ switch (Deno.args[0]) {
     break;
   case "aqua":
     await aqua();
+    break;
   default:
     console.log("Available deployments: dotfiles aqua");
 }
