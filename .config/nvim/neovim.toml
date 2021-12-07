@@ -1,15 +1,31 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
+lazy = 1
 on_func = ['registers#peek']
 
 [[plugins]]
 repo = 'nathom/filetype.nvim'
+hook_add = '''
+lua << EOF
+  require('filetype').setup{
+    overrides = {
+      literal = {
+        ['.textlintrc'] = 'json'
+      },
+      shebang = {
+        bash = 'sh',
+      }
+    },
+  }
+EOF
+'''
 hook_post_source = '''
-  syntax on
+syntax on
 '''
 
 [[plugins]]
 repo = 'folke/which-key.nvim'
+lazy = 1
 on_cmd = ['WhichKey']
 
 [[plugins]]
@@ -118,6 +134,7 @@ nmap f <cmd>lua require'hop'.hint_words()<CR>
 
 [[plugins]]
 repo = 'b3nj5m1n/kommentary'
+lazy = 1
 on_map = ['<Plug>']
 hook_post_source = '''
 lua << EOF

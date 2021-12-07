@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead .textlintrc setlocal filetype=json
+autocmd FileType textlintrc setlocal filetype=json
