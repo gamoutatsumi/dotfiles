@@ -23,7 +23,7 @@ jobs:
           path: |
             ~/.aqua/pkgs
             ~/.aqua/registries
-          key: ${{ runner.os }}-${{ hashFiles('.config/aqua/aqua.yaml' }}
+          key: ${{ runner.os }}-${{ hashFiles('.config/aqua/aqua.yaml') }}
 
       - uses: aquaproj/aqua-installer@main
         with:
