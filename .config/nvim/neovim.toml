@@ -10,7 +10,8 @@ lua << EOF
   require('filetype').setup{
     overrides = {
       literal = {
-        ['.textlintrc'] = 'json'
+        ['.textlintrc'] = 'json',
+        ['tsconfig.json'] = 'jsonc'
       },
       shebang = {
         bash = 'sh',

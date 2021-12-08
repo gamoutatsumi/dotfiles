@@ -3,6 +3,7 @@
 # }}}
 
 # INITIALIZE {{{
+bindkey -e
 
 autoload -U bashcompinit
 bashcompinit
