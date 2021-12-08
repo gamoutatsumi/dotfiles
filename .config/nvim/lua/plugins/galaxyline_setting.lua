@@ -64,7 +64,7 @@ gls.left[2] = {
 gls.left[3] = {
   SkkStatus = {
     provider = function()
-      local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ' }
+      local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
       return '  ' .. alias[vim.g['skkeleton#mode']] .. ' '
     end,
     separator = ' ',

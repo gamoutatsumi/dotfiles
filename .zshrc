@@ -85,6 +85,48 @@ export ASDF_DATA_DIR=$XDG_DATA_HOME/asdf
 fpath=(${ASDF_DIR}/completions $fpath)
 # }}}
 
+# {{{ ENVVARS
+if is_osx; then
+  export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:$PATH"
+  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+fi
+
+# Setting PATH
+#export PYENV_ROOT="$HOME/.pyenv"
+#export NODENV_ROOT="$HOME/.nodenv"
+export LUAROCKS_HOME="$HOME/.luarocks"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export CARGO_HOME="$HOME/.cargo"
+export DENO_BIN="$HOME/.deno/bin"
+export GOPATH="$HOME/go"
+export PATH="$HOME/.aqua/bin:$DENO_BIN:$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
+export MANPAGER='nvim -c MANPAGER -'
+
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+export LC_ALL=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8
+export EDITOR="nvim"
+
+export DOCKER_BUILDKIT=1
+
+export AQUA_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
+
+# sccache
+if exists sccache; then
+  export SCCACHE_REDIS="redis://localhost:6379/1"
+  #export RUSTC_WRAPPER="$(which sccache)"
+fi
+
+export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' 
+
+if is_wsl; then
+  export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}';)
+fi
+# }}}
+
 # {{{ PLUGINS
 
 export POWERLEVEL9K_INSTALLATION_DIR="${HOME}/.zpm/plugins/romkatv---powerlevel10k"
@@ -269,47 +311,6 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 # }}}
 
-# {{{ ENVVARS
-if is_osx; then
-  export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:$PATH"
-  export MANPATH="/usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman:$MANPATH"
-fi
-
-# Setting PATH
-#export PYENV_ROOT="$HOME/.pyenv"
-#export NODENV_ROOT="$HOME/.nodenv"
-export LUAROCKS_HOME="$HOME/.luarocks"
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export CARGO_HOME="$HOME/.cargo"
-export DENO_BIN="$HOME/.deno/bin"
-export GOPATH="$HOME/go"
-export PATH="$HOME/.aqua/bin:$DENO_BIN:$LUAROCKS_HOME/bin:$GOPATH/bin:$CARGO_HOME/bin:$HOME/.local/bin:$GEM_HOME/bin:$PATH"
-export MANPAGER='nvim -c MANPAGER -'
-
-export HISTFILE=${HOME}/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=100000
-export LC_ALL=ja_JP.UTF-8
-export LANG=ja_JP.UTF-8
-export EDITOR="nvim"
-
-export DOCKER_BUILDKIT=1
-
-export AQUA_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
-
-# sccache
-if exists sccache; then
-  export SCCACHE_REDIS="redis://localhost:6379/1"
-  #export RUSTC_WRAPPER="$(which sccache)"
-fi
-
-export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' 
-
-if is_wsl; then
-  export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}';)
-fi
-# }}}
 
 # ALIAS {{{
 # OS Settings
