@@ -1,6 +1,10 @@
 local gl = require('galaxyline')
 local gls = gl.section
-local diagnostic = require('galaxyline.provider_diagnostic')
+local diagnostic = require('galaxyline.providers.diagnostic')
+local fileinfo = require('galaxyline.providers.fileinfo')
+local buffer = require('galaxyline.providers.buffer')
+local vcs = require('galaxyline.providers.vcs')
+local condition = require('galaxyline.condition')
 gl.short_line_list = { 'fern' }
 
 function LspWarning()
@@ -37,13 +41,6 @@ local colors = {
   slateblue = '#2c3043'
 }
 
-local buffer_not_empty = function()
-  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-    return true
-  end
-  return false
-end
-
 gls.left[1] = {
   FirstElement = {
     provider = function() return ' ' end,
@@ -75,7 +72,7 @@ gls.left[3] = {
 
 gls.left[4] = {
   DiffAdd = {
-    provider = 'DiffAdd',
+    provider = vcs.diff_add,
     icon = '+',
     highlight = { colors.white, colors.slateblue },
   }
@@ -83,7 +80,7 @@ gls.left[4] = {
 
 gls.left[5] = {
   DiffModified = {
-    provider = 'DiffModified',
+    provider = vcs.diff_modified,
     icon = '~',
     highlight = { colors.white, colors.slateblue },
   }
@@ -91,7 +88,7 @@ gls.left[5] = {
 
 gls.left[6] = {
   DiffRemove = {
-    provider = 'DiffRemove',
+    provider = vcs.diff_remove,
     icon = '-',
     highlight = { colors.white, colors.slateblue },
   }
@@ -99,8 +96,8 @@ gls.left[6] = {
 
 gls.left[7] = {
   GitBranch = {
-    provider = 'GitBranch',
-    condition = buffer_not_empty,
+    provider = vcs.get_git_branch,
+    condition = condition.buffer_not_empty,
     separator = '  ',
     highlight = { colors.white, colors.slateblue },
     separator_highlight = { colors.white, colors.slateblue },
@@ -110,31 +107,31 @@ gls.left[7] = {
 
 gls.left[8] = {
   FileName = {
-    provider = 'FileName',
-    condition = buffer_not_empty,
+    provider = fileinfo.get_current_file_name,
+    condition = condition.buffer_not_empty,
     highlight = { colors.white, colors.slateblue }
   }
 }
 
 gls.right[1] = {
   FileTypeName = {
-    provider = function() return require('galaxyline.provider_buffer').get_buffer_filetype():lower() .. ' ' end,
-    condition = buffer_not_empty,
+    provider = function() return buffer.get_buffer_filetype():lower() .. ' ' end,
+    condition = condition.buffer_not_empty,
     highlight = { colors.white, colors.slateblue },
   }
 }
 
 gls.right[2] = {
   FileIcon = {
-    provider = 'FileIcon',
-    condition = buffer_not_empty,
-    highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.slateblue },
+    provider = fileinfo.get_file_icon,
+    condition = condition.buffer_not_empty,
+    highlight = { fileinfo.get_file_icon_color, colors.slateblue },
   }
 }
 
 gls.right[3] = {
   FileEncode = {
-    provider = function() return require('galaxyline.provider_fileinfo').get_file_encode():lower() end,
+    provider = function() return fileinfo.get_file_encode():lower() end,
     highlight = { colors.white, colors.slateblue },
     separator = '',
     separator_highlight = { colors.white, colors.slateblue } 
@@ -154,7 +151,7 @@ gls.right[4]= {
 
 gls.right[5] = {
   Percent = {
-    provider = 'LinePercent',
+    provider = fileinfo.current_line_percent,
     separator = ' ',
     separator_highlight = { colors.blue, colors.slateblue },
     highlight = { colors.fg, colors.blue },
@@ -163,7 +160,7 @@ gls.right[5] = {
 
 gls.right[6] = {
   LineInfo = {
-    provider = 'LineColumn',
+    provider = fileinfo.line_column,
     highlight = { colors.fg, colors.blue },
   }
 }

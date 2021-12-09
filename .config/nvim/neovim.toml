@@ -1,7 +1,5 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
-lazy = 1
-on_func = ['registers#peek']
 
 [[plugins]]
 repo = 'nathom/filetype.nvim'
@@ -60,9 +58,39 @@ EOF
 '''
 
 [[plugins]]
-repo = 'glepnir/galaxyline.nvim'
+repo = 'nvim-lualine/lualine.nvim'
 hook_post_source = '''
-lua require('plugins.galaxyline_setting')
+lua << EOF
+  local function skkstatus()
+    local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
+    return alias[vim.g['skkeleton#mode']]
+  end
+  local custom_nightfly = require'lualine.themes.nightfly'
+  custom_nightfly.insert.a.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.visual.a.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.normal.y = {}
+  custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
+  custom_nightfly.normal.z = custom_nightfly.normal.b
+
+  require'lualine'.setup {
+    options = {
+      icons_enabled = true,
+      theme = custom_nightfly,
+      component_separators = { left = '', right = ''},
+      section_separators = { left = '', right = ''},
+      always_divide_middle = true,
+    },
+    sections = {
+      lualine_a = { 'mode', skkstatus },
+      lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false }, { 'filename', path = 1, shorting_target = 30 } },
+      lualine_c = {},
+      lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
+      lualine_y = {{ 'location', padding = 0, separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
+      lualine_z = {{ 'diagnostics', sources = {'nvim'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
+    }
+  }
+EOF
 '''
 
 [[plugins]]
@@ -135,8 +163,6 @@ nmap f <cmd>lua require'hop'.hint_words()<CR>
 
 [[plugins]]
 repo = 'b3nj5m1n/kommentary'
-lazy = 1
-on_map = ['<Plug>']
 hook_post_source = '''
 lua << EOF
   require('kommentary.config').configure_language("typescriptreact", {
