@@ -88,7 +88,8 @@ lua << EOF
       lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
       lualine_y = {{ 'location', padding = 0, separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
       lualine_z = {{ 'diagnostics', sources = {'nvim'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
-    }
+    },
+    extensions = {'fern'}
   }
 EOF
 '''
