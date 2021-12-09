@@ -14,6 +14,7 @@ export async function getEntries(currentPath: string): Promise<string[]> {
       case ".github":
       case "deploy.ts":
       case "deploy":
+      case "deploy.sh":
       case "deno.json":
       case "renovate.json":
         continue;
