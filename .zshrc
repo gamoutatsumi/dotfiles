@@ -312,7 +312,6 @@ zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 # }}}
 
-
 # ALIAS {{{
 # OS Settings
 if is_osx; then
