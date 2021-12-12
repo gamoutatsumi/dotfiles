@@ -65,13 +65,25 @@ lua << EOF
     local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
     return alias[vim.g['skkeleton#mode']]
   end
+
   local custom_nightfly = require'lualine.themes.nightfly'
   custom_nightfly.insert.a.bg = custom_nightfly.normal.a.bg
   custom_nightfly.visual.a.bg = custom_nightfly.normal.a.bg
   custom_nightfly.normal.y = {}
   custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
   custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
+  custom_nightfly.insert.y = {}
+  custom_nightfly.insert.y.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.insert.y.fg = custom_nightfly.normal.a.fg
+  custom_nightfly.normal.y = {}
+  custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
+  custom_nightfly.command = {}
+  custom_nightfly.command.y = {}
+  custom_nightfly.command.y.bg = custom_nightfly.normal.a.bg
+  custom_nightfly.command.y.fg = custom_nightfly.normal.a.fg
   custom_nightfly.normal.z = custom_nightfly.normal.b
+  custom_nightfly.command.z = custom_nightfly.normal.b
 
   require'lualine'.setup {
     options = {
@@ -83,7 +95,7 @@ lua << EOF
     },
     sections = {
       lualine_a = { 'mode', skkstatus },
-      lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false }, { 'filename', path = 1, shorting_target = 30 } },
+      lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false, separator = '' }, { 'filename', path = 1, shorting_target = 30, icon_enabled = true, icon = '' } },
       lualine_c = {},
       lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
       lualine_y = {{ 'location', padding = 0, separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
