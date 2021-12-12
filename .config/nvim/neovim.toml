@@ -82,6 +82,7 @@ lua << EOF
   custom_nightfly.command.y = {}
   custom_nightfly.command.y.bg = custom_nightfly.normal.a.bg
   custom_nightfly.command.y.fg = custom_nightfly.normal.a.fg
+  custom_nightfly.insert.z = custom_nightfly.normal.b
   custom_nightfly.normal.z = custom_nightfly.normal.b
   custom_nightfly.command.z = custom_nightfly.normal.b
 
@@ -98,7 +99,7 @@ lua << EOF
       lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false, separator = '' }, { 'filename', path = 1, shorting_target = 30, icon_enabled = true, icon = '' } },
       lualine_c = {},
       lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
-      lualine_y = {{ 'location', padding = 0, separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
+      lualine_y = {{ 'location', separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
       lualine_z = {{ 'diagnostics', sources = {'nvim'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
     },
     extensions = {'fern'}
