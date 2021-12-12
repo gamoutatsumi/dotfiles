@@ -97,10 +97,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
-on_source = ['ddc.vim']
-
-[[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
 on_source = ['ddc.vim']
 
@@ -126,10 +122,6 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-on_source = ['ddc.vim']
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
 on_source = ['ddc.vim']
 
 [[plugins]]
