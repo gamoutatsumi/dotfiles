@@ -175,3 +175,15 @@ EOF
 
 [[plugins]]
 repo = 'kwkarlwang/bufresize.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+on_cmd = ['Telescope']
+depends = ['plenary.nvim']
+lazy = 1
+hook_add = '''
+  nnoremap ;f <Cmd>Telescope find_files<CR>
+  nnoremap ;h <Cmd>Telescope help_tags<CR>
+  nnoremap ;g <Cmd>Telescope grep_string<CR>
+  nnoremap ;d <Cmd>Telescope lsp_workspace_diagnostics<CR>
+'''

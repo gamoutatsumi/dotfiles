@@ -24,9 +24,9 @@ hook_source = '''
   \ })
 '''
 
-[[plugins]]
-repo = 'matsui54/denite-nvim-lsp'
-on_source = ['denite.nvim']
-hook_add = '''
-nnoremap <silent> ;d <Cmd>Denite lsp/diagnostic_all<CR>
-'''
+# [[plugins]]
+# repo = 'matsui54/denite-nvim-lsp'
+# on_source = ['denite.nvim']
+# hook_add = '''
+# nnoremap <silent> ;d <Cmd>Denite lsp/diagnostic_all<CR>
+# '''
