@@ -7,6 +7,9 @@ hook_add = '''
 lua << EOF
   require('filetype').setup{
     overrides = {
+      extensions = {
+        tf = "terraform"
+      },
       literal = {
         ['.textlintrc'] = 'json',
         ['tsconfig.json'] = 'jsonc'
