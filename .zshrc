@@ -349,7 +349,9 @@ alias filecount='/usr/bin/ls -lF | grep -v / | wc -l'
 alias ..='cd ..'
 alias q='exit'
 alias top='htop'
-alias k='kubectl'
+alias kc='kubectl'
+alias kx='kubectx'
+alias kn='kubens'
 exists gomi && alias rm='gomi'
 
 # editors

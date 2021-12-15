@@ -7,16 +7,6 @@ repo = 'sharat87/roast.vim'
 on_ft = ['roast']
 
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-hook_add = '''
-lua << EOF
-  vim.g.vim_markdown_conceal = 0
-  vim.g.vim_markdown_folding_disabled = 1
-EOF
-'''
-
-[[plugins]]
 on_ft = ['tjs']
 repo = 'vim-scripts/tjs.vim'
 
