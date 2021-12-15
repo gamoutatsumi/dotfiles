@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'gamoutatsumi/dps-ghosttext.vim'
@@ -35,8 +36,11 @@ hook_add = '''
       \ "z|": ['｜', ''],
     \ })
   endfunction
-  autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
-  autocmd User skkeleton-mode-changed redrawstatus
+  augroup skkeleton-user
+    autocmd!
+    autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
+    autocmd User skkeleton-mode-changed redrawstatus
+  augroup END
 '''
 
 [[plugins]]
@@ -57,8 +61,28 @@ hook_add = '''
 
 [[plugins]]
 repo = 'skanehira/denops-gh.vim'
-lazy = 0
+on_source = 'denops.vim'
+hook_add = '''
+  augroup gh_autocmd
+    autocmd!
+    autocmd User gh_open_issue call s:enable_auto_completion()
+  augroup END
+  function! s:enable_auto_completion()
+    " Enable source 'gh_issues' to current buffer.
+    call ddc#custom#patch_buffer('sources', ['gh_issues'])
+    call ddc#custom#patch_buffer('sourceOptions', {
+          \ 'gh_issues': {
+            \  'matcherKey': 'menu'
+          \ }})
+    call ddc#custom#patch_buffer('specialBufferCompletion', v:true)
+    " If matsui54/denops-popup-preview.vim is installed,
+    " you can preview issue body's info.
+    call popup_preview#enable()
+    " remove 'preview' from completeopt
+    set completeopt-=preview
+  endfunction
+'''
 
 [[plugins]]
 repo = 'skanehira/denops-docker.vim'
-lazy = 0
+on_source = 'denops.vim'

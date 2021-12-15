@@ -7,3 +7,4 @@ nnoremap <expr> A len(getline('.')) ? 'A' : 'cc'
 nnoremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'
 nnoremap <Leader>w <Cmd>update<CR>
 nnoremap <Leader>q <Cmd>confirm quit<CR>
+nnoremap Q <Nop>

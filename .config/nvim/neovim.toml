@@ -116,7 +116,12 @@ repo = 'antoinemadec/FixCursorHold.nvim'
 [[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
 hook_post_source = '''
-lua require'colorizer'.setup()
+lua << EOF
+  require'colorizer'.setup {
+    '*';    
+    '!gh-issues';
+  }
+EOF
 '''
 
 [[plugins]]
