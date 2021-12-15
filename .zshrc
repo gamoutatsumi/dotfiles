@@ -165,6 +165,7 @@ exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
 exists gh && zpm load @empty/gh,gen-completion:"gh completion -s zsh"
 exists pip && zpm load @empty/pip,gen-plugin:"pip completion --zsh"
 exists pipx && zpm load @empty/pipx,gen-plugin:"register-python-argcomplete pipx"
+exists kubectl && zpm load @empty/kubectl,gen-completion:"kubectl completion zsh"
 zpm load yuki-yano/zeno.zsh,apply:source,source:/zeno.zsh
 
 setopt nonomatch
