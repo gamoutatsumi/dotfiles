@@ -77,9 +77,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
