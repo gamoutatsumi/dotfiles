@@ -208,3 +208,6 @@ hook_add = '''
   nnoremap ;g <Cmd>Telescope grep_string<CR>
   nnoremap ;d <Cmd>Telescope lsp_workspace_diagnostics<CR>
 '''
+
+[[plugins]]
+repo = 'L3MON4D3/LuaSnip'
