@@ -196,3 +196,12 @@ hook_add = '''
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
 on_cmd = ['Gina']
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'yarn install --frozen-lockfile --production'
+on_ft = ['javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'vue', 'css', 'scss', 'json', 'markdown']
+hook_add = '''
+  let g:prettier#autoformat = 0
+  let g:prettier#quickfix_enabled = 0
+'''

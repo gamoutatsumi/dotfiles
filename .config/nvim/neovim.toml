@@ -138,37 +138,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'monaqa/dial.nvim'
-lazy = 1
-on_map = { n = '<Plug>'}
-hook_add = '''
-  nmap <silent> <C-a> <Plug>(dial-increment)
-  nmap <silent> <C-x> <Plug>(dial-decrement)
-'''
-hook_source = '''
-lua << EOF
-  local dial = require"dial"
-  dial.config.searchlist = {
-    normal = {
-      "number#decimal#fixed#zero",
-      "date#[%Y/%m/%d]",
-      "date#[%m/%d]",
-      "date#[%H:%M]",
-    },
-    visual = {
-      "number#decimal",
-      "date#[%Y/%m/%d]",
-      "date#[%m/%d]",
-      "date#[%H:%M]",
-      "color#hex",
-      "char#alph#small#word",
-      "char#alph#capital#word",
-    }
-  }
-EOF
-'''
-
-[[plugins]]
 repo = 'nvim-lua/popup.nvim'
 
 [[plugins]]
