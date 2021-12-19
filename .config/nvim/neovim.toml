@@ -12,7 +12,11 @@ lua << EOF
       },
       literal = {
         ['.textlintrc'] = 'json',
-        ['tsconfig.json'] = 'jsonc'
+        ['tsconfig.json'] = 'jsonc',
+        ['.swcrc'] = 'json',
+      },
+      complex = {
+        ['.swcrc*'] = 'json',
       },
       shebang = {
         bash = 'sh',
@@ -175,7 +179,8 @@ hook_add = '''
   nnoremap ;f <Cmd>Telescope find_files<CR>
   nnoremap ;h <Cmd>Telescope help_tags<CR>
   nnoremap ;g <Cmd>Telescope grep_string<CR>
-  nnoremap ;d <Cmd>Telescope lsp_workspace_diagnostics<CR>
+  nnoremap ;d <Cmd>Telescope diagnostics<CR>
+  nnoremap ;b <Cmd>Telescope buffers<CR>
 '''
 
 [[plugins]]
