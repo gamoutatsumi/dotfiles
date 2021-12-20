@@ -1,6 +1,8 @@
-local util = require 'lspconfig/util'
-local configs = require("lspconfig/configs")
-local lsp_installer = require 'nvim-lsp-installer'
+local util = require('lspconfig/util')
+local configs = require('lspconfig/configs')
+local lsp_installer = require('nvim-lsp-installer')
+local schema_catalog = require('plugins/schema-catalog')
+local schemas = schema_catalog.schemas
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -41,6 +43,16 @@ lsp_installer.on_server_ready(function(server)
   elseif server.name == "tailwindcss" then
     opts.root_dir = util.root_pattern("tailwind.config.js")
     opts.autostart = false
+  elseif server.name == 'jsonls' then
+    opts.filetypes = {'json', 'jsonc'}
+    opts.settings = {
+      json = {
+        schemas = schemas
+      }
+    }
+    opts.init_options = {
+      provideFormatter = true,
+    }
   else
     opts.autostart = true
   end

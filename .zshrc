@@ -378,17 +378,6 @@ alias path='echo $PATH'
 # TMUX
 alias ssh='TERM=xterm ssh'
 
-# Docker
-alias dc='docker-compose'
-alias dce='docker-compose exec'
-alias dcu='docker-compose up'
-alias dcud='docker-compose up -d'
-alias dcd='docker-compose down'
-alias dcdv='docker-compose down -v'
-alias dcdall='docker-compose down --rmi all -v'
-alias dcst='docker-compose stop'
-alias dcrs='docker-compose restart'
-
 globalias() {
   if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
     zle _expand_alias
