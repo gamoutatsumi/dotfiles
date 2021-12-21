@@ -185,3 +185,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'L3MON4D3/LuaSnip'
+
+[[plugins]]
+repo = 'HallerPatrick/py_lsp.nvim'
+lazy = 1
+on_ft = ['python']
