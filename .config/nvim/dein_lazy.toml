@@ -205,3 +205,11 @@ hook_add = '''
   let g:prettier#autoformat = 0
   let g:prettier#quickfix_enabled = 0
 '''
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+hook_add = '''
+  let g:vim_markdown_conceal = 0
+  let g:vim_markdown_folding_disabled = 1
+'''
