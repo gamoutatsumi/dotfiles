@@ -138,3 +138,17 @@ hook_add = '''
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 on_souce = ['ddc.vim']
+
+[[plugins]]
+repo = 'kristijanhusak/vim-dadbod-completion'
+depends = 'ddc.vim'
+on_ft = ['sql', 'mysql', 'plsql']
+hook_source = '''
+  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', 'dadbod-completion')
+  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sourceOptions', {
+  \ 'dadbod-completion': {
+  \   'mark': 'DB',
+  \   'isVolatile': v:true,
+  \ },
+  \ })
+'''
