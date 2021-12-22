@@ -37,7 +37,6 @@ lsp_installer.on_server_ready(function(server)
   opts.capabilities = capabilities
   opts.autostart = true
   if server.name == "tsserver" then
-    print(is_node_repo)
     opts.autostart = is_node_repo
   elseif server.name == "eslintls" then
     opts.on_attach = function (client, bufnr)
