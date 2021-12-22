@@ -88,7 +88,7 @@ hook_add = '''
   let g:fern#disable_default_mappings=1
   let g:fern#hide_cursor=0
   let g:fern#default_hidden=1
-  nnoremap <silent> <C-e> <cmd>Fern . -drawer -reveal=% -toggle<CR>
+  nnoremap <silent> <C-e> <cmd>Fern . -drawer -reveal=%:p -toggle<CR>
   nnoremap <silent> <Plug>(fern-close-drawer) <cmd>FernDo close -drawer -stay<CR>
   function FernSettings()
     nmap <buffer><silent><nowait> <Plug>(fern-action-open-and-close) <Plug>(fern-action-open:select)<Plug>(fern-close-drawer)

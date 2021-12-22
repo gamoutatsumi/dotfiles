@@ -4,6 +4,11 @@ local lsp_installer = require('nvim-lsp-installer')
 local schema_catalog = require('plugins/schema-catalog')
 local schemas = schema_catalog.schemas
 
+local node_root_dir = util.root_pattern("package.json", "node_modules")
+local buf_name = vim.api.nvim_buf_get_name(0) == '' and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
+local current_buf = vim.api.nvim_get_current_buf()
+local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -30,16 +35,17 @@ lsp_installer.on_server_ready(function(server)
   local opts = {}
   opts.on_attach = on_attach
   opts.capabilities = capabilities
+  opts.autostart = true
   if server.name == "tsserver" then
-    opts.root_dir = util.root_pattern("package.json", "node_modules")
-    opts.autostart = true
+    print(is_node_repo)
+    opts.autostart = is_node_repo
   elseif server.name == "eslintls" then
     opts.on_attach = function (client, bufnr)
       client.resolved_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
+    opts.autostart = true
     opts.root_dir = util.root_pattern(".eslintrc")
-    opts.autostart = false
   elseif server.name == "tailwindcss" then
     opts.root_dir = util.root_pattern("tailwind.config.js")
     opts.autostart = false
@@ -53,8 +59,6 @@ lsp_installer.on_server_ready(function(server)
     opts.init_options = {
       provideFormatter = true,
     }
-  else
-    opts.autostart = true
   end
   server:setup(opts)
 end)
@@ -63,7 +67,11 @@ if (vim.fn.executable("deno")) then
   require'lspconfig'.denols.setup{
     on_attach = on_attach,
     capabilities = capabilities,
-    root_dir = util.root_pattern("deno.json", "deno.jsonc")
+    autostart = not(is_node_repo),
+    init_options = {
+      lint = true,
+      unstable = true,
+    }
   }
 end
 
@@ -74,5 +82,3 @@ if (vim.fn.executable("haskell-language-server-wrapper")) then
     capabilities = capabilities
   }
 end
-
-vim.cmd('LspStart')
