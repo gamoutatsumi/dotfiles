@@ -1,5 +1,7 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
+lazy = 1
+on_lua = ['registers']
 
 [[plugins]]
 repo = 'nathom/filetype.nvim'
@@ -24,9 +26,6 @@ lua << EOF
     },
   }
 EOF
-'''
-hook_post_source = '''
-syntax on
 '''
 
 [[plugins]]

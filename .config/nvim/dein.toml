@@ -46,20 +46,7 @@ repo = 'itchyny/vim-parenmatch'
 #'''
 
 [[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
-hook_add = '''
-  autocmd FileType fern call glyph_palette#apply()
-'''
-
-[[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
-
-[[plugins]]
-repo = 'mbbill/undotree'
-on_cmd = ['UndotreeToggle']
-hook_add = '''
-  nnoremap <Leader>u <cmd>UndotreeToggle<CR>
-'''
 
 [[plugins]]
 repo = 'lambdalisue/suda.vim'

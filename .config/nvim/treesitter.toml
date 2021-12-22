@@ -1,11 +1,14 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_source = '''
+lazy = 1
+on_lua = ['nvim-treesitter']
+hook_add = '''
 lua require('plugins.treesitter_setting')
 '''
 
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'
+depends = ['nvim-treesitter']
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-refactor'
