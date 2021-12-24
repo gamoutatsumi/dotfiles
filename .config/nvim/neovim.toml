@@ -10,7 +10,8 @@ lua << EOF
   require('filetype').setup{
     overrides = {
       extensions = {
-        tf = "terraform"
+        tf = "terraform",
+        service = "systemd",
       },
       literal = {
         ['.textlintrc'] = 'json',

@@ -68,7 +68,7 @@ exists() {
 
 
 if [[ -z "$TMUX" ]] && [[ "$USE_TMUX" == "true" ]] ;then
-    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+    ID="$( tmux list-session | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
   if [[ -z "$ID" ]]; then # if not available create a new one
     exec tmux new-session
   else
@@ -139,7 +139,7 @@ export ZENO_ENABLE_FZF_TMUX=1
 if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
   git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"
 fi
-. ~/.zpm/zpm.zsh
+. "$HOME/.zpm/zpm.zsh"
 
 if [[ ! -f ~/.config/tabtab/zsh/__tabtab.zsh ]]; then
   if exists pnpm; then
@@ -172,7 +172,8 @@ setopt nonomatch
 
 function set_fast_theme() {
   FAST_HIGHLIGHT_STYLES[path]='fg=cyan,underline'
-  FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan,underline' FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=blue'
+  FAST_HIGHLIGHT_STYLES[path-to-dir]='fg=cyan,underline' 
+  FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=blue'
   FAST_HIGHLIGHT_STYLES[alias]='fg=blue'
   FAST_HIGHLIGHT_STYLES[precommand]='fg=blue'
   FAST_HIGHLIGHT_STYLES[command]='fg=blue'
@@ -186,11 +187,11 @@ function set_fast_theme() {
   FAST_HIGHLIGHT_STYLES[global-alias]='fg=green'
 }
 
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-FZF_PREVIEW_ENABLE_TMUX=1
+export FZF_PREVIEW_ENABLE_TMUX=1
 
 FZF_PREVIEW_DEFAULT_SETTING="--sync --height='80%' --preview-window='right:50%' --expect='ctrl-space' --header='C-Space: continue fzf completion'"
 FZF_PREVIEW_DEFAULT_BIND="ctrl-d:preview-page-down,ctrl-u:preview-page-up,?:toggle-preview"
@@ -317,7 +318,7 @@ bindkey "^X^E" edit-command-line
 # OS Settings
 if is_osx; then
   if exists pyenv; then
-    alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+    alias brew="env PATH=\${PATH//\$(pyenv root)\/shims:/} brew"
   fi
 else
   alias mozc_dic='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
@@ -399,11 +400,13 @@ stty stop undef
 stty start undef
 
 # opam configuration
-test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
+  . "$HOME/.opam/opam-init/init.zsh" 2>&1 /dev/null || true
+fi
 #}}}
 
 #{{{ HISTORY
-HISTORY_IGNORE="cd|pwd|l[sal]|cp|mv|rm"
+export HISTORY_IGNORE="cd|pwd|l[sal]|cp|mv|rm"
 
 zshaddhistory() {
   emulate -L zsh
@@ -478,20 +481,19 @@ autoload -Uz add-zsh-hook
 function tmux_ssh_preexec() {
   local command=$1
   if [[ "$command" = *ssh* ]]; then
-    tmux setenv TMUX_SSH_CMD_$(tmux display -p "#I") $command
+    tmux setenv TMUX_SSH_CMD_"$(tmux display -p "#I")" "${command}"
   fi
 }
 add-zsh-hook preexec tmux_ssh_preexec
 
 function precmd() {
-  if [ ! -z $TMUX ]; then
+  if [[ -n $TMUX ]]; then
     tmux refresh-client -S
   fi
 }
 
 function f() {
   local project dir repository session current_session out
-  local ghq_root=$(ghq root)
   local ghq_command="ghq list -p | sed -e \"s|$HOME|~|\""
   local fzf_options_="--expect=ctrl-space --preview='eval AQUA_CONFIG=$XDG_CONFIG_HOME/aqua/aqua.yaml bat --paging=never --style=plain --color=always {}/README.md 2>/dev/null'"
   local fzf_command="fzf-tmux ${fzf_options_}"
@@ -499,15 +501,15 @@ function f() {
   fzf_command+=" --bind='${FZF_PREVIEW_DEFAULT_BIND}'"
   local command="${ghq_command} | ${fzf_command}"
 
-  out=$(eval $command)
-  dir=$(tail -1 <<< $out)
-  project=$(echo $dir | sed -e "s|$ghq_root||")
+  out=$(eval "${command}")
+  dir=$(tail -1 <<< "${out}")
+  project=${dir/$(ghq root)//}
 
   if [[ $project == "" ]]; then
     return 1
   fi
 
-  if [[ ! -z ${TMUX} ]]; then
+  if [[ -n ${TMUX} ]]; then
     repository=${dir##*/}
     session=${repository//./-}
     current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
@@ -522,17 +524,17 @@ function f() {
 
     if [[ $current_session =~ ^[0-9]+$ ]]; then
       if ! $is_duplicate; then
-        eval builtin cd $dir
-        tmux rename-session -t $current_session $session
+        eval builtin cd "$dir"
+        tmux rename-session -t "$current_session" "$session"
       else
-        tmux switch-client -t $session
+        tmux switch-client -t "$session"
       fi
     else
       if ! $is_duplicate; then
         eval tmux new-session -d -c "${dir}" -s "${session}"
-        tmux switch-client -t $session
+        tmux switch-client -t "$session"
       else
-        tmux switch-client -t $session
+        tmux switch-client -t "$session"
       fi
     fi
   fi
@@ -559,18 +561,18 @@ function _right-pane() {
 zle -N right-pane _right-pane
 
 function _backspace-or-left-pane() {
-  if [[ $#BUFFER -gt 0 ]]; then
+  if [[ "${#BUFFER}" -gt 0 ]]; then
     zle backward-delete-char
-  elif [[ ! -z ${TMUX} ]]; then
+  elif [[ -n ${TMUX} ]]; then
     zle left-pane
   fi
 }
 zle -N backspace-or-left-pane _backspace-or-left-pane
 
 function _kill-line-or-up-pane() {
-  if [[ $#BUFFER -gt 0 ]]; then
+  if [[ "${#BUFFER}" -gt 0 ]]; then
     zle kill-line
-  elif [[ ! -z ${TMUX} ]]; then
+  elif [[ -n ${TMUX} ]]; then
     zle up-pane
   fi
 }
@@ -596,9 +598,9 @@ function vim-startuptime-detail() {
   local time_file
   time_file=$(mktemp --suffix "_vim_startuptime.txt")
   echo "output: $time_file"
-  time nvim --startuptime $time_file -c q
-  tail -n 1 $time_file | cut -d " " -f1 | tr -d "\n" && echo " [ms]\n"
-  cat $time_file | sort -n -k 2 | tail -n 20
+  time nvim --startuptime "$time_file" -c q
+  tail -n 1 "$time_file" | cut -d " " -f1 | tr -d "\n" && printf " [ms]\n"
+  sort -n -k 2 < "$time_file" | tail -n 20
 }
 function zsh-profiler() {
   ZSHRC_PROFILE=1 zsh -i -c zprof
@@ -623,7 +625,7 @@ if exists opam; then
     opam env > /tmp/opam.cache
     zcompile /tmp/opam.cache
   fi
-  source /tmp/opam.cache
+  . /tmp/opam.cache
 fi
 # }}}
 
