@@ -104,7 +104,7 @@ hook_add = '''
     nmap <buffer><silent><nowait> q <cmd>quit<CR>
     nmap <buffer><silent><nowait> Q <cmd>bwipe!<CR>
     setlocal nonu
-    setlocal signcolumn="no"
+    setlocal signcolumn=no
     setlocal nornu
   endfunction
   autocmd FileType fern call FernSettings()
