@@ -51,7 +51,6 @@ myStartupHook = do
         spawnOnce "nm-applet"
         spawnOnce "blueman-applet"
         spawnOnce "fcitx5"
-        spawnOnce "$HOME/.xmonad/pentablet"
         spawnOnce "gnome-keyring-daemon --start --components=secrets"
         spawnOnce "albert"
         spawn     "$HOME/.fehbg"
@@ -59,7 +58,6 @@ myStartupHook = do
         spawnOnce "light-locker --no-late-locking --lock-on-suspend"
         spawn     "easystroke"
         spawnOnce "xset s 0 dpms 0 0 0"
-        spawnOnce "playerctld daemon"
 
 myConfig = desktopConfig
     { borderWidth        = borderwidth

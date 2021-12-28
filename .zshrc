@@ -1,3 +1,14 @@
+# TMUX {{{
+if [[ -z "$TMUX" ]] && [[ "$USE_TMUX" == "true" ]] ;then
+    ID="$( tmux list-session | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+  if [[ -z "$ID" ]]; then # if not available create a new one
+    exec tmux new-session
+  else
+    exec tmux attach-session -t "$ID" # if available attach to it
+  fi
+fi
+# }}}
+
 # IMPORTS {{{
 [[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 # }}}
@@ -66,15 +77,6 @@ exists() {
   fi
 }
 
-
-if [[ -z "$TMUX" ]] && [[ "$USE_TMUX" == "true" ]] ;then
-    ID="$( tmux list-session | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-  if [[ -z "$ID" ]]; then # if not available create a new one
-    exec tmux new-session
-  else
-    exec tmux attach-session -t "$ID" # if available attach to it
-  fi
-fi
 # }}}
 
 # {{{ ASDF
