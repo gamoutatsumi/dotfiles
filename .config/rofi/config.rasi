@@ -1,0 +1,9 @@
+configuration {
+  modi: "combi";
+  combi-modi: "drun,system:~/.config/rofi/system.sh";
+  kb-cancel: "Escape";
+  icon-theme: "Flat-Remix-Blue-Dark";
+  show-icons: true;
+}
+
+@theme "~/.config/rofi/slate.rasi"

@@ -137,6 +137,7 @@ export POWERLEVEL9K_INSTALLATION_DIR="${HOME}/.zpm/plugins/romkatv---powerlevel1
 export ZENO_ROOT="${HOME}/.zpm/plugins/yuki-yano---zeno.zsh"
 export ZENO_ENABLE_SOCK=1
 export ZENO_ENABLE_FZF_TMUX=1
+exists bat && export ZENO_GIT_CAT="bat"
 
 if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
   git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"

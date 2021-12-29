@@ -52,7 +52,6 @@ myStartupHook = do
         spawnOnce "blueman-applet"
         spawnOnce "fcitx5"
         spawnOnce "gnome-keyring-daemon --start --components=secrets"
-        spawnOnce "albert"
         spawn     "$HOME/.fehbg"
         spawnOnce "picom"
         spawnOnce "light-locker --no-late-locking --lock-on-suspend"

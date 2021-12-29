@@ -20,6 +20,12 @@ snippets:
   - name: git commit fixup
     keyword: gcif
     snippet: git commit --fixup {{commit_id}}
+  - name: git commit amend
+    keyword: gcim
+    snippet: git commit --amend
+  - name: git commit amend noedit
+    keyword: gcimn
+    snippet: git commit --amend --no-edit
   - name: git empty commit
     keyword: gcie
     snippet: git commit --allow-empty -m 'Initial Commit'
@@ -169,15 +175,6 @@ completions:
       --multi: true
       --prompt: "'Kill Process> '"
     callback: "awk '{print $2}'"
-  - name: vim
-    patterns:
-      - "^v(i(m)?)? $"
-    sourceCommand: "rg --files --follow --glob '!.git'"
-    options:
-      --prompt: "'Open File> '"
-      --preview-window: "right:50%"
-      --preview: "bat --color=always --style=plain {} 2>/dev/null"
-    callback: "awk '{print $1}'"
   - name: ssh
     patterns:
       - "^ssh $"

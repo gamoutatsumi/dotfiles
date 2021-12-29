@@ -107,6 +107,7 @@ myAdditionalKeysP = [
        -- Take a screenshot (selected area)
        , ("M-<Print>", spawn "$HOME/.xmonad/maimFull")
        , ("C-<Print>", spawn "$HOME/.xmonad/maimSelect")
+       , ("M-<Space>", spawn "rofi -show combi")
        ]
 
        --`additionalKeys`
