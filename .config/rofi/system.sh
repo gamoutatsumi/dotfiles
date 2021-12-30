@@ -2,18 +2,30 @@
 
 set -euCo pipefail
 
-function main() {
-  # 表示したい項目と実際に実行するコマンドを連想配列として定義する。
-  local -Ar menu=(
-    ['Lock']='xdg-screensaver lock'
-    ['Poweroff']='systemctl poweroff'
-    ['Reboot']='systemctl reboot'
-  )
+declare -Ar menu=(
+  ['Lock']='xdg-screensaver lock'
+  ['Shutdown']='systemctl poweroff'
+  ['Reboot']='systemctl reboot'
+)
 
+function print_keys() {
   local -r IFS=$'\n'
-  # 引数があるなら$1に対応するコマンドを実行する。
-  # 引数がないなら連想配列のkeyを表示する。
-  [[ $# -ne 0 ]] && eval "${menu[$1]}" || echo "${!menu[*]}"
+  echo "${!menu[*]}"
+}
+
+function main() {
+  local -r yes='yes' no='no'
+
+  if [[ $# -eq 0 ]]; then
+    print_keys
+  elif [[ $# -eq 1 ]]; then
+    echo "$1" ${no}
+    echo "$1" ${yes}
+  elif [[ $2 == "${yes}" ]]; then
+    eval "${menu[$1]}"
+  elif [[ $2 == "${no}" ]]; then
+    print_keys
+  fi
 }
 
 main $@

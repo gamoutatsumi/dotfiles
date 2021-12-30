@@ -1,9 +1,12 @@
 configuration {
-  modi: "combi";
-  combi-modi: "drun,system:~/.config/rofi/system.sh";
+  modi: "drun,system:~/.config/rofi/system.sh";
   kb-cancel: "Escape";
+  kb-mode-previous: "Shift+Tab";
+  kb-mode-previous: "Tab";
+  kb-row-tab: "";
   icon-theme: "Flat-Remix-Blue-Dark";
   show-icons: true;
+  sidebar-mode: true;
 }
 
-@theme "~/.config/rofi/slate.rasi"
+@theme "Arc-Dark"

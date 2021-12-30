@@ -21,10 +21,10 @@ snippets:
     keyword: gcif
     snippet: git commit --fixup {{commit_id}}
   - name: git commit amend
-    keyword: gcim
+    keyword: gcia
     snippet: git commit --amend
   - name: git commit amend noedit
-    keyword: gcimn
+    keyword: gcian
     snippet: git commit --amend --no-edit
   - name: git empty commit
     keyword: gcie
