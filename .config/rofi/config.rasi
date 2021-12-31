@@ -2,7 +2,7 @@ configuration {
   modi: "drun,system:~/.config/rofi/system.sh";
   kb-cancel: "Escape";
   kb-mode-previous: "Shift+Tab";
-  kb-mode-previous: "Tab";
+  kb-mode-next: "Tab";
   kb-row-tab: "";
   icon-theme: "Flat-Remix-Blue-Dark";
   show-icons: true;
