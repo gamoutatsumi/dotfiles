@@ -11,7 +11,7 @@
 (require 'el-get)
 (setq el-get-dir (locate-user-emacs-file "elisp"))
 (el-get-bundle elpa:ddskk)
-(el-get-bundle elpa:undo-tree)
-(el-get-bundle evil)
-(evil-mode 1)
 (setq auto-sae-default nil)
+(cond (window-system
+(setq x-select-enable-clipboard t)
+))
