@@ -7,7 +7,9 @@ lua require('plugins.treesitter_setting')
 '''
 
 [[plugins]]
-repo = 'windwp/nvim-ts-autotag'
+# repo = 'windwp/nvim-ts-autotag'
+repo = 'gamoutatsumi/nvim-ts-autotag'
+rev = 'fix/get-win-cursor'
 depends = ['nvim-treesitter']
 
 [[plugins]]

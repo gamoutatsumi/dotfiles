@@ -34,17 +34,17 @@ repo = 'folke/which-key.nvim'
 lazy = 1
 on_cmd = ['WhichKey']
 
-[[plugins]]
-repo = 'kevinhwang91/nvim-hlslens'
-hook_add = '''
-noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>
-noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>
-noremap * *<Cmd>lua require('hlslens').start()<CR>
-noremap # #<Cmd>lua require('hlslens').start()<CR>
-noremap g* g*<Cmd>lua require('hlslens').start()<CR>
-noremap g# g#<Cmd>lua require('hlslens').start()<CR>
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-'''
+# [[plugins]]
+# repo = 'kevinhwang91/nvim-hlslens'
+# hook_add = '''
+# noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>
+# noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>
+# noremap * *<Cmd>lua require('hlslens').start()<CR>
+# noremap # #<Cmd>lua require('hlslens').start()<CR>
+# noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+# noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+# nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<CR>
+# '''
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
@@ -153,7 +153,7 @@ hook_post_source = '''
 lua require'hop'.setup()
 '''
 hook_add = '''
-nmap f <cmd>lua require'hop'.hint_words()<CR>
+nmap gff <cmd>lua require'hop'.hint_words()<CR>
 '''
 
 [[plugins]]
