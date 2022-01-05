@@ -106,3 +106,22 @@ on_cmd = ['FuzzyMotion']
 hook_add = '''
   nnoremap gfs <Cmd>FuzzyMotion<CR>
 '''
+
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+depends = ['denops.vim']
+on_func = ['ddu#*']
+hook_source = '''
+  call ddu#custom#patch_buffer('files', {
+    \ 'sources': [
+    \   { 'name': 'file', 'params': {} },
+    \ ]
+    \ })
+'''
+hook_add = '''
+  command DduFile call ddu#start({ 'sources': ['file_rec'] })
+  autocmd FileType ddu-std call s:ddu_my_settings()
+  function! s:ddu_my_settings() abort
+    nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#std#do_action('default')<CR>
+  endfunction
+'''
