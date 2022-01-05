@@ -4,32 +4,6 @@ lazy = 1
 on_lua = ['registers']
 
 [[plugins]]
-repo = 'nathom/filetype.nvim'
-hook_add = '''
-lua << EOF
-  require('filetype').setup{
-    overrides = {
-      extensions = {
-        tf = "terraform",
-        service = "systemd",
-      },
-      literal = {
-        ['.textlintrc'] = 'json',
-        ['tsconfig.json'] = 'jsonc',
-        ['.swcrc'] = 'json',
-      },
-      complex = {
-        ['.swcrc*'] = 'json',
-      },
-      shebang = {
-        bash = 'sh',
-      }
-    },
-  }
-EOF
-'''
-
-[[plugins]]
 repo = 'folke/which-key.nvim'
 lazy = 1
 on_cmd = ['WhichKey']
@@ -107,7 +81,7 @@ lua << EOF
       lualine_c = {},
       lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
       lualine_y = {{ 'location', separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
-      lualine_z = {{ 'diagnostics', sources = {'nvim'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
+      lualine_z = {{ 'diagnostics', sources = {'nvim_diagnostic'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
     },
     extensions = {'fern'}
   }
