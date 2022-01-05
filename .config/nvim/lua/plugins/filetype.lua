@@ -3,16 +3,13 @@ vim.filetype.add({
     tf = "terraform",
     service = "systemd",
   },
-  literal = {
+  filename = {
     ['.textlintrc'] = 'json',
     ['tsconfig.json'] = 'jsonc',
     ['.swcrc'] = 'json',
   },
-  complex = {
+  pattern = {
     ['.swcrc*'] = 'json',
   },
-  shebang = {
-    bash = 'sh',
-  }
 })
 
