@@ -127,7 +127,7 @@ hook_post_source = '''
 lua require'hop'.setup()
 '''
 hook_add = '''
-nmap gff <cmd>lua require'hop'.hint_words()<CR>
+lua vim.keymap.set('n', 'gff', require'hop'.hint_words)
 '''
 
 [[plugins]]
