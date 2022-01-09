@@ -24,3 +24,7 @@ hook_source = '''
   \ },
   \ })
 '''
+
+[[plugins]]
+repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
+on_lua = ['nvim-lsp-ts-utils']
