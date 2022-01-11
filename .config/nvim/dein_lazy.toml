@@ -224,9 +224,6 @@ on_cmd = ['Template']
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
 on_func = ['glyph_palette#apply']
-hook_add = '''
-  autocmd FileType fern call glyph_palette#apply()
-'''
 
 [[plugins]]
 repo = 'mbbill/undotree'
