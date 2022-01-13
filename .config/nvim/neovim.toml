@@ -168,7 +168,7 @@ on_ft = ['python']
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
 on_lua = ['tmux']
-hook_source = '''
+hook_add = '''
 lua << EOF
   require('tmux').setup({
     navigation = {
