@@ -26,9 +26,10 @@ font-1 = "HackGenNerd:pixelsize=22;4"
 font-2 = "HackGenNerd:pixelsize=13;2"
 font-3 = "HackGenNerd:pixelsize=12;4"
 cursor-click = pointer
-tray-position = right
+tray-position = ${env:TRAY_POSITION:}
+monitor = ${env:MONITOR:}
 
-modules-left = workspaces playerctl
+modules-left = workspaces
 modules-right = cpu memory enp0s25 wlp3s0 eth0 backlight pulseaudio battery date
 
 [module/pulseaudio]

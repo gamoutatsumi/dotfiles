@@ -12,7 +12,7 @@ set guicursor+=a:blinkon0
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,euc-jp
-set undodir=$XDG_DATA_HOME.."/nvim/backup"
+set undodir=$XDG_DATA_HOME/nvim/undo
 set termguicolors
 set foldlevelstart=99
 set hidden
