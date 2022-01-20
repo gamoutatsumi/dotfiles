@@ -146,15 +146,19 @@ repo = 'kwkarlwang/bufresize.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-on_cmd = ['Telescope']
+on_lua = ['telescope']
 depends = ['plenary.nvim']
 lazy = 1
 hook_add = '''
-  nnoremap ;f <Cmd>Telescope find_files<CR>
-  nnoremap ;h <Cmd>Telescope help_tags<CR>
-  nnoremap ;g <Cmd>Telescope grep_string<CR>
-  nnoremap ;d <Cmd>Telescope diagnostics<CR>
-  nnoremap ;b <Cmd>Telescope buffers<CR>
+lua << EOF
+  local builtin = require("telescope.builtin")
+  local opts = { noremap = true, silent = true }
+  vim.keymap.set("n", ";f", builtin.find_files, opts)
+  vim.keymap.set("n", ";h", builtin.help_tags, opts)
+  vim.keymap.set("n", ";g", builtin.grep_string, opts)
+  vim.keymap.set("n", ";d", builtin.diagnostics, opts)
+  vim.keymap.set("n", ";b", builtin.buffers, opts)
+EOF
 '''
 
 [[plugins]]
