@@ -16,7 +16,7 @@ packages:
   - name: ogham/dog@v0.1.0
   - name: Songmu/gocredits@v0.2.0
   - name: git-lfs/git-lfs@v3.0.2
-  - name: harelba/q@v3.1.6
+  - name: harelba/q@v3.1.7
   - name: hashicorp/terraform@v1.1.3
   - name: docker-slim/docker-slim@1.37.3
   - name: okteto/okteto@1.14.10
