@@ -112,6 +112,6 @@ if (vim.fn.executable("satysfi-language-server")) then
   require'lspconfig'['satysfi-ls'].setup{
     on_attach = on_attach,
     autostart = true,
-    capabilties = capab
+    capabilties = capabilities
   }
 end
