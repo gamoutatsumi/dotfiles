@@ -65,7 +65,7 @@ on_path = '*.go.y'
 
 [[plugins]]
 repo = 'qnighy/satysfi.vim'
-on_path = '*.saty?h'
+on_ft = ['satysfi']
 
 [[plugins]]
 repo = 'jceb/vim-orgmode'

@@ -107,3 +107,17 @@ if (vim.fn.executable("haskell-language-server-wrapper")) then
     capabilities = capabilities
   }
 end
+
+if (vim.fn.executable("satysfi-language-server")) then
+  local opts = {}
+  opts.on_attach = on_attach
+  opts.capabilities = capabilities
+  opts.autostart = true
+  opts.cmd = "satysfi-language-server"
+  opts.filetypes = { "satysfi" }
+  opts.root_dir = util.root_pattern(".git")
+  opts.single_file_support = true
+  opts.settings = {
+    ["satysfi-language-server"] = {}
+  }
+end

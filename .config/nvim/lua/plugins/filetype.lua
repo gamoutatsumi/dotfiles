@@ -2,6 +2,8 @@ vim.filetype.add({
   extension = {
     tf = "terraform",
     service = "systemd",
+    saty = "satysfi",
+    satyh = "satysfi",
   },
   filename = {
     ['.textlintrc'] = 'json',
