@@ -36,9 +36,6 @@ hook_source = '''
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word'}
   \ })
-  call ddc#custom#patch_filetype(['satysfi'], {
-  \   'keywordPattern': '[a-zA-Z_\+]\w*'
-  \ })
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
   \ 'around': {
