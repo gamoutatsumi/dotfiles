@@ -18,7 +18,7 @@ hook_source = '''
   call ddc#custom#patch_global('sourceOptions', {
   \ 'nvim-lsp': {
   \   'mark': 'lsp',
-  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*',
+  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*',
   \   'ignoreCase': v:true,
   \   'isVolatile': v:true
   \ },
