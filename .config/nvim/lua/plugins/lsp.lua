@@ -100,7 +100,7 @@ if (vim.fn.executable("deno")) then
   }
 end
 
-if (vim.fn.executable("haskell-language-server-wrapper")) then
+if vim.fn.executable("haskell-language-server-wrapper") then
   require'lspconfig'.hls.setup{
     on_attach = on_attach,
     autostart = true,
@@ -108,7 +108,7 @@ if (vim.fn.executable("haskell-language-server-wrapper")) then
   }
 end
 
-if (vim.fn.executable("satysfi-language-server")) then
+if vim.fn.executable("satysfi-language-server") then
   require'lspconfig'['satysfi-ls'].setup{
     on_attach = on_attach,
     autostart = true,

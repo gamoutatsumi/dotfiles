@@ -4,15 +4,57 @@ on_source = 'denops.vim'
 hook_source = '''
   call ddu#custom#patch_global({
   \ 'ui': 'std',
+  \ 'sourceOptions': {
+  \   '_': {
+  \     'ignoreCase': v:true,
+  \     'matchers': ['matcher_fzf'],
+  \   },
+  \ },
+  \ 'uiParams': {
+  \   'std': {
+  \    }
+  \ },
   \ })
 '''
 
-[plugins.ftplugin]
-ddu-std = '''
-  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#std#do_map('doAction', {'name': 'default'})<CR>
-'''
+[[plugins]]
+repo = 'Shougo/ddu-ui-std'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'yuki-yano/ddu-filter-fzf'
+on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-commands.vim'
 depends = 'ddu.vim'
 on_cmd = 'Ddu'
+
+[plugins.ftplugin]
+ddu-std = '''
+  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#std#do_map('doAction', {'name': 'default'})<CR>
+  nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#std#do_map('toggleSelectItem')<CR>
+  nnoremap <buffer><silent> i <Cmd>call ddu#ui#std#do_map('openFilterWindow')<CR>
+  nnoremap <buffer><silent> q <Cmd>call ddu#ui#std#do_map('quit')<CR>
+'''
+ddu-std-filter = '''
+  inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
+  nnoremap <buffer><silent> <CR> <Cmd>close<CR>
+'''
+
