@@ -3,6 +3,9 @@ root-markers:
   - .git/
 
 tools:
+  prettier: &prettier
+    format-command: 'npx --no-install prettier --stdin-filepath ${INPUT}'
+    format-stdin: true
   vint-lint: &vint-lint
     prefix: vint
     lint-command: 'vint --enable-neovim --style-problem --stdin-display-name ${INPUT} -'
@@ -96,9 +99,13 @@ languages:
     - <<: *shfmt-format
   go:
     - <<: *golint-lint
-  # javascript:
-  #   - <<: *eslint-lint
-  # typescript:
-  #   - <<: *eslint-lint
+  javascript:
+    - <<: *prettier
+  typescript:
+    - <<: *prettier
+  typescriptreact:
+    - <<: *prettier
+  javascriptreact:
+    - <<: *prettier
   vim:
     - <<: *vint-lint
