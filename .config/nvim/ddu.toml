@@ -58,3 +58,6 @@ ddu-std-filter = '''
   nnoremap <buffer><silent> <CR> <Cmd>close<CR>
 '''
 
+[[plugins]]
+repo = 'gamoutatsumi/ddu-source-nvim-lsp'
+on_source = 'ddu.vim'

@@ -84,6 +84,16 @@ lsp_installer.on_server_ready(function(server)
     opts.init_options = {
       provideFormatter = true,
     }
+  elseif server.name == 'sumneko_lua' then
+    opts.settings = {
+      Lua = {
+        runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
+        diagnostics = {
+          enable = true,
+          globals = {'vim'},
+        },
+      },
+    }
   end
   server:setup(opts)
 end)
