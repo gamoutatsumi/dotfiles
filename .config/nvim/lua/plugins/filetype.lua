@@ -4,6 +4,8 @@ vim.filetype.add({
     service = "systemd",
     saty = "satysfi",
     satyh = "satysfi",
+    ts = "typescript",
+    txt = "text",
   },
   filename = {
     ['.textlintrc'] = 'json',
