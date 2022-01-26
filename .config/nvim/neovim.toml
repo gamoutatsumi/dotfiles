@@ -181,3 +181,12 @@ lua << EOF
   })
 EOF
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+on_lua = ['fidget']
+hook_add = '''
+lua << EOF
+  require('fidget').setup()
+EOF
+'''
