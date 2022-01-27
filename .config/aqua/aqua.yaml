@@ -24,7 +24,7 @@ packages:
   - name: terraform-linters/tflint@v0.34.1
   - name: ahmetb/kubectx@v0.9.4
   - name: ahmetb/kubens@v0.9.4
-  - name: hashicorp/vault@v1.9.2
+  - name: hashicorp/vault@v1.9.3
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/jsonnet@v0.17.0
   - name: google/ko@v0.9.3
