@@ -24,17 +24,27 @@ on_cmd = ['WhichKey']
 repo = 'lewis6991/gitsigns.nvim'
 hook_post_source = '''
 lua << EOF
-  require('gitsigns').setup{
-    current_line_blame = true,
-    current_line_blame_opts = {
-      virt_text = true,
-      virt_text_pos = 'eol',
-      delay = 1000
-    },
-    current_line_blame_formatter_opts = {
-      relative_time = false
-    }
-  }
+require('gitsigns').setup{
+  current_line_blame = true,
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol',
+    delay = 1000
+  },
+  current_line_blame_formatter_opts = {
+    relative_time = false
+  },
+  on_attach = function(bufnr)
+    local gs = require("gitsigns")
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+      map('n', ']c', "&diff ? ']c' : '<Cmd>Gitsigns next_hunk<CR>'", {expr = true})
+      map('n', '[c', "&diff ? '[c' : '<Cmd>Gitsigns prev_hunk<CR>'", {expr = true})
+  end
+}
 EOF
 '''
 
@@ -151,13 +161,13 @@ depends = ['plenary.nvim']
 lazy = 1
 hook_add = '''
 lua << EOF
-  local builtin = require("telescope.builtin")
-  local opts = { noremap = true, silent = true }
-  vim.keymap.set("n", ";f", builtin.find_files, opts)
-  vim.keymap.set("n", ";h", builtin.help_tags, opts)
-  vim.keymap.set("n", ";g", builtin.grep_string, opts)
-  vim.keymap.set("n", ";d", builtin.diagnostics, opts)
-  vim.keymap.set("n", ";b", builtin.buffers, opts)
+  -- local builtin = require("telescope.builtin")
+  -- local opts = { noremap = true, silent = true }
+  -- vim.keymap.set("n", ";f", builtin.find_files, opts)
+  -- vim.keymap.set("n", ";h", builtin.help_tags, opts)
+  -- vim.keymap.set("n", ";g", builtin.grep_string, opts)
+  -- vim.keymap.set("n", ";d", builtin.diagnostics, opts)
+  -- vim.keymap.set("n", ";b", builtin.buffers, opts)
 EOF
 '''
 

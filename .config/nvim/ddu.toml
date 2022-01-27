@@ -61,22 +61,38 @@ ddu-std-filter = '''
 [[plugins]]
 repo = 'gamoutatsumi/ddu-source-nvim-lsp'
 on_source = 'ddu.vim'
+hook_add = '''
+  nnoremap <silent> ;d <Cmd>Ddu nvim_lsp_diagnostic_all<CR>
+'''
 
 [[plugins]]
 repo = 'shun/ddu-source-buffer'
 on_source = 'ddu.vim'
+hook_add = '''
+  nnoremap <silent> ;b <Cmd>Ddu buffer<CR>
+'''
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
 on_source = 'ddu.vim'
+hook_add = '''
+  nnoremap <silent> ;g <Cmd>Ddu rg<CR>
+'''
 
 [[plugins]]
 repo = 'kuuote/ddu-source-mr'
 on_source = 'ddu.vim'
+hook_add = '''
+  nnoremap <silent> ;mu <Cmd>Ddu mr --kind=mru<CR>
+  nnoremap <silent> ;mw <Cmd>Ddu mr --kind=mrw<CR>
+'''
 
 [[plugins]]
 repo = 'matsui54/ddu-source-file_external'
 on_source = 'ddu.vim'
+hook_add = '''
+  nnoremap <silent> ;f <Cmd>Ddu file_external<CR>
+'''
 hook_source = '''
   call ddu#custom#patch_global('sourceParams', {
   \ 'file_external': {'cmd': ['fd', '.', '-H', '-E', '__pycache__', '-t', 'f']},
