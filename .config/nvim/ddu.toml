@@ -63,5 +63,22 @@ repo = 'gamoutatsumi/ddu-source-nvim-lsp'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'gamoutatsumi/ddu-source-buffer'
+repo = 'shun/ddu-source-buffer'
 on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-rg'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'kuuote/ddu-source-mr'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-file_external'
+on_source = 'ddu.vim'
+hook_source = '''
+  call ddu#custom#patch_global('sourceParams', {
+  \ 'file_external': {'cmd': ['fd', '.', '-H', '-E', '__pycache__', '-t', 'f']},
+  \ })
+'''
