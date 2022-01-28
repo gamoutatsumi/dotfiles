@@ -181,6 +181,7 @@ on_ft = ['python']
 
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
+lazy = 1
 on_lua = ['tmux']
 hook_add = '''
 lua << EOF
@@ -194,9 +195,13 @@ EOF
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
+lazy = 1
 on_lua = ['fidget']
 hook_add = '''
 lua << EOF
   require('fidget').setup()
 EOF
 '''
+
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'

@@ -14,15 +14,7 @@ repo = 'Shougo/ddc-nvim-lsp'
 depends = ['nvim-lspconfig']
 on_source = 'ddc.vim'
 hook_source = '''
-  call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'vsnip', 'emoji', 'around'])
-  call ddc#custom#patch_global('sourceOptions', {
-  \ 'nvim-lsp': {
-  \   'mark': 'lsp',
-  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*',
-  \   'ignoreCase': v:true,
-  \   'isVolatile': v:true
-  \ },
-  \ })
+  call ddc#custom#alias('source', 'lsp', 'nvim-lsp')
 '''
 
 [[plugins]]

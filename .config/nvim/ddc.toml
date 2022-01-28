@@ -11,11 +11,13 @@ hook_source = '''
 
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
+on_source = 'denops.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
+on_source = 'denops.vim'
 on_event = 'InsertEnter'
-depends = ['denops.vim', 'pum.vim', 'denops-popup-preview.vim', 'vim-vsnip-integ']
+depends = ['denops-popup-preview.vim']
 hook_source = '''
   " pum.vim
   imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
@@ -32,18 +34,28 @@ hook_source = '''
   call ddc#custom#patch_global('completionMenu', 'pum.vim')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-  call ddc#custom#patch_global('sources', ['file', 'vsnip', 'emoji', 'around'])
+  call ddc#custom#patch_global('sources', ['lsp', 'file', 'tsnip', 'vsnip', 'emoji', 'around'])
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word'}
   \ })
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
+  \ 'lsp': {
+  \   'mark': 'lsp',
+  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*',
+  \   'ignoreCase': v:true,
+  \   'isVolatile': v:true
+  \ },
   \ 'around': {
   \   'mark': 'A',
   \   'isVolatile': v:true,
   \ },
   \ 'vsnip': {
   \   'mark': 'VS',
+  \   'dup': v:true,
+  \ },
+  \ 'tsnip' : {
+  \   'mark': 'TS',
   \   'dup': v:true,
   \ },
   \ 'file': {
@@ -122,7 +134,7 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-on_source = ['ddc.vim']
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'gamoutatsumi/ddc-emoji'
@@ -137,7 +149,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-on_souce = ['ddc.vim']
+on_event = ['InsertEnter']
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
@@ -151,4 +163,12 @@ hook_source = '''
   \   'isVolatile': v:true,
   \ },
   \ })
+'''
+
+[[plugins]]
+repo = 'yuki-yano/tsnip.nvim'
+if = "has('nvim')"
+on_source = ['denops.vim']
+hook_add = '''
+  let g:tsnip_snippet_dir = $HOME .. '/.config/nvim/tsnip'
 '''
