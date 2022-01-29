@@ -1,6 +1,6 @@
 import { Snippet } from "https://deno.land/x/tsnip_vim@v0.2/mod.ts";
 
-export const plugins: Snippet = {
+const plugins: Snippet = {
   name: "plugins",
   text: "[[plugins]]\nrepo = '${1:repo}'",
   params: [
@@ -11,3 +11,7 @@ export const plugins: Snippet = {
   ],
   render: ({ repo }) => `[[plugins]]\nrepo='${repo?.text ?? ""}'`,
 };
+
+export default {
+  plugins
+}
