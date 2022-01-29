@@ -34,3 +34,4 @@ set winblend=15
 set noshowmode
 set grepprg="rg --vimgrep --smart-case --follow "
 set noincsearch
+set updatetime=100
