@@ -12,6 +12,7 @@ hook_source = '''
   \ },
   \ 'uiParams': {
   \   'std': {
+  \      'startFilter': v:true,
   \    }
   \ },
   \ })

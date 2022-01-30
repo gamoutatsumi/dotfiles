@@ -99,9 +99,6 @@ EOF
 '''
 
 [[plugins]]
-repo = 'antoinemadec/FixCursorHold.nvim'
-
-[[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
 hook_post_source = '''
 lua << EOF
