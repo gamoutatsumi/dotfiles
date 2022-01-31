@@ -314,7 +314,8 @@ bindkey '^[t' tms
 
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey "^X^E" edit-command-line
+bindkey "^xe" edit-command-line
+bindkey "^x^e" edit-command-line
 # }}}
 
 # ALIAS {{{
