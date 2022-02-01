@@ -12,15 +12,14 @@ hook_source = '''
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
 on_source = 'denops.vim'
-hook_source = '''
+hook_post_source = '''
   call popup_preview#enable()
 '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 on_source = 'denops.vim'
-on_event = 'InsertEnter'
-hook_source = '''
+hook_post_source = '''
   " pum.vim
   imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
   imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1)<CR>'
@@ -150,13 +149,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-on_event = ['InsertEnter']
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
 depends = 'ddc.vim'
 on_ft = ['sql', 'mysql', 'plsql']
-hook_source = '''
+hook_post_source = '''
   call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', 'dadbod-completion')
   call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sourceOptions', {
   \ 'dadbod-completion': {

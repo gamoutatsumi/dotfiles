@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 on_source = 'denops.vim'
-hook_source = '''
+hook_post_source = '''
   call ddu#custom#patch_global({
   \ 'ui': 'std',
   \ 'sourceOptions': {
@@ -76,9 +76,10 @@ hook_add = '''
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
-on_source = 'ddu.vim'
+depends = 'ddu.vim'
+on_cmd = 'DduRg'
 hook_add = '''
-  nnoremap <silent> ;g <Cmd>Ddu rg<CR>
+  nnoremap <silent> ;g <Cmd>DduRg<CR>
 '''
 
 [[plugins]]
@@ -95,7 +96,7 @@ on_source = 'ddu.vim'
 hook_add = '''
   nnoremap <silent> ;f <Cmd>Ddu file_external<CR>
 '''
-hook_source = '''
+hook_post_source = '''
   call ddu#custom#patch_global('sourceParams', {
   \ 'file_external': {'cmd': ['fd', '.', '-H', '-E', '__pycache__', '-E', '.git', '-t', 'f']},
   \ })
