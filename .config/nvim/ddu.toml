@@ -15,6 +15,11 @@ hook_post_source = '''
   \      'startFilter': v:true,
   \    }
   \ },
+  \ 'kindOptions': {
+  \   'file': {
+  \     'defaultAction': 'open',
+  \   },
+  \ },
   \ })
 '''
 
