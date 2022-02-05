@@ -12,6 +12,7 @@ let s:denops_toml = s:rc_dir .. '/denops.toml'
 let s:vim_lsp_toml = s:rc_dir .. '/vim_lsp.toml'
 let s:nvim_lsp_toml = s:rc_dir .. '/nvim_lsp.toml'
 let s:nvim_toml = s:rc_dir .. '/neovim.toml'
+let s:vim_toml = s:rc_dir .. '/vim.toml'
 let s:ts_toml = s:rc_dir .. '/treesitter.toml'
 let s:ddu_toml = s:rc_dir .. '/ddu.toml'
 let s:telescope_toml = s:rc_dir .. '/telescope.toml'
@@ -28,7 +29,11 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:ddc_toml, { 'lazy': 1 })
   call dein#load_toml(s:denops_toml, { 'lazy': 1 })
   call dein#load_toml(s:ts_toml, { 'lazy': 0 })
-  call dein#load_toml(s:nvim_toml, { 'lazy': 0 })
+  if has('nvim') 
+    call dein#load_toml(s:nvim_toml, { 'lazy': 0 }) 
+  else
+    call dein#load_toml(s:vim_toml, { 'lazy': 0 })
+  endif
   call dein#load_toml(s:nvim_lsp_toml, { 'lazy': 1 })
   call dein#load_toml(s:ddu_toml, { 'lazy': 1 })
   " call dein#load_toml(s:telescope_toml, { 'lazy': 1 })

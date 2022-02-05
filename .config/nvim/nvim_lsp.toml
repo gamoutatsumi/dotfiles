@@ -20,3 +20,36 @@ hook_source = '''
 [[plugins]]
 repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
 on_lua = ['nvim-lsp-ts-utils']
+
+[[plugins]]
+repo='ray-x/go.nvim'
+on_ft = ['go']
+depends = ['nvim-lsp-installer']
+hook_source = '''
+lua << EOF
+  local path = require("nvim-lsp-installer.path")
+  local install_root_dir = path.concat {vim.fn.stdpath 'data', lsp_servers'}
+  require('go').setup({
+    gopls_cmd = {install_root_dir .. '/go/gopls'},
+    filstruct = 'gopls',
+    dap_debug = true,
+    dap_debug_gui = true,
+  })
+EOF
+'''
+
+[[plugins]]
+repo='jose-elias-alvarez/null-ls.nvim'
+on_lua = ['null-ls']
+hook_add = '''
+lua << EOF
+  local null_ls = require("null-ls")
+  null_ls.setup {
+    sources = {
+      null_ls.builtins.formatting.prettier.with({
+        only_local = "node_modules/.bin",
+      }),
+    },
+  }
+EOF
+'''

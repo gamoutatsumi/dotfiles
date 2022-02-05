@@ -1,0 +1,4 @@
+[[plugins]]
+repo = 'fatih/vim-go'
+lazy = 1
+on_ft = ['go']
