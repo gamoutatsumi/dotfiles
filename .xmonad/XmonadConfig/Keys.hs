@@ -108,6 +108,7 @@ myAdditionalKeysP = [
        , ("M-<Print>", spawn "$HOME/.xmonad/maimFull")
        , ("C-<Print>", spawn "$HOME/.xmonad/maimSelect")
        , ("M-<Space>", spawn "rofi -show")
+       , ("M-m", spawn "$HOME/.xmonad/mono.sh")
        ]
 
        --`additionalKeys`

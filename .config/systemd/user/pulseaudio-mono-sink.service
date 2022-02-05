@@ -1,0 +1,11 @@
+[Unit]
+Description=Load Pulseaudio mono sink
+After=pulseaudio-switch-sink.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "${HOME}/.xmonad/mono.sh"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

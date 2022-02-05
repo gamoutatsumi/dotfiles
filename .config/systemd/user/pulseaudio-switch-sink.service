@@ -1,0 +1,11 @@
+[Unit]
+Description=Load Pulseaudio mono sink
+After=pipewire-pulse.service
+
+[Service]
+Type=oneshot
+ExecStart=pactl load-module module-switch-on-connect
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
