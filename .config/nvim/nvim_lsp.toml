@@ -53,3 +53,12 @@ lua << EOF
   }
 EOF
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+on_source = ['nvim-lspconfig']
+hook_post_source = '''
+lua << EOF
+  require('fidget').setup()
+EOF
+'''

@@ -3,7 +3,7 @@ repo = 'Shougo/ddu.vim'
 on_source = 'denops.vim'
 hook_post_source = '''
   call ddu#custom#patch_global({
-  \ 'ui': 'std',
+  \ 'ui': 'ff',
   \ 'sourceOptions': {
   \   '_': {
   \     'ignoreCase': v:true,
@@ -11,7 +11,7 @@ hook_post_source = '''
   \   },
   \ },
   \ 'uiParams': {
-  \   'std': {
+  \   'ff': {
   \      'startFilter': v:true,
   \    }
   \ },
@@ -24,7 +24,7 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/ddu-ui-std'
+repo = 'Shougo/ddu-ui-ff'
 on_source = 'ddu.vim'
 
 [[plugins]]
@@ -53,14 +53,14 @@ depends = 'ddu.vim'
 on_cmd = 'Ddu'
 
 [plugins.ftplugin]
-ddu-std = '''
-  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#std#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#std#do_action('toggleSelectItem')<CR>
-  nnoremap <buffer><silent> i <Cmd>call ddu#ui#std#do_action('openFilterWindow')<CR>
-  nnoremap <buffer><silent> q <Cmd>call ddu#ui#std#do_action('quit')<CR>
+ddu-ff = '''
+  nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer><silent> i <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> q <Cmd>call ddu#ui#ff#do_action('quit')<CR>
   setlocal cursorline
 '''
-ddu-std-filter = '''
+ddu-ff-filter = '''
   inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
   nnoremap <buffer><silent> <CR> <Cmd>close<CR>
 '''

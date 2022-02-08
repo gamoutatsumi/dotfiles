@@ -29,7 +29,6 @@ hook_post_source = '''
   smap <silent><expr> <S-TAB> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-TAB>'
   inoremap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : lexima#expand('<LT>CR>', 'i')
   imap <silent><expr> <Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Plug>(lexima-escape)'
-  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
   " ddc.vim
   call ddc#custom#patch_global('completionMenu', 'pum.vim')
@@ -150,6 +149,9 @@ hook_add = '''
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
 on_source = ['ddc.vim']
+hook_source = '''
+  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
+'''
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'

@@ -22,7 +22,9 @@ on_cmd = ['WhichKey']
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-hook_post_source = '''
+on_lua = ['gitsigns']
+lazy = 1
+hook_add = '''
 lua << EOF
 require('gitsigns').setup{
   current_line_blame = true,
@@ -50,7 +52,9 @@ EOF
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hook_post_source = '''
+on_lua = ['lualine']
+lazy = 1
+hook_add = '''
 lua << EOF
   local function skkstatus()
     local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
@@ -100,7 +104,9 @@ EOF
 
 [[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
-hook_post_source = '''
+on_lua = ['colorizer']
+lazy = 1
+hook_add = '''
 lua << EOF
   require'colorizer'.setup {
     '*';    
@@ -152,9 +158,6 @@ EOF
 repo = 'kwkarlwang/bufresize.nvim'
 
 [[plugins]]
-repo = 'L3MON4D3/LuaSnip'
-
-[[plugins]]
 repo = 'HallerPatrick/py_lsp.nvim'
 lazy = 1
 on_ft = ['python']
@@ -170,16 +173,6 @@ lua << EOF
       enable_default_keybindings = true,
     },
   })
-EOF
-'''
-
-[[plugins]]
-repo = 'j-hui/fidget.nvim'
-lazy = 1
-on_lua = ['fidget']
-hook_add = '''
-lua << EOF
-  require('fidget').setup()
 EOF
 '''
 
