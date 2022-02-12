@@ -49,12 +49,6 @@ repo = 'itchyny/vim-parenmatch'
 repo = 'lambdalisue/nerdfont.vim'
 
 [[plugins]]
-repo = 'lambdalisue/suda.vim'
-hook_add = '''
-  let g:suda_smart_edit=1
-'''
-
-[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
   set helplang=ja,en

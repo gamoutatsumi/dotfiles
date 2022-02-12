@@ -1,5 +1,4 @@
 local util = require('lspconfig/util')
-local configs = require('lspconfig/configs')
 local lsp_installer = require('nvim-lsp-installer')
 local schema_catalog = require('plugins/schema-catalog')
 local schemas = schema_catalog.schemas
@@ -12,7 +11,7 @@ local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -85,6 +84,13 @@ lsp_installer.on_server_ready(function(server)
       provideFormatter = true,
     }
   elseif server.name == 'sumneko_lua' then
+    opts.on_attach = function (client, bufnr)
+      client.resolved_capabilities.document_formatting = true
+      on_attach(client, bufnr)
+    end
+    opts.init_options = {
+        provideFormatter = true,
+    }
     opts.settings = {
       Lua = {
         runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },

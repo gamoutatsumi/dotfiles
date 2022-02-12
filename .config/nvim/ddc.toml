@@ -1,25 +1,15 @@
 [[plugins]]
-repo = 'cohama/lexima.vim'
-rev = 'dev'
-on_event = 'VimEnter'
-hook_source = '''
-  " lexima.vim
-  let g:lexima_map_escape = '<Plug>(lexima-escape)'
-  let g:lexima_no_default_rules = v:true
-  call lexima#set_default_rules()
-'''
-
-[[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
-on_source = 'denops.vim'
-hook_post_source = '''
+on_source = 'ddc.vim'
+hook_source = '''
   call popup_preview#enable()
 '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-on_source = 'denops.vim'
-hook_post_source = '''
+depends = ['denops.vim', 'lexima.vim']
+on_event = ['InsertEnter']
+hook_source = '''
   " pum.vim
   imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
   imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1)<CR>'
@@ -74,37 +64,6 @@ hook_post_source = '''
   \ },
   \ })
   call ddc#enable()
-'''
-hook_add = '''
-  function! CommandlinePre() abort
-    let s:prev_buffer_config = ddc#custom#get_buffer()
-
-    call ddc#custom#patch_buffer('sources', ['necovim', 'cmdline-history'])
-    call ddc#custom#patch_buffer('autoCompleteEvents', ['CmdlineChanged'])
-    call ddc#custom#patch_buffer('sourceOptions', {
-    \ '_': {'matchers': ['matcher_head'], 'sorters': ['sorter_ascii']},
-    \ 'necovim': {'mark': 'V', 'minAutoCompleteLength': 255, 'ignoreCase': v:true},
-    \ 'cmdline-history': {'mark': 'history', 'minAutoCompleteLength': 255},
-    \ })
-
-    call ddc#enable_cmdline_completion()
-
-    cmap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : ddc#map#manual_complete(['necovim', 'cmdline-history'])
-    cmap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-1)<CR>' : '<C-h>'
-    cmap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
-
-    autocmd CmdlineLeave * ++once call CommandlinePost()
-  endfunction
-
-  function! CommandlinePost() abort
-    cunmap <TAB>
-    cunmap <S-TAB>
-    cunmap <CR>
-    call ddc#custom#set_buffer(s:prev_buffer_config)
-  endfunction
-
-  "nnoremap : <Cmd>call CommandlinePre()<CR>:
-  "nnoremap ; <Cmd>call CommandlinePre()<CR>:
 '''
 
 [[plugins]]
