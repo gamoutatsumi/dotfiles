@@ -128,6 +128,8 @@ export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>'
 if is_wsl; then
   export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}';)
 fi
+
+export PURE_GIT_PULL=0
 # }}}
 
 # {{{ PLUGINS
@@ -153,6 +155,8 @@ else
 fi
 zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
 zpm load romkatv/powerlevel10k,apply:source
+# zpm load mafredri/zsh-async,apply:source,source:/async.zsh
+# zpm load sindresorhus/pure,apply:source:fpath,source:/pure.zsh
 zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
 zpm load chrissicool/zsh-256color,apply:source
 zpm load yuki-yano/tmk,apply:source
@@ -446,6 +450,9 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 # マッチ種別を別々に表示
 zstyle ':completion:*' group-name ''
+
+zstyle ':prompt:pure:prompt:success' color green
+zstyle ':prompt:pure:git:branch' color green
 
 # Disalbe Right Prompt
 RPROMPT=""
