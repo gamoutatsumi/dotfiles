@@ -64,6 +64,9 @@ shell:
   args: 
     - --login  
 
+mouse_bindings:
+  - { mouse: Middle, action: none }
+
 key_bindings:
   - { key: F11, action: ToggleFullscreen }
   # meta

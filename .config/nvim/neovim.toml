@@ -1,12 +1,8 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
-lazy = 1
-on_lua = ['registers']
 
 [[plugins]]
 repo = 'folke/which-key.nvim'
-lazy = 1
-on_cmd = ['WhichKey']
 
 # [[plugins]]
 # repo = 'kevinhwang91/nvim-hlslens'
