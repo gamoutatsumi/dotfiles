@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 on_source = 'denops.vim'
-hook_post_source = '''
+hook_source = '''
   call ddu#custom#patch_global({
   \ 'ui': 'ff',
   \ 'sourceOptions': {
@@ -19,6 +19,11 @@ hook_post_source = '''
   \   'file': {
   \     'defaultAction': 'open',
   \   },
+  \ },
+  \ 'filterParams': {
+  \   'matcher_fzf': {
+  \     'highlightMatched': 'Search',
+  \  },
   \ },
   \ })
 '''
@@ -44,7 +49,8 @@ repo = 'Shougo/ddu-filter-matcher_substring'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'yuki-yano/ddu-filter-fzf'
+repo = 'gamoutatsumi/ddu-filter-fzf'
+rev = 'feature/match-highlight'
 on_source = 'ddu.vim'
 
 [[plugins]]
