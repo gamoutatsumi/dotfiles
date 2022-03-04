@@ -6,6 +6,7 @@ while pgrep -u $UID -x polybar > /dev/null; do sleep 0.1; done
 tray_output=$(xrandr --query | grep "primary" | cut -d" " -f1)
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
+  export DEFAULT_INTERFACE=$(ip route | grep '^default' | awk '{print $5}')
   export MONITOR=$m
   export TRAY_POSITION=none
   if [[ $m == "$tray_output" ]]; then
