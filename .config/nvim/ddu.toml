@@ -49,8 +49,7 @@ repo = 'Shougo/ddu-filter-matcher_substring'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'gamoutatsumi/ddu-filter-fzf'
-rev = 'feature/match-highlight'
+repo = 'yuki-yano/ddu-filter-fzf'
 on_source = 'ddu.vim'
 
 [[plugins]]
