@@ -108,6 +108,6 @@ hook_add = '''
 '''
 hook_post_source = '''
   call ddu#custom#patch_global('sourceParams', {
-  \ 'file_external': {'cmd': ['fd', '.', '-H', '-E', '__pycache__', '-E', '.git', '-t', 'f']},
+  \ 'file_external': {'cmd': ['git', 'ls-files', '--exclude-standard', '-c', '-o']},
   \ })
 '''
