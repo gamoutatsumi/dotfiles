@@ -79,7 +79,7 @@ myScratchpads =
         myTermFloating
   , NS "bashtop"    "XMODIFIERS= alacritty -o shell=bashtop" (title =? "BashTOP")
         myFullFloating
-  , NS "vivaldi"    "vivaldi-stable" (className =? "Vivaldi-stable")
+  , NS "vivaldi"    "vivaldi-stable --force-dark-mode" (className =? "Vivaldi-stable")
         myFullFloating
   , NS "discord"    "discord" (className =? "discord")
         myFullFloating

@@ -5,8 +5,18 @@ while pgrep -u $UID -x polybar > /dev/null; do sleep 0.1; done
 
 tray_output=$(xrandr --query | grep "primary" | cut -d" " -f1)
 
-for m in $(polybar --list-monitors | cut -d":" -f1); do
+i=0
+while true; do
+  if [[ $i -eq 5 ]]; then
+    break
+  fi
   export DEFAULT_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
+  if [[ -n $DEFAULT_INTERFACE ]]; then
+    break
+  fi
+  let "i++"
+done
+for m in $(polybar --list-monitors | cut -d":" -f1); do
   export MONITOR=$m
   export TRAY_POSITION=none
   if [[ $m == "$tray_output" ]]; then
