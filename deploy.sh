@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-exec deno run --allow-run --allow-env --allow-read ./deploy.ts $@
+exec deno --unstable run --allow-net --allow-run --allow-env --allow-read ./deploy.ts $@

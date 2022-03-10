@@ -1,5 +1,5 @@
-import { join } from "https://deno.land/std@0.110.0/path/mod.ts";
-import { $ } from "https://deno.land/x/zx_deno@1.2.2/mod.mjs";
+import { join } from "https://deno.land/std@0.128.0/path/mod.ts";
+import { $ } from "https://deno.land/x/dzx@0.3.0/mod.ts";
 
 const DOT_DIRECTORY = Deno.cwd();
 
