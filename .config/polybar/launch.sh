@@ -7,7 +7,7 @@ tray_output=$(xrandr --query | grep "primary" | cut -d" " -f1)
 
 i=0
 while true; do
-  if [[ $i -eq 5 ]]; then
+  if [[ $i -eq 50 ]]; then
     break
   fi
   export DEFAULT_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
@@ -15,6 +15,7 @@ while true; do
     break
   fi
   let "i++"
+  sleep 1
 done
 for m in $(polybar --list-monitors | cut -d":" -f1); do
   export MONITOR=$m
