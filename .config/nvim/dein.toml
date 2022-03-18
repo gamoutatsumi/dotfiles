@@ -61,6 +61,7 @@ repo = 'kana/vim-textobj-user'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
+  let g:fern#disable_drawer_hover_popup=1
   let g:fern#drawer_width=30
   let g:fern#renderer="nerdfont"
   let g:fern#renderer#nerdfont#padding='  '
