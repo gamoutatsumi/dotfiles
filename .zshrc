@@ -615,6 +615,10 @@ function vim-startuptime-detail() {
 function zsh-profiler() {
   ZSHRC_PROFILE=1 zsh -i -c zprof
 }
+
+function denoupdate() {
+  asdf install deno $(asdf latest deno) && asdf global deno $(asdf latest deno)
+}
 # }}}
 
 # {{{ HOOKS
