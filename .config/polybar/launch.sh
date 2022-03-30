@@ -7,7 +7,7 @@ tray_output=$(xrandr --query | grep "primary" | cut -d" " -f1)
 
 i=0
 while true; do
-  if [[ $i -eq 50 ]]; then
+  if [[ $i -eq 10 ]]; then
     break
   fi
   export DEFAULT_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
