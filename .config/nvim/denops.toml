@@ -108,3 +108,7 @@ on_cmd = ['FuzzyMotion']
 hook_add = '''
   nnoremap gfs <Cmd>FuzzyMotion<CR>
 '''
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
+on_source = ['denops.vim']

@@ -199,12 +199,12 @@ hook_add = '''
   nmap <silent> cs <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
 '''
 
-[[plugins]]
-repo = 'lambdalisue/gina.vim'
-on_cmd = ['Gina']
-hook_add = '''
-vnoremap <silent> gu :Gina browse --exact --yank :<CR>
-'''
+# [[plugins]]
+# repo = 'lambdalisue/gina.vim'
+# on_cmd = ['Gina']
+# hook_add = '''
+# vnoremap <silent> gu :Gina browse --exact --yank :<CR>
+# '''
 
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
