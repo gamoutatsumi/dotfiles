@@ -5,6 +5,9 @@ snippets:
   - name: git now
     keyword: gn
     snippet: git now
+  - name: git clean fdx
+    keyword: gc
+    snippet: git clean -fdx
   - name: git add
     keyword: ga
     snippet: git add {{file}}
