@@ -1,0 +1,7 @@
+{{- if ne .chezmoi.os "darwin" }}
+.hammerspoon
+{{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
+.stalonetrayrc
+{{- end }}

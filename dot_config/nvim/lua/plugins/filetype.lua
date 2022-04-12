@@ -6,6 +6,7 @@ vim.filetype.add({
     satyh = "satysfi",
     ts = "typescript",
     txt = "text",
+    astro = "astro",
   },
   filename = {
     ['.textlintrc'] = 'json',
