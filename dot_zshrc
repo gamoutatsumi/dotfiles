@@ -370,7 +370,7 @@ alias vimdiff='nvim -d'
 alias emacs='TERM=xterm-direct emacs -nw'
 
 # dotfiles
-alias dot='chezmoi cd'
+alias dot='cd ~/.local/share/chezmoi'
 alias zshconfig='chezmoi edit ~/.zshrc'
 alias vimconfig='chezmoi edit ~/.config/nvim/init/core/init.vim'
 alias tmuxconfig='chezmoi edit ~/.tmux.conf'
