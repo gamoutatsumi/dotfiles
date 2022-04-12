@@ -5,3 +5,5 @@
 {{- if ne .chezmoi.os "linux" }}
 .stalonetrayrc
 {{- end }}
+
+renovate.json
