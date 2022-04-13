@@ -35,7 +35,7 @@ if dein#load_state(s:dein_dir)
   else
     call dein#load_toml(s:vim_toml, { 'lazy': 0 })
   endif
-  call dein#load_toml(s:nvim_lsp_toml, { 'lazy': 1 })
+  call dein#load_toml(s:nvim_lsp_toml, { 'lazy': 0 })
   call dein#load_toml(s:ddu_toml, { 'lazy': 1 })
   " call dein#load_toml(s:telescope_toml, { 'lazy': 1 })
   call dein#end()

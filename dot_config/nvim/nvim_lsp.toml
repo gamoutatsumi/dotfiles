@@ -1,17 +1,15 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
-on_lua = ['lspconfig']
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
-on_lua = ['nvim-lsp-installer']
-hook_add = '''
+hook_post_source = '''
   lua require("plugins.lsp")
 '''
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
-depends = ['nvim-lspconfig']
+lazy = 1
 on_source = 'ddc.vim'
 hook_source = '''
   call ddc#custom#alias('source', 'lsp', 'nvim-lsp')
@@ -19,12 +17,11 @@ hook_source = '''
 
 [[plugins]]
 repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
-on_lua = ['nvim-lsp-ts-utils']
 
 [[plugins]]
 repo='ray-x/go.nvim'
+lazy = 1
 on_ft = ['go']
-depends = ['nvim-lsp-installer']
 hook_source = '''
 lua << EOF
   local path = require("nvim-lsp-installer.path")
@@ -40,8 +37,7 @@ EOF
 
 [[plugins]]
 repo='jose-elias-alvarez/null-ls.nvim'
-on_lua = ['null-ls']
-hook_add = '''
+hook_post_source = '''
 lua << EOF
   local null_ls = require("null-ls")
   null_ls.setup {
@@ -54,11 +50,11 @@ lua << EOF
 EOF
 '''
 
-[[plugins]]
-repo = 'j-hui/fidget.nvim'
-on_source = ['nvim-lspconfig']
-hook_source = '''
-lua << EOF
-  require('fidget').setup()
-EOF
-'''
+#[[plugins]]
+#repo = 'j-hui/fidget.nvim'
+#on_source = ['nvim-lspconfig']
+#hook_source = '''
+#lua << EOF
+#  require('fidget').setup()
+#EOF
+#'''

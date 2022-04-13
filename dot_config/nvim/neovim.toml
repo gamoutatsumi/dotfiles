@@ -18,9 +18,7 @@ repo = 'folke/which-key.nvim'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-on_lua = ['gitsigns']
-lazy = 1
-hook_add = '''
+hook_post_source = '''
 lua << EOF
 require('gitsigns').setup{
   current_line_blame = true,
@@ -48,9 +46,7 @@ EOF
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-on_lua = ['lualine']
-lazy = 1
-hook_add = '''
+hook_post_source = '''
 lua << EOF
   local function skkstatus()
     local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
@@ -101,9 +97,7 @@ EOF
 
 [[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
-on_lua = ['colorizer']
-lazy = 1
-hook_add = '''
+hook_post_source = '''
 lua << EOF
   require'colorizer'.setup {
     '*';    
@@ -161,9 +155,7 @@ on_ft = ['python']
 
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
-lazy = 1
-on_lua = ['tmux']
-hook_add = '''
+hook_post_source = '''
 lua << EOF
   require('tmux').setup({
     navigation = {
