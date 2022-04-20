@@ -150,15 +150,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'arthurxavierx/vim-caser'
-on_map = ['<Plug>']
-hook_add = '''
-  let g:caser_no_mappings = 1
-  nmap gss <Plug>CaserSnakeCase
-  nmap gsc <Plug>CaserCamelCase
-  nmap gst <Plug>CaserMixedCase
-'''
-[[plugins]]
 repo = 'tweekmonster/helpful.vim'
 on_cmd = ['HelpfulVersion']
 

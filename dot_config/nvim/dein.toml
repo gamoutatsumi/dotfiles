@@ -113,3 +113,12 @@ repo = 'lambdalisue/fern-git-status.vim'
 
 [[plugins]]
 repo = 'lambdalisue/mr.vim'
+
+[[plugins]]
+repo = 'arthurxavierx/vim-caser'
+hook_add = '''
+  let g:caser_no_mappings = 1
+  nmap gs_ <Plug>CaserSnakeCase
+  nmap gsc <Plug>CaserCamelCase
+  nmap gsm <Plug>CaserMixedCase
+'''
