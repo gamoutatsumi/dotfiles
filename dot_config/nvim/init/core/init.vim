@@ -1,7 +1,7 @@
 syntax off
 
 if has('nvim')
-  let g:did_load_filetypes = 1
+  let g:did_load_filetypes = 0
   let g:do_filetype_lua = 1
   lua require('plugins.filetype')
 endif
