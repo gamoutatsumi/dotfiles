@@ -14,7 +14,8 @@ vim.filetype.add({
     ['.swcrc'] = 'json',
     ['.eslintignore'] = 'gitignore',
     ['xmobarrc'] = 'haskell',
-    ['justfile'] = 'make'
+    ['justfile'] = 'make',
+    ['dot_zshrc'] = 'zsh'
   },
   pattern = {
     ['.swcrc*'] = 'json',

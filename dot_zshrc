@@ -372,6 +372,7 @@ alias emacs='TERM=xterm-direct emacs -nw'
 # dotfiles
 alias dot='cd ~/.local/share/chezmoi'
 alias zshconfig='chezmoi edit ~/.zshrc'
+alias cedit='chezmoi edit'
 alias vimconfig='chezmoi edit ~/.config/nvim/init/core/init.vim'
 alias tmuxconfig='chezmoi edit ~/.tmux.conf'
 alias sshconfig='chezmoi edit ~/.ssh/config'

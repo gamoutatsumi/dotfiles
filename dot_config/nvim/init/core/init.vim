@@ -1,9 +1,8 @@
 syntax off
 
 if has('nvim')
-  let g:did_load_filetypes = 0
+  let g:did_load_filetypes = 1
   let g:do_filetype_lua = 1
-  lua require('plugins.filetype')
 endif
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
