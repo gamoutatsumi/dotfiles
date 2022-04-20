@@ -149,11 +149,6 @@ EOF
 repo = 'kwkarlwang/bufresize.nvim'
 
 [[plugins]]
-repo = 'HallerPatrick/py_lsp.nvim'
-lazy = 1
-on_ft = ['python']
-
-[[plugins]]
 repo = 'aserowy/tmux.nvim'
 hook_post_source = '''
 lua << EOF
