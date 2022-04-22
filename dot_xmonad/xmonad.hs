@@ -56,6 +56,7 @@ myStartupHook = do
         spawnOnce "picom"
         spawnOnce "light-locker --no-late-locking --lock-on-suspend"
         spawn     "easystroke"
+        spawn     "easyeffects --gapplication-service"
 
 myConfig = desktopConfig
     { borderWidth        = borderwidth
