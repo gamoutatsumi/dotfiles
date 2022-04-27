@@ -44,6 +44,12 @@
       :require t)
 (load-theme 'darcula t)
 
+(leaf ein
+      :ensure t
+      :require t
+      :setq
+      (ein:worksheet-enable-undo . t))
+
 (defvar user/standard-fontset
   (create-fontset-from-fontset-spec standard-fontset-spec)
   "Standard fontset for user.")
