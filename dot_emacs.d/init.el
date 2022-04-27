@@ -31,24 +31,26 @@
 
 (leaf ddskk 
       :ensure t
-      :bind
-      ("C-x C-j" . skk-mode)
-      :setq
-      (default-input-method . "japanese-skk")
-      (skk-server-portnum . 1178)
-      (skk-server-host . "localhost")
-      (skk-egg-like-newline . t))
+      :bind (("C-x C-j" . skk-mode))
+      :custom ((default-input-method . "japanese-skk")
+               (skk-server-portnum . 1178)
+               (skk-server-host . "localhost")
+               (skk-egg-like-newline . t)))
 
 (leaf darcula-theme
       :ensure t
-      :require t)
-(load-theme 'darcula t)
+      :require t
+      :config 
+      (load-theme 'darcula t))
 
 (leaf ein
       :ensure t
       :require t
-      :setq
-      (ein:worksheet-enable-undo . t))
+      :custom ((ein:worksheet-enable-undo . t)))
+
+(leaf lsp-mode
+      :ensure t
+      :require t)
 
 (defvar user/standard-fontset
   (create-fontset-from-fontset-spec standard-fontset-spec)
