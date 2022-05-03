@@ -30,3 +30,4 @@ packages:
   - name: google/ko@v0.11.2
   - name: ducaale/xh@v0.16.0
   - name: aquaproj/aqua-installer@v1.0.0
+  - name: itchyny/gojq@v0.12.7
