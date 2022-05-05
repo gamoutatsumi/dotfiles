@@ -1,4 +1,9 @@
 snippets:
+  - name: pipe to vim
+    keyword: V
+    snippet: "| vim -"
+    context:
+      lbuffer: '.+\s+'
   - name: git status
     keyword: gs
     snippet: git status --short --branch
