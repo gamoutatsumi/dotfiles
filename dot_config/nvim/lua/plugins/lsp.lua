@@ -1,4 +1,5 @@
 local util = require('lspconfig/util')
+local lspconfig = require('lspconfig')
 local lsp_installer = require('nvim-lsp-installer')
 local schema_catalog = require('plugins/schema-catalog')
 local schemas = schema_catalog.schemas
@@ -29,7 +30,9 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
 end
 
-lsp_installer.on_server_ready(function(server)
+lsp_installer.setup {}
+
+for _, server in ipairs(lsp_installer.get_installed_servers()) do
   local opts = {}
   opts.on_attach = on_attach
   opts.capabilities = capabilities
@@ -101,8 +104,8 @@ lsp_installer.on_server_ready(function(server)
       },
     }
   end
-  server:setup(opts)
-end)
+  lspconfig[server.name].setup(opts)
+end
 
 if (vim.fn.executable("deno")) then
   require'lspconfig'.denols.setup{
