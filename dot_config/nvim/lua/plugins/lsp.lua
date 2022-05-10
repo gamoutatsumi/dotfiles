@@ -65,7 +65,7 @@ lsp_installer.on_server_ready(function(server)
     end
   elseif server.name == "eslintls" then
     opts.on_attach = function (client, bufnr)
-      client.resolved_capabilities.document_formatting = true
+      client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
     opts.autostart = true
@@ -85,7 +85,7 @@ lsp_installer.on_server_ready(function(server)
     }
   elseif server.name == 'sumneko_lua' then
     opts.on_attach = function (client, bufnr)
-      client.resolved_capabilities.document_formatting = true
+      client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
     opts.init_options = {
