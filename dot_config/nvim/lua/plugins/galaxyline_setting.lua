@@ -11,14 +11,17 @@ function LspWarning()
   local count = diagnostic.get_diagnostic_warn()
   return (not count or count == "") and '' or "  W:" .. count
 end
+
 function LspError()
   local count = diagnostic.get_diagnostic_error()
   return (not count or count == "") and '' or "  E:" .. count
 end
+
 function LspHint()
   local count = diagnostic.get_diagnostic_hint()
   return (not count or count == "") and '' or "  H:" .. count
 end
+
 function LspInfo()
   local count = diagnostic.get_diagnostic_info()
   return (not count or count == "") and '' or "  I:" .. count
@@ -134,11 +137,11 @@ gls.right[3] = {
     provider = function() return fileinfo.get_file_encode():lower() end,
     highlight = { colors.white, colors.slateblue },
     separator = '',
-    separator_highlight = { colors.white, colors.slateblue } 
+    separator_highlight = { colors.white, colors.slateblue }
   }
 }
 
-gls.right[4]= {
+gls.right[4] = {
   FileFormatIcon = {
     provider = function()
       return vim.fn['WebDevIconsGetFileFormatSymbol']()
@@ -197,7 +200,7 @@ gls.right[10] = {
 
 gls.right[11] = {
   Space = {
-    provider = function () return ' ' end,
+    provider = function() return ' ' end,
     highlight = { colors.slateblue, colors.slateblue }
   }
 }

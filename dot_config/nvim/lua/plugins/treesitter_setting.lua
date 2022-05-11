@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   -- Modules and its options go here
   ensure_installed = 'all',
   highlight = { enable = true },
@@ -10,14 +10,14 @@ require'nvim-treesitter.configs'.setup {
     highlight_current_scope = { enable = false },
     smart_rename = {
       enable = true,
-      keymaps = { 
+      keymaps = {
         smart_rename = "grr"
       }
     }
   },
   autotag = {
     enable = true
-    }
+  }
   --[[ rainbow = {
     enable = true,
     extended_mode = true,

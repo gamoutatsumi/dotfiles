@@ -14,6 +14,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -67,7 +68,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
       ts_utils.setup_client(client)
     end
   elseif server.name == "eslintls" then
-    opts.on_attach = function (client, bufnr)
+    opts.on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
@@ -77,7 +78,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
     opts.root_dir = util.root_pattern("tailwind.config.js")
     opts.autostart = false
   elseif server.name == 'jsonls' then
-    opts.filetypes = {'json', 'jsonc'}
+    opts.filetypes = { 'json', 'jsonc' }
     opts.settings = {
       json = {
         schemas = schemas
@@ -87,19 +88,19 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
       provideFormatter = true,
     }
   elseif server.name == 'sumneko_lua' then
-    opts.on_attach = function (client, bufnr)
+    opts.on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
     opts.init_options = {
-        provideFormatter = true,
+      provideFormatter = true,
     }
     opts.settings = {
       Lua = {
         runtime = { version = 'LuaJIT', path = vim.split(package.path, ';') },
         diagnostics = {
           enable = true,
-          globals = {'vim'},
+          globals = { 'vim' },
         },
       },
     }
@@ -108,10 +109,10 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 end
 
 if (vim.fn.executable("deno")) then
-  require'lspconfig'.denols.setup{
+  require 'lspconfig'.denols.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    autostart = not(is_node_repo),
+    autostart = not (is_node_repo),
     init_options = {
       lint = true,
       unstable = true,
@@ -120,7 +121,7 @@ if (vim.fn.executable("deno")) then
 end
 
 if vim.fn.executable("haskell-language-server-wrapper") then
-  require'lspconfig'.hls.setup{
+  require 'lspconfig'.hls.setup {
     on_attach = on_attach,
     autostart = true,
     capabilities = capabilities
@@ -128,7 +129,7 @@ if vim.fn.executable("haskell-language-server-wrapper") then
 end
 
 if vim.fn.executable("satysfi-language-server") then
-  require'lspconfig'['satysfi-ls'].setup{
+  require 'lspconfig'['satysfi-ls'].setup {
     on_attach = on_attach,
     autostart = true,
     capabilties = capabilities

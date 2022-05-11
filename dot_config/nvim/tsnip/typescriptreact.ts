@@ -22,5 +22,5 @@ const state: Snippet = {
 };
 
 export default {
-  state
-}
+  state,
+};

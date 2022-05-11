@@ -13,5 +13,5 @@ const plugins: Snippet = {
 };
 
 export default {
-  plugins
-}
+  plugins,
+};

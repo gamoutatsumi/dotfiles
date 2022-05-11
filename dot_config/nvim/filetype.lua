@@ -21,4 +21,3 @@ vim.filetype.add({
     ['.swcrc*'] = 'json',
   },
 })
-
