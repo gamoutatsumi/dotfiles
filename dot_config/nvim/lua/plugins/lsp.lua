@@ -31,7 +31,9 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
 end
 
-lsp_installer.setup {}
+lsp_installer.setup {
+  ensure_installed = {'gopls', 'tsserver', 'sumneko_lua'}
+}
 
 for _, server in ipairs(lsp_installer.get_installed_servers()) do
   local opts = {}
