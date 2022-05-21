@@ -1,18 +1,26 @@
+contexts:
+  commit: &commit
+    lbuffer: 'git\scommit\s+'
+  git: &git
+    lbuffer: 'git\s+'
+  diff: &diff
+    lbuffer: 'git\sdiff\s+'
+  checkout: &checkout
+    lbuffer: 'git\scheckout\s+'
+
 snippets:
   - name: pipe to vim
     keyword: V
     snippet: "| vim -"
     context:
       lbuffer: '.+\s+'
-  - name: git status
+  - name: git status short branch
     keyword: gs
     snippet: git status --short --branch
-  - name: git now
-    keyword: gn
-    snippet: git now
   - name: git clean fdx
-    keyword: gc
-    snippet: git clean -fdx
+    keyword: call
+    snippet: clean -fdx
+    context: *git
   - name: git add
     keyword: ga
     snippet: git add {{file}}
@@ -26,83 +34,69 @@ snippets:
     keyword: gcim
     snippet: git commit -m '{{commit_message}}'
   - name: git commit fixup
-    keyword: gcif
-    snippet: git commit --fixup {{commit_id}}
+    keyword: f
+    snippet: --fixup {{commit_id}}
+    context: *commit
   - name: git commit amend
-    keyword: gcia
+    keyword: a
     snippet: git commit --amend
+    context: 
+      lbuffer: 'git\scommit\s'
   - name: git commit amend noedit
-    keyword: gcian
-    snippet: git commit --amend --no-edit
+    keyword: an
+    snippet: --amend --no-edit
+    context:
+      lbuffer: 'git\scommit\s+'
   - name: git empty commit
-    keyword: gcie
-    snippet: git commit --allow-empty -m 'Initial Commit'
+    keyword: init
+    snippet: --allow-empty -m 'Initial Commit'
+    context: *commit
   - name: git diff
     keyword: gd
     snippet: git diff {{branch}}
   - name: git diff file
-    keyword: gdf
+    keyword: f
     snippet: git diff -- {{file}}
+    context: *diff
   - name: git diff branch file
-    keyword: gdbf
-    snippet: git diff {{branch}} -- {{file}}
+    keyword: bf
+    snippet: '{{branch}} -- {{file}}'
+    context: *diff
   - name: git diff 2 branch
-    keyword: gdbb
-    snippet: git diff {{branch1}} {{brahcn2}}
+    keyword: bb
+    snippet: '{{branch1}} {{brahcn2}}'
+    context: *diff
   - name: git diff 2 branch file
-    keyword: gdbbf
-    snippet: git diff {{branch1}} {{brahcn2}} -- {{file}}
+    keyword: bbf
+    snippet: '{{branch1}} {{brahcn2}} -- {{file}}'
+    context: *diff
   - name: git diff cached
-    keyword: gdc
-    snippet: git diff --cached
+    keyword: c
+    snippet: --cached
+    context: *diff
   - name: git diff cached file
-    keyword: gdcf
-    snippet: git diff --cached -- {{file}}
+    keyword: cf
+    snippet: --cached -- {{file}}
+    context: *diff
   - name: git checkout
     keyword: gco
     snippet: git checkout {{branch}}
   - name: git checkout file
-    keyword: gcof
-    snippet: git checkout -- {{file}}
+    keyword: f
+    snippet: -- {{file}}
+    context: *checkout
   - name: git checkout branch file
-    keyword: gcobf
-    snippet: git checkout {{branch}} -- {{file}}
+    keyword: bf
+    snippet: '{{branch}} -- {{file}}'
+    context: *checkout
   - name: git checkout track
-    keyword: gcot
-    snippet: git checkout --track {{origin_branch}}
-  - name: git reset
-    keyword: gre
-    snippet: git reset {{branch}}
-  - name: git reset file
-    keyword: gref
-    snippet: git reset -- {{file}}
-  - name: git reset hard
-    keyword: greh
-    snippet: git reset --hard {{branch}}
-  - name: git stash
-    keyword: gst
-    snippet: git stash
-  - name: git stash list
-    keyword: gstl
-    snippet: git stash list
-  - name: git stash show {{stash}}
-    keyword: gsts
-    snippet: git stash show {{stash}}
-  - name: git stash apply
-    keyword: gsta
-    snippet: git stash apply {{stash}}
-  - name: git stash pop
-    keyword: gstp
-    snippet: git stash pop {{stash}}
-  - name: git stash drop
-    keyword: gstd
-    snippet: git stash drop {{stash}}
+    keyword: t
+    snippet: --track {{origin_branch}}
+    context: *checkout
   - name: git rebase squash
     keyword: squash
-    snippet: git rebase --interactive --autosquash {{branch}}
-  - name: git rebase squash auto
-    keyword: squash
-    snippet: GIT_EDITOR=cat git rebase --interactive --autosquash {{branch}}
+    snippet: rebase --interactive --autosquash {{branch}}
+    context: *git
   - name: git main branch
     keyword: main_branch
     snippet: basename "$(git symbolic-ref --short refs/remotes/origin/HEAD)"
@@ -165,8 +159,7 @@ snippets:
   - name: branch
     keyword: B
     snippet: git symbolic-ref --short HEAD
-    context: 
-      lbuffer: '^git\s+checkout\s+'  
+    context: *checkout
     evaluate: true
   - namme: git switch
     keyword: gsw
@@ -174,6 +167,7 @@ snippets:
   - namme: git switch create
     keyword: gswc
     snippet: git switch -c {{branch}}
+
 completions:
   - name: kill
     patterns: 
