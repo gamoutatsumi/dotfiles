@@ -28,6 +28,6 @@ packages:
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/jsonnet@v0.17.0
   - name: google/ko@v0.11.2
-  - name: ducaale/xh@v0.16.0
+  - name: ducaale/xh@v0.16.1
   - name: aquaproj/aqua-installer@v1.0.0
   - name: itchyny/gojq@v0.12.7
