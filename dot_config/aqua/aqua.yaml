@@ -15,7 +15,7 @@ packages:
   - name: sharkdp/fd@v8.3.2
   - name: ogham/dog@v0.1.0
   - name: Songmu/gocredits@v0.2.0
-  - name: git-lfs/git-lfs@v3.1.4
+  - name: git-lfs/git-lfs@v3.2.0
   - name: harelba/q@v3.1.6
   - name: hashicorp/terraform@v1.2.1
   - name: docker-slim/docker-slim@1.37.5
