@@ -55,7 +55,8 @@ myStartupHook = do
         spawn     "$HOME/.fehbg"
         spawnOnce "picom"
         spawnOnce "light-locker --no-late-locking --lock-on-suspend"
-        spawn     "easystroke"
+        spawnOnce "easystroke"
+        spawnOnce "kdeconnect-indicator"
 
 myConfig = desktopConfig
     { borderWidth        = borderwidth
