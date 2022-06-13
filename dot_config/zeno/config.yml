@@ -39,7 +39,7 @@ snippets:
     context: *commit
   - name: git commit amend
     keyword: a
-    snippet: git commit --amend
+    snippet: --amend
     context: 
       lbuffer: 'git\scommit\s'
   - name: git commit amend noedit
