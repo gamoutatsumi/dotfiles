@@ -37,3 +37,6 @@ set noincsearch
 set updatetime=100
 set directory=/tmp/nvim/swap
 set isfname-==
+if has('nvim')
+  set cmdheight=0
+endif

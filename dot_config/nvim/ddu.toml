@@ -66,8 +66,8 @@ ddu-ff = '''
   setlocal cursorline
 '''
 ddu-ff-filter = '''
-  inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
-  nnoremap <buffer><silent> <CR> <Cmd>close<CR>
+  inoremap <buffer><silent> <CR> <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  nnoremap <buffer><silent> <CR> <Cmd><Cmd>call ddu#ui#ff#close()<CR>
 '''
 
 [[plugins]]

@@ -122,3 +122,9 @@ hook_add = '''
   nmap gsc <Plug>CaserCamelCase
   nmap gsm <Plug>CaserMixedCase
 '''
+
+[[plugins]]
+repo = 'vimpostor/vim-tpipeline'
+hook_add = '''
+  let g:tpipeline_autoembed = 0
+'''
