@@ -30,6 +30,7 @@ let g:loaded_tarPlugin = 1
 let g:loaded_shada_plugin = 1
 let g:loaded_gzip = 1
 let g:did_indent_on = 1
+let g:loaded_fzf = 1
 
 augroup MyAutoCmd
 autocmd!
