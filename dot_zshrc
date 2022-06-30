@@ -122,45 +122,13 @@ export PURE_GIT_PULL=0
 
 # {{{ PLUGINS
 
-# export POWERLEVEL9K_INSTALLATION_DIR="${HOME}/.zpm/plugins/romkatv---powerlevel10k"
-
-# export ZENO_ROOT="${HOME}/.zpm/plugins/yuki-yano---zeno.zsh"
 export ZENO_ENABLE_SOCK=1
 export ZENO_ENABLE_FZF_TMUX=1
 exists bat && export ZENO_GIT_CAT="bat"
 
-# if [[ ! -f $HOME/.zpm/zpm.zsh ]]; then
-#   git clone --recursive https://github.com/zpm-zsh/zpm "${HOME}/.zpm"
-# fi
-# . "$HOME/.zpm/zpm.zsh"
-
 eval "$(sheldon source)"
 
-# if [[ ! -f ~/.config/tabtab/zsh/__tabtab.zsh ]]; then
-#   if exists pnpm; then
-#     pnpm install-completion zsh > /dev/null 2>&1 /dev/null
-#   fi
-# else
-#   zpm load @file/tabtab,origin:"${HOME}/.config/tabtab/zsh/__tabtab.zsh"
-# fi
-# zpm load Tarrasch/zsh-autoenv,apply:source,source:/autoenv.zsh,async
-# zpm load romkatv/powerlevel10k,apply:source
-# zpm load zsh-users/zsh-autosuggestions,apply:source,source:/zsh-autosuggestions.zsh; ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
-# zpm load chrissicool/zsh-256color,apply:source
-# zpm load yuki-yano/tmk,apply:source
-# zpm load yuki-yano/tms,apply:source
-# zpm load zdharma-continuum/fast-syntax-highlighting,apply:source
-# zpm load zsh-users/zsh-completions,apply:fpath,fpath:/src
-# zpm load junegunn/fzf,apply:path,hook:"./install --bin"
-# zpm load @empty/docker-compose,gen-completion:"curl -qL https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
-# exists deno && zpm load @empty/deno,gen-completion:"deno completions zsh"
-# exists rustup && zpm load @empty/rustup,gen-completion:"rustup completions zsh"
-# exists npm && zpm load @empty/npm,gen-plugin:"npm completion"
-# exists gh && zpm load @empty/gh,gen-completion:"gh completion -s zsh"
-# exists pip && zpm load @empty/pip,gen-plugin:"pip completion --zsh"
-# exists pipx && zpm load @empty/pipx,gen-plugin:"register-python-argcomplete pipx"
-# exists kubectl && zpm load @empty/kubectl,gen-completion:"kubectl completion zsh"
-# zpm load yuki-yano/zeno.zsh,apply:source,source:/zeno.zsh
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
 
 setopt nonomatch
 
