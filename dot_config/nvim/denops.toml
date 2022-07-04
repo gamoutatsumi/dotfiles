@@ -20,7 +20,7 @@ hook_add = '''
   let g:skkeleton#mode = ''
   imap <C-j> <Plug>(skkeleton-toggle)
   cmap <C-j> <Plug>(skkeleton-toggle)
-  autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true})
+  autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true , "useSkkServer": v:true, "skkServerResEnc": "utf-8"})
   if has('mac')
     autocmd User skkeleton-initialize-pre call skkeleton#config({"globalJisyo": "~/Library/Application Support/AquaSKK/SKK-JISYO.L"})
   else
