@@ -112,3 +112,8 @@ hook_add = '''
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
 on_source = ['denops.vim']
+
+[[plugins]]
+repo = 'skanehira/denops-twihi.vim'
+depends = ['denops.vim']
+on_cmd = 'Twihi*'

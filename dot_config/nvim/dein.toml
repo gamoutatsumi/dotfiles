@@ -125,6 +125,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vimpostor/vim-tpipeline'
+rev = 'a95ccb6'
 hook_add = '''
   let g:tpipeline_autoembed = 0
 '''
