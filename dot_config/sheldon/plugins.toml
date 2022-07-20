@@ -54,8 +54,16 @@ github = "zsh-users/zsh-completions"
 remote = "https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/zsh/_docker-compose"
 apply = ["fpath"]
 
+[plugins.zig-completion]
+remote = "https://raw.githubusercontent.com/ziglang/shell-completions/master/_zig"
+apply = ["fpath"]
+
 [plugins.asdf]
 github = "asdf-vm/asdf"
+
+[plugins.asdf-completion]
+remote = "https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf"
+apply = ["fpath"]
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"

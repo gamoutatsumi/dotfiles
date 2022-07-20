@@ -284,3 +284,6 @@ on_ft = ['dart']
 [[plugins]]
 repo = 'ziglang/zig.vim'
 on_ft = ['zig']
+hook_add = '''
+  let g:zig_fmt_autosave = 0
+'''

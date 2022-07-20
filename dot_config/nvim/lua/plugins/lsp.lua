@@ -137,3 +137,11 @@ if vim.fn.executable("satysfi-language-server") then
     capabilties = capabilities
   }
 end
+
+if vim.fn.executable("nimlangserver") then
+  require 'lspconfig'['nimlangserver'].setup {
+    on_attach = on_attach,
+    autostart = true,
+    capabilties = capabilities
+  }
+end
