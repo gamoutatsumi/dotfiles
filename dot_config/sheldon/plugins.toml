@@ -18,7 +18,7 @@ shell = "zsh"
 github = "romkatv/zsh-defer"
 
 [templates]
-defer = { value = 'zsh-defer source ""', each = true }
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 
 [plugins.compinit]
 inline = "autoload -Uz compinit && zsh-defer compinit"
@@ -28,6 +28,7 @@ github = "Tarrasch/zsh-autoenv"
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+apply = ['defer']
 
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
@@ -37,9 +38,11 @@ github = "chrissicool/zsh-256color"
 
 [plugins.tmk]
 github = "yuki-yano/tmk"
+apply = ['defer']
 
 [plugins.tms]
 github = "yuki-yano/tms"
+apply = ['defer']
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
@@ -56,6 +59,12 @@ github = "asdf-vm/asdf"
 
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
+apply = ['defer']
+
+[plugins.local-defer]
+local = '~/.zsh/defer'
+use = ['*.zsh']
+apply = ['defer']
 
 # For example:
 #

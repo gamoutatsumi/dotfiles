@@ -280,3 +280,7 @@ hook_source = '''
 [[plugins]]
 repo = 'thosakwe/vim-flutter'
 on_ft = ['dart']
+
+[[plugins]]
+repo = 'ziglang/zig.vim'
+on_ft = ['zig']
