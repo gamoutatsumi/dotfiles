@@ -13,6 +13,8 @@ return {
         nimsuggestPath = "nimsuggest",
         timeout = 120000,
         projectMapping = {
+          projectPath = "main.nim",
+          fileRegex = ".*\\.nim"
         },
         autoRestart = true,
       }

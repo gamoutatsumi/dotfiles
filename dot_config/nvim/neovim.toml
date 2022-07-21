@@ -164,5 +164,4 @@ EOF
 repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
-repo = 'alaviss/nim.nvim'
-on_ft = ['nim', 'nimble']
+repo='zah/nim.vim'
