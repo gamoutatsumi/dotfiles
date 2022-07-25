@@ -68,6 +68,7 @@ hook_add = '''
   let g:fern#disable_default_mappings=1
   let g:fern#hide_cursor=0
   let g:fern#default_hidden=1
+  let g:fern_disable_startup_warnings=1
   nnoremap <silent> <C-e> <cmd>Fern . -drawer -reveal=%:p -toggle<CR>
   nnoremap <silent> <Plug>(fern-close-drawer) <cmd>FernDo close -drawer -stay<CR>
 '''
@@ -123,11 +124,11 @@ hook_add = '''
   nmap gsm <Plug>CaserMixedCase
 '''
 
-[[plugins]]
-repo = 'vimpostor/vim-tpipeline'
-hook_add = '''
-  let g:tpipeline_autoembed = 0
-'''
+# [[plugins]]
+# repo = 'vimpostor/vim-tpipeline'
+# hook_add = '''
+#   let g:tpipeline_autoembed = 0
+# '''
 
 [[plugins]]
 repo = 'embear/vim-localvimrc'
