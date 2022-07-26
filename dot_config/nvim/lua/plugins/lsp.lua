@@ -1,6 +1,7 @@
 local util = require('lspconfig/util')
 local lspconfig = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
+local mason = require("mason")
+local mason_lspconfig = require('mason-lspconfig')
 local schema_catalog = require('plugins/schema-catalog')
 local schemas = schema_catalog.schemas
 
@@ -31,16 +32,17 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
 end
 
-lsp_installer.setup {
+mason.setup()
+mason_lspconfig.setup {
   ensure_installed = {'gopls', 'tsserver', 'sumneko_lua'}
 }
 
-for _, server in ipairs(lsp_installer.get_installed_servers()) do
+for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   local opts = {}
   opts.on_attach = on_attach
   opts.capabilities = capabilities
   opts.autostart = true
-  if server.name == "tsserver" then
+  if server == "tsserver" then
     opts.autostart = is_node_repo
     opts.init_options = require("nvim-lsp-ts-utils").init_options
     opts.on_attach = function(client, bufnr)
@@ -69,17 +71,17 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
       })
       ts_utils.setup_client(client)
     end
-  elseif server.name == "eslintls" then
+  elseif server == "eslintls" then
     opts.on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
     end
     opts.autostart = true
     opts.root_dir = util.root_pattern(".eslintrc")
-  elseif server.name == "tailwindcss" then
+  elseif server == "tailwindcss" then
     opts.root_dir = util.root_pattern("tailwind.config.js")
     opts.autostart = false
-  elseif server.name == 'jsonls' then
+  elseif server == 'jsonls' then
     opts.filetypes = { 'json', 'jsonc' }
     opts.settings = {
       json = {
@@ -89,7 +91,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
     opts.init_options = {
       provideFormatter = true,
     }
-  elseif server.name == 'sumneko_lua' then
+  elseif server == 'sumneko_lua' then
     opts.on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
@@ -107,7 +109,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
       },
     }
   end
-  lspconfig[server.name].setup(opts)
+  lspconfig[server].setup(opts)
 end
 
 if (vim.fn.executable("deno")) then
