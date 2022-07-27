@@ -44,18 +44,23 @@ EOF
 
 [[plugins]]
 repo='jose-elias-alvarez/null-ls.nvim'
-hook_post_source = '''
-lua << EOF
-  local null_ls = require("null-ls")
-  null_ls.setup {
-    sources = {
-      null_ls.builtins.formatting.prettier.with({
-        only_local = "node_modules/.bin",
-      }),
-      null_ls.builtins.formatting.goimports,
-    },
-  }
-EOF
+hook_add = '''
+function! s:add_to_dotfiles_dict()
+  let word = expand("<cword>")
+  if word != ''
+    execute "silent! !sed -i '$a" . word . "' " . expand('~/.local/share/chezmoi/dot_config/cspell/dotfiles.txt')
+    execute "silent! !chezmoi apply"
+  endif
+endfunction
+command! CspellAddDot call s:add_to_dotfiles_dict()
+function! s:add_to_local_dict()
+  let word = expand("<cword>")
+  if word != ''
+    execute "silent! !sed -i '$a" . word . "' " . expand('~/.local/share/cspell/user.txt')
+    execute "silent! !chezmoi apply"
+  endif
+endfunction
+command! CspellAddLocal call s:add_to_local_dict()
 '''
 
 #[[plugins]]
