@@ -31,4 +31,4 @@ packages:
   - name: ducaale/xh@v0.16.1
   - name: aquaproj/aqua-installer@v1.1.0
   - name: itchyny/gojq@v0.12.8
-  - name: dagger/dagger@v0.2.27
+  - name: dagger/dagger@v0.2.28
