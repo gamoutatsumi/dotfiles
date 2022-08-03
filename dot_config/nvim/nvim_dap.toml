@@ -4,8 +4,8 @@ repo = 'mfussenegger/nvim-dap'
 [[plugins]]
 repo = 'rcarriga/nvim-dap-ui'
 
-[[plugins]]
-repo = '~/Repositories/github.com/gamoutatsumi/nvim-dap-deno'
-hook_post_source = '''
-  lua require('dap-deno').setup()
-'''
+# [[plugins]]
+# repo = '~/Repositories/github.com/gamoutatsumi/nvim-dap-deno'
+# hook_post_source = '''
+#   lua require('dap-deno').setup()
+# '''
