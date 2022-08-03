@@ -34,7 +34,7 @@ end
 
 mason.setup()
 mason_lspconfig.setup {
-  ensure_installed = {'gopls', 'tsserver', 'sumneko_lua'}
+  ensure_installed = { 'gopls', 'tsserver', 'sumneko_lua' }
 }
 
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do

@@ -4,8 +4,8 @@ return {
   default_config = {
     cmd = { 'nimlangserver' },
     filetypes = { 'nim' },
-    root_dir = function (fname)
-      return util.root_pattern '*.nimble'(fname) or util.find_git_ancestor(fname)
+    root_dir = function(fname)
+      return util.root_pattern '*.nimble' (fname) or util.find_git_ancestor(fname)
     end,
     single_file_support = true,
   },

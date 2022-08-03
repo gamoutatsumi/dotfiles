@@ -9,7 +9,7 @@ const plugins: Snippet = {
       type: "single_line",
     },
   ],
-  render: ({ repo }) => `[[plugins]]\nrepo='${repo?.text ?? ""}'`,
+  render: ({ repo }) => `[[plugins]]\nrepo = '${repo?.text ?? ""}'`,
 };
 
 export default {
