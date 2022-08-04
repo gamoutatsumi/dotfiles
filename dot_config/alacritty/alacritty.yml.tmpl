@@ -41,7 +41,11 @@ colors:
     white:   '#d6deeb'
 
 font:
+{{ if (eq .chezmoi.os "darwin") }}
+  size: 14.5
+{{ else }}
   size: 11.5
+{{ end }}
   normal:
     family: HackGenNerd Console
     style: Regular
