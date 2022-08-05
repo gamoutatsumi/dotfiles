@@ -117,3 +117,8 @@ depends = ['denops.vim']
 repo = 'skanehira/denops-twihi.vim'
 depends = ['denops.vim']
 on_cmd = 'Twihi*'
+
+[[plugins]]
+repo = 'skanehira/k8s.vim'
+depends = ['denops.vim']
+on_cmd = 'K8s*'

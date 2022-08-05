@@ -1,7 +1,8 @@
 require 'nvim-treesitter.configs'.setup {
   -- Modules and its options go here
-  ensure_installed = 'all',
+  ensure_installed = {},
   highlight = { enable = true },
+  auto_install = true,
   incremental_selection = { enable = true },
   textobjects = { enable = true },
   indent = { enable = true },

@@ -27,6 +27,6 @@ null_ls.setup {
       condition = function()
         return vim.fn.executable('stylua') > 0
       end
-    }
+    },
   },
 }
