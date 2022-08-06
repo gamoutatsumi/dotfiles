@@ -29,7 +29,7 @@ packages:
   - name: google/jsonnet@v0.17.0
   - name: google/ko@v0.11.2
   - name: ducaale/xh@v0.16.1
-  - name: aquaproj/aqua-installer@v1.1.0
+  - name: aquaproj/aqua-installer@v1.1.1
   - name: itchyny/gojq@v0.12.8
   - name: dagger/dagger@v0.2.28
   - name: kubernetes-sigs/kubebuilder@v3.6.0
