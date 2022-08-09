@@ -58,7 +58,7 @@ repo = 'nvim-lualine/lualine.nvim'
 hook_post_source = '''
 lua << EOF
   local function skkstatus()
-    local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ" }
+    local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ", abbrev = '@' }
     return alias[vim.g['skkeleton#mode']]
   end
 
