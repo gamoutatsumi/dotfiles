@@ -123,7 +123,7 @@ snippets:
       lbuffer: '.+\s+'
   - name: pipe grep
     keyword: "G"
-    snippet: "| grep '{{pattern}}'"
+    snippet: "| rg '{{pattern}}'"
     context:
       lbuffer: '\s*'
   - name: pipe head
