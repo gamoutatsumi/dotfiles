@@ -577,6 +577,11 @@ function zsh-profiler() {
 function denoupdate() {
   asdf install deno $(asdf latest deno) && asdf global deno $(asdf latest deno)
 }
+
+function awsp() {
+  local profile=$(aws configure list-profiles | sort | fzf)
+  export AWS_PROFILE="$profile"
+}
 # }}}
 
 # {{{ HOOKS
