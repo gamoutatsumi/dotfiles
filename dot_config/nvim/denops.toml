@@ -123,3 +123,4 @@ on_cmd = 'Twihi*'
 repo = 'skanehira/k8s.vim'
 depends = ['denops.vim']
 on_cmd = 'K8s*'
+on_path = ['k8s://*']
