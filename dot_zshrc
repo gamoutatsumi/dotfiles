@@ -325,7 +325,6 @@ alias vim='nvim'
 alias vi='vim'
 alias v='vi'
 alias vimdiff='nvim -d'
-alias emacs='TERM=xterm-direct emacs -nw'
 
 # dotfiles
 alias dot='cd ~/.local/share/chezmoi'

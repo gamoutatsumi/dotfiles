@@ -117,7 +117,7 @@ repo = 'kristijanhusak/vim-dadbod-completion'
 depends = 'ddc.vim'
 on_ft = ['sql', 'mysql', 'plsql']
 hook_post_source = '''
-  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', 'dadbod-completion')
+  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', ['dadbod-completion'])
   call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sourceOptions', {
   \ 'dadbod-completion': {
   \   'mark': 'DB',
@@ -132,4 +132,23 @@ if = "has('nvim')"
 on_source = ['ddc.vim']
 hook_add = '''
   let g:tsnip_snippet_dir = $HOME .. '/.config/nvim/tsnip'
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-omni'
+on_source = ['ddc.vim']
+hook_post_source = '''
+call ddc#custom#patch_filetype(['org'], 'sources', ['omni'])
+call ddc#custom#patch_filetype(['org'], 'sourceOptions', {
+  \ 'omni': {
+  \   'mark': 'O',
+  \   'isVolatile': v:true,
+  \   'forceCompletionPattern': '\+|\:|\#',
+  \ }
+  \ })
+call ddc#custom#patch_filetype(['org'], 'sourceParams', {
+  \ 'omni': {
+  \   'omnifunc': 'OrgmodeOmni',
+  \ }
+  \ })
 '''

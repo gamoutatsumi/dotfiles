@@ -29,6 +29,17 @@
   :ensure t
   :bind (("M-=" . transient-dwim-dispatch)))
 
+(leaf org
+      :ensure t
+      :require t)
+
+(leaf tree-sitter
+      :ensure (t tree-sitter-langs)
+      :require tree-sitter-langs
+      :config
+      (global-tree-sitter-mode)
+      (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 (leaf ddskk 
       :ensure t
       :bind (("C-x C-j" . skk-mode))
@@ -37,11 +48,11 @@
                (skk-server-host . "localhost")
                (skk-egg-like-newline . t)))
 
-(leaf darcula-theme
+(leaf gruvbox-theme
       :ensure t
       :require t
       :config 
-      (load-theme 'darcula t))
+      (load-theme 'gruvbox-light-soft t))
 
 (leaf ein
       :ensure t
@@ -49,6 +60,14 @@
       :custom ((ein:worksheet-enable-undo . t)))
 
 (leaf lsp-mode
+      :ensure t
+      :require t)
+
+(leaf bind-key
+      :ensure t
+      :require t)
+
+(leaf htmlize
       :ensure t
       :require t)
 
@@ -76,3 +95,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(if window-system (progn
+                    (require 'server)
+                    (unless (server-running-p)
+                      (server-start) )))
+
+(if window-system (progn
+                    (bind-key "C-x C-c" 'kill-this-buffer)
+                    (when (equal system-type 'darwin)
+                      (setq mac-option-modifier 'meta))))
+(setq make-backup-files nil) 

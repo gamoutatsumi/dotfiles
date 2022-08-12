@@ -1,7 +1,10 @@
 require 'nvim-treesitter.configs'.setup {
   -- Modules and its options go here
-  ensure_installed = {},
-  highlight = { enable = true },
+  ensure_installed = { 'org' },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = { 'org' },
+  },
   auto_install = true,
   incremental_selection = { enable = true },
   textobjects = { enable = true },

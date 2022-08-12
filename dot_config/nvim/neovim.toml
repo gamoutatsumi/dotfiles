@@ -173,4 +173,16 @@ EOF
 repo = 'MunifTanjim/nui.nvim'
 
 [[plugins]]
-repo='zah/nim.vim'
+repo = 'zah/nim.vim'
+
+[[plugins]]
+repo = 'nvim-orgmode/orgmode'
+hook_post_source = '''
+lua require('orgmode').setup_ts_grammar()
+lua << EOF
+  require('orgmode').setup {
+    org_agenda_files = {'~/Google Drive/マイドライブ/org/*', '~/Repositories/github.com/gamoutatsumi/my-orgs/**/*'},
+    org_default_notes_file = '~/Google Drive/マイドライブ/org/refile.org',
+  }
+EOF
+'''
