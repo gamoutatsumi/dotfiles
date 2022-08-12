@@ -176,7 +176,8 @@ repo = 'MunifTanjim/nui.nvim'
 repo = 'zah/nim.vim'
 
 [[plugins]]
-repo = 'nvim-orgmode/orgmode'
+repo = 'gamoutatsumi/orgmode'
+rev = 'feature/support-emacsclient'
 hook_post_source = '''
 lua require('orgmode').setup_ts_grammar()
 lua << EOF
