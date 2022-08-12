@@ -38,3 +38,4 @@ set updatetime=100
 set directory=/tmp/nvim/swap
 set isfname-==
 set iskeyword-=_
+set omnifunc=
