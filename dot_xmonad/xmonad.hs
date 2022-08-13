@@ -55,7 +55,6 @@ myStartupHook = do
         spawn     "$HOME/.fehbg"
         spawnOnce "picom"
         spawnOnce "light-locker --no-late-locking --lock-on-suspend"
-        spawnOnce "easystroke"
         spawnOnce "kdeconnect-indicator"
 
 myConfig = desktopConfig
