@@ -40,3 +40,4 @@ packages:
   - name: kubernetes-sigs/kustomize@kustomize/v4.5.7
   - name: stern/stern@v1.21.0
   - name: bitnami-labs/sealed-secrets@v0.18.1
+  - name: gohugoio/hugo@v0.101.0
