@@ -287,3 +287,7 @@ on_ft = ['zig']
 hook_add = '''
   let g:zig_fmt_autosave = 0
 '''
+
+[[plugins]]
+repo = 'jjo/vim-cue'
+on_ft = 'cue'
