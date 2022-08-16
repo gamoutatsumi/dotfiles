@@ -31,7 +31,7 @@ packages:
   - name: ducaale/xh@v0.16.1
   - name: aquaproj/aqua-installer@v1.1.1
   - name: itchyny/gojq@v0.12.8
-  - name: dagger/dagger@v0.2.29
+  - name: dagger/dagger@v0.2.30
   - name: kubernetes-sigs/kubebuilder@v3.6.0
   - name: helm/helm@v3.9.3
   - name: yannh/kubeconform@v0.4.14
