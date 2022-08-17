@@ -43,9 +43,20 @@ colors:
 font:
 {{ if (eq .chezmoi.os "darwin") }}
   size: 15.5
+  normal:
+    family: HackGen Console NF
+    style: Regular
+  bold:
+    family: HackGen Console NF
+    style: Bold
+  italic:
+    family: HackGen Console NF
+    style: italic
+  bold_italic:
+    family: HackGen Console NF
+    style: Bold Italic
 {{ else }}
   size: 11.5
-{{ end }}
   normal:
     family: HackGenNerd Console
     style: Regular
@@ -58,6 +69,7 @@ font:
   bold_italic:
     family: HackGenNerd Console
     style: Bold Italic
+{{ end }}
 
 env:
   TERM: xterm-256color

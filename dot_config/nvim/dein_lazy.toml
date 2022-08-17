@@ -290,4 +290,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'jjo/vim-cue'
-on_ft = 'cue'
+on_ft = ['cue']
+
+[[plugins]]
+repo = 'cappyzawa/starlark.vim'
+on_ft = ['starlark']
+
+[[plugins]]
+repo = 'google/vim-jsonnet'
+on_ft = ['jsonnet']

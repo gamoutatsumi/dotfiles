@@ -79,7 +79,7 @@ exists() {
 # {{{ ENVVARS
 if is_osx; then
   export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
-  export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:$PATH"
+  export PATH="/usr/local/sbin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/grep/libexec/gnubin:$PATH"
   export MANPATH="/usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman:$MANPATH"
 fi
 
@@ -580,6 +580,10 @@ function denoupdate() {
 function awsp() {
   local profile=$(aws configure list-profiles | sort | fzf)
   export AWS_PROFILE="$profile"
+}
+
+function dockercon() {
+  ssh -L localhost:23750:/var/run/docker.sock $@
 }
 # }}}
 

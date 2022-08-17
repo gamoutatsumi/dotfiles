@@ -8,6 +8,7 @@ vim.filetype.add({
     txt = "text",
     astro = "astro",
     cue = "cue",
+    jsonnet = "jsonnet",
   },
   filename = {
     ['.textlintrc'] = 'json',
@@ -16,7 +17,8 @@ vim.filetype.add({
     ['.eslintignore'] = 'gitignore',
     ['xmobarrc'] = 'haskell',
     ['justfile'] = 'make',
-    ['dot_zshrc'] = 'zsh'
+    ['dot_zshrc'] = 'zsh',
+    ['Tiltfile'] = 'starlark'
   },
   pattern = {
     ['.swcrc*'] = 'json',

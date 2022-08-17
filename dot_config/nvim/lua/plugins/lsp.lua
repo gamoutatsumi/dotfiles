@@ -107,6 +107,15 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
         },
       },
     }
+  elseif server == 'yamlls' then
+    opts.settings = {
+      yaml = {
+        schemas = {
+          ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+          ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.24.3-standalone-strict/all.json"] = "/*.k8s.yaml",
+        }
+      }
+    }
   end
   lspconfig[server].setup(opts)
 end
