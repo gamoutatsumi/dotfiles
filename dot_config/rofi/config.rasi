@@ -1,6 +1,7 @@
 configuration {
   modi: "drun,system:~/.config/rofi/system.sh";
   kb-cancel: "Escape";
+  kb-element-next: "";
   kb-mode-previous: "Shift+Tab";
   kb-mode-next: "Tab";
   kb-row-tab: "";
