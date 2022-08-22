@@ -7,7 +7,16 @@ require 'nvim-treesitter.configs'.setup {
   },
   auto_install = true,
   incremental_selection = { enable = true },
-  textobjects = { enable = true },
+  textobjects = {
+    enable = true,
+    lookahead = true,
+    keymaps = {
+      ["af"] = "@function.outer",
+      ["if"] = "@function.inner",
+      ["ac"] = "@class.outer",
+      ["ic"] = "@class.inner",
+    },
+  },
   indent = { enable = true },
   refactor = {
     highlight_definitions = { enable = true },

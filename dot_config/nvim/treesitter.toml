@@ -9,3 +9,6 @@ repo = 'windwp/nvim-ts-autotag'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-refactor'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-textobjects'

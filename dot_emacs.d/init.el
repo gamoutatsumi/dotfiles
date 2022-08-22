@@ -63,6 +63,10 @@
       :ensure t
       :require t)
 
+(leaf go-mode
+      :ensure t
+      :require t)
+
 (leaf bind-key
       :ensure t
       :require t)
