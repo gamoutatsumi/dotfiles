@@ -67,10 +67,6 @@ on_path = '*.go.y'
 repo = 'qnighy/satysfi.vim'
 on_ft = ['satysfi']
 
-[[plugins]]
-repo = 'jceb/vim-orgmode'
-on_path = '*.org'
-
 # [[plugins]]
 # repo = 'Shougo/denite.nvim'
 # on_cmd = ['Denite']

@@ -1,6 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
   -- Modules and its options go here
-  ensure_installed = { 'org' },
+  ensure_installed = { 'org', ' lua', 'vim', 'toml', 'json', 'yaml', 'go', 'gomod', 'typescript', 'javascript', 'tsx' },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = { 'org' },
