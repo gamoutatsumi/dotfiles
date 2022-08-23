@@ -1,7 +1,6 @@
 [user]
 	name = gamoutatsumi
 	email = 47162587+gamoutatsumi@users.noreply.github.com 
-	signingkey = 24BD09DF8D0AC302E6C2E7ABD031D287D0BB4DE0
 [ghq]
   user = gamoutatsumi
   root = ~/Repositories
@@ -25,7 +24,7 @@
 [commit]
   gpgsign = false
 [gpg]
-	program = /usr/bin/gpg
+	program = gpg
 [color "status"]
   added     = green
   changed   = red
@@ -45,3 +44,9 @@
   hunk-header-style = file line-number
 [delta "interactive"]
   keep-plus-minus-markers = false
+[credential "https://github.com"]
+  helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = 
+	helper = !gh auth git-credential
