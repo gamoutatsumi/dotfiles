@@ -1,6 +1,7 @@
 [user]
 	name = gamoutatsumi
 	email = 47162587+gamoutatsumi@users.noreply.github.com 
+  signkey = 74DBA053
 [ghq]
   user = gamoutatsumi
   root = ~/Repositories
