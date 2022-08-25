@@ -3,7 +3,7 @@
     "prefix": ["iferr"],
     "body": [
       "if err != nil {",
-      "  $1",
+      "\t$1",
       "}"
     ]
   }
