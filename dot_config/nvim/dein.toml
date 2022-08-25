@@ -135,3 +135,6 @@ repo = 'embear/vim-localvimrc'
 hook_add = '''
   let g:localvimrc_persistent = 1
 '''
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
