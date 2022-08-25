@@ -296,3 +296,10 @@ on_ft = ['jsonnet']
 [[plugins]]
 repo = 'lambdalisue/vim-manpager'
 on_cmd = ['ASMANPAGER']
+
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['markdown']
+hook_add = '''
+  let g:previm_open_cmd='open'
+'''

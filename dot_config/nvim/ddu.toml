@@ -8,7 +8,7 @@ hook_source = '''
   \ 'sourceOptions': {
   \   '_': {
   \     'ignoreCase': v:true,
-  \     'matchers': ['matcher_fzf'],
+  \     'matchers': ['matcher_substring'],
   \   },
   \ },
   \ 'uiParams': {
@@ -22,7 +22,7 @@ hook_source = '''
   \   },
   \ },
   \ 'filterParams': {
-  \   'matcher_fzf': {
+  \   'matcher_substring': {
   \     'highlightMatched': 'Search',
   \  },
   \ },
