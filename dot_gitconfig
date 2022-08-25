@@ -1,7 +1,7 @@
 [user]
 	name = gamoutatsumi
 	email = 47162587+gamoutatsumi@users.noreply.github.com 
-  signkey = 74DBA053
+  signingkey = 74DBA053
 [ghq]
   user = gamoutatsumi
   root = ~/Repositories
@@ -51,3 +51,5 @@
 [credential "https://gist.github.com"]
   helper = 
 	helper = !gh auth git-credential
+[include]
+  path = .gitconfig.local
