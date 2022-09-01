@@ -20,7 +20,6 @@
 [push]
 	default = current
 [init]
-	defaultBranch = master
 	templatedir = ~/.config/git/template
 [commit]
   gpgsign = false
