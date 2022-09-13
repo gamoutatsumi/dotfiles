@@ -15,27 +15,6 @@ repo = 'hashivim/vim-terraform'
 on_ft = ['terraform']
 
 [[plugins]]
-repo = 'segeljakt/vim-silicon'
-on_cmd = ['Silicon']
-hook_add = '''
-  let g:silicon = {}
-  let g:silicon['theme'] = 'Dracula'
-  let g:silicon['font'] = 'HackGen'
-  let g:silicon['background'] = '#AAAAFF'
-  let g:silicon['shadow-color'] = '#555555'
-  let g:silicon['line-pad'] = 2
-  let g:silicon['pad-horiz'] = 80
-  let g:silicon['pad-vert'] = 10
-  let g:silicon['shadow-blur-radius'] = 0
-  let g:silicon['shadow-offset-x'] = 0
-  let g:silicon['shadow-offset-y'] = 0
-  let g:silicon['line-number'] = v:true
-  let g:silicon['round-corner'] = v:true
-  let g:silicon['window-controls'] = v:true
-  let g:silicon['output'] = '~/Pictures/silicon-{time:%Y-%m-%d-%H%M%S}.png'
-'''
-
-[[plugins]]
 repo = 'mmisono/viminesweeper'
 on_cmd = ['MineSweeper']
 

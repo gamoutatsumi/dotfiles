@@ -124,3 +124,8 @@ repo = 'skanehira/k8s.vim'
 depends = ['denops.vim']
 on_cmd = 'K8s*'
 on_path = ['k8s://*']
+
+[[plugins]]
+repo = 'skanehira/denops-silicon.vim'
+depends = ['denops.vim']
+on_cmd = ['Silicon']
