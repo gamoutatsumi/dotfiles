@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'jmcantrell/vim-virtualenv'
-on_ft = ['python']
-
-[[plugins]]
 repo = 'sharat87/roast.vim'
 on_ft = ['roast']
 
