@@ -196,3 +196,9 @@ lua << EOF
   }
 EOF
 '''
+
+[[plugins]]
+repo = 'levouh/tint.nvim'
+hook_post_source = '''
+lua require('tint').setup {}
+'''
