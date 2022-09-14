@@ -6,8 +6,8 @@ repo = 'williamboman/mason.nvim'
 
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
-hook_post_source = '''
-  lua require("plugins.lsp")
+lua_post_source = '''
+require("plugins.lsp")
 '''
 
 [[plugins]]
@@ -25,21 +25,19 @@ repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
 repo='ray-x/go.nvim'
 lazy = 1
 on_ft = ['go']
-hook_post_source = '''
-lua << EOF
-  local ok, path = pcall(require, 'nvim-lsp-installer.path')
-  local gopls_cmd
-  if ok then
-    local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
-    gopls_cmd = {install_root_dir .. '/go/gopls'}
-  end
-  require('go').setup({
-    gopls_cmd = gopls_cmd,
-    filstruct = 'gopls',
-    dap_debug = true,
-    dap_debug_gui = true,
-  })
-EOF
+lua_post_source = '''
+local ok, path = pcall(require, 'nvim-lsp-installer.path')
+local gopls_cmd
+if ok then
+  local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
+  gopls_cmd = {install_root_dir .. '/go/gopls'}
+end
+require('go').setup({
+  gopls_cmd = gopls_cmd,
+  filstruct = 'gopls',
+  dap_debug = true,
+  dap_debug_gui = true,
+})
 '''
 
 [[plugins]]

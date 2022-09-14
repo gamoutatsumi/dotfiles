@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_source = '''
-lua require('plugins.treesitter_setting')
+lua_post_source = '''
+require('plugins.treesitter_setting')
 '''
 
 [[plugins]]

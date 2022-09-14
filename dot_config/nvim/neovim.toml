@@ -18,8 +18,7 @@ repo = 'folke/which-key.nvim'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-hook_post_source = '''
-lua << EOF
+lua_post_source = '''
 require('gitsigns').setup{
   current_line_blame = true,
   current_line_blame_opts = {
@@ -50,69 +49,64 @@ require('gitsigns').setup{
     end, {expr=true})
   end
 }
-EOF
 '''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hook_post_source = '''
-lua << EOF
-  local function skkstatus()
-    local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ", abbrev = '@' }
-    return alias[vim.g['skkeleton#mode']]
-  end
+lua_post_source = '''
+local function skkstatus()
+  local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ", abbrev = '@' }
+  return alias[vim.g['skkeleton#mode']]
+end
 
-  local custom_nightfly = require'lualine.themes.nightfly'
-  custom_nightfly.insert.a.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.visual.a.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.normal.y = {}
-  custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
-  custom_nightfly.insert.y = {}
-  custom_nightfly.insert.y.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.insert.y.fg = custom_nightfly.normal.a.fg
-  custom_nightfly.normal.y = {}
-  custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
-  custom_nightfly.command = {}
-  custom_nightfly.command.y = {}
-  custom_nightfly.command.y.bg = custom_nightfly.normal.a.bg
-  custom_nightfly.command.y.fg = custom_nightfly.normal.a.fg
-  custom_nightfly.insert.z = custom_nightfly.normal.b
-  custom_nightfly.normal.z = custom_nightfly.normal.b
-  custom_nightfly.command.z = custom_nightfly.normal.b
+local custom_nightfly = require'lualine.themes.nightfly'
+custom_nightfly.insert.a.bg = custom_nightfly.normal.a.bg
+custom_nightfly.visual.a.bg = custom_nightfly.normal.a.bg
+custom_nightfly.normal.y = {}
+custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
+custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
+custom_nightfly.insert.y = {}
+custom_nightfly.insert.y.bg = custom_nightfly.normal.a.bg
+custom_nightfly.insert.y.fg = custom_nightfly.normal.a.fg
+custom_nightfly.normal.y = {}
+custom_nightfly.normal.y.bg = custom_nightfly.normal.a.bg
+custom_nightfly.normal.y.fg = custom_nightfly.normal.a.fg
+custom_nightfly.command = {}
+custom_nightfly.command.y = {}
+custom_nightfly.command.y.bg = custom_nightfly.normal.a.bg
+custom_nightfly.command.y.fg = custom_nightfly.normal.a.fg
+custom_nightfly.insert.z = custom_nightfly.normal.b
+custom_nightfly.normal.z = custom_nightfly.normal.b
+custom_nightfly.command.z = custom_nightfly.normal.b
 
-  require'lualine'.setup {
-    options = {
-      icons_enabled = true,
-      theme = custom_nightfly,
-      component_separators = { left = '', right = ''},
-      section_separators = { left = '', right = ''},
-      always_divide_middle = true,
-      globalstatus = false
-    },
-    sections = {
-      lualine_a = { 'mode', skkstatus },
-      lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false, separator = '' }, { 'filename', path = 1, shorting_target = 30, icon_enabled = true, icon = '' } },
-      lualine_c = {},
-      lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
-      lualine_y = {{ 'location', separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
-      lualine_z = {{ 'diagnostics', sources = {'nvim_diagnostic'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
-    },
-    extensions = {'fern'}
-  }
-EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = custom_nightfly,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    always_divide_middle = true,
+    globalstatus = false
+  },
+  sections = {
+    lualine_a = { 'mode', skkstatus },
+    lualine_b = { { 'branch', separator = '', padding = { left = 1, right = 0 } }, { 'diff', colored = false, separator = '' }, { 'filename', path = 1, shorting_target = 30, icon_enabled = true, icon = '' } },
+    lualine_c = {},
+    lualine_x = { 'filetype', { 'encoding', separator = '', padding = { left = 1, right = 0 } }, 'fileformat' },
+    lualine_y = {{ 'location', separator = '' }, {'progress', padding = { left = 0, right = 1 } }},
+    lualine_z = {{ 'diagnostics', sources = {'nvim_diagnostic'}, colored = false, symbols = { error = 'E:', warn = 'W:', info = 'I', hint = 'H:' } }}
+  },
+  extensions = {'fern'}
+}
 '''
 
 [[plugins]]
 repo = 'norcalli/nvim-colorizer.lua'
-hook_post_source = '''
-lua << EOF
-  require'colorizer'.setup {
-    '*';    
-    '!gh-issues';
-  }
-EOF
+lua_post_source = '''
+require'colorizer'.setup {
+  '*';    
+  '!gh-issues';
+}
 '''
 
 [[plugins]]
@@ -148,19 +142,17 @@ repo = 'phaazon/hop.nvim'
 hook_post_source = '''
 lua require'hop'.setup()
 '''
-hook_add = '''
-lua vim.keymap.set('n', 'gff', require'hop'.hint_words)
+lua_add = '''
+vim.keymap.set('n', 'gff', require'hop'.hint_words)
 '''
 
 [[plugins]]
 repo = 'b3nj5m1n/kommentary'
-hook_post_source = '''
-lua << EOF
-  require('kommentary.config').configure_language("typescriptreact", {
-    single_line_comment_string = "//",
-    multi_line_comment_strings = {"{/*", "*/}"}
-  })
-EOF
+lua_post_source = '''
+require('kommentary.config').configure_language("typescriptreact", {
+  single_line_comment_string = "//",
+  multi_line_comment_strings = {"{/*", "*/}"}
+})
 '''
 
 [[plugins]]
@@ -168,14 +160,12 @@ repo = 'kwkarlwang/bufresize.nvim'
 
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
-hook_post_source = '''
-lua << EOF
-  require('tmux').setup({
-    navigation = {
-      enable_default_keybindings = true,
-    },
-  })
-EOF
+lua_post_source = '''
+require('tmux').setup({
+  navigation = {
+    enable_default_keybindings = true,
+  },
+})
 '''
 
 [[plugins]]
@@ -187,18 +177,19 @@ repo = 'zah/nim.vim'
 [[plugins]]
 repo = 'gamoutatsumi/orgmode'
 rev = 'feature/support-emacsclient'
-hook_post_source = '''
-lua require('orgmode').setup_ts_grammar()
-lua << EOF
-  require('orgmode').setup {
-    org_agenda_files = {'~/Google Drive/マイドライブ/org/*', '~/Repositories/github.com/gamoutatsumi/my-orgs/**/*'},
-    org_default_notes_file = '~/Google Drive/マイドライブ/org/refile.org',
-  }
-EOF
+lua_post_source = '''
+require('orgmode').setup_ts_grammar()
+require('orgmode').setup {
+  org_agenda_files = {'~/Google Drive/マイドライブ/org/*', '~/Repositories/github.com/gamoutatsumi/my-orgs/**/*'},
+  org_default_notes_file = '~/Google Drive/マイドライブ/org/refile.org',
+}
 '''
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
-hook_post_source = '''
-lua require('tint').setup {}
+lua_post_source = '''
+require('tint').setup {}
 '''
+
+[[plugins]]
+repo = 'uga-rosa/ccc.nvim'
