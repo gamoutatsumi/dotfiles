@@ -319,6 +319,7 @@ alias kc='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 exists gomi && alias rm='gomi'
+alias dc='docker compose'
 
 # editors
 alias vim='nvim'
