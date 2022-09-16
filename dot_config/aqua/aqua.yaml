@@ -50,3 +50,4 @@ packages:
   - name: tomnomnom/gron@v0.7.1
   - name: kubernetes-sigs/kind@v0.15.0
   - name: golangci/golangci-lint@v1.49.0
+  - name: Aloxaf/silicon@v0.4.3
