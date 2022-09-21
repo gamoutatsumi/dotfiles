@@ -69,3 +69,6 @@ command! CspellAddLocal call s:add_to_local_dict()
 #  require('fidget').setup()
 #EOF
 #'''
+
+[[plugins]]
+repo = 'glepnir/lspsaga.nvim'

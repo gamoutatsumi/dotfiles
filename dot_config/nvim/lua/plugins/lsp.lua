@@ -1,11 +1,12 @@
 local util = require('lspconfig/util')
 local lspconfig = require('lspconfig')
-local mason = require("mason")
+local mason = require('mason')
 local mason_lspconfig = require('mason-lspconfig')
 local schema_catalog = require('plugins/schema-catalog')
 local schemas = schema_catalog.schemas
+local saga = require('lspsaga')
 
-local node_root_dir = util.root_pattern("package.json", "node_modules")
+local node_root_dir = util.root_pattern('package.json', 'node_modules')
 local buf_name = vim.api.nvim_buf_get_name(0) == '' and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local current_buf = vim.api.nvim_get_current_buf()
 local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
@@ -15,20 +16,22 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  saga.init_lsp_saga()
 
   local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', 'gd', '<Cmd>Lspsaga peek_definition<CR>', opts)
+  vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action, opts)
+  vim.keymap.set('n', '<Leader>rn', '<Cmd>Lspsaga rename<CR>', opts)
+  vim.keymap.set({'n', 'v'}, '<Leader>a', '<Cmd>Lspsaga code_action<CR>', opts)
   vim.keymap.set('n', 'grf', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  vim.keymap.set('n', '<Leader>e', '<Cmd>Lspsaga show_line_diagnostics<CR>', opts)
+  vim.keymap.set('n', '[d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+  vim.keymap.set('n', ']d', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<Leader>ot', '<Cmd>LSoutlineToggle<CR>', opts)
 end
 
 mason.setup()
