@@ -278,3 +278,7 @@ on_ft = ['markdown']
 hook_add = '''
   let g:previm_open_cmd='open'
 '''
+
+[[plugins]]
+repo = 'thinca/vim-scouter'
+on_cmd = ['Scouter']

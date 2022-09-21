@@ -1,24 +1,25 @@
 -- https://github.com/asmagill/hs._asm.undocumented.spaces
-local spaces = require('hs._asm.undocumented.spaces') 
+local spaces = require('hs.spaces')
 
 local APP_NAME = 'Alacritty'
 
 -- Switch alacritty
-hs.hotkey.bind({'ctrl'}, 'tab', function ()
+hs.hotkey.bind({ 'cmd' }, 'escape', function()
   function moveWindow(alacritty, space, mainScreen)
     local win = nil
     while win == nil do
       win = alacritty:mainWindow()
     end
-    win:spacesMoveTo(space)
+    spaces.moveWindowToSpace(win, space)
     win:focus()
   end
+
   local alacritty = hs.application.get(APP_NAME)
   if alacritty ~= nil and alacritty:isFrontmost() then
     alacritty:hide()
   else
-    local space = spaces.activeSpace()
-    local mainScreen = hs.screen.find(spaces.mainScreenUUID())
+    local space = spaces.activeSpaceOnScreen()
+    local mainScreen = hs.screen.mainScreen()
     if alacritty == nil and hs.application.launchOrFocus(APP_NAME) then
       local appWatcher = nil
       appWatcher = hs.application.watcher.new(function(name, event, app)
@@ -40,6 +41,6 @@ end)
 hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
   local alacritty = hs.application.get(APP_NAME)
   if alacritty ~= nil then
-     alacritty:hide()
+    alacritty:hide()
   end
 end)
