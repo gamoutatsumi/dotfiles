@@ -14,7 +14,7 @@ packages:
   - name: bootandy/dust@v0.8.3
   - name: sharkdp/fd@v8.4.0
   - name: ogham/dog@v0.1.0
-  - name: Songmu/gocredits@v0.2.0
+  - name: Songmu/gocredits@v0.3.0
   - name: git-lfs/git-lfs@v3.2.0
   - name: harelba/q@v3.1.6
   - name: hashicorp/terraform@v1.3.0
