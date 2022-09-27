@@ -106,15 +106,6 @@ require'lualine'.setup {
 '''
 
 [[plugins]]
-repo = 'norcalli/nvim-colorizer.lua'
-lua_post_source = '''
-require'colorizer'.setup {
-  '*';    
-  '!gh-issues';
-}
-'''
-
-[[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
@@ -198,3 +189,6 @@ require('tint').setup {}
 
 [[plugins]]
 repo = 'uga-rosa/ccc.nvim'
+lua_post_source = '''
+require('ccc').setup {}
+'''
