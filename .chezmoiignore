@@ -5,6 +5,7 @@ Library
 
 {{- if ne .chezmoi.os "linux" }}
 .stalonetrayrc
+.config/wireplumber
 {{- end }}
 
 renovate.json
