@@ -17,7 +17,7 @@ packages:
   - name: Songmu/gocredits@v0.3.0
   - name: git-lfs/git-lfs@v3.2.0
   - name: harelba/q@v3.1.6
-  - name: hashicorp/terraform@v1.3.0
+  - name: hashicorp/terraform@v1.3.1
   - name: docker-slim/docker-slim@1.38.0
   - name: okteto/okteto@2.7.0
   - name: kubernetes/kubectl@v1.25.2
