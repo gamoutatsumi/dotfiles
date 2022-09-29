@@ -28,7 +28,7 @@ set shiftwidth=2
 set expandtab
 set undofile
 set matchpairs+=「:」,『:』,（:）,【:】,《:》,〈:〉,［:］,‘:’,“:”
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 set pumblend=15
 set winblend=15
 set noshowmode

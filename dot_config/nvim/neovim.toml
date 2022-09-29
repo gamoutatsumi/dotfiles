@@ -161,6 +161,9 @@ require('tmux').setup({
   navigation = {
     enable_default_keybindings = true,
   },
+  copy_sync = {
+    enable = false,
+  },
 })
 '''
 
