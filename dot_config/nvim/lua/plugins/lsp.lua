@@ -30,7 +30,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<Leader>e', '<Cmd>Lspsaga show_line_diagnostics<CR>', opts)
   vim.keymap.set('n', '[d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
   vim.keymap.set('n', ']d', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-  vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, opts)
   vim.keymap.set('n', '<Leader>ot', '<Cmd>LSoutlineToggle<CR>', opts)
 end
 
