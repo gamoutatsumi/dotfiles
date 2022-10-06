@@ -124,11 +124,11 @@ hook_add = '''
   nmap gsm <Plug>CaserMixedCase
 '''
 
-# [[plugins]]
-# repo = 'vimpostor/vim-tpipeline'
-# hook_add = '''
-#   let g:tpipeline_autoembed = 0
-# '''
+[[plugins]]
+repo = 'vimpostor/vim-tpipeline'
+hook_add = '''
+  let g:tpipeline_autoembed = 0
+'''
 
 [[plugins]]
 repo = 'embear/vim-localvimrc'

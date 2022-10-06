@@ -1,3 +1,5 @@
+local parser_install_dir = vim.fn.stdpath "data" .. "/treesitter"
+vim.opt.runtimepath:append(parser_install_dir)
 require 'nvim-treesitter.configs'.setup {
   -- Modules and its options go here
   ensure_installed = { 'org', ' lua', 'vim', 'toml', 'json', 'yaml', 'go', 'gomod', 'typescript', 'javascript', 'tsx' },
@@ -30,7 +32,8 @@ require 'nvim-treesitter.configs'.setup {
   },
   autotag = {
     enable = true
-  }
+  },
+  parser_install_dir = parser_install_dir,
   --[[ rainbow = {
     enable = true,
     extended_mode = true,

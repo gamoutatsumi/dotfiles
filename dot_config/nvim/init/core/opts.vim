@@ -6,7 +6,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 set ignorecase
 set smartcase
 set pumheight=10
-set lazyredraw
 set noshowcmd
 set guicursor+=a:blinkon0
 set encoding=utf-8
@@ -39,3 +38,4 @@ set directory=/tmp/nvim/swap
 set isfname-==
 set iskeyword-=_
 set omnifunc=
+set laststatus=3

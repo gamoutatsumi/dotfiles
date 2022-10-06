@@ -91,7 +91,6 @@ require'lualine'.setup {
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     always_divide_middle = true,
-    globalstatus = false
   },
   sections = {
     lualine_a = { 'mode', skkstatus },
@@ -103,6 +102,7 @@ require'lualine'.setup {
   },
   extensions = {'fern'}
 }
+vim.go.laststatus = 0
 '''
 
 [[plugins]]
@@ -194,4 +194,22 @@ require('tint').setup {}
 repo = 'uga-rosa/ccc.nvim'
 lua_post_source = '''
 require('ccc').setup {}
+'''
+
+[[plugins]]
+repo = 'rcarriga/nvim-notify'
+lua_post_source = '''
+  require('notify').setup {
+    background_colour = "#000000",
+  }
+'''
+
+[[plugins]]
+repo = 'folke/noice.nvim'
+lazy = 1
+on_event = ["VimEnter"]
+depends = ['nui.nvim', 'nvim-notify']
+lua_post_source = '''
+  require("noice").setup {
+  }
 '''
