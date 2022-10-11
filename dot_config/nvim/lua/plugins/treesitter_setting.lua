@@ -7,7 +7,7 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = { 'org' },
   },
-  auto_install = true,
+  auto_install = false,
   incremental_selection = { enable = true },
   textobjects = {
     enable = true,
