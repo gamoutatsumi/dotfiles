@@ -213,3 +213,9 @@ lua_post_source = '''
   require("noice").setup {
   }
 '''
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+lua_post_source = '''
+require('fidget').setup {}
+'''
