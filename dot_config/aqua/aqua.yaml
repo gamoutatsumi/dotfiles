@@ -18,7 +18,7 @@ packages:
   - name: git-lfs/git-lfs@v3.2.0
   - name: harelba/q@v3.1.6
   - name: hashicorp/terraform@v1.3.3
-  - name: docker-slim/docker-slim@1.38.0
+  - name: docker-slim/docker-slim@1.39.0
   - name: okteto/okteto@2.8.2
   - name: kubernetes/kubectl@v1.25.3
   - name: terraform-linters/tflint@v0.42.1
