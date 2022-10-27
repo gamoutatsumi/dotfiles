@@ -21,7 +21,7 @@ hook_source = '''
   imap <silent><expr> <Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Plug>(lexima-escape)'
 
   " ddc.vim
-  call ddc#custom#patch_global('completionMenu', 'pum.vim')
+  call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
   call ddc#custom#patch_global('sources', ['lsp', 'file', 'tsnip', 'vsnip', 'emoji', 'around'])
@@ -68,6 +68,10 @@ hook_source = '''
   \ })
   call ddc#enable()
 '''
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
