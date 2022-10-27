@@ -21,6 +21,7 @@
 	default = current
 [init]
 	templatedir = ~/.config/git/template
+	defaultBranch = main
 [commit]
   gpgsign = false
 [gpg]
