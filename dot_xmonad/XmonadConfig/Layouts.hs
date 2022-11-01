@@ -58,8 +58,8 @@ gwD = 0
 gwL = 0
 gwR = 0
 
-myFullFloating = customFloating $ W.RationalRect 0 0.033 1 0.970
-myTermFloating = customFloating $ W.RationalRect 0 0.033 1 0.470
+myFullFloating = customFloating $ W.RationalRect 0 0.030 1 0.973
+myTermFloating = customFloating $ W.RationalRect 0 0.030 1 0.473
 
 myLayout = spacingRaw
             False
