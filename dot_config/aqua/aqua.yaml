@@ -51,4 +51,4 @@ packages:
   - name: kubernetes-sigs/kind@v0.17.0
   - name: golangci/golangci-lint@v1.50.1
   - name: Aloxaf/silicon@v0.5.1
-  - name: nektos/act@v0.2.32
+  - name: nektos/act@v0.2.33
