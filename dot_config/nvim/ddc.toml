@@ -24,7 +24,7 @@ hook_source = '''
   call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-  call ddc#custom#patch_global('sources', ['lsp', 'file', 'tsnip', 'vsnip', 'emoji', 'around'])
+  call ddc#custom#patch_global('sources', ['lsp', 'file', 'tsnip', 'vsnip', 'around'])
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word'}
   \ })
@@ -55,12 +55,6 @@ hook_source = '''
   \   'matchers': ['matcher_head'],
   \   'sorters': ['sorter_ascii'],
   \   'converters': [],
-  \ },
-  \ 'emoji': {
-  \   'mark': 'emoji',
-  \   'matchers': ['emoji'],
-  \   'sorters': [],
-  \   'converters': []
   \ },
   \ 'omni': {
   \   'mark': 'O',
@@ -100,10 +94,6 @@ on_source = ['ddc.vim']
 [[plugins]]
 repo = 'Shougo/pum.vim'
 on_event = 'InsertEnter'
-
-[[plugins]]
-repo = 'gamoutatsumi/ddc-emoji'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
