@@ -1,5 +1,8 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
+lua_post_source = '''
+require('registers').setup {}
+'''
 
 [[plugins]]
 repo = 'folke/which-key.nvim'

@@ -52,8 +52,6 @@ hook_source = '''
   \   'mark': 'F',
   \   'isVolatile': v:true,
   \   'forceCompletionPattern': '\S/\S*',
-  \   'matchers': ['matcher_head'],
-  \   'sorters': ['sorter_ascii'],
   \   'converters': [],
   \ },
   \ 'omni': {
@@ -69,10 +67,6 @@ on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
-on_source = ['ddc.vim']
-
-[[plugins]]
-repo = 'gamoutatsumi/ddc-sorter_ascii'
 on_source = ['ddc.vim']
 
 [[plugins]]
