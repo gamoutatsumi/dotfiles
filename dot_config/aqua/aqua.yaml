@@ -28,7 +28,7 @@ packages:
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/jsonnet@v0.17.0
   - name: google/ko@v0.12.0
-  - name: ducaale/xh@v0.16.1
+  - name: ducaale/xh@v0.17.0
   - name: aquaproj/aqua-installer@v1.1.2
   - name: itchyny/gojq@v0.12.9
   - name: dagger/dagger@v0.2.36
