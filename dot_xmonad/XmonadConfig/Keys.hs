@@ -99,6 +99,7 @@ myAdditionalKeysP = [
        , ("S-<XF86AudioMute>"     , spawn "$HOME/.xmonad/toggleMicMute")
        -- Media player controls
        , ("<XF86AudioPlay>"       , spawn "playerctl play-pause")
+       , ("<XF86AudioPause>"       , spawn "playerctl play-pause")
        , ("<XF86AudioNext>"       , spawn "playerctl next")
        , ("<XF86AudioPrev>"       , spawn "playerctl previous")
        -- Brightness Keys
