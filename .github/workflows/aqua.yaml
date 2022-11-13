@@ -30,7 +30,7 @@ jobs:
 
       - uses: aquaproj/aqua-installer@main
         with:
-          aqua_version: v1.22.0 # renovate: depName=aquaproj/aqua
+          aqua_version: v1.23.1 # renovate: depName=aquaproj/aqua
       - run: aqua -c dot_config/aqua/aqua.yaml i --test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
