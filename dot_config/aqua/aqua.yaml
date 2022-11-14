@@ -26,7 +26,7 @@ packages:
   - name: ahmetb/kubens@v0.9.4
   - name: hashicorp/vault@v1.12.1
   - name: XAMPPRocky/tokei@v12.1.2
-  - name: google/jsonnet@v0.17.0
+  - name: google/jsonnet@v0.19.1
   - name: google/ko@v0.12.0
   - name: ducaale/xh@v0.17.0
   - name: aquaproj/aqua-installer@v1.1.2
