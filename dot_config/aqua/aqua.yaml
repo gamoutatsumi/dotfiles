@@ -51,3 +51,4 @@ packages:
   - name: golangci/golangci-lint@v1.50.1
   - name: Aloxaf/silicon@v0.5.1
   - name: nektos/act@v0.2.33
+  - name: magefile/mage@v1.14.0
