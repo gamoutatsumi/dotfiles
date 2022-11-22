@@ -1,7 +1,32 @@
 local null_ls = require("null-ls")
 null_ls.setup {
   sources = {
+    null_ls.builtins.formatting.eslint_d.with {
+      condition = function ()
+        return vim.fn.executable('eslint_d') > 0
+      end
+    },
+    null_ls.builtins.diagnostics.eslint_d.with {
+      condition = function ()
+        return vim.fn.executable('eslint_d') > 0
+      end
+    },
+    null_ls.builtins.code_actions.eslint_d.with {
+      condition = function ()
+        return vim.fn.executable('eslint_d') > 0
+      end
+    },
     null_ls.builtins.formatting.prettierd.with {
+      condition = function ()
+        return vim.fn.executable('prettierd') > 0
+      end
+    },
+    null_ls.builtins.diagnostics.prettierd.with {
+      condition = function ()
+        return vim.fn.executable('prettierd') > 0
+      end
+    },
+    null_ls.builtins.code_actions.prettierd.with {
       condition = function ()
         return vim.fn.executable('prettierd') > 0
       end
