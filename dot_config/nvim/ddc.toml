@@ -93,7 +93,16 @@ on_event = 'InsertEnter'
 repo = 'hrsh7th/vim-vsnip'
 on_source = ['ddc.vim']
 hook_add = '''
-  let g:vsnip_snippet_dir = join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')
+  let g:vsnip_snippet_dirs = get(g:, 'vsnip_snippet_dirs', [])
+  let g:vsnip_snippet_dirs += [join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')]
+'''
+
+[[plugins]]
+repo = 'hrsh7th/vsnip-completion-snippet'
+on_source = ['vim-vsnip']
+hook_post_source = '''
+  let g:vsnip_snippet_dirs = get(g:, 'vsnip_snippet_dirs', [])
+  let g:vsnip_snippet_dirs += [g:vsnip_completion_snippet#path]
 '''
 
 [[plugins]]
