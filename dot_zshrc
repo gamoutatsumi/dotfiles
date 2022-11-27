@@ -2,6 +2,15 @@
 [[ -f $HOME/.zshrc.local ]] && source "$HOME/.zshrc.local"
 # }}}
 
+# ZCOMPILE {{{
+() {
+  local src
+  for src in $@; do
+    ([[ ! -e $src.zwc ]] || [ ${src:A} -nt $src ]) && zcompile $src
+  done
+} ~/.zshrc ~/.zprofile ~/.zshrc.local
+# }}}
+
 # TMUX {{{
 if [[ -z "$TMUX" ]] && [[ "$USE_TMUX" == "true" ]] ;then
     ID="$( tmux list-session | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
@@ -590,6 +599,10 @@ function awsp() {
 
 function dockercon() {
   ssh -L localhost:23750:/var/run/docker.sock $@
+}
+
+function sheldonupdate() {
+  sheldon lock --update && zcompile "${HOME}/.sheldon.lock.zsh"
 }
 # }}}
 
