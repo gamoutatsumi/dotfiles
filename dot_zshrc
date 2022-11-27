@@ -128,7 +128,12 @@ export ZENO_ENABLE_SOCK=1
 export ZENO_ENABLE_FZF_TMUX=1
 exists bat && export ZENO_GIT_CAT="bat"
 
-eval "$(sheldon source)"
+if exists sheldon; then
+  if [[ ! -e "${HOME}/.sheldon.lock.zsh" ]] || [[ "${XDG_CONFIG_HOME}/sheldon/plugins.toml" -nt "${HOME}/.sheldon.lock.zsh" ]]; then
+    sheldon source > "${HOME}/.sheldon.lock.zsh"
+  fi
+  source "${HOME}/.sheldon.lock.zsh"
+fi
 
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
 

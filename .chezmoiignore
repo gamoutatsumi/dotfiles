@@ -9,3 +9,4 @@ Library
 {{- end }}
 
 renovate.json
+install.sh
