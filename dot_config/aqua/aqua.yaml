@@ -19,7 +19,7 @@ packages:
   - name: harelba/q@v3.1.6
   - name: hashicorp/terraform@v1.3.5
   - name: docker-slim/docker-slim@1.39.0
-  - name: okteto/okteto@2.9.1
+  - name: okteto/okteto@2.10.0
   - name: kubernetes/kubectl@v1.25.4
   - name: terraform-linters/tflint@v0.43.0
   - name: ahmetb/kubectx@v0.9.4
