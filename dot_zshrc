@@ -313,8 +313,6 @@ else
   alias pbcopy='xsel --clipboard --input'
 fi
 
-alias sudo='sudo '
-
 # ls alias
 if exists exa; then
   alias ls='exa --icons'
@@ -354,6 +352,8 @@ alias deinlzconfig='chezmoi edit ~/.config/nvim/dein_lazy.toml'
 alias ssconfig='chezmoi edit ~/.config/starship.toml'
 alias reload='source ~/.zshrc'
 alias path='echo $PATH'
+
+alias p='paru'
 
 # TMUX
 alias ssh='TERM=xterm ssh'
