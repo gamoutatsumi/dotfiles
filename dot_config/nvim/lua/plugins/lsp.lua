@@ -16,6 +16,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(_, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
   saga.init_lsp_saga()
 
   local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -25,7 +26,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', '<Leader>rn', '<Cmd>Lspsaga rename<CR>', opts)
-  vim.keymap.set({'n', 'v'}, '<Leader>a', '<Cmd>Lspsaga code_action<CR>', opts)
+  vim.keymap.set({ 'n', 'v' }, '<Leader>a', '<Cmd>Lspsaga code_action<CR>', opts)
   vim.keymap.set('n', 'grf', vim.lsp.buf.references, opts)
   vim.keymap.set('n', '<Leader>e', '<Cmd>Lspsaga show_line_diagnostics<CR>', opts)
   vim.keymap.set('n', '[d', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
@@ -155,12 +156,22 @@ local null_ls = require("null-ls")
 null_ls.setup {
   sources = {
     null_ls.builtins.formatting.prettierd.with {
-      condition = function ()
+      condition = function()
         return vim.fn.executable('prettierd') > 0
       end
     },
     null_ls.builtins.diagnostics.eslint_d.with {
-      condition = function ()
+      condition = function()
+        return vim.fn.executable('eslint_d') > 0
+      end
+    },
+    null_ls.builtins.formatting.eslint_d.with {
+      condition = function()
+        return vim.fn.executable('eslint_d') > 0
+      end
+    },
+    null_ls.builtins.code_actions.eslint_d.with {
+      condition = function()
         return vim.fn.executable('eslint_d') > 0
       end
     },
@@ -181,6 +192,11 @@ null_ls.setup {
     null_ls.builtins.formatting.shfmt.with {
       condition = function()
         return vim.fn.executable('shfmt') > 0
+      end
+    },
+    null_ls.builtins.formatting.stylua.with {
+      condition = function()
+        return vim.fn.executable('stylua') > 0
       end
     }
   },
