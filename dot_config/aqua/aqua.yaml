@@ -9,7 +9,7 @@ packages:
   - name: x-motemen/ghq@v1.3.0
   - name: b4b4r07/gomi@v1.1.3
   - name: ogham/exa@v0.10.1
-  - name: dandavison/delta@0.14.0
+  - name: dandavison/delta@0.15.0
   - name: stedolan/jq@jq-1.6
   - name: bootandy/dust@v0.8.3
   - name: sharkdp/fd@v8.5.3
