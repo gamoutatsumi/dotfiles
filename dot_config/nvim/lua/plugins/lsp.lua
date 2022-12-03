@@ -170,11 +170,6 @@ null_ls.setup {
         return vim.fn.executable('eslint_d') > 0
       end
     },
-    null_ls.builtins.code_actions.eslint_d.with {
-      condition = function()
-        return vim.fn.executable('eslint_d') > 0
-      end
-    },
     null_ls.builtins.formatting.goimports.with {
       condition = function()
         return vim.fn.executable('goimports') > 0
