@@ -1,15 +1,12 @@
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
-on_source = 'ddc.vim'
-hook_source = '''
+hook_post_source = '''
   call popup_preview#enable()
 '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-depends = ['denops.vim', 'lexima.vim']
-on_event = 'InsertEnter'
-hook_source = '''
+hook_post_source = '''
   " pum.vim
   imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
   imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1)<CR>'
@@ -24,15 +21,15 @@ hook_source = '''
   call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-  call ddc#custom#patch_global('sources', ['lsp', 'file', 'tsnip', 'vsnip', 'around'])
+  call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'tsnip', 'vsnip', 'around'])
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word'}
   \ })
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
-  \ 'lsp': {
+  \ 'nvim-lsp': {
   \   'mark': 'lsp',
-  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*',
+  \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*|\/\w*',
   \   'ignoreCase': v:true,
   \   'isVolatile': v:true
   \ },
@@ -63,35 +60,27 @@ hook_source = '''
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'tani/ddc-fuzzy'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'LumaKernel/ddc-file'
-on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
-on_source = ['ddc.vim']
 hook_add = '''
   let g:vsnip_snippet_dirs = get(g:, 'vsnip_snippet_dirs', [])
   let g:vsnip_snippet_dirs += [join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')]
@@ -99,20 +88,16 @@ hook_add = '''
 
 [[plugins]]
 repo = 'hrsh7th/completion-snippet'
-lazy = 0
 merged = 0
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-on_source = ['ddc.vim']
-hook_source = '''
+hook_add = '''
   autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 '''
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
-depends = 'ddc.vim'
-on_ft = ['sql', 'mysql', 'plsql']
 hook_post_source = '''
   call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', ['dadbod-completion'])
   call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sourceOptions', {
@@ -124,9 +109,11 @@ hook_post_source = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/ddc-source-nvim-lsp'
+
+[[plugins]]
 repo = 'yuki-yano/tsnip.nvim'
 if = "has('nvim')"
-on_source = ['ddc.vim']
 hook_add = '''
   let g:tsnip_snippet_dir = $HOME .. '/.config/nvim/tsnip'
 '''

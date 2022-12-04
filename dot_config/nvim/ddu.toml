@@ -1,8 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-depends = ['denops.vim']
-on_func = ['ddu#start']
-hook_source = '''
+hook_post_source = '''
   call ddu#custom#patch_global({
   \ 'ui': 'ff',
   \ 'sourceOptions': {
@@ -31,31 +29,24 @@ hook_source = '''
 
 [[plugins]]
 repo = 'Shougo/ddu-ui-ff'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file_rec'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-kind-file'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-filter-matcher_substring'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'yuki-yano/ddu-filter-fzf'
-on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-commands.vim'
-on_source = ['ddu.vim']
 
 [plugins.ftplugin]
 ddu-ff = '''
@@ -72,29 +63,24 @@ ddu-ff-filter = '''
 
 [[plugins]]
 repo = 'gamoutatsumi/ddu-source-nvim-lsp'
-on_source = 'ddu.vim'
 hook_add = '''
   nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp_diagnostic_all' }] })<CR>
 '''
 
 [[plugins]]
 repo = 'shun/ddu-source-buffer'
-on_source = 'ddu.vim'
 hook_add = '''
   nnoremap <silent> ;b <Cmd>call ddu#start({ 'sources': [{ 'name': 'buffer' }] })<CR>
 '''
 
 [[plugins]]
 repo = 'shun/ddu-source-rg'
-depends = 'ddu.vim'
-on_func = ['ddu_rg#find']
 hook_add = '''
   nnoremap <silent> ;g <Cmd>call ddu_rg#find()<CR>
 '''
 
 [[plugins]]
 repo = 'kuuote/ddu-source-mr'
-on_source = 'ddu.vim'
 hook_add = '''
   nnoremap <silent> ;mu <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mru', 'current': v:true } }] })<CR>
   nnoremap <silent> ;mw <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mrw', 'current': v:true } }] })<CR>
@@ -102,7 +88,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'matsui54/ddu-source-file_external'
-on_source = 'ddu.vim'
 hook_add = '''
   nnoremap <silent> ;f <Cmd>call ddu#start({ 'sources': [{'name': 'file_external'}] })<CR>
 '''

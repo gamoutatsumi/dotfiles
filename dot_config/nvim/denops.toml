@@ -1,25 +1,14 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'vim-denops/denops-shared-server.vim'
-lazy = 0
 
 [[plugins]]
 repo = 'gamoutatsumi/dps-ghosttext.vim'
-depends = ['denops.vim']
-on_cmd = ['GhostStart']
-hook_add = '''
-let g:dps_ghosttext#ftmap = {
-\  "qiita.com": "markdown"
-\}
-'''
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
-depends = ['denops.vim']
-on_map = { ic = '<Plug>' }
 hook_add = '''
   let g:skkeleton#mode = ''
   imap <C-j> <Plug>(skkeleton-toggle)
@@ -48,24 +37,18 @@ hook_add = '''
 
 [[plugins]]
 repo = 'gamoutatsumi/gyazoupload.vim'
-depends = ['denops.vim']
-on_cmd = ['GyazoUpload']
 hook_add = '''
   let g:gyazo#token=$GYAZO_TOKEN
 '''
 
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
-depends = ['denops.vim']
-on_cmd = ['PreviewMarkdown']
 hook_add = '''
   let g:bufpreview_browser = 'firefox'
 '''
 
 [[plugins]]
 repo = 'skanehira/denops-gh.vim'
-depends = ['ddc.vim']
-on_path = ['gh://.*']
 hook_add = '''
   augroup gh_autocmd
     autocmd!
@@ -89,13 +72,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'skanehira/denops-docker.vim'
-depends = ['denops.vim']
-on_cmd = ['Docker*']
 
 [[plugins]]
 repo = 'monaqa/dps-dial.vim'
-depends = 'denops.vim'
-on_map = ['<Plug>(dps-dial-']
 hook_add = '''
   nmap <C-a> <Plug>(dps-dial-increment)
   nmap <C-x> <Plug>(dps-dial-decrement)
@@ -107,31 +86,22 @@ hook_add = '''
 
 [[plugins]]
 repo = 'yuki-yano/fuzzy-motion.vim'
-depends = ['denops.vim']
-on_cmd = ['FuzzyMotion']
 hook_add = '''
   nnoremap gfs <Cmd>FuzzyMotion<CR>
 '''
 
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
-depends = ['denops.vim']
 
 [[plugins]]
 repo = 'skanehira/denops-twihi.vim'
-depends = ['denops.vim']
-on_cmd = 'Twihi*'
 
 [[plugins]]
 repo = 'skanehira/k8s.vim'
-depends = ['denops.vim']
-on_cmd = 'K8s*'
 on_path = ['k8s://*']
 
 [[plugins]]
 repo = 'skanehira/denops-silicon.vim'
-depends = ['denops.vim']
-on_cmd = ['Silicon']
 hook_add = '''
   let g:silicon_options = {
         \  'font': 'HackGen Console NF',
