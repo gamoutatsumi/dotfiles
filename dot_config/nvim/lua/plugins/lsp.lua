@@ -21,6 +21,15 @@ local on_attach = function(_, bufnr)
 
 	saga.init_lsp_saga()
 
+	local function format()
+		local formatOpts = {
+			filter = function(client)
+				return client.name ~= "tsserver"
+			end,
+		}
+		vim.lsp.buf.format(formatOpts)
+	end
+
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -33,7 +42,7 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "<Leader>e", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
 	vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	vim.keymap.set("n", "<Leader>f", vim.lsp.buf.format, opts)
+	vim.keymap.set("n", "<Leader>f", format, opts)
 	vim.keymap.set("n", "<Leader>ot", "<Cmd>LSoutlineToggle<CR>", opts)
 end
 
@@ -53,10 +62,11 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 		opts.on_attach = function(client, bufnr)
 			on_attach(client, bufnr)
 			local ts_utils = require("nvim-lsp-ts-utils")
+			client.server_capabilities.document_formatting = false
 			ts_utils.setup({
 				debug = false,
 				disable_commands = false,
-				enable_import_on_completion = false,
+				enable_import_on_completion = true,
 				import_all_timeout = 5000,
 				import_all_priorities = {
 					same_file = 1,
@@ -77,13 +87,6 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 			})
 			ts_utils.setup_client(client)
 		end
-	elseif server == "eslintls" then
-		opts.on_attach = function(client, bufnr)
-			client.server_capabilities.document_formatting = true
-			on_attach(client, bufnr)
-		end
-		opts.autostart = true
-		opts.root_dir = util.root_pattern(".eslintrc")
 	elseif server == "tailwindcss" then
 		opts.root_dir = util.root_pattern("tailwind.config.js")
 		opts.autostart = false
@@ -165,7 +168,7 @@ null_ls.setup({
 		}),
 		null_ls.builtins.diagnostics.eslint_d.with({
 			condition = function()
-				return vim.fn.executable("eslint_d") > 0
+				return vim.fn.executable("eslint_d") > 0 and is_node_repo
 			end,
 		}),
 		null_ls.builtins.formatting.eslint_d.with({
