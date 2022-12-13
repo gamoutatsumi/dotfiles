@@ -66,7 +66,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 			ts_utils.setup({
 				debug = false,
 				disable_commands = false,
-				enable_import_on_completion = true,
+				enable_import_on_completion = false,
 				import_all_timeout = 5000,
 				import_all_priorities = {
 					same_file = 1,
