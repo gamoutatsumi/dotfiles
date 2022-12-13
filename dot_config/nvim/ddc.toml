@@ -19,7 +19,7 @@ hook_post_source = '''
   call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
-  call ddc#custom#patch_global('sources', ['nvim-lsp', 'file', 'tsnip', 'vsnip', 'around'])
+  call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
   call ddc#custom#patch_global('filterParams', {
   \   'matcher_fuzzy': {'splitMode': 'word'}
   \ })
