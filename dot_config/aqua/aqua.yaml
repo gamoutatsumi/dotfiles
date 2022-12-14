@@ -32,7 +32,7 @@ packages:
   - name: itchyny/gojq@v0.12.10
   - name: dagger/dagger@v0.3.7
   - name: kubernetes-sigs/kubebuilder@v3.8.0
-  - name: helm/helm@v3.10.2
+  - name: helm/helm@v3.10.3
   - name: yannh/kubeconform@v0.5.0
   - name: kubernetes-sigs/cluster-api@v1.3.0
   - name: shyiko/kubesec@0.9.2
