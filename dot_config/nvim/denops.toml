@@ -74,17 +74,6 @@ hook_add = '''
 repo = 'skanehira/denops-docker.vim'
 
 [[plugins]]
-repo = 'monaqa/dps-dial.vim'
-hook_add = '''
-  nmap <C-a> <Plug>(dps-dial-increment)
-  nmap <C-x> <Plug>(dps-dial-decrement)
-  xmap <C-a> <Plug>(dps-dial-increment)
-  xmap <C-x> <Plug>(dps-dial-decrement)
-  xmap g<C-a> g<Plug>(dps-dial-increment)
-  xmap g<C-x> g<Plug>(dps-dial-decrement)
-'''
-
-[[plugins]]
 repo = 'yuki-yano/fuzzy-motion.vim'
 hook_add = '''
   nnoremap gfs <Cmd>FuzzyMotion<CR>
