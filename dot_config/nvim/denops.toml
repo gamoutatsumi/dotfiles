@@ -82,8 +82,8 @@ hook_add = '''
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
 
-[[plugins]]
-repo = 'skanehira/denops-twihi.vim'
+# [[plugins]]
+# repo = 'skanehira/denops-twihi.vim'
 
 [[plugins]]
 repo = 'skanehira/k8s.vim'
