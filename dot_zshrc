@@ -604,6 +604,21 @@ function dockercon() {
 function sheldonupdate() {
   sheldon lock --update && zcompile "${HOME}/.sheldon.lock.zsh"
 }
+
+function fk() {
+  local pid
+  local fzf_command
+  if [[ -z $TMUX ]]; then
+    fzf_command="fzf"
+  else
+    fzf_command="fzf-tmux"
+  fi
+  pid=$(ps -ef | sed 1d | $fzf_command -m | awk '{print $2}')
+
+  if [[ "x$pid" != "x" ]]; then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
 # }}}
 
 # {{{ HOOKS
