@@ -40,3 +40,4 @@ set iskeyword-=_
 set iskeyword+=@
 set omnifunc=
 set laststatus=3
+set cmdheight=0
