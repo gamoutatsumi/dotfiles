@@ -19,7 +19,7 @@ local on_attach = function(_, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
-	saga.init_lsp_saga()
+	saga.setup {}
 
 	local function format()
 		local formatOpts = {
@@ -43,7 +43,7 @@ local on_attach = function(_, bufnr)
 	vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	vim.keymap.set("n", "<Leader>f", format, opts)
-	vim.keymap.set("n", "<Leader>ot", "<Cmd>LSoutlineToggle<CR>", opts)
+	vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
 end
 
 mason.setup()
