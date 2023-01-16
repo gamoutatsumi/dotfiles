@@ -2,6 +2,7 @@ let s:dein_dir = expand('~/.local/share/nvim/dein')
 let s:dein_repo_dir = s:dein_dir .. '/repos/github.com/Shougo/dein.vim'
 
 let g:dein#install_github_api_token = $DEIN_GITHUB_TOKEN
+let g:dein#install_progress_type = 'floating'
 
 let s:rc_dir = expand('~/.config/nvim')
 
