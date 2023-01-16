@@ -207,15 +207,15 @@ lua_post_source = '''
   }
 '''
 
-# [[plugins]]
-# repo = 'folke/noice.nvim'
-# lazy = 1
-# on_event = ["VimEnter"]
-# depends = ['nui.nvim', 'nvim-notify']
-# lua_post_source = '''
-#   require("noice").setup {
-#   }
-# '''
+[[plugins]]
+repo = 'folke/noice.nvim'
+lazy = 1
+on_event = ["VimEnter"]
+depends = ['nui.nvim', 'nvim-notify']
+lua_post_source = '''
+  require("noice").setup {
+  }
+'''
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
