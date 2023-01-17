@@ -19,7 +19,7 @@ local on_attach = function(_, bufnr)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
 
-	saga.setup {}
+	saga.setup({})
 
 	local function format()
 		local formatOpts = {
@@ -163,7 +163,7 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.prettierd.with({
 			condition = function()
-				return vim.fn.executable("prettierd") > 0
+				return vim.fn.executable("prettierd") > 0 and is_node_repo
 			end,
 		}),
 		null_ls.builtins.diagnostics.eslint_d.with({
