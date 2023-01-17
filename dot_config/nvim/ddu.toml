@@ -6,7 +6,7 @@ hook_post_source = '''
   \ 'sourceOptions': {
   \   '_': {
   \     'ignoreCase': v:true,
-  \     'matchers': ['matcher_substring'],
+  \     'matchers': ['matcher_kensaku'],
   \   },
   \ },
   \ 'uiParams': {
@@ -20,7 +20,7 @@ hook_post_source = '''
   \   },
   \ },
   \ 'filterParams': {
-  \   'matcher_substring': {
+  \   'matcher_kensaku': {
   \     'highlightMatched': 'Search',
   \  },
   \ },
@@ -74,9 +74,15 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'shun/ddu-source-rg'
+# repo = 'shun/ddu-source-rg'
+repo = 'gamoutatsumi/ddu-source-rg'
+rev = 'kensaku'
 hook_add = '''
-  nnoremap <silent> ;g <Cmd>call ddu_rg#find()<CR>
+  function! DduFind() abort
+    let word = input("search word: ")
+    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'kensaku': v:true}}]})
+  endfunction
+  nnoremap <silent> ;g <Cmd>call DduFind()<CR>
 '''
 
 [[plugins]]
@@ -96,3 +102,6 @@ hook_post_source = '''
   \ 'file_external': {'cmd': ['git', 'ls-files', '--exclude-standard', '-c', '-o']},
   \ })
 '''
+
+[[plugins]]
+repo = 'Milly/ddu-filter-kensaku'
