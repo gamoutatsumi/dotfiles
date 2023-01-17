@@ -110,3 +110,9 @@ on_path = ['k8s://*']
 #         \  'theme': 'Solarized (dark)',
 #         \ }
 # '''
+
+[[plugins]]
+repo = 'lambdalisue/kensaku.vim'
+hook_add = '''
+  cnoremap <CR> <Plug>(kensaku-auto-replace)<CR>
+'''
