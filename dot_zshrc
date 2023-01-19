@@ -34,6 +34,9 @@ fi
 if [[ -z "$XDG_CACHE_HOME" ]]; then
   export XDG_CACHE_HOME="$HOME/.cache"
 fi
+if [[ -z "$P10K_CACHE_HOME" ]]; then
+  export P10K_CACHE_HOME="/tmp/p10k"
+fi
 if [[ -n "$ZSHRC_PROFILE" ]]; then
   zmodload zsh/zprof && zprof > /dev/null
 fi

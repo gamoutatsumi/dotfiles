@@ -113,6 +113,9 @@ on_path = ['k8s://*']
 
 [[plugins]]
 repo = 'lambdalisue/kensaku.vim'
+
+[[plugins]]
+repo = 'lambdalisue/kensaku-search.vim'
 hook_add = '''
-  cnoremap <CR> <Plug>(kensaku-auto-replace)<CR>
+  cnoremap <CR> <Plug>(kensaku-search-replace)<CR>
 '''

@@ -34,7 +34,8 @@ github = "zsh-users/zsh-autosuggestions"
 apply = ['defer']
 
 [plugins.powerlevel10k]
-github = "romkatv/powerlevel10k"
+github = "gamoutatsumi/powerlevel10k"
+branch = "cachedir"
 
 [plugins.zsh-256color]
 github = "chrissicool/zsh-256color"
