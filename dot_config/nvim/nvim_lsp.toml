@@ -19,7 +19,7 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
+repo = 'jose-elias-alvarez/typescript.nvim'
 
 [[plugins]]
 repo='ray-x/go.nvim'
@@ -72,3 +72,6 @@ command! CspellAddLocal call s:add_to_local_dict()
 
 [[plugins]]
 repo = 'glepnir/lspsaga.nvim'
+
+[[plugins]]
+repo = 'yioneko/nvim-vtsls'
