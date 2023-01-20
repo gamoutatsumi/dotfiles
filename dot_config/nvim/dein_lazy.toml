@@ -284,3 +284,10 @@ hook_add = '''
 [[plugins]]
 repo = 'thinca/vim-scouter'
 on_cmd = ['Scouter']
+
+[[plugins]]
+repo = 'thinca/vim-partedit'
+on_cmd = ['Partedit']
+hook_add = '''
+  xmap pe <Cmd>Partedit split<CR>
+'''

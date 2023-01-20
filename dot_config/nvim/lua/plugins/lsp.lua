@@ -63,8 +63,8 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 			client.server_capabilities.document_formatting = false
 		end
 	elseif server == "tailwindcss" then
-		opts.root_dir = util.root_pattern("tailwind.config.js")
-		opts.autostart = false
+		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js")
+		opts.autostart = true
 	elseif server == "jsonls" then
 		opts.filetypes = { "json", "jsonc" }
 		opts.settings = {
@@ -142,11 +142,13 @@ null_ls.setup({
 			end,
 		}),
 		null_ls.builtins.diagnostics.eslint_d.with({
+			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "markdownreact", "astro" },
 			condition = function()
 				return vim.fn.executable("eslint_d") > 0 and is_node_repo
 			end,
 		}),
 		null_ls.builtins.formatting.eslint_d.with({
+			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "markdownreact", "astro" },
 			condition = function()
 				return vim.fn.executable("eslint_d") > 0
 			end,
