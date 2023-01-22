@@ -19,9 +19,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'jose-elias-alvarez/typescript.nvim'
-
-[[plugins]]
 repo='ray-x/go.nvim'
 lazy = 1
 on_ft = ['go']
@@ -78,3 +75,6 @@ repo = 'yioneko/nvim-vtsls'
 
 [[plugins]]
 repo = 'jay-babu/mason-null-ls.nvim'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/typescript.nvim'

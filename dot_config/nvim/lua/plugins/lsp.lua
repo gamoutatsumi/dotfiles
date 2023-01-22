@@ -5,6 +5,7 @@ local mason_lspconfig = require("mason-lspconfig")
 local schema_catalog = require("plugins/schema-catalog")
 local schemas = schema_catalog.schemas
 local saga = require("lspsaga")
+local null_ls = require("null-ls")
 
 local node_root_dir = util.root_pattern("package.json", "node_modules")
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
@@ -47,16 +48,18 @@ local on_attach = function(_, bufnr)
 end
 
 mason.setup()
-mason_lspconfig.setup({
-	ensure_installed = { "gopls", "tsserver", "sumneko_lua" },
-})
+mason_lspconfig.setup({})
 
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 	local opts = {}
 	opts.on_attach = on_attach
 	opts.capabilities = capabilities
 	opts.autostart = true
-	if server == "tailwindcss" then
+	if server == "tsserver" then
+		goto continue
+	elseif server == "vtsls" then
+		goto continue
+	elseif server == "tailwindcss" then
 		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts")
 		opts.autostart = true
 	elseif server == "jsonls" then
@@ -97,10 +100,11 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 		}
 	end
 	lspconfig[server].setup(opts)
+	::continue::
 end
 
 if vim.fn.executable("deno") then
-	require("lspconfig").denols.setup({
+	lspconfig.denols.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		autostart = not is_node_repo,
@@ -112,7 +116,7 @@ if vim.fn.executable("deno") then
 end
 
 if vim.fn.executable("haskell-language-server-wrapper") then
-	require("lspconfig").hls.setup({
+	lspconfig.hls.setup({
 		on_attach = on_attach,
 		autostart = true,
 		capabilities = capabilities,
@@ -120,29 +124,43 @@ if vim.fn.executable("haskell-language-server-wrapper") then
 end
 
 if vim.fn.executable("satysfi-language-server") then
-	require("lspconfig")["satysfi-ls"].setup({
+	lspconfig["satysfi-ls"].setup({
 		on_attach = on_attach,
 		autostart = true,
 		capabilities = capabilities,
 	})
 end
 
-require("typescript").setup({
-	disable_commands = false,
-	debug = false,
-	go_to_source_definition = {
-		fallback = true,
-	},
-	server = {
+local null_ls_sources = {}
+
+if vim.fn.executable("typescript-language-server") > 0 then
+	require("typescript").setup({
+		disable_commands = false,
+		debug = false,
+		go_to_source_definition = {
+			fallback = true,
+		},
+		server = {
+			autostart = is_node_repo,
+			on_attach = function(client, bufnr)
+				on_attach(client, bufnr)
+				client.server_capabilities.document_formatting = false
+			end,
+		},
+	})
+	table.insert(null_ls_sources, require("typescript.extensions.null-ls.code-actions"))
+end
+
+if vim.fn.executable("vtsls") > 0 then
+	lspconfig.vtsls.setup({
 		autostart = is_node_repo,
 		on_attach = function(client, bufnr)
 			on_attach(client, bufnr)
 			client.server_capabilities.document_formatting = false
 		end,
-	},
-})
+	})
+end
 
-local null_ls = require("null-ls")
 require("mason-null-ls").setup({
 	ensure_installed = nil,
 	automatic_setup = true,
@@ -186,8 +204,6 @@ require("mason-null-ls").setup_handlers({
 	end,
 })
 null_ls.setup({
-	sources = {
-		require("typescript.extensions.null-ls.code-actions"),
-	},
+	sources = null_ls_sources,
 	on_attach = on_attach,
 })
