@@ -57,13 +57,22 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 	opts.capabilities = capabilities
 	opts.autostart = true
 	if server == "tsserver" then
-		opts.autostart = is_node_repo
-		opts.on_attach = function(client, bufnr)
-			on_attach(client, bufnr)
-			client.server_capabilities.document_formatting = false
-		end
+		require("typescript").setup({
+			disable_commands = false,
+			debug = false,
+			go_to_source_definition = {
+				fallback = true,
+			},
+			server = {
+				autostart = is_node_repo,
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+					client.server_capabilities.document_formatting = false
+				end,
+			},
+		})
 	elseif server == "tailwindcss" then
-		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js")
+		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts")
 		opts.autostart = true
 	elseif server == "jsonls" then
 		opts.filetypes = { "json", "jsonc" }
@@ -136,6 +145,7 @@ end
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
+		require("typescript.extensions.null-ls.code-actions"),
 		null_ls.builtins.formatting.prettierd.with({
 			condition = function()
 				return vim.fn.executable("prettierd") > 0 and is_node_repo
