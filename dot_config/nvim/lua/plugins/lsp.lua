@@ -146,6 +146,21 @@ if vim.fn.executable("typescript-language-server") > 0 then
 				on_attach(client, bufnr)
 				client.server_capabilities.document_formatting = false
 			end,
+			settings = {
+				javascript = {
+					format = {
+						enable = false,
+					},
+				},
+				typescript = {
+					format = {
+						enable = false,
+					},
+					tsserver = {
+						useSyntaxServer = false,
+					},
+				},
+			},
 		},
 	})
 	table.insert(null_ls_sources, require("typescript.extensions.null-ls.code-actions"))
