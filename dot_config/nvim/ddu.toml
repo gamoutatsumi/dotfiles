@@ -17,6 +17,7 @@ hook_post_source = '''
   \ 'kindOptions': {
   \   'file': {
   \     'defaultAction': 'open',
+  \     'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l']
   \   },
   \ },
   \ 'filterParams': {
@@ -50,10 +51,11 @@ repo = 'Shougo/ddu-commands.vim'
 
 [plugins.ftplugin]
 ddu-ff = '''
-  nnoremap <buffer> <CR> <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
-  nnoremap <buffer> <Space> <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
-  nnoremap <buffer> i <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
-  nnoremap <buffer> q <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  nnoremap <buffer> <CR> <Cmd>call ddu#ui#ff#do_action("itemAction")<CR>
+  nnoremap <buffer> <Space> <Cmd>call ddu#ui#ff#do_action("toggleSelectItem")<CR>
+  nnoremap <buffer> i <Cmd>call ddu#ui#ff#do_action("openFilterWindow")<CR>
+  nnoremap <buffer> q <Cmd>call ddu#ui#ff#do_action("quit")<CR>
+  nnoremap <buffer> p <Cmd>call ddu#ui#ff#do_action("preview")<CR>
   setlocal cursorline
 '''
 ddu-ff-filter = '''
