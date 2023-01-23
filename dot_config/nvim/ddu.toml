@@ -74,13 +74,11 @@ hook_add = '''
 '''
 
 [[plugins]]
-# repo = 'shun/ddu-source-rg'
-repo = 'gamoutatsumi/ddu-source-rg'
-rev = 'kensaku'
+repo = 'shun/ddu-source-rg'
 hook_add = '''
   function! DduFind() abort
     let word = input("search word: ")
-    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'kensaku': v:true}}]})
+    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo'}}]})
   endfunction
   nnoremap <silent> ;g <Cmd>call DduFind()<CR>
 '''
