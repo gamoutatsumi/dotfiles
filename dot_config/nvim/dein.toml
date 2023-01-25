@@ -139,3 +139,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
+
+[[plugins]]
+repo = 'rhysd/committia.vim'
