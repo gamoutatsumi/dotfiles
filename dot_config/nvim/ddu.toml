@@ -90,7 +90,7 @@ repo = 'shun/ddu-source-rg'
 hook_add = '''
   function! DduFind() abort
     let word = input("search word: ")
-    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo'}}]})
+    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo', 'args': ['--ignore-case', '--json']}}]})
   endfunction
   nnoremap <silent> ;g <Cmd>call DduFind()<CR>
 '''
