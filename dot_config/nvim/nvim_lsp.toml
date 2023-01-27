@@ -64,3 +64,9 @@ repo = 'jay-babu/mason-null-ls.nvim'
 
 [[plugins]]
 repo = 'jose-elias-alvarez/typescript.nvim'
+
+[[plugins]]
+repo = 'hrsh7th/nvim-gtd'
+lua_post_source = '''
+require('gtd').setup({})
+'''
