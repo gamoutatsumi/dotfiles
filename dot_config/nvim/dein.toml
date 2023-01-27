@@ -21,9 +21,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
 repo = 'itchyny/vim-parenmatch'
 
 #[[plugins]]
