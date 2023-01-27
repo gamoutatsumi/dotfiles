@@ -236,3 +236,9 @@ vim.api.nvim_set_keymap("v", "g<C-x>", require("dial.map").dec_gvisual(), {norem
 
 [[plugins]]
 repo = 'ray-x/guihua.lua'
+
+[[plugins]]
+repo = 'ruifm/gitlinker.nvim'
+lua_post_source = '''
+require('gitlinker').setup()
+'''
