@@ -59,6 +59,11 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 		goto continue
 	elseif server == "vtsls" then
 		goto continue
+	elseif server == "gopls" then
+		opts.on_attach = function(client, bufnr)
+			on_attach(client, bufnr)
+			client.server_capabilities.document_formatting = false
+		end
 	elseif server == "tailwindcss" then
 		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts")
 		opts.autostart = true
@@ -223,8 +228,8 @@ null_ls.setup({
 	on_attach = on_attach,
 })
 
-require('go').setup({
-  filstruct = 'gopls',
-  dap_debug = true,
-  dap_debug_gui = true,
+require("go").setup({
+	filstruct = "gopls",
+	dap_debug = true,
+	dap_debug_gui = true,
 })

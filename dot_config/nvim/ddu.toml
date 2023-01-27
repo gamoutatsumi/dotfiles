@@ -6,7 +6,7 @@ hook_post_source = '''
   \ 'sourceOptions': {
   \   '_': {
   \     'ignoreCase': v:true,
-  \     'matchers': ['matcher_kensaku'],
+  \     'matchers': ['merge'],
   \   },
   \ },
   \ 'uiParams': {
@@ -24,6 +24,16 @@ hook_post_source = '''
   \   'matcher_kensaku': {
   \     'highlightMatched': 'Search',
   \  },
+  \   'matcher_fuse': {
+  \     'highlightMatched': 'Search',
+  \  },
+  \  'merge': {
+  \    'filters': [
+  \      {'name': 'matcher_kensaku', 'weight': 2.0},
+  \      'matcher_fuse',
+  \    ],
+  \    'unique': v:true,
+  \  }
   \ },
   \ })
 '''
@@ -105,3 +115,9 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'Milly/ddu-filter-kensaku'
+
+[[plugins]]
+repo = 'kuuote/ddu-filter-fuse'
+
+[[plugins]]
+repo = 'Milly/ddu-filter-merge'
