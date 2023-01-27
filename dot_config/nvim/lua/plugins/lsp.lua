@@ -59,8 +59,6 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 		goto continue
 	elseif server == "vtsls" then
 		goto continue
-  elseif server == "gopls" then
-    goto continue
 	elseif server == "tailwindcss" then
 		opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts")
 		opts.autostart = true
