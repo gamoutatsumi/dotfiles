@@ -302,6 +302,8 @@ if is_osx; then
   if exists pyenv; then
     alias brew="env PATH=\${PATH//\$(pyenv root)\/shims:/} brew"
   fi
+  alias arm="exec arch -arch arm64e /bin/zsh --login"
+  alias x64="exec arch -arch x86_64 /bin/zsh --login"
 else
   alias mozc_dic='/usr/lib/mozc/mozc_tool --mode=dictionary_tool'
   alias mozc_word='/usr/lib/mozc/mozc_tool --mode=word_register_dialog'
