@@ -55,3 +55,4 @@ packages:
   - name: rossmacarthur/sheldon@0.7.1
   - name: twpayne/chezmoi@v2.29.4
   - name: svenstaro/miniserve@v0.22.0
+  - name: suzuki-shunsuke/cmdx@v1.6.1
