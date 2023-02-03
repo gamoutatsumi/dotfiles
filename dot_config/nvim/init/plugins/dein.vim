@@ -18,6 +18,7 @@ let s:vim_toml = s:rc_dir .. '/vim.toml'
 let s:ts_toml = s:rc_dir .. '/treesitter.toml'
 let s:ddu_toml = s:rc_dir .. '/ddu.toml'
 let s:telescope_toml = s:rc_dir .. '/telescope.toml'
+let s:use_denops = v:true
 
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' .. s:dein_repo_dir)
@@ -28,8 +29,6 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:dein_toml, { 'lazy': 0 })
   call dein#load_toml(s:lazy_toml, { 'lazy': 1 })
-  call dein#load_toml(s:ddc_toml, { 'lazy': 0 })
-  call dein#load_toml(s:denops_toml, { 'lazy': 0 })
   call dein#load_toml(s:ts_toml, { 'lazy': 0 })
   if has('nvim') 
     call dein#load_toml(s:nvim_toml, { 'lazy': 0 }) 
@@ -38,7 +37,11 @@ if dein#load_state(s:dein_dir)
   else
     call dein#load_toml(s:vim_toml, { 'lazy': 0 })
   endif
-  call dein#load_toml(s:ddu_toml, { 'lazy': 0 })
+  if s:use_denops
+    call dein#load_toml(s:ddc_toml, { 'lazy': 0 })
+    call dein#load_toml(s:denops_toml, { 'lazy': 0 })
+    call dein#load_toml(s:ddu_toml, { 'lazy': 0 })
+  endif
   " call dein#load_toml(s:telescope_toml, { 'lazy': 1 })
   call dein#end()
   call dein#save_state()
