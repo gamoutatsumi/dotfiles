@@ -66,6 +66,9 @@
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     package                 # name@version from package.json (https://docs.npmjs.com/files/package.json)
+{{ if (eq .chezmoi.os "darwin") }}
+    cpu_arch
+{{ end }}
     background_jobs         # presence of background jobs
     command_execution_time  # duration of the last command
     # =========================[ Line #2 ]=========================
