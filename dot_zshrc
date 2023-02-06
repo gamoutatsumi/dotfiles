@@ -363,6 +363,9 @@ alias p='paru'
 # TMUX
 alias ssh='TERM=xterm ssh'
 
+alias bwp='BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Personal bw'
+alias bww='BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Work bw'
+
 globalias() {
   if [[ $LBUFFER =~ [A-Z0-9]+$ ]]; then
     zle _expand_alias
