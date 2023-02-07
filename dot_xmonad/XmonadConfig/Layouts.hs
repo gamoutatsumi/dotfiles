@@ -50,7 +50,7 @@ colorNormalbg = "#1c1c1c"
 colorfg = "#a8b6b8"
 
 -- Border width
-borderwidth :: Dimension
+borderwidth :: Int
 borderwidth = 0
 
 -- Border color

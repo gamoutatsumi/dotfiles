@@ -19,9 +19,7 @@ main =
           myConfig
 
 mydefLogPP =
-  filterOutWsPP
-    [scratchpadWorkspaceTag]
-    def {ppHiddenNoWindows = stickmyfavorit}
+  def {ppHiddenNoWindows = stickmyfavorit}
 
 stickmyfavorit "home" = "home"
 stickmyfavorit _ = ""
@@ -37,8 +35,13 @@ myPolybarConf cmd =
 
 polybarPPdef =
   mydefLogPP
-    { ppCurrent =
-        polybarColor "#CFD8DC" "#222D32"
+    { ppTitle = const "",
+      ppVisible = const "◉",
+      ppCurrent = const "●",
+      ppHidden = const "◉",
+      ppVisibleNoWindows = Just (const "○"),
+      ppHiddenNoWindows = const "○",
+      ppLayout = const ""
     }
 
 polybarColor :: String -> String -> String -> String
@@ -59,7 +62,7 @@ myStartupHook = do
 
 myConfig =
   desktopConfig
-    { borderWidth = borderwidth,
+    { borderWidth = fromIntegral borderwidth,
       terminal = "alacritty",
       focusFollowsMouse = False,
       startupHook = myStartupHook,
