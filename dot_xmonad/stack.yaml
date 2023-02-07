@@ -42,21 +42,8 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 extra-deps:
-  - xmonad-0.17.1
-  - xmonad-contrib-0.17.1
-  - netlink-1.1.1.0
-  - libmpd-0.9.3.0
-  - timezone-olson-0.2.0
-  - containers-0.6.7
-  - binary-0.8.8.0
-  - parsec-3.1.14.0
-  - text-1.2.4.0
-  - Cabal-3.0.2.0
-  - directory-1.3.7.1
-  - unix-2.7.2.2
-  - X11-1.10.2
-  - process-1.6.16.0
-  - time-1.9.3
+  - xmonad-0.17.0
+  - xmonad-contrib-0.17.0
 
 # Override default flag values for local packages and extra-deps
 #flags:

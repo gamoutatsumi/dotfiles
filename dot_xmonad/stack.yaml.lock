@@ -5,110 +5,19 @@
 
 packages:
 - completed:
-    hackage: xmonad-0.17.1@sha256:63a52cf808ddd8f4320084bc3577c167c0e6add013555c05fd32ceb3bccdfce5,5759
+    hackage: xmonad-0.17.0@sha256:659869f38a7def075c6f3b120268af2e00fee11221a55d4f930268a97b4cbe0a,5734
     pantry-tree:
-      sha256: 74589fbc42e4179a055801966afdb86e95b4012edcbd867583334cab24439046
-      size: 2486
+      sha256: 23ca7d7bba0773000f0da356131a010dd88582c8389c4cd5b8a78adb7a54ed47
+      size: 2485
   original:
-    hackage: xmonad-0.17.1
+    hackage: xmonad-0.17.0
 - completed:
-    hackage: xmonad-contrib-0.17.1@sha256:df50cc15569c0bb4bc79cd031f7283f20760ae453887785f4689ab09ecb28935,21951
+    hackage: xmonad-contrib-0.17.0@sha256:71f4890e2ef35edea41057af5e4ce371e02570000d8b93efc07eae3427102e6f,20836
     pantry-tree:
-      sha256: e5c991ae33c3a09cf40d09cc18ebf42dd6b0992fd5d6acca94650926f7984377
-      size: 22735
+      sha256: 94d0020187d6cb6c4d373afa13784dc58961e8d0d2c63cfc327d8f494a0ce910
+      size: 21783
   original:
-    hackage: xmonad-contrib-0.17.1
-- completed:
-    hackage: netlink-1.1.1.0@sha256:d83424b5ba9921191449e4b1f53c7cba7f4375f2c55a9b737c77e982e1f40d00,3689
-    pantry-tree:
-      sha256: 42a57a2db0d8b44e04a04905ed56994b7293d2f244595bf3e65480c36d114ac3
-      size: 1598
-  original:
-    hackage: netlink-1.1.1.0
-- completed:
-    hackage: libmpd-0.9.3.0@sha256:9e988cd96410d1214503d22b0e49ed5c84d59d830b5afad8741aadcde47da9b0,3848
-    pantry-tree:
-      sha256: 14d1037799593c71872a1dd5acd2e912f84013820e2d14612470960c9c4f2997
-      size: 3772
-  original:
-    hackage: libmpd-0.9.3.0
-- completed:
-    hackage: timezone-olson-0.2.0@sha256:ac8d47ae62855370eb50213986aeb718fa7ad5dba3309269b3124347f46fdefa,2315
-    pantry-tree:
-      sha256: 93154a07b7a331b9978703a339b6d2d045332b283c7e17e393a0e6abce76036c
-      size: 634
-  original:
-    hackage: timezone-olson-0.2.0
-- completed:
-    hackage: containers-0.6.7@sha256:4aad61c33b21e453e5d18a465e674898fded282f233ffd154b48acc540c89537,2655
-    pantry-tree:
-      sha256: d3430bcc4beafe609d6c5cd4a607549ee4ffe0eafc2ebb9c87b5e7b1b20b24d8
-      size: 2902
-  original:
-    hackage: containers-0.6.7
-- completed:
-    hackage: binary-0.8.8.0@sha256:e9387a7ef2b34c6a23b09664c306e37cc01ae2cb4e4511a1c96ffb14008c24b0,6262
-    pantry-tree:
-      sha256: 271cd1e75af293fc25a489d860f094dc635a4ed8b56aa5b343c58f4637736ca3
-      size: 1976
-  original:
-    hackage: binary-0.8.8.0
-- completed:
-    hackage: parsec-3.1.14.0@sha256:2b7a30ad13b66ed4ae1c8b3b76f7b26f102f63fe4abc48663113686b0d68d2f7,4356
-    pantry-tree:
-      sha256: 92087fa7a43fb2ddcb629b5ad468744bca44da0281137f696939e60f65053afa
-      size: 2574
-  original:
-    hackage: parsec-3.1.14.0
-- completed:
-    hackage: text-1.2.4.0@sha256:8c24450feb8e3bbb7ea3e17af24ef57e85db077c4bf53e5bcc345b283d1b1d5b,10081
-    pantry-tree:
-      sha256: 3437b0a73ce2ae1a81aa8b3438d41a85981c00894cdbee0d6d6d6873046a5d5d
-      size: 7457
-  original:
-    hackage: text-1.2.4.0
-- completed:
-    hackage: Cabal-3.0.2.0@sha256:f45ee078a8529d1ad3993767345ac83304c7f2ff5eec02c455a1dc200ad22c67,26714
-    pantry-tree:
-      sha256: 653461a4e58b10a6ef9d6ed5e07b1f8839ed46b4673133ecbe3899a48d6b983b
-      size: 40207
-  original:
-    hackage: Cabal-3.0.2.0
-- completed:
-    hackage: directory-1.3.7.1@sha256:1125a0a4be3aafc8da208940f219d4e4df8a0db87d892cc42bb369071855c590,2841
-    pantry-tree:
-      sha256: 36e5625cbb1632a6eca540db79f63dbe7db287f8dde6e3eac6763bed73b6a1f6
-      size: 3503
-  original:
-    hackage: directory-1.3.7.1
-- completed:
-    hackage: unix-2.7.2.2@sha256:15f5365c5995634e45de1772b9504761504a310184e676bc2ef60a14536dbef9,3496
-    pantry-tree:
-      sha256: 36434ced74d679622d61b69e8d92e1bd632d9ef3e284c63094653b2e473b0553
-      size: 3536
-  original:
-    hackage: unix-2.7.2.2
-- completed:
-    hackage: X11-1.10.2@sha256:5f449203afe0240ca5124dc4b28d906fbde1d56a15c0c95534f677060f8b72ac,3747
-    pantry-tree:
-      sha256: b0cd22d02719a0b53da816a292eb599b9a5ab28fd4b71509332e2840e4f75277
-      size: 2861
-  original:
-    hackage: X11-1.10.2
-- completed:
-    hackage: process-1.6.16.0@sha256:1b9c267e475d4492b80edc1f58d08c458d4a10d17ea95294356443855b125616,2845
-    pantry-tree:
-      sha256: dc130ef74f0400c0761f53abdbcf16588b568ccbe6d43a584a43846d6da08012
-      size: 1545
-  original:
-    hackage: process-1.6.16.0
-- completed:
-    hackage: time-1.9.3@sha256:8f1b5448722a12a952248b356c9eb366e351226543d9086a2da71270522d5f45,5679
-    pantry-tree:
-      sha256: a1043c1719491764f0fa37a1fd70d9451080548a41632fee88d8e1b8db4942d6
-      size: 6558
-  original:
-    hackage: time-1.9.3
+    hackage: xmonad-contrib-0.17.0
 snapshots:
 - completed:
     sha256: 17870c63f8041ac17a38096124abeb953cb14d84bfc96deb88f9b24daa97b347

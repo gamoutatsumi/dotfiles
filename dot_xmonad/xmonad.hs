@@ -59,7 +59,7 @@ myStartupHook = do
 
 myConfig =
   desktopConfig
-    { borderWidth = fromIntegral borderwidth,
+    { borderWidth = borderwidth,
       terminal = "alacritty",
       focusFollowsMouse = False,
       startupHook = myStartupHook,
