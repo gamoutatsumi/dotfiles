@@ -24,6 +24,7 @@ executable xmonad-config
   build-depends:       base >= 4.7 && < 5
                      , xmonad
                      , xmonad-contrib
-                     , containers >= 0.5.7 && < 0.6
+                     , containers
                      , unix
                      , directory
+  default-extensions:  ImportQualifiedPost
