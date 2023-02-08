@@ -13,5 +13,5 @@ export DEIN_GITHUB_TOKEN=$(awk ' /oauth_token/ { print $2 }' ~/.config/gh/hosts.
 export HOMEBREW_GITHUB_API_TOKEN=$(awk ' /oauth_token/ { print $2 }' ~/.config/gh/hosts.yml)
 
 # Added by Toolbox App
-export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$HOME/.ghcup/bin:$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 

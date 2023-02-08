@@ -58,3 +58,4 @@ packages:
   - name: suzuki-shunsuke/cmdx@v1.6.1
   - name: bitwarden/clients@cli-v2023.1.0
   - name: fatedier/frp@v0.46.1
+  - name: haskell/ghcup-hs@v0.1.19.0
