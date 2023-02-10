@@ -4,10 +4,14 @@
     "config:base",
     "github>aquaproj/aqua-renovate-config#1.5.2"
   ],
-  "labels": ["dependencies", "renovate"],
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
   "schedule": [
     "at any time"
   ],
   "dependencyDashboard": true,
-  "automerge": true
+  "automerge": true,
+  "platformAutomerge": true
 }
