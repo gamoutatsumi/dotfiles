@@ -59,3 +59,4 @@ packages:
   - name: bitwarden/clients@cli-v2023.1.0
   - name: fatedier/frp@v0.47.0
   - name: haskell/ghcup-hs@v0.1.19.0
+  - name: docker/compose@v2.16.0

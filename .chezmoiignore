@@ -1,6 +1,7 @@
 {{- if ne .chezmoi.os "darwin" }}
 .hammerspoon
 Library
+.config/lima
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}

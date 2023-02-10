@@ -7,6 +7,8 @@ contexts:
     lbuffer: 'git\sdiff\s+'
   checkout: &checkout
     lbuffer: 'git\scheckout\s+'
+  workflow: &workflow
+    lbuffer: 'gh\sworkflow\s.*'
 
 snippets:
   - name: pipe to vim
@@ -193,3 +195,10 @@ completions:
       --preview-window: "right:50%"
       --preview: "exa --icons -l --no-user"
     callback: "awk '{print $1}'"
+  - name: workflows
+    patterns:
+      - "^gh workflow.* $"
+    sourceCommand: "gh workflow list"
+    callback: "awk '{print $NF}'"
+    options:
+      --prompt: "'Workflow> '"
