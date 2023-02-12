@@ -60,3 +60,7 @@ packages:
   - name: fatedier/frp@v0.47.0
   - name: haskell/ghcup-hs@v0.1.19.0
   - name: docker/compose@v2.16.0
+  - name: protocolbuffers/protobuf/protoc@v21.12
+  - name: pseudomuto/protoc-gen-doc@v1.5.1
+  - name: cosmtrek/air@v1.41.0
+  - name: bufbuild/buf@v1.14.0

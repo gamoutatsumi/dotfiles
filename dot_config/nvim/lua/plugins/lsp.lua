@@ -94,6 +94,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 				},
 			},
 		}
+    server = "lua_ls"
 	elseif server == "yamlls" then
 		opts.settings = {
 			yaml = {
