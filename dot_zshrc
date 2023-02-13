@@ -338,8 +338,7 @@ alias kc='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 exists gomi && alias rm='gomi'
-alias docker-compose="docker-cli-plugin-docker-compose"
-alias dc='docker-compose'
+alias dc='docker compose'
 
 # editors
 alias vim='nvim'
