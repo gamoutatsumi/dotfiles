@@ -20,11 +20,8 @@ hook_post_source = '''
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
   call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
-  call ddc#custom#patch_global('filterParams', {
-  \   'matcher_fuzzy': {'splitMode': 'word'}
-  \ })
   call ddc#custom#patch_global('sourceOptions', {
-  \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
+  \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_ascii'] },
   \ 'nvim-lsp': {
   \   'mark': 'lsp',
   \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*|\/\w*',
@@ -115,3 +112,6 @@ if = "has('nvim')"
 hook_add = '''
   let g:tsnip_snippet_dir = $HOME .. '/.config/nvim/tsnip'
 '''
+
+[[plugins]]
+repo = 'gamoutatsumi/ddc-sorter_ascii'
