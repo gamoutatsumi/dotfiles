@@ -43,6 +43,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
+build = 'deno task prepare'
 
 [[plugins]]
 repo = 'skanehira/denops-gh.vim'
