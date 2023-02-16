@@ -15,7 +15,7 @@ local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
@@ -30,7 +30,7 @@ local on_attach = function(_, bufnr)
 		}
 		vim.lsp.buf.format(formatOpts)
 	end
-
+	client.server_capabilities.semanticTokensProvider = nil
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -94,7 +94,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 				},
 			},
 		}
-    server = "lua_ls"
+		server = "lua_ls"
 	elseif server == "yamlls" then
 		opts.settings = {
 			yaml = {
