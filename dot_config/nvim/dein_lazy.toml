@@ -226,7 +226,7 @@ hook_add ='''
     if strlen(a:input) == 1
       return a:input
     endif
-    silent return '\v' .. kensaku#query(a:input)
+    return '\v' .. kensaku#query(a:input)
   endfunction
 '''
 
