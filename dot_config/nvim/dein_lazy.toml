@@ -226,7 +226,8 @@ hook_add ='''
     if strlen(a:input) == 1
       return a:input
     endif
-    return '\v' .. kensaku#query(a:input)
+    let l:pattern = kensaku#query(a:input)
+    return substitute(l:pattern, '\\\@<![()|\\]', {m -> (m[0] ==# '(' ? '\%' : '\') .. m[0]}, 'g')
   endfunction
 '''
 
