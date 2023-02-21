@@ -28,7 +28,7 @@ packages:
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/go-jsonnet@v0.19.1
   - name: google/ko@v0.12.0
-  - name: ducaale/xh@v0.17.0
+  - name: ducaale/xh@v0.18.0
   - name: itchyny/gojq@v0.12.11
   - name: dagger/dagger@v0.3.12
   - name: kubernetes-sigs/kubebuilder@v3.9.0
