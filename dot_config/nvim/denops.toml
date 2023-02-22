@@ -111,6 +111,9 @@ on_path = ['k8s://*']
 
 [[plugins]]
 repo = 'lambdalisue/kensaku.vim'
+hook_add = '''
+let g:kensaku_disable_v3_migration_warning = 1
+'''
 
 [[plugins]]
 repo = 'lambdalisue/kensaku-search.vim'
