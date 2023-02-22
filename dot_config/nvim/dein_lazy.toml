@@ -223,9 +223,6 @@ hook_add ='''
     if a:input !~# '\k'
       return '\V' .. a:input
     endif
-    if strlen(a:input) == 1
-      return a:input
-    endif
     return kensaku#query(a:input)
   endfunction
 '''
