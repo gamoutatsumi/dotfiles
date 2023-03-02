@@ -34,7 +34,7 @@ packages:
   - name: kubernetes-sigs/kubebuilder@v3.9.0
   - name: helm/helm@v3.11.1
   - name: yannh/kubeconform@v0.6.1
-  - name: kubernetes-sigs/cluster-api@v1.3.4
+  - name: kubernetes-sigs/cluster-api@v1.3.5
   - name: shyiko/kubesec@0.9.2
   - name: kubernetes-sigs/kustomize@kustomize/v5.0.0
   - name: stern/stern@v1.23.0
