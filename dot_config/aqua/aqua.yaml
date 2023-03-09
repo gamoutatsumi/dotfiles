@@ -63,5 +63,5 @@ packages:
   - name: protocolbuffers/protobuf/protoc@v21.12
   - name: pseudomuto/protoc-gen-doc@v1.5.1
   - name: cosmtrek/air@v1.42.0
-  - name: bufbuild/buf@v1.15.0
+  - name: bufbuild/buf@v1.15.1
   - name: grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2@v2.15.2
