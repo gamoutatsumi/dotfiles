@@ -53,7 +53,7 @@ packages:
   - name: nektos/act@v0.2.43
   - name: magefile/mage@v1.14.0
   - name: rossmacarthur/sheldon@0.7.1
-  - name: twpayne/chezmoi@v2.31.1
+  - name: twpayne/chezmoi@v2.32.0
   - name: svenstaro/miniserve@v0.23.0
   - name: suzuki-shunsuke/cmdx@v1.6.1
   - name: bitwarden/clients@cli-v2023.1.0
