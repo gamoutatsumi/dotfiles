@@ -6,11 +6,13 @@ on:
       - master
     paths:
       - 'dot_config/aqua/aqua.yaml'
+      - '.github/workflows/aqua.yaml'
   pull_request:
     branches:
       - master
     paths:
       - 'dot_config/aqua/aqua.yaml'
+      - '.github/workflows/aqua.yaml'
 
 jobs:
   test:
