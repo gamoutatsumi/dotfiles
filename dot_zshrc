@@ -119,7 +119,7 @@ export EDITOR="nvim"
 
 export DOCKER_BUILDKIT=1
 
-export AQUA_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
+export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
 
 # sccache
 if exists sccache; then
