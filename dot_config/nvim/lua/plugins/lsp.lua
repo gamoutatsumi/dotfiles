@@ -12,20 +12,18 @@ local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.a
 local current_buf = vim.api.nvim_get_current_buf()
 local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
 
+require("neodev").setup({})
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local on_attach = function(client, bufnr)
-	local function buf_set_option(...)
-		vim.api.nvim_buf_set_option(bufnr, ...)
-	end
-
 	saga.setup({})
 
 	local function format()
 		local formatOpts = {
-			filter = function(client)
-				return client.name ~= "tsserver"
+			filter = function(formatterClient)
+				return formatterClient.name ~= "tsserver"
 			end,
 		}
 		vim.lsp.buf.format(formatOpts)
@@ -91,6 +89,9 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
 				diagnostics = {
 					enable = true,
 					globals = { "vim" },
+				},
+				completion = {
+					callSnippet = "Replace",
 				},
 			},
 		}

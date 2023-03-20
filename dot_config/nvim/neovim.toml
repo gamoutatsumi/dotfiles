@@ -242,3 +242,6 @@ repo = 'ruifm/gitlinker.nvim'
 lua_post_source = '''
 require('gitlinker').setup()
 '''
+
+[[plugins]]
+repo = 'folke/neodev.nvim'
