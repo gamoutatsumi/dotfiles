@@ -14,4 +14,5 @@ set whichwrap=b,s,h,l,<,>,[,]
 let g:loaded_fzf = 1
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
+colorscheme habamax
 nnoremap x "_x
