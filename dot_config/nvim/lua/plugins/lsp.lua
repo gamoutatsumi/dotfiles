@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	vim.keymap.set("n", "<Leader>f", format, opts)
-	vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
+	-- vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
 end
 
 mason.setup()

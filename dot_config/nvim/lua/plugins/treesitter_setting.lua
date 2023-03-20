@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
 	-- Modules and its options go here
 	ensure_installed = {
 		"org",
-		" lua",
+		"lua",
 		"vim",
 		"toml",
 		"json",
@@ -16,6 +16,7 @@ require("nvim-treesitter.configs").setup({
 		"tsx",
 		"markdown",
 		"markdown_inline",
+    "proto"
 	},
 	highlight = {
 		enable = true,
