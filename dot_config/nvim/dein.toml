@@ -62,6 +62,7 @@ hook_add = '''
   let g:fern#drawer_width=30
   let g:fern#renderer="nerdfont"
   let g:fern#renderer#nerdfont#padding='  '
+  let g:fern#renderer#nerdfont#indent_markers=1
   let g:fern#disable_default_mappings=1
   let g:fern#hide_cursor=0
   let g:fern#default_hidden=1
