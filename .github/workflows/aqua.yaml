@@ -37,7 +37,7 @@ jobs:
 
       - uses: aquaproj/aqua-installer@v1.1.2
         with:
-          aqua_version: v1.37.2
+          aqua_version: v1.38.0
       - run: aqua -c dot_config/aqua/aqua.yaml i --test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
