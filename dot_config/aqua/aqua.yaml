@@ -7,7 +7,7 @@ packages:
   - name: BurntSushi/ripgrep@13.0.0
   - name: sharkdp/bat@v0.22.1
   - name: x-motemen/ghq@v1.4.1
-  - name: b4b4r07/gomi@v1.1.5
+  - name: b4b4r07/gomi@v1.1.6
   - name: ogham/exa@v0.10.1
   - name: dandavison/delta@0.15.1
   - name: stedolan/jq@jq-1.6
