@@ -38,6 +38,8 @@ endif
 
 let g:mapleader = ' '
 
+lua vim.loader.enable()
+
 runtime init/core/opts.vim
 runtime init/plugins/dein.vim
 runtime init/core/keys.vim
