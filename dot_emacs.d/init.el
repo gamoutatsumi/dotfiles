@@ -7,14 +7,16 @@
   (package-initialize)
   (unless (package-installed-p 'leaf)
     (package-refresh-contents)
-    (package-install 'leaf))
+    (package-install 'leaf t))
 
   (leaf leaf-keywords
     :ensure t
     :init
     ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
     (leaf hydra :ensure t)
-    (leaf el-get :ensure t)
+    (leaf el-get 
+          :ensure t
+          :init (setq el-get-git-shallow-clone t))
     (leaf blackout :ensure t)
 
     :config
@@ -48,11 +50,43 @@
                (skk-server-host . "localhost")
                (skk-egg-like-newline . t)))
 
-(leaf gruvbox-theme
+
+(leaf modus-themes
       :ensure t
-      :require t
-      :config 
-      (load-theme 'gruvbox-light-soft t))
+      :preface
+      (defun my:set-background (&optional frame)
+        "Unsets the background color for transparency"
+        (or frame
+            (setq frame (selected-frame)))
+        (if (display-graphic-p frame)
+          (progn
+            (set-frame-parameter nil 'alpha '(80 50))
+            (add-to-list 'default-frame-alist '(alpha 80 50)))
+          (set-face-background 'default "unspecified-bg" frame)))
+      :advice
+      ((:after modus-themes-load-vivendi
+               my:set-background)
+       (:after modus-themes-load-operandi
+               (lambda ()
+                 (set-face-background 'default "#FFFFFF"))))
+      :hook
+      ((window-setup-hook . my:set-background)
+       (tty-setup-hook . my:set-background))
+      :custom
+      `(
+        (modus-themes-bold-constructs . nil)
+        (modus-themes-italic-constructs . t)
+        (modus-themes-region . '(bg-only no-extend))
+        )
+      :init
+      `(
+       (modus-themes-load-themes)
+       (modus-themes-load-operandi)
+       )
+      :config
+      (eval-when-compile
+        (require 'modus-themes))
+      )
 
 (leaf ein
       :ensure t
