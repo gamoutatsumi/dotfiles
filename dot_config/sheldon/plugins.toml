@@ -62,8 +62,8 @@ apply = ["fpath"]
 remote = "https://raw.githubusercontent.com/ziglang/shell-completions/master/_zig"
 apply = ["fpath"]
 
-[plugins.asdf]
-github = "asdf-vm/asdf"
+# [plugins.asdf]
+# github = "asdf-vm/asdf"
 
 [plugins.asdf-completion]
 remote = "https://raw.githubusercontent.com/asdf-vm/asdf/master/completions/_asdf"

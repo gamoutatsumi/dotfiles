@@ -151,6 +151,10 @@ if exists sheldon; then
   source "${HOME}/.sheldon.lock.zsh"
 fi
 
+if exists rtx; then
+  eval "$(rtx activate zsh)"
+fi
+
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
 
 setopt nonomatch
@@ -604,7 +608,7 @@ function zsh-profiler() {
 }
 
 function denoupdate() {
-  asdf install deno $(asdf latest deno) && asdf global deno $(asdf latest deno)
+  rtx install deno $(rtx latest deno) && rtx global deno $(rtx latest deno)
 }
 
 function awsp() {
