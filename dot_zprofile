@@ -1,6 +1,7 @@
 typeset -gU path PATH
 ARCH=$(uname -m)
 if [[ -e /opt/homebrew/bin/brew ]] && [[ -e /usr/local/bin/brew ]]; then
+  path=($HOME/Library/Android/sdk/platform-tools(N-/) $HOME/Library/Android/sdk/build-tools/33.0.2(N-/) $path)
   echo "Current Architecture: ${ARCH}"
   if [[ $ARCH == arm64 ]]; then
     eval $(/opt/homebrew/bin/brew shellenv)
@@ -10,7 +11,6 @@ if [[ -e /opt/homebrew/bin/brew ]] && [[ -e /usr/local/bin/brew ]]; then
 fi
 [[ -e /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export DEIN_GITHUB_TOKEN=$(awk ' /oauth_token/ { print $2 }' ~/.config/gh/hosts.yml)
 export HOMEBREW_GITHUB_API_TOKEN=$(awk ' /oauth_token/ { print $2 }' ~/.config/gh/hosts.yml)
 
 # Added by Toolbox App

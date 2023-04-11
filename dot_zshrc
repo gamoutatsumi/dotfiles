@@ -134,6 +134,8 @@ if is_wsl; then
 fi
 
 export PURE_GIT_PULL=0
+
+export DEIN_GITHUB_TOKEN=$(gh auth token)
 # }}}
 
 # {{{ PLUGINS
