@@ -68,3 +68,5 @@ packages:
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.30.0
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.3.0
   - name: jdxcode/rtx@v1.28.5
+  - name: golang/mock@v1.6.0
+  - name: golang-migrate/migrate@v4.15.2
