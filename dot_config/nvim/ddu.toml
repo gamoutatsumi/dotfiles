@@ -151,3 +151,6 @@ repo = 'kuuote/ddu-filter-fuse'
 
 [[plugins]]
 repo = 'Milly/ddu-filter-merge'
+
+[[plugins]]
+repo = 'matsui54/ddu-vim-ui-select'
