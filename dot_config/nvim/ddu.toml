@@ -22,6 +22,9 @@ hook_post_source = '''
   \     'defaultAction': 'open',
   \     'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l']
   \   },
+  \   'ui_select': {
+  \     'defaultAction': 'select',
+  \   },
   \ },
   \ 'filterParams': {
   \   'matcher_kensaku': {
