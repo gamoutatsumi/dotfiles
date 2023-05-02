@@ -29,6 +29,10 @@ inline = "autoload -Uz compinit && zsh-defer compinit"
 [plugins.zsh-autoenv]
 github = "Tarrasch/zsh-autoenv"
 
+[plugins.ni]
+github = "azu/ni.zsh"
+apply = ['defer']
+
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ['defer']
