@@ -13,5 +13,17 @@
   ],
   "dependencyDashboard": true,
   "automerge": true,
-  "platformAutomerge": true
+  "platformAutomerge": true,
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "^dot_tool-versions$"
+      ],
+      "matchStrings": [
+        "^deno\\s+(?<currentValue>.*)\\s#\\srenovate:\\sdepName=(?<depName>.*)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "denoland/deno"
+    }
+  ]
 }
