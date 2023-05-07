@@ -24,7 +24,7 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "denoland/deno",
-      "extractVersionTemplate": "^(?<version>.*)$"
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
