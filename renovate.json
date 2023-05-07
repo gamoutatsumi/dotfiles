@@ -23,7 +23,8 @@
         "^deno\\s+(?<currentValue>.*)\\s#\\srenovate:\\sdepName=(?<depName>.*)"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "denoland/deno"
+      "depNameTemplate": "denoland/deno",
+      "extractVersionTemplate": "^(?<version>.*)$"
     }
   ]
 }
