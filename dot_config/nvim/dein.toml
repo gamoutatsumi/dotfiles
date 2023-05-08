@@ -140,3 +140,6 @@ repo = 'aklt/plantuml-syntax'
 
 [[plugins]]
 repo = 'rhysd/committia.vim'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
