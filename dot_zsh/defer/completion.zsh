@@ -7,3 +7,4 @@ exists aws_completer && complete -C "$(which aws_completer)" aws
 exists kubebuilder && eval "$(kubebuilder completion zsh)" && compdef _kubebuilder kubebuilder
 exists rtx && eval "$(rtx completion zsh)" && compdef _rtx rtx
 exists aqua && eval "$(aqua completion zsh)"
+exists bw && eval "$(bw completion --shell zsh)" && compdef _bw bw

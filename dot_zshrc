@@ -135,9 +135,8 @@ fi
 
 export PURE_GIT_PULL=0
 
-export GITHUB_TOKEN=$(gh auth token)
-export GITHUB_API_TOKEN=$GITHUB_TOKEN
-export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN
+export GITHUB_API_TOKEN=$(gh auth token)
+export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 # }}}
 
 # {{{ PLUGINS
@@ -641,6 +640,10 @@ function fk() {
   if [[ "x$pid" != "x" ]]; then
     echo $pid | xargs kill -${1:-9}
   fi
+}
+
+function bwunlock() {
+  export BW_SESSION=$(bw unlock --raw)
 }
 # }}}
 
