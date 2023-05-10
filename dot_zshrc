@@ -137,6 +137,7 @@ export PURE_GIT_PULL=0
 
 export GITHUB_TOKEN=$(gh auth token)
 export GITHUB_API_TOKEN=$GITHUB_TOKEN
+export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_TOKEN
 # }}}
 
 # {{{ PLUGINS
