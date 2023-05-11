@@ -115,8 +115,6 @@ repo = 'kyazdani42/nvim-web-devicons'
 repo = 'romgrk/barbar.nvim'
 hook_add = '''
   nnoremap <silent> <C-s> <Cmd>BufferPick<CR>
-  nnoremap <silent> <leader>bd <Cmd>BufferOrderByDirectory<CR>
-  nnoremap <silent> <leader>bl <Cmd>BufferOrderByLanguage<CR>
   nnoremap <silent> <S-TAB> <Cmd>BufferPrevious<CR>
   nnoremap <silent> <TAB> <Cmd>BufferNext<CR>
   nnoremap <silent> <A-1> :BufferGoto 1<CR>
