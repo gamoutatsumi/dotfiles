@@ -11,7 +11,5 @@ if [[ -e /opt/homebrew/bin/brew ]] && [[ -e /usr/local/bin/brew ]]; then
 fi
 [[ -e /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export HOMEBREW_GITHUB_API_TOKEN=$(awk ' /oauth_token/ { print $2 }' ~/.config/gh/hosts.yml)
-
 # Added by Toolbox App
 path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))

@@ -93,6 +93,7 @@ exists() {
 # {{{ ENVVARS
 if is_osx; then
   export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+  export ZSH_BASH_COMPLETIONS_FALLBACK_PATH=/opt/homebrew/share/bash-completion
 fi
 
 # Setting PATH
@@ -140,7 +141,6 @@ export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 # }}}
 
 # {{{ PLUGINS
-
 export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
 
 export ZENO_ENABLE_SOCK=1
