@@ -644,6 +644,7 @@ function fk() {
 
 function bwunlock() {
   echo "export BW_SESSION=$(bw unlock --raw)" > ~/.zshenv.local
+  source ~/.zshenv.local
 }
 # }}}
 
