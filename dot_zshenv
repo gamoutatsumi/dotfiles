@@ -1,2 +1,2 @@
-source .zshenv.local
+source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
