@@ -136,8 +136,6 @@ fi
 
 export PURE_GIT_PULL=0
 
-export GITHUB_API_TOKEN=$(gh auth token)
-export HOMEBREW_GITHUB_API_TOKEN=$GITHUB_API_TOKEN
 # }}}
 
 # {{{ PLUGINS
@@ -642,8 +640,8 @@ function fk() {
   fi
 }
 
-function bwunlock() {
-  echo "export BW_SESSION=$(bw unlock --raw)" > ~/.zshenv.local
+function envinit() {
+  echo "export BW_SESSION=$(bw unlock --raw)\nexport GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
   source ~/.zshenv.local
 }
 # }}}
