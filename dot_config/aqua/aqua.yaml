@@ -52,7 +52,7 @@ packages:
   - name: Aloxaf/silicon@v0.5.1
   - name: nektos/act@v0.2.45
   - name: magefile/mage@v1.15.0
-  - name: rossmacarthur/sheldon@0.7.1
+  - name: rossmacarthur/sheldon@0.7.2
   - name: twpayne/chezmoi@v2.33.5
   - name: svenstaro/miniserve@v0.23.2
   - name: suzuki-shunsuke/cmdx@v1.7.2
