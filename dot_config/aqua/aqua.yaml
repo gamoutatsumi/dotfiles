@@ -1,7 +1,6 @@
 registries:
   - type: standard
     ref: v4.4.0 # renovate: depName=aquaproj/aqua-registry
-
 packages:
   - name: cli/cli@v2.29.0
   - name: BurntSushi/ripgrep@13.0.0
@@ -56,7 +55,6 @@ packages:
   - name: twpayne/chezmoi@v2.33.5
   - name: svenstaro/miniserve@v0.23.2
   - name: suzuki-shunsuke/cmdx@v1.7.2
-  - name: bitwarden/clients@cli-v2023.1.0
   - name: fatedier/frp@v0.48.0
   - name: haskell/ghcup-hs@v0.1.19.2
   - name: docker/compose@v2.17.3
@@ -71,3 +69,5 @@ packages:
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.15.2
   - name: fullstorydev/grpcui@v1.3.1
+  - name: goreleaser/goreleaser@v1.18.2
+  - name: bitwarden/clients@cli-v2023.4.0
