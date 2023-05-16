@@ -12,6 +12,9 @@ hook_post_source = '''
   \ 'uiParams': {
   \   'ff': {
   \      'startFilter': v:true,
+  \      'autoAction': { 'name': 'preview' },
+  \      'previewSplit': 'vertical',
+  \      'previewWidth': &columns / 2,
   \    },
   \   'filer': {
   \      'split': 'floating',
@@ -24,6 +27,9 @@ hook_post_source = '''
   \   },
   \   'ui_select': {
   \     'defaultAction': 'select',
+  \   },
+  \  'help': {
+  \    'defaultAction': 'open',
   \   },
   \ },
   \ 'filterParams': {
@@ -157,3 +163,9 @@ repo = 'Milly/ddu-filter-merge'
 
 [[plugins]]
 repo = 'matsui54/ddu-vim-ui-select'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-help'
+hook_add = '''
+  nnoremap <silent> ;h <Cmd>call ddu#start({ 'sources': [{ 'name': 'help' }] })<CR>
+'''
