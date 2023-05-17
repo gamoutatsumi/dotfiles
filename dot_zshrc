@@ -152,10 +152,6 @@ if exists sheldon; then
   source "${HOME}/.sheldon.lock.zsh"
 fi
 
-if exists rtx; then
-  eval "$(rtx activate zsh)"
-fi
-
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+="zeno-auto-snippet-and-accept-line-fallback"
 
 setopt nonomatch
@@ -622,7 +618,7 @@ function dockercon() {
 }
 
 function sheldonupdate() {
-  sheldon lock --update && zcompile "${HOME}/.sheldon.lock.zsh"
+  sheldon lock --update && sheldon source >> "${HOME}/.sheldon.lock.zsh" &&  zcompile "${HOME}/.sheldon.lock.zsh"
 }
 
 function fk() {
