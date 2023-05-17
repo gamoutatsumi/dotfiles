@@ -8,6 +8,9 @@
 
 # This example requires Lima v0.8.0 or later
 vmType: "vz"
+rosetta:
+  enabled: true
+  binfmt: true
 images:
 # Try to use release-yyyyMMdd image if available. Note that release-yyyyMMdd will be removed after several months.
 - location: "https://cloud-images.ubuntu.com/releases/22.04/release-20221201/ubuntu-22.04-server-cloudimg-amd64.img"
