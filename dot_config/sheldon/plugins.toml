@@ -75,6 +75,10 @@ local = '~/.zsh/defer'
 use = ['*.zsh']
 apply = ['defer']
 
+[plugins.completions]
+local = '~/.zsh/completions'
+apply = ['fpath']
+
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ['defer']
