@@ -6,6 +6,26 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
+hook_add = '''
+function! CommandlinePre() abort
+    cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+    cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+    cnoremap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+
+    autocmd User DDCCmdlineLeave ++once call CommandlinePost()
+
+    " Enable command line completion for the buffer
+    call ddc#enable_cmdline_completion()
+endfunction
+function! CommandlinePost() abort
+    silent! cunmap <Tab>
+    silent! cunmap <S-Tab>
+    silent! cunmap <C-e>
+    silent! cunmap <CR>
+endfunction
+nnoremap :       <Cmd>call CommandlinePre()<CR>:
+'''
 hook_post_source = '''
   " pum.vim
   imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
@@ -18,7 +38,8 @@ hook_post_source = '''
   " ddc.vim
   call ddc#custom#patch_global('ui', 'pum')
   call ddc#custom#patch_global('autoCompleteEvents',
-    \ ['InsertEnter', 'TextChangedI', 'TextChangedP'])
+    \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
+  call ddc#custom#patch_global('cmdlineSources', { ':': ['cmdline', 'cmdline-history', 'around'] })
   call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_ascii'] },
@@ -115,3 +136,9 @@ hook_add = '''
 
 [[plugins]]
 repo = 'gamoutatsumi/ddc-sorter_ascii'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-cmdline'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-cmdline-history'
