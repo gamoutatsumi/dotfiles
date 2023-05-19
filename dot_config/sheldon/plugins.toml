@@ -21,17 +21,16 @@ github = "romkatv/zsh-defer"
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 [plugins.bashcompinit]
-inline = 'autoload bashcompinit && zsh-defer bashcompinit'
+inline = 'autoload bashcompinit && bashcompinit'
 
 [plugins.compinit]
-inline = "autoload -Uz compinit && zsh-defer compinit"
+inline = "autoload -Uz compinit && compinit"
 
 [plugins.zsh-autoenv]
 github = "Tarrasch/zsh-autoenv"
 
 [plugins.ni]
 github = "azu/ni.zsh"
-apply = ['defer']
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
@@ -69,6 +68,10 @@ apply = ["fpath"]
 # [plugins.bash-completions-fallback]
 # github = "3v1n0/zsh-bash-completions-fallback"
 # apply = ['defer']
+
+[plugins.local]
+local = '~/.zsh/modules'
+use = ['*.zsh']
 
 [plugins.local-defer]
 local = '~/.zsh/defer'
