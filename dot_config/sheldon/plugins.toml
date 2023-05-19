@@ -66,9 +66,9 @@ apply = ["fpath"]
 remote = "https://raw.githubusercontent.com/ziglang/shell-completions/master/_zig"
 apply = ["fpath"]
 
-[plugins.bash-completions-fallback]
-github = "3v1n0/zsh-bash-completions-fallback"
-apply = ['defer']
+# [plugins.bash-completions-fallback]
+# github = "3v1n0/zsh-bash-completions-fallback"
+# apply = ['defer']
 
 [plugins.local-defer]
 local = '~/.zsh/defer'
