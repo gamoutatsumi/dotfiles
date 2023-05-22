@@ -36,13 +36,13 @@ hook_post_source = '''
   \   'matcher_kensaku': {
   \     'highlightMatched': 'Search',
   \  },
-  \   'matcher_fuse': {
+  \   'matcher_fzf': {
   \     'highlightMatched': 'Search',
   \  },
   \  'merge': {
   \    'filters': [
   \      {'name': 'matcher_kensaku', 'weight': 2.0},
-  \      'matcher_fuse',
+  \      'matcher_fzf',
   \    ],
   \    'unique': v:true,
   \  }
