@@ -21,10 +21,10 @@ github = "romkatv/zsh-defer"
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 [plugins.bashcompinit]
-inline = 'autoload bashcompinit && bashcompinit'
+inline = 'autoload bashcompinit && zsh-defer bashcompinit'
 
 [plugins.compinit]
-inline = "autoload -Uz compinit && compinit"
+inline = "autoload -Uz compinit && zsh-defer compinit"
 
 [plugins.zsh-autoenv]
 github = "Tarrasch/zsh-autoenv"
