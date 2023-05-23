@@ -41,8 +41,9 @@ hook_post_source = '''
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
   call ddc#custom#patch_global('cmdlineSources', { ':': ['cmdline', 'cmdline-history', 'around'] })
   call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
+  call ddc#custom#patch_global('keywordPattern', '(\k|-|_)*')
   call ddc#custom#patch_global('sourceOptions', {
-  \ '_': { 'matchers': ['matcher_head'], 'sorters': ['sorter_ascii'] },
+  \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
   \ 'nvim-lsp': {
   \   'mark': 'lsp',
   \   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*|\/\w*',
@@ -69,6 +70,9 @@ hook_post_source = '''
   \ },
   \ 'omni': {
   \   'mark': 'O',
+  \ },
+  \ 'cmdline': {
+  \   'mark': 'C',
   \ },
   \ })
   call ddc#enable()

@@ -13,9 +13,25 @@ hook_post_source = '''
   \ 'uiParams': {
   \   'ff': {
   \      'startFilter': v:true,
+  \      'split': 'floating',
+  \      'prompt': '> ',
+  \      'floatingBorder': 'rounded',
+  \      'previewFloating': v:true,
+  \      'previewWidth': floor(&columns * 0.8) / 2,
+  \      'previewFloatingBorder': 'rounded',
+  \      'previewFloatingTitle': 'Preview',
   \      'autoAction': { 'name': 'preview' },
   \      'previewSplit': 'vertical',
-  \      'previewWidth': &columns / 2,
+  \      'filterSplitDirection': 'floating',
+  \      'filterFloatingPosition': 'top',
+  \      'highlights': {
+  \         'floating': 'Normal',
+  \         'floatingBorder': 'Normal',
+  \      },
+  \      'winHeight': floor(&lines * 0.8),
+  \      'winRow': floor(&lines * 0.1),
+  \      'winWidth': floor(&columns * 0.8) / 2,
+  \      'winCol': floor(&columns * 0.1),
   \    },
   \   'filer': {
   \      'split': 'floating',
