@@ -1,6 +1,5 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-rev = 'stream'
 
 [[plugins]]
 repo = 'vim-denops/denops-shared-server.vim'
