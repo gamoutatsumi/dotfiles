@@ -7,6 +7,7 @@ hook_post_source = '''
   \   '_': {
   \     'ignoreCase': v:true,
   \     'matchers': ['merge'],
+  \     'converters': ['converter_devicon'],
   \   },
   \ },
   \ 'uiParams': {
@@ -169,3 +170,6 @@ repo = 'matsui54/ddu-source-help'
 hook_add = '''
   nnoremap <silent> ;h <Cmd>call ddu#start({ 'sources': [{ 'name': 'help' }] })<CR>
 '''
+
+[[plugins]]
+repo = 'uga-rosa/ddu-filter-converter_devicon'
