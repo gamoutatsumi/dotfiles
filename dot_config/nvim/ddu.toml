@@ -31,7 +31,7 @@ hook_post_source = '''
   \      },
   \      'winHeight': floor(&lines * 0.8),
   \      'winRow': floor(&lines * 0.1),
-  \      'winWidth': floor(&columns * 0.8) / 2,
+  \      'winWidth': floor(&columns * 0.8),
   \      'winCol': floor(&columns * 0.1),
   \    },
   \   'filer': {
