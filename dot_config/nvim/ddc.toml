@@ -119,13 +119,17 @@ hook_add = '''
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
 hook_post_source = '''
-  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sources', ['dadbod-completion'])
-  call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], 'sourceOptions', {
-  \ 'dadbod-completion': {
-  \   'mark': 'DB',
-  \   'isVolatile': v:true,
-  \ },
-  \ })
+ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], #{
+    \	sources: ['omni'],
+    \	sourceOptions: #{
+    \ 		omni: #{
+    \			mark: 'O',
+    \ 			isVolatile: v:true,
+    \   		omnifunc: 'vim_dadbod_completion#omni',
+    \ 		},
+    \	},
+    \	keywordPattern: '\w+|\.|"|\[|`'
+    \ })
 '''
 
 [[plugins]]
