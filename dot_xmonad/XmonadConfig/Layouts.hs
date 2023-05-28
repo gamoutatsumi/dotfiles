@@ -107,7 +107,7 @@ myScratchpads =
       myFullFloating,
     NS
       "discord"
-      "discord"
+      "flatpak run com.discordapp.Discord"
       (className =? "discord")
       myFullFloating,
     NS
