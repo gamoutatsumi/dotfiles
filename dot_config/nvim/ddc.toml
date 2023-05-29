@@ -73,6 +73,7 @@ hook_post_source = '''
   \ },
   \ 'cmdline': {
   \   'mark': 'C',
+  \   'ignoreCase': v:true,
   \ },
   \ })
   call ddc#enable()
