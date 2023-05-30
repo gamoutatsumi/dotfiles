@@ -128,9 +128,9 @@ ddu-filer = '''
 '''
 
 [[plugins]]
-repo = 'gamoutatsumi/ddu-source-nvim-lsp'
+repo = 'uga-rosa/ddu-source-nvim_lsp'
 hook_add = '''
-  nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp_diagnostic_all' }] })<CR>
+  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp' }], 'sourceParams': { 'nvim_lsp': {'method': 'textDocument/references'} } })<CR>
 '''
 
 [[plugins]]
