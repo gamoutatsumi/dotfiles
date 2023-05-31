@@ -92,10 +92,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'tpope/vim-dadbod'
-on_cmd = ['DB']
-
-[[plugins]]
 repo = 'kristijanhusak/vim-dadbod-ui'
 on_cmd = ['DBUI']
 

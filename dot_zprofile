@@ -14,4 +14,6 @@ fi
 # Added by Toolbox App
 path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))
 
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
 # vim: set ft=zsh :
