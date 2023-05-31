@@ -1,7 +1,7 @@
 [user]
 	name = gamoutatsumi
 	email = 47162587+gamoutatsumi@users.noreply.github.com 
-  signingkey = 74DBA053
+  signingkey = 8BABD254FC4AB38A
 [ghq]
   user = gamoutatsumi
   root = ~/Repositories
@@ -23,7 +23,7 @@
 	templatedir = ~/.config/git/template
 	defaultBranch = main
 [commit]
-  gpgsign = false
+  gpgsign = true
 [gpg]
 	program = gpg
 [color "status"]
