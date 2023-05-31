@@ -12,6 +12,7 @@
 ; 	insteadOf = https://github.com/
 [alias]
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  pushf = push --force-with-lease --force-if-includes
 [core]
   pager = delta
 	quotepath = false
@@ -19,6 +20,7 @@
   diffFilter = delta --color-only --features=interactive
 [push]
 	default = current
+  useForceIfIncludes = true
 [init]
 	templatedir = ~/.config/git/template
 	defaultBranch = main
