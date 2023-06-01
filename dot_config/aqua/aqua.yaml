@@ -74,3 +74,11 @@ packages:
   - name: editorconfig-checker/editorconfig-checker@2.7.0
   - name: docker/hub-tool@v0.4.5
   - name: casey/just@1.13.0
+  - name: cloudflare/cfssl@v1.6.4
+  - name: cloudflare/cfssl/mkbundle@v1.6.4
+  - name: cloudflare/cfssl/cfssl-newkey@v1.6.4
+  - name: cloudflare/cfssl/cfssljson@v1.6.4
+  - name: cloudflare/cfssl/cfssl-scan@v1.6.4
+  - name: cloudflare/cfssl/multirootca@v1.6.4
+  - name: cloudflare/cfssl/cfssl-certinfo@v1.6.4
+  - name: cloudflare/cfssl/cfssl-bundle@v1.6.4
