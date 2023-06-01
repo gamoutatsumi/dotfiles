@@ -2,3 +2,4 @@ deno   1.34.1 # renovate: depName=denoland/deno
 nodejs lts
 java   system
 python system
+ruby   system
