@@ -3,6 +3,7 @@ repo = 'Shougo/ddu.vim'
 hook_post_source = '''
   call ddu#custom#patch_global({
   \ 'ui': 'ff',
+  \ 'sync': v:true,
   \ 'sourceOptions': {
   \   '_': {
   \     'ignoreCase': v:true,
@@ -47,6 +48,9 @@ hook_post_source = '''
   \     'defaultAction': 'select',
   \   },
   \  'help': {
+  \    'defaultAction': 'open',
+  \   },
+  \  'nvim_lsp': {
   \    'defaultAction': 'open',
   \   },
   \ },
@@ -130,7 +134,8 @@ ddu-filer = '''
 [[plugins]]
 repo = 'uga-rosa/ddu-source-nvim_lsp'
 hook_add = '''
-  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp' }], 'sourceParams': { 'nvim_lsp': {'method': 'textDocument/references'} } })<CR>
+  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/references' } }], 'uiParams': { 'ff': { 'immediateAction': 'open' } } })<CR>
+  nnoremap <silent> ;d <Cmd>call ddu#start({ 'surces': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }] })
 '''
 
 [[plugins]]

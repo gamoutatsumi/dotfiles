@@ -40,7 +40,7 @@ hook_post_source = '''
   call ddc#custom#patch_global('autoCompleteEvents',
     \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
   call ddc#custom#patch_global('cmdlineSources', { ':': ['cmdline', 'cmdline-history', 'around'] })
-  call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
+  call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around', 'omni'])
   call ddc#custom#patch_global('keywordPattern', '(\k|-|_)*')
   call ddc#custom#patch_global('sourceOptions', {
   \ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
@@ -118,18 +118,22 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/ddc-source-omni'
+
+[[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
 hook_post_source = '''
 call ddc#custom#patch_filetype(['sql', 'mysql', 'plsql'], #{
-    \	sources: ['omni'],
-    \	sourceOptions: #{
-    \ 		omni: #{
-    \			mark: 'O',
-    \ 			isVolatile: v:true,
-    \   		omnifunc: 'vim_dadbod_completion#omni',
-    \ 		},
-    \	},
-    \	keywordPattern: '\w+|\.|"|\[|`'
+    \ sourceOptions: #{
+    \   omni: #{
+    \	    forceCompletionPattern: '\w+|\.|"|\[|`'
+    \   },
+    \ },
+    \ sourceParams: #{
+    \    omni: #{
+    \  		omnifunc: 'vim_dadbod_completion#omni',
+    \    },
+    \ },
     \ })
 '''
 
