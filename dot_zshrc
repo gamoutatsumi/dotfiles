@@ -444,17 +444,17 @@ RPROMPT=""
 # }}}
 
 # {{{ GPG-SSH
-# export GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 
-# if type "gpg" > /dev/null 2>&1; then
-#   if ! is_wsl; then
-#     if [[ -z $SSH_AUTH_SOCK ]]; then
-#       gpg-connect-agent updatestartuptty /bye >/dev/null
-#       gpgconf --launch gpg-agent
-#       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-#     fi
-#   fi
-# fi
+if type "gpg" > /dev/null 2>&1; then
+  if ! is_wsl; then
+    if [[ -z $SSH_AUTH_SOCK ]]; then
+      gpg-connect-agent updatestartuptty /bye >/dev/null
+      gpgconf --launch gpg-agent
+      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    fi
+  fi
+fi
 
 # In WSL2
 # if is_wsl; then
