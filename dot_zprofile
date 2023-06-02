@@ -13,4 +13,5 @@ fi
 
 # Added by Toolbox App
 path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))
+
 # vim: set ft=zsh :
