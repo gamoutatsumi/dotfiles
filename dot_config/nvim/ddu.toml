@@ -143,6 +143,18 @@ hook_add = '''
   \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
   \ },
   \ }})<CR>
+  nnoremap <silent> gd <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/definition' } }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'immediateAction': 'open',
+  \ },
+  \ }})<CR>
+  nnoremap <silent> gD <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/declaration' } }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'immediateAction': 'open',
+  \ },
+  \ }})<CR>
 '''
 
 [[plugins]]
