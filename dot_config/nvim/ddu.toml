@@ -18,11 +18,10 @@ hook_post_source = '''
   \      'prompt': '> ',
   \      'floatingBorder': 'rounded',
   \      'previewFloating': v:true,
-  \      'previewWidth': floor(&columns * 0.8) / 2,
+  \      'previewWidth': round(floor(&columns * 0.8) / 2),
   \      'previewFloatingTitle': 'Preview',
   \      'previewFloatingZindex': 55,
   \      'previewFloatingBorder': 'rounded',
-  \      'autoAction': { 'name': 'preview' },
   \      'previewSplit': 'vertical',
   \      'filterSplitDirection': 'floating',
   \      'filterFloatingPosition': 'top',
@@ -42,7 +41,6 @@ hook_post_source = '''
   \ 'kindOptions': {
   \   'file': {
   \     'defaultAction': 'open',
-  \     'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l']
   \   },
   \   'ui_select': {
   \     'defaultAction': 'select',
@@ -52,6 +50,9 @@ hook_post_source = '''
   \   },
   \  'nvim_lsp': {
   \    'defaultAction': 'open',
+  \   },
+  \  'action': {
+  \    'defaultAction': 'do',
   \   },
   \ },
   \ 'filterParams': {
@@ -108,7 +109,9 @@ ddu-ff = '''
   nnoremap <buffer> <Space> <Cmd>call ddu#ui#do_action("toggleSelectItem")<CR>
   nnoremap <buffer> i <Cmd>call ddu#ui#do_action("openFilterWindow")<CR>
   nnoremap <buffer> q <Cmd>call ddu#ui#do_action("quit")<CR>
-  nnoremap <buffer> p <Cmd>call ddu#ui#do_action("preview")<CR>
+  nnoremap <buffer> p <Cmd>call ddu#ui#do_action("previewPath")<CR>
+  nnoremap <buffer> P <Cmd>call ddu#ui#do_action("preview")<CR>
+  nnoremap <buffer> a <Cmd>call ddu#ui#do_action("chooseAction")<CR>
   setlocal cursorline
 '''
 ddu-ff-filter = '''
@@ -135,7 +138,11 @@ ddu-filer = '''
 repo = 'uga-rosa/ddu-source-nvim_lsp'
 hook_add = '''
   nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/references' } }], 'uiParams': { 'ff': { 'immediateAction': 'open' } } })<CR>
-  nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }] })<CR>
+  nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})<CR>
 '''
 
 [[plugins]]
@@ -149,7 +156,11 @@ repo = 'shun/ddu-source-rg'
 hook_add = '''
   function! DduFind() abort
     let word = input("search word: ")
-    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo', 'args': ['--ignore-case', '--json']}}]})
+    call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo', 'args': ['--ignore-case', '--json']}}], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})
   endfunction
   nnoremap <silent> ;g <Cmd>call DduFind()<CR>
 '''
@@ -157,14 +168,26 @@ hook_add = '''
 [[plugins]]
 repo = 'kuuote/ddu-source-mr'
 hook_add = '''
-  nnoremap <silent> ;mu <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mru', 'current': v:true } }] })<CR>
-  nnoremap <silent> ;mw <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mrw', 'current': v:true } }] })<CR>
+  nnoremap <silent> ;mu <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mru', 'current': v:true } }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})<CR>
+  nnoremap <silent> ;mw <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mrw', 'current': v:true } }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})<CR>
 '''
 
 [[plugins]]
 repo = 'matsui54/ddu-source-file_external'
 hook_add = '''
-  nnoremap <silent> ;f <Cmd>call ddu#start({ 'sources': [{'name': 'file_external'}] })<CR>
+  nnoremap <silent> ;f <Cmd>call ddu#start({ 'sources': [{'name': 'file_external'}], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})<CR>
 '''
 hook_post_source = '''
   call ddu#custom#patch_global('sourceParams', {
@@ -190,8 +213,15 @@ repo = 'matsui54/ddu-vim-ui-select'
 [[plugins]]
 repo = 'matsui54/ddu-source-help'
 hook_add = '''
-  nnoremap <silent> ;h <Cmd>call ddu#start({ 'sources': [{ 'name': 'help' }] })<CR>
+  nnoremap <silent> ;h <Cmd>call ddu#start({ 'sources': [{ 'name': 'help' }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \ },
+  \ }})<CR>
 '''
 
 [[plugins]]
 repo = 'uga-rosa/ddu-filter-converter_devicon'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-action'
