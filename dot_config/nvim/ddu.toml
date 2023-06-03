@@ -135,7 +135,7 @@ ddu-filer = '''
 repo = 'uga-rosa/ddu-source-nvim_lsp'
 hook_add = '''
   nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/references' } }], 'uiParams': { 'ff': { 'immediateAction': 'open' } } })<CR>
-  nnoremap <silent> ;d <Cmd>call ddu#start({ 'surces': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }] })<CR>
+  nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }] })<CR>
 '''
 
 [[plugins]]
