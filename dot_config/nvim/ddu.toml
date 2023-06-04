@@ -49,7 +49,7 @@ hook_post_source = '''
   "\  'help': {
   "\    'defaultAction': 'open',
   "\   },
-  "\  'nvim_lsp': {
+  "\  'lsp': {
   "\    'defaultAction': 'open',
   "\   },
   "\  'action': {
@@ -136,21 +136,21 @@ ddu-filer = '''
 '''
 
 [[plugins]]
-repo = 'uga-rosa/ddu-source-nvim_lsp'
+repo = 'uga-rosa/ddu-source-lsp'
 hook_add = '''
-  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/references' } }], 'uiParams': { 'ff': { 'immediateAction': 'open' } } })<CR>
+  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp', 'params': { 'method': 'textDocument/references' } }], 'uiParams': { 'ff': { 'immediateAction': 'open' } } })<CR>
   nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_diagnostic', 'params': { 'buffer': 0 } }], 'uiParams': {
   \ 'ff': {
   \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
   \ },
   \ }})<CR>
-  nnoremap <silent> gd <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/definition' } }], 'uiParams': {
+  nnoremap <silent> gd <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp', 'params': { 'method': 'textDocument/definition' } }], 'uiParams': {
   \ 'ff': {
   \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
   \   'immediateAction': 'open',
   \ },
   \ }})<CR>
-  nnoremap <silent> gD <Cmd>call ddu#start({ 'sources': [{ 'name': 'nvim_lsp', 'params': { 'method': 'textDocument/declaration' } }], 'uiParams': {
+  nnoremap <silent> gD <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp', 'params': { 'method': 'textDocument/declaration' } }], 'uiParams': {
   \ 'ff': {
   \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
   \   'immediateAction': 'open',
