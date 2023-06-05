@@ -1,3 +1,4 @@
 source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 export ESLINT_D_LOCAL_ESLINT_ONLY=1
+export GYAZO_TOKEN={{ (bitwardenFields "item" "gyazo.com").cli_token.value }}
