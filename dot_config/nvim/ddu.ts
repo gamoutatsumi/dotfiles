@@ -59,7 +59,7 @@ export class Config extends BaseConfig {
         help: {
           defaultAction: "open",
         },
-        nvim_lsp: {
+        lsp: {
           defaultAction: "open",
         },
         action: {
