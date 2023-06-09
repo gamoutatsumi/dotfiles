@@ -243,7 +243,7 @@ repo = 'matsui54/ddu-source-help'
 hook_add = '''
   nnoremap <silent> ;h <Cmd>call ddu#start({ 'sources': [{ 'name': 'help' }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})<CR>
 '''
