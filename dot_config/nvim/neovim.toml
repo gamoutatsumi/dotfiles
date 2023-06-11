@@ -217,6 +217,7 @@ lua_post_source = '''
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
+rev = 'legacy'
 lua_post_source = '''
 require('fidget').setup {}
 '''
