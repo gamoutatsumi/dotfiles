@@ -135,16 +135,7 @@ on_cmd = ['Cheat']
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = ['QuickRun']
-hook_add = '''
-  let g:quickrun_config = {
-  \ 'tsc': {
-  \   'command': 'tsc',
-  \   'exec': ['yarn run --silent %C --project . --noEmit --incremental --tsBuildInfoFile .git/.tsbuildinfo 2>/dev/null'],
-  \   'outputter': 'quickfix',
-  \   'outputter/quickfix/errorformat': '%+A %#%f %#(%l\,%c): %m,%C%m',
-  \ }
-  \ }
-'''
+hooks_file = '$BASE_DIR/dein/quickrun.vim'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
@@ -190,41 +181,7 @@ hook_add = '''
 [[plugins]]
 repo = 'hrsh7th/vim-searchx'
 on_func = ['searchx#*']
-hook_add ='''
-  " Overwrite / and ?.
-  nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-  nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-  xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-  xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-  cnoremap ; <Cmd>call searchx#select()<CR>
-  " Move to next/prev match.
-  nnoremap N <Cmd>call searchx#prev_dir()<CR>
-  nnoremap n <Cmd>call searchx#next_dir()<CR>
-  xnoremap N <Cmd>call searchx#prev_dir()<CR>
-  xnoremap n <Cmd>call searchx#next_dir()<CR>
-
-  " Clear highlights
-  nnoremap <Esc><Esc> <Cmd>call searchx#clear()<CR>
-
-  let g:searchx = {}
-
-  " Auto jump if the recent input matches to any marker.
-  let g:searchx.auto_accept = v:true
-
-  " Marker characters.
-  let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
-
-  let g:searchx.nohlsearch = {}
-  let g:searchx.nohlsearch.jump = v:true
-
-  " Convert search pattern.
-  function g:searchx.convert(input) abort
-    if a:input !~# '\k'
-      return '\V' .. a:input
-    endif
-    return kensaku#query(a:input)
-  endfunction
-'''
+hooks_file = '$BASE_DIR/dein/searchx.vim'
 
 [[plugins]]
 repo = 'lambdalisue/suda.vim'
@@ -236,15 +193,7 @@ hook_add = '''
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = 'InsertEnter'
-hook_post_source = '''
-  " lexima.vim
-  let g:lexima_map_escape = '<Plug>(lexima-escape)'
-  let g:lexima_no_default_rules = v:true
-  let g:lexima_accept_pum_with_enter = 0
-  call lexima#set_default_rules()
-  inoremap <silent><expr> <CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : lexima#expand('<LT>CR>', 'i')
-  imap <silent><expr> <Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Plug>(lexima-escape)'
-'''
+hooks_file = '$BASE_DIR/dein/lexima.vim'
 
 [[plugins]]
 repo = 'thosakwe/vim-flutter'

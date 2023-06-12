@@ -1,3 +1,4 @@
+-- lua_post_source {{{
 local util = require("lspconfig/util")
 local lspconfig = require("lspconfig")
 local mason = require("mason")
@@ -16,7 +17,7 @@ require("neodev").setup({})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.offsetEncoding = {'utf-16'}
+capabilities.offsetEncoding = { 'utf-16' }
 
 local on_attach = function(client, bufnr)
   saga.setup({})
@@ -240,3 +241,4 @@ require("go").setup({
   dap_debug = true,
   dap_debug_gui = true,
 })
+-- }}}

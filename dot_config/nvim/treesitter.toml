@@ -1,8 +1,6 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-lua_post_source = '''
-require('plugins.treesitter_setting')
-'''
+hooks_file = '$BASE_DIR/dein/treesitter.lua'
 
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'

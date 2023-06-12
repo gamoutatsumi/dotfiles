@@ -6,9 +6,7 @@ repo = 'williamboman/mason.nvim'
 
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
-lua_post_source = '''
-require("plugins.lsp")
-'''
+hooks_file = '$BASE_DIR/dein/nvim_lsp.lua'
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
