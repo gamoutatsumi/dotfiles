@@ -37,43 +37,6 @@ hook_post_source = '''
 
   " ddc.vim
   call ddc#custom#load_config(expand(join([$XDG_CONFIG_HOME, $NVIM_APPNAME ?? 'nvim', 'ddc.ts'], '/')))
-  "call ddc#custom#patch_global('ui', 'pum')
-  "call ddc#custom#patch_global('autoCompleteEvents',
-  "  \ ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged'])
-  "call ddc#custom#patch_global('cmdlineSources', { ':': ['cmdline', 'cmdline-history', 'around'] })
-  "call ddc#custom#patch_global('sources', ['tsnip', 'vsnip', 'nvim-lsp', 'file', 'around'])
-  "call ddc#custom#patch_global('keywordPattern', '(\k|-|_)*')
-  "call ddc#custom#patch_global('sourceOptions', {
-  "\ '_': { 'matchers': ['matcher_fuzzy'], 'sorters': ['sorter_fuzzy'], 'converters': ['converter_fuzzy'] },
-  "\ 'nvim-lsp': {
-  "\   'mark': 'lsp',
-  "\   'forceCompletionPattern': '\.\w*|:\w*|->\w*|"\w*|\\\w*|\+\w*|\/\w*',
-  "\   'ignoreCase': v:true,
-  "\   'isVolatile': v:true
-  "\ },
-  "\ 'around': {
-  "\   'mark': 'A',
-  "\   'isVolatile': v:true,
-  "\ },
-  "\ 'vsnip': {
-  "\   'mark': 'VS',
-  "\   'dup': v:true,
-  "\ },
-  "\ 'tsnip' : {
-  "\   'mark': 'TS',
-  "\   'dup': v:true,
-  "\ },
-  "\ 'file': {
-  "\   'mark': 'F',
-  "\   'isVolatile': v:true,
-  "\   'forceCompletionPattern': '\S/\S*',
-  "\   'converters': [],
-  "\ },
-  "\ 'cmdline': {
-  "\   'mark': 'C',
-  "\   'ignoreCase': v:true,
-  "\ },
-  "\ })
   call ddc#enable()
 '''
 
