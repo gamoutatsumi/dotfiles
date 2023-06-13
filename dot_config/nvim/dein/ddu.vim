@@ -14,10 +14,10 @@ setlocal cursorline
 " }}}
 
 " ddu-ff-filter {{{
-inoremap <buffer> <CR> <Esc><Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
-nnoremap <buffer> <CR> <Cmd><Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
+inoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
+nnoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
 " }}}
-"
+
 " ddu-filer {{{
 nnoremap <buffer><silent> <CR>
       \ <Cmd>call ddu#ui#filer#do_action('itemAction')<CR>

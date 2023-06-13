@@ -53,6 +53,12 @@ hook_add = '''
   \   'immediateAction': 'open',
   \ },
   \ }})<CR>
+  nnoremap <silent> gi <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_implementation', 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'immediateAction': 'open',
+  \ },
+  \ }})<CR>
 '''
 
 [[plugins]]
