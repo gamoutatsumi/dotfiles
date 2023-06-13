@@ -54,7 +54,7 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = { 'jsx' },
     query = 'rainbow-parens',
-    strategy = require('ts-rainbow').strategy.global
+    strategy = require('ts-rainbow').strategy["local"]
   }
 })
 -- }}}
