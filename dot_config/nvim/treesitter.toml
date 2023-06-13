@@ -10,3 +10,6 @@ repo = 'nvim-treesitter/nvim-treesitter-refactor'
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
+
+[[plugins]]
+repo = 'HiPhish/nvim-ts-rainbow2'

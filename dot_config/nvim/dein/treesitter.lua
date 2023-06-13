@@ -50,10 +50,11 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
   parser_install_dir = parser_install_dir,
-  --[[ rainbow = {
+  rainbow = {
     enable = true,
-    extended_mode = true,
-    max_file_lines = 1000
-  } ]]
+    disable = { 'jsx' },
+    query = 'rainbow-parens',
+    strategy = require('ts-rainbow').strategy.global
+  }
 })
 -- }}}
