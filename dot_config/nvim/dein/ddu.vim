@@ -14,7 +14,7 @@ setlocal cursorline
 " }}}
 
 " ddu-ff-filter {{{
-inoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
+inoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR><Esc>
 nnoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
 " }}}
 
