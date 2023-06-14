@@ -35,27 +35,27 @@ repo = 'Shougo/ddu-commands.vim'
 [[plugins]]
 repo = 'uga-rosa/ddu-source-lsp'
 hook_add = '''
-  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_references' }], 'uiParams': { 'ff': { 'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } } } } })<CR>
+  nnoremap <silent> grf <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_references' }], 'uiParams': { 'ff': { 'autoAction': { 'name': 'preview' } } } })<CR>
   nnoremap <silent> ;d <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_diagnostic' }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})<CR>
   nnoremap <silent> gd <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_definition', 'params': { 'method': 'textDocument/definition' } }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \   'immediateAction': 'open',
   \ },
   \ }})<CR>
   nnoremap <silent> gD <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_definition', 'params': { 'method': 'textDocument/declaration' } }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \   'immediateAction': 'open',
   \ },
   \ }})<CR>
   nnoremap <silent> gi <Cmd>call ddu#start({ 'sources': [{ 'name': 'lsp_implementation', 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \   'immediateAction': 'open',
   \ },
   \ }})<CR>
@@ -74,7 +74,7 @@ hook_add = '''
     let word = input("search word: ")
     call ddu#start({'sources': [{'name': 'rg', 'params': {'input': word, 'inputType': 'migemo', 'args': ['--ignore-case', '--json']}}], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})
   endfunction
@@ -86,12 +86,12 @@ repo = 'kuuote/ddu-source-mr'
 hook_add = '''
   nnoremap <silent> ;mu <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mru', 'current': v:true } }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})<CR>
   nnoremap <silent> ;mw <Cmd>call ddu#start({ 'sources': [{ 'name': 'mr', 'params': { 'kind': 'mrw', 'current': v:true } }], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})<CR>
 '''
@@ -101,7 +101,7 @@ repo = 'matsui54/ddu-source-file_external'
 hook_add = '''
   nnoremap <silent> ;f <Cmd>call ddu#start({ 'sources': [{'name': 'file_external'}], 'uiParams': {
   \ 'ff': {
-  \   'autoAction': { 'name': 'preview', 'params': { 'previewCmds': ['bat', '-n', '%s', '-r', '%b:%e', '--highlight-line', '%l'] } },
+  \   'autoAction': { 'name': 'preview' },
   \ },
   \ }})<CR>
 '''
