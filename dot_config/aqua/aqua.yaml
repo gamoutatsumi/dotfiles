@@ -67,7 +67,7 @@ packages:
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.3.0
   - name: jdxcode/rtx@v1.32.0
   - name: golang/mock@v1.6.0
-  - name: golang-migrate/migrate@v4.16.1
+  - name: golang-migrate/migrate@v4.16.2
   - name: fullstorydev/grpcui@v1.3.1
   - name: goreleaser/goreleaser@v1.18.2
   - name: bitwarden/clients@cli-v2023.4.0
