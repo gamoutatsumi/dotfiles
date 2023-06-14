@@ -7,9 +7,6 @@
   root = ~/Repositories
 [pull]
 	rebase = false
-; [url "github.com:"]
-; 	pushInsteadOf = https://github.com/
-; 	insteadOf = https://github.com/
 [alias]
   graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
   pushf = push --force-with-lease --force-if-includes
