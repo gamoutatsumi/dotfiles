@@ -28,6 +28,7 @@ repo = 'LumaKernel/ddc-source-file'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
+hooks_file = '$BASE_DIR/dein/pum.vim'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
