@@ -140,5 +140,9 @@ repo = 'Shougo/ddu-source-action'
 [[plugins]]
 repo = 'matsui54/ddu-source-dein_update'
 hook_add = '''
-command DeinUpdate call ddu#start({ 'sources': [{ 'name': 'dein_update' }] })
+command DeinUpdate call ddu#start({ 'sources': [{ 'name': 'dein_update' }], 'uiParams': {
+  \ 'ff': {
+  \   'autoAction': { 'name': 'preview' },
+  \ },
+  \ }})
 '''
