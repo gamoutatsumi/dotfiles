@@ -21,6 +21,9 @@ export class Config extends BaseConfig {
           matchers: ["merge"],
           converters: ["converter_devicon"],
         },
+        dein_update: {
+          matchers: ["matcher_dein_update"],
+        },
       },
       uiParams: {
         ff: {
@@ -65,6 +68,9 @@ export class Config extends BaseConfig {
         action: {
           defaultAction: "do",
         },
+        dein_update: {
+          defaultAction: "viewDiff",
+        },
       },
       filterParams: {
         matcher_kensaku: {
@@ -79,6 +85,22 @@ export class Config extends BaseConfig {
             "matcher_fzf",
           ],
           unique: true,
+        },
+      },
+      actionOptions: {
+        echo: {
+          quit: false,
+        },
+        echoDiff: {
+          quit: false,
+        },
+      },
+      sourceParams: {
+        file_external: {
+          cmd: ["git", "ls-files", "--exclude-standard", "-c", "-o"],
+        },
+        dein_update: {
+          useGraphQL: true,
         },
       },
     });

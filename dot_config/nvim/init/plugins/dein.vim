@@ -58,4 +58,4 @@ if len(s:removed_plugins) > 0
 endif
 
 autocmd VimEnter * call dein#call_hook('post_source')
-command DeinUpdate call dein#check_update(v:true)
+" command DeinUpdate call dein#check_update(v:true)
