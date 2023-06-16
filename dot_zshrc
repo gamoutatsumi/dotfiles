@@ -108,7 +108,7 @@ export DENO_BIN="$HOME/.deno/bin"
 export GOPATH="$HOME/go"
 export MANPAGER='nvim -c ASMANPAGER -'
 manpath=(/opt/homebrew/opt/coreutils/libexec/gnuman(N-/) /usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman(N-/) $manpath)
-path=($HOME/neovim/bin(N-/) /usr/local/opt/mysql-client/bin(N-/) /usr/local/sbin(N-/) /opt/homebrew/opt/coreutils/libexec/gnubin(N-/) /usr/local/opt/coreutils/libexec/gnubin(N-/) /usr/local/opt/grep/libexec/gnubin(N-/) $HOME/.ghcup/bin(N-/) ${KREW_ROOT:-$HOME/.krew}/bin(N-/) $HOME/.nimble/bin(N-/) $XDG_DATA_HOME/aquaproj-aqua/bin(N-/) $DENO_BIN(N-/) $LUAROCKS_HOME/bin(N-/) $GOPATH/bin(N-/) $CARGO_HOME/bin(N-/) $HOME/.local/bin(N-/) $GEM_HOME/bin(N-/) /opt/homebrew/opt/mysql-client/bin(N-/) $path)
+path=($HOME/neovim/bin(N-/) /usr/local/opt/mysql-client/bin(N-/) /usr/local/sbin(N-/) $HOME/.ghcup/bin(N-/) ${KREW_ROOT:-$HOME/.krew}/bin(N-/) $HOME/.nimble/bin(N-/) $XDG_DATA_HOME/aquaproj-aqua/bin(N-/) $DENO_BIN(N-/) $LUAROCKS_HOME/bin(N-/) $GOPATH/bin(N-/) $CARGO_HOME/bin(N-/) $HOME/.local/bin(N-/) $GEM_HOME/bin(N-/) /opt/homebrew/opt/mysql-client/bin(N-/) $path)
 fpath=(/opt/homebrew/share/zsh/site-functions(N-/) $fpath)
 
 export HISTFILE=${HOME}/.zsh_history
@@ -339,8 +339,8 @@ alias ..='cd ..'
 alias q='exit'
 alias top='htop'
 alias kc='kubectl'
-alias kx='kubectx'
-alias kn='kubens'
+alias kx='kubie ctx'
+alias kn='kubie ns'
 exists gomi && alias rm='gomi'
 alias dc='docker compose'
 

@@ -82,3 +82,6 @@ packages:
   - name: cloudflare/cfssl/multirootca@v1.6.4
   - name: cloudflare/cfssl/cfssl-certinfo@v1.6.4
   - name: cloudflare/cfssl/cfssl-bundle@v1.6.4
+  - name: danielfoehrKn/kubeswitch@0.7.2
+  - name: danielfoehrKn/kubeswitch/switch-sh@0.7.2
+  - name: sbstp/kubie@v0.19.3
