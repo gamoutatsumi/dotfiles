@@ -13,10 +13,10 @@ fi
 
 # Added by Toolbox App
 path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))
-for d in /opt/homebrew/opt/*/libexec/gnubin; do
+for d in /opt/homebrew/opt/*/libexec/gnubin(N-/); do
   path=($d $path)
 done
-for d in /opt/homebrew/opt/gnu-tar/libexec/gnuman; do
+for d in /opt/homebrew/opt/gnu-tar/libexec/gnuman(N-/); do
   manpath=($d $manpath)
 done
 
