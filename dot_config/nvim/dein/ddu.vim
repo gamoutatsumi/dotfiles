@@ -71,6 +71,62 @@ nnoremap <silent> gi <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
+nnoremap <silent> ;s <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'lsp_documentSymbol'
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{
+      \       name: 'preview'
+      \     },
+      \   }
+      \ }
+      \ })<CR>
+nnoremap <silent> ;S <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'lsp_workspaceSymbol'
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{
+      \       name: 'preview'
+      \     },
+      \   }
+      \ }
+      \ })<CR>
+nnoremap <silent> ;t <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'lsp_typeHierarchy',
+      \   params: #{
+      \     method: 'typeHierarchy/supertypes',
+      \     autoExpandSingle: v:false,
+      \   }
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{
+      \       name: 'preview'
+      \     }
+      \   }
+      \ }
+      \ })<CR>
+nnoremap <silent> ;c <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'lsp_callHierarchy',
+      \   params: #{
+      \     method: 'callHierarchy/incomingCalls',
+      \     autoExpandSingle: v:false,
+      \ }
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{
+      \       name: 'preview'
+      \     }
+      \   }
+      \ }
+      \ })<CR>
 " ddu-source-buffer
 nnoremap <silent> ;b <Cmd>call ddu#start(#{ sources: [#{ name: 'buffer' }] })<CR>
 " ddu-source-rg
@@ -187,6 +243,8 @@ nnoremap <buffer> q <Cmd>call ddu#ui#do_action("quit")<CR>
 nnoremap <buffer> p <Cmd>call ddu#ui#do_action("previewPath")<CR>
 nnoremap <buffer> P <Cmd>call ddu#ui#do_action("preview")<CR>
 nnoremap <buffer> a <Cmd>call ddu#ui#do_action("chooseAction")<CR>
+nnoremap <buffer> l <Cmd>call ddu#ui#filer#do_action('expandItem')<CR>
+nnoremap <buffer> h <Cmd>call ddu#ui#filer#do_action('collapseItem')<CR>
 setlocal cursorline
 " }}}
 
