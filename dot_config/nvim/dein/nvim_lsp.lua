@@ -19,6 +19,27 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.offsetEncoding = { 'utf-16' }
 
+local function setInlayHintHL()
+  local has_hl, hl = pcall(vim.api.nvim_get_hl, 0, { name = 'LspInlayHint' })
+  if has_hl and (hl['fg'] or hl['bg']) then
+    return
+  end
+
+  hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
+  local foreground = string.format('#%06x', hl['fg'] or 0)
+  if #foreground < 3 then
+    foreground = ''
+  end
+
+  hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
+  local background = string.format('#%06x', hl['bg'] or 0)
+  if #background < 3 then
+    background = ''
+  end
+
+  vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
+end
+
 local on_attach = function(client, bufnr)
   saga.setup({})
 
@@ -45,6 +66,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
   -- vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
+  if client.supports_method("textDocument/inlayHint") then
+    vim.lsp.buf.inlay_hint(bufnr, true)
+    setInlayHintHL()
+  end
 end
 
 mason.setup()
@@ -58,12 +83,49 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   if server == "tsserver" then
     goto continue
   elseif server == "vtsls" then
+    opts.settings = {
+      typescript = {
+        inlayhints = {
+          parameterNames = {
+            enabled = true
+          },
+          variableTypes = {
+            enabled = true
+          },
+          propertyDeclarationTypes = {
+            enabled = true
+          },
+          functionLikeReturnTypes = {
+            enabled = true
+          },
+          enumMemberValues = {
+            enabled = true
+          },
+          parameterTypes = {
+            enabled = true
+          }
+        }
+      }
+    }
     goto continue
   elseif server == "gopls" then
     opts.on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       client.server_capabilities.document_formatting = false
     end
+    opts.settings = {
+      gopls = {
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableypes = true
+        }
+      }
+    }
   elseif server == "tailwindcss" then
     opts.root_dir = util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "tailwind.config.ts")
     opts.autostart = true
@@ -77,7 +139,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     opts.init_options = {
       provideFormatter = true,
     }
-  elseif server == "sumneko_lua" then
+  elseif server == "lua_ls" then
     opts.on_attach = function(client, bufnr)
       client.server_capabilities.document_formatting = true
       on_attach(client, bufnr)
@@ -95,9 +157,11 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
         completion = {
           callSnippet = "Replace",
         },
+        hint = {
+          enable = true
+        }
       },
     }
-    server = "lua_ls"
   elseif server == "yamlls" then
     opts.settings = {
       yaml = {
@@ -240,5 +304,6 @@ require("go").setup({
   filstruct = "gopls",
   dap_debug = true,
   dap_debug_gui = true,
+  lsp_inlay_hints = { enable = false }
 })
 -- }}}

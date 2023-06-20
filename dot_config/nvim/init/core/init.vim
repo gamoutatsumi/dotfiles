@@ -48,3 +48,4 @@ runtime init/core/keys.vim
 syntax on
 
 command! ToggleNum set rnu!
+command! InlayHintToggle lua vim.lsp.buf.inlay_hint(0)
