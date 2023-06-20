@@ -83,30 +83,6 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   if server == "tsserver" then
     goto continue
   elseif server == "vtsls" then
-    opts.settings = {
-      typescript = {
-        inlayhints = {
-          parameterNames = {
-            enabled = true
-          },
-          variableTypes = {
-            enabled = true
-          },
-          propertyDeclarationTypes = {
-            enabled = true
-          },
-          functionLikeReturnTypes = {
-            enabled = true
-          },
-          enumMemberValues = {
-            enabled = true
-          },
-          parameterTypes = {
-            enabled = true
-          }
-        }
-      }
-    }
     goto continue
   elseif server == "gopls" then
     opts.on_attach = function(client, bufnr)
@@ -184,6 +160,31 @@ if vim.fn.executable("deno") then
     init_options = {
       lint = true,
       unstable = true,
+      editor = {
+        inlayHints = {
+          enabled = true
+        }
+      },
+      inlayHints = {
+        parameterNames = {
+          enabled = "all"
+        },
+        variableTypes = {
+          enabled = true
+        },
+        propertyDeclarationTypes = {
+          enabled = true
+        },
+        functionLikeReturnTypes = {
+          enabled = true
+        },
+        enumMemberValues = {
+          enabled = true
+        },
+        parameterTypes = {
+          enabled = true
+        }
+      }
     },
   })
 end
@@ -246,6 +247,52 @@ if vim.fn.executable("vtsls") > 0 then
       on_attach(client, bufnr)
       client.server_capabilities.document_formatting = false
     end,
+    settings = {
+      javascript = {
+        inlayHints = {
+          parameterNames = {
+            enabled = "all"
+          },
+          variableTypes = {
+            enabled = true
+          },
+          propertyDeclarationTypes = {
+            enabled = true
+          },
+          functionLikeReturnTypes = {
+            enabled = true
+          },
+          enumMemberValues = {
+            enabled = true
+          },
+          parameterTypes = {
+            enabled = true
+          }
+        }
+      },
+      typescript = {
+        inlayHints = {
+          parameterNames = {
+            enabled = "all"
+          },
+          variableTypes = {
+            enabled = true
+          },
+          propertyDeclarationTypes = {
+            enabled = true
+          },
+          functionLikeReturnTypes = {
+            enabled = true
+          },
+          enumMemberValues = {
+            enabled = true
+          },
+          parameterTypes = {
+            enabled = true
+          }
+        }
+      }
+    }
   })
 end
 
