@@ -24,6 +24,27 @@ export class Config extends BaseConfig {
         dein_update: {
           matchers: ["matcher_dein_update"],
         },
+        lsp_references: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_implementation: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_typeHierarchy: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_callHierarchy: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_workspaceSymbol: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_documentSymbol: {
+          converters: ["converter_lsp_symbol"],
+        },
+        lsp_diagnostic: {
+          converters: ["converter_lsp_symbol"],
+        },
       },
       uiParams: {
         ff: {
