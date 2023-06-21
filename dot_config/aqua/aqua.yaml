@@ -30,7 +30,7 @@ packages:
   - name: ducaale/xh@v0.18.0
   - name: itchyny/gojq@v0.12.13
   - name: dagger/dagger@v0.6.2
-  - name: kubernetes-sigs/kubebuilder@v3.10.0
+  - name: kubernetes-sigs/kubebuilder@v3.11.0
   - name: helm/helm@v3.12.1
   - name: yannh/kubeconform@v0.6.2
   - name: kubernetes-sigs/cluster-api@v1.4.3
