@@ -248,29 +248,10 @@ if vim.fn.executable("vtsls") > 0 then
       client.server_capabilities.document_formatting = false
     end,
     settings = {
-      javascript = {
-        inlayHints = {
-          parameterNames = {
-            enabled = "all"
-          },
-          variableTypes = {
-            enabled = true
-          },
-          propertyDeclarationTypes = {
-            enabled = true
-          },
-          functionLikeReturnTypes = {
-            enabled = true
-          },
-          enumMemberValues = {
-            enabled = true
-          },
-          parameterTypes = {
-            enabled = true
-          }
-        }
-      },
       typescript = {
+        suggest = {
+          completionFunctionCalls = true,
+        },
         inlayHints = {
           parameterNames = {
             enabled = "all"
