@@ -69,6 +69,18 @@ local on_attach = function(client, bufnr)
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.buf.inlay_hint(bufnr, true)
     setInlayHintHL()
+    vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.inlay_hint(bufnr, false)
+      end,
+    })
+    vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.inlay_hint(bufnr, true)
+      end,
+    })
   end
 end
 
