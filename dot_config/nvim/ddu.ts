@@ -1,8 +1,8 @@
 import {
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddu_vim@v3.0.0/types.ts";
-import { Denops, op } from "https://deno.land/x/ddu_vim@v3.0.0/deps.ts";
+} from "https://deno.land/x/ddu_vim@v3.2.4/types.ts";
+import { Denops, op } from "https://deno.land/x/ddu_vim@v3.2.4/deps.ts";
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -48,6 +48,7 @@ export class Config extends BaseConfig {
       },
       uiParams: {
         ff: {
+          displayTree: true,
           startFilter: true,
           split: "floating",
           prompt: "> ",

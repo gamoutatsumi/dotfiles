@@ -6,7 +6,10 @@ call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 " ddu-source-lsp
 nnoremap <silent> grf <Cmd>call ddu#start(#{ 
       \ sources: [#{ 
-      \   name: 'lsp_references' 
+      \   name: 'lsp_references' ,
+      \   params: #{
+      \     includeDeclaration: v:false
+      \   }
       \ }], 
       \ uiParams: #{
       \   ff: #{
