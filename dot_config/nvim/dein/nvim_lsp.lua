@@ -129,11 +129,11 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     }
   elseif server == "lua_ls" then
     opts.on_attach = function(client, bufnr)
-      client.server_capabilities.document_formatting = true
+      client.server_capabilities.document_formatting = false
       on_attach(client, bufnr)
     end
     opts.init_options = {
-      provideFormatter = true,
+      provideFormatter = false,
     }
     opts.settings = {
       Lua = {
