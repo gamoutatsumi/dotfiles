@@ -170,6 +170,9 @@ if vim.fn.executable("deno") then
     capabilities = capabilities,
     autostart = not is_node_repo,
     init_options = {
+      suggest = {
+        completeFunctionCalls = true
+      },
       lint = true,
       unstable = true,
       editor = {
@@ -262,7 +265,7 @@ if vim.fn.executable("vtsls") > 0 then
     settings = {
       typescript = {
         suggest = {
-          completionFunctionCalls = true,
+          completeFunctionCalls = true,
         },
         inlayHints = {
           parameterNames = {

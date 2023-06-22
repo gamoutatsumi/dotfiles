@@ -30,7 +30,8 @@ export class Config extends BaseConfig {
         },
         "nvim-lsp": {
           mark: "lsp",
-          forceCompletionPattern: '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
+          forceCompletionPattern:
+            '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
           isVolatile: true,
         },
