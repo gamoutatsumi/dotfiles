@@ -211,17 +211,20 @@ nnoremap <silent> ;h <Cmd>call ddu#start(#{
       \ }
       \ })<CR>
 " ddu-source-dein_update
-command DeinUpdate call ddu#start(#{
+command! DeinUpdate call ddu#start(#{
       \ sources: [#{
       \   name: 'dein_update' 
       \ }], 
+      \ sourceParams: #{
+      \   useGraphQL: v:true
+      \ },
       \ uiParams: #{
       \   ff: #{
       \    autoAction: #{ name: 'preview' },
       \   },
       \ }
       \ })
-command DeinUpdateAll call ddu#start(#{ 
+command! DeinUpdateAll call ddu#start(#{ 
       \ sources: [#{ 
       \   name: 'dein_update' 
       \ }],

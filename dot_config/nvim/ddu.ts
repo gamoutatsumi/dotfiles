@@ -121,9 +121,6 @@ export class Config extends BaseConfig {
         file_external: {
           cmd: ["git", "ls-files", "--exclude-standard", "-c", "-o"],
         },
-        dein_update: {
-          useGraphQL: true,
-        },
       },
     });
   }
