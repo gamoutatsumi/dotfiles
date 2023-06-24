@@ -93,6 +93,9 @@ export class Config extends BaseConfig {
         dein_update: {
           defaultAction: "viewDiff",
         },
+        lsp_codeAction: {
+          defaultAction: "apply",
+        },
       },
       filterParams: {
         matcher_kensaku: {
