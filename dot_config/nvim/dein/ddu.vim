@@ -120,7 +120,16 @@ nnoremap <silent> ;c <Cmd>call ddu#start(#{
       \   params: #{
       \     method: 'callHierarchy/incomingCalls',
       \     autoExpandSingle: v:false,
+      \   }
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{
+      \       name: 'preview'
+      \     }
+      \   }
       \ }
+      \ })<CR>
 nnoremap <silent> <Leader>a <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_codeAction',
