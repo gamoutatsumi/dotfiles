@@ -201,7 +201,7 @@ nnoremap <silent> ;f <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'file_external',
       \   params: #{
-      \     cmd: ['git', 'ls-files', '--exclde-standard', '-c', '-o'],
+      \     cmd: ["git", "ls-files", "--exclude-standard", "-c", "-o"],
       \   },
       \ }],
       \ uiParams: #{
@@ -228,11 +228,11 @@ nnoremap <silent> ;h <Cmd>call ddu#start(#{
 " ddu-source-dein_update
 command! DeinUpdate call ddu#start(#{
       \ sources: [#{
-      \   name: 'dein_update' 
+      \   name: 'dein_update',
+      \   params: #{
+      \     useGraphQL: v:true
+      \   },
       \ }], 
-      \ sourceParams: #{
-      \   useGraphQL: v:true
-      \ },
       \ uiParams: #{
       \   ff: #{
       \    autoAction: #{ name: 'preview' },
@@ -241,16 +241,14 @@ command! DeinUpdate call ddu#start(#{
       \ })
 command! DeinUpdateAll call ddu#start(#{ 
       \ sources: [#{ 
-      \   name: 'dein_update' 
+      \   name: 'dein_update',
+      \   params: #{
+      \     useGraphQL: v:false
+      \   }
       \ }],
       \ uiParams: #{
       \   ff: #{
       \    autoAction: #{ name: 'preview' },
-      \   },
-      \ },
-      \ sourceParams: #{ 
-      \   dein_update: #{
-      \     useGraphQL: v:false 
       \   },
       \ },
       \ })
