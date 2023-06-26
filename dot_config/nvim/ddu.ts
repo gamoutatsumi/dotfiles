@@ -120,11 +120,6 @@ export class Config extends BaseConfig {
           quit: false,
         },
       },
-      sourceParams: {
-        file_external: {
-          cmd: ["git", "ls-files", "--exclude-standard", "-c", "-o"],
-        },
-      },
     });
   }
 }
