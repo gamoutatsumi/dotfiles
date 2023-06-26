@@ -198,7 +198,7 @@ nnoremap <silent> ;mw <Cmd>call ddu#start(#{
       \ })<CR>
 " ddu-source-file_external
 nnoremap <silent> ;f <Cmd>call ddu#start(#{
-      \ sorces: [#{
+      \ sources: [#{
       \   name: 'file_external',
       \   params: #{
       \     cmd: ['git', 'ls-files', '--exclde-standard', '-c', '-o'],
