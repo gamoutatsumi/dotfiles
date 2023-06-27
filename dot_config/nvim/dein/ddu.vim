@@ -250,7 +250,8 @@ command! DeinUpdateAll call ddu#start(#{
       \   ff: #{
       \    autoAction: #{ name: 'preview' },
       \   },
-      \ },
+      \ }
+      \ })
  " ddu-source-git_diff
  nnoremap <silent> ;gd <Cmd>call ddu#start(#{
        \ sources: [#{
