@@ -52,7 +52,7 @@ command! CspellAddLocal call s:add_to_local_dict()
 #'''
 
 [[plugins]]
-repo = 'glepnir/lspsaga.nvim'
+repo = 'nvimdev/lspsaga.nvim'
 
 [[plugins]]
 repo = 'yioneko/nvim-vtsls'

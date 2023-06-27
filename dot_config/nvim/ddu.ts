@@ -9,16 +9,20 @@ export class Config extends BaseConfig {
     denops: Denops;
     contextBuilder: ContextBuilder;
   }): Promise<void> {
-    const columns = await op.columns.get(args.denops);
-    const lines = await op.lines.get(args.denops);
+    const { denops, contextBuilder } = args;
+    const columns = await op.columns.get(denops);
+    const lines = await op.lines.get(denops);
     const width = Math.floor(columns * 0.8);
-    args.contextBuilder.patchGlobal({
+    contextBuilder.patchGlobal({
       ui: "ff",
       sourceOptions: {
         _: {
           ignoreCase: true,
           matchers: ["merge"],
           converters: ["converter_devicon"],
+        },
+        git_diff: {
+          converters: [],
         },
         dein_update: {
           matchers: ["matcher_dein_update"],

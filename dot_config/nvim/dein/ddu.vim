@@ -163,7 +163,7 @@ function! s:ddu_find() abort
         \ }
         \ })
 endfunction
-nnoremap <silent> ;g <Cmd>call <SID>ddu_find()<CR>
+nnoremap <silent> ;r <Cmd>call <SID>ddu_find()<CR>
 " ddu-source-mr
 nnoremap <silent> ;mu <Cmd>call ddu#start(#{
       \ sources: [#{
@@ -251,7 +251,28 @@ command! DeinUpdateAll call ddu#start(#{
       \    autoAction: #{ name: 'preview' },
       \   },
       \ },
-      \ })
+ " ddu-source-git_diff
+ nnoremap <silent> ;gd <Cmd>call ddu#start(#{
+       \ sources: [#{
+       \   name: 'git_diff'
+       \ }],
+       \ uiParams: #{
+       \   ff: #{
+       \     autoAction: #{ name: 'preview' }
+       \   }
+       \ }
+       \ })<CR>
+ " ddu-source-git
+ nnoremap <silent> ;gs <Cmd>call ddu#start(#{
+       \ sources: [#{
+       \   name: 'git_status'
+       \ }],
+       \ uiParams: #{
+       \   ff: #{
+       \     autoAction: #{ name: 'preview' }
+       \   }
+       \ }
+       \ })<CR>    \ })
 " }}}
 
 " ddu-ff {{{

@@ -73,3 +73,9 @@ repo = 'Shougo/ddu-source-action'
 
 [[plugins]]
 repo = 'matsui54/ddu-source-dein_update'
+
+[[plugins]]
+repo = 'kuuote/ddu-source-git_diff'
+
+[[plugins]]
+repo = 'tennashi/ddu-source-git'
