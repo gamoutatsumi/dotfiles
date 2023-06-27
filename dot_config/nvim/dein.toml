@@ -102,3 +102,6 @@ repo = 'rhysd/clever-f.vim'
 [[plugins]]
 repo = 'tpope/vim-dadbod'
 
+[[plugins]]
+repo = 'skk-dev/dict'
+if = 0

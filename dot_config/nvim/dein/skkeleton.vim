@@ -2,9 +2,20 @@
 let g:skkeleton#mode = ''
 imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
-autocmd User skkeleton-initialize-pre call skkeleton#config({"eggLikeNewline": v:true, "keepState": v:true, "skkServerResEnc": $SKK_SERVER_ENC != "" ? $SKK_SERVER_ENC : "utf-8", "useSkkServer": v:true, "skkServerHost": $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1"})
+let s:dictPath = dein#get('dict').path
+autocmd User skkeleton-initialize-pre call skkeleton#config(#{
+      \   eggLikeNewline: v:true, 
+      \   keepState: v:true,
+      \   skkServerResEnc: $SKK_SERVER_ENC != "" ? $SKK_SERVER_ENC : "utf-8",
+      \   useSkkServer: v:true, skkServerHost: $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1",
+      \   globalDictionaries: [
+      \     s:dictPath . "/SKK-JISYO.L"
+      \   ]
+      \ })
 if has('mac')
-  autocmd User skkeleton-initialize-pre call skkeleton#config(#{globalJisyo: "~/Library/Application Support/AquaSKK/SKK-JISYO.L", skkServerResEnc: "euc-jp"})
+  autocmd User skkeleton-initialize-pre call skkeleton#config(#{
+        \   skkServerResEnc: "euc-jp"
+        \ })
 endif
 function s:skkeleton_init_kanatable() abort
   call skkeleton#register_kanatable('rom', {
