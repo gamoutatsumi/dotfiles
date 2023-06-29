@@ -26,7 +26,6 @@ export class Config extends BaseConfig {
         "nvim-lsp": {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
-          confirmBehavior: "replace",
         },
       },
       sourceOptions: {
