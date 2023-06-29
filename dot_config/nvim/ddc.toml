@@ -6,7 +6,7 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-hooks_file = '$BASE_DIR/dein/ddc.vim'
+hooks_file = ['$BASE_DIR/dein/ddc.vim', '$BASE_DIR/dein/ddc.lua']
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'

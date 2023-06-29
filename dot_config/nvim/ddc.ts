@@ -26,6 +26,7 @@ export class Config extends BaseConfig {
         "nvim-lsp": {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
+          confirmBehavior: "replace",
         },
       },
       sourceOptions: {
@@ -40,7 +41,7 @@ export class Config extends BaseConfig {
             '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
           isVolatile: true,
-          converters: ["converter_kind_labels", "converter_fuzzy"],
+          converters: ["converter_lsp-kinds", "converter_fuzzy"],
           dup: "force",
         },
         around: {
