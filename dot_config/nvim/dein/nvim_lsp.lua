@@ -15,7 +15,7 @@ local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
 
 require("neodev").setup({})
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.offsetEncoding = { 'utf-16' }
 

@@ -43,9 +43,6 @@ merged = 0
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
-hook_add = '''
-  autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
-'''
 
 [[plugins]]
 repo = 'Shougo/ddc-source-omni'

@@ -22,6 +22,13 @@ export class Config extends BaseConfig {
       cmdlineSources: {
         ":": ["cmdline", "cmdline-history", "around"],
       },
+      sourceParams: {
+        "nvim-lsp": {
+          enableAdditionalTextEdit: true,
+          enableResolveItem: true,
+          confirmBehavior: "replace",
+        },
+      },
       sourceOptions: {
         "_": {
           matchers: ["matcher_fuzzy"],
@@ -34,6 +41,8 @@ export class Config extends BaseConfig {
             '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
           isVolatile: true,
+          converters: ["converter_kind_labels", "converter_fuzzy"],
+          dup: "force",
         },
         around: {
           mark: "A",
@@ -48,6 +57,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
           converters: [],
+          ignoreCase: true,
         },
         cmdline: {
           mark: "C",
