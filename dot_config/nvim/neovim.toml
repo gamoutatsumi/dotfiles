@@ -55,12 +55,7 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'phaazon/hop.nvim'
-hook_post_source = '''
-lua require'hop'.setup()
-'''
-lua_add = '''
-vim.keymap.set('n', 'gff', require'hop'.hint_words)
-'''
+hooks_file = '$BASE_DIR/dein/hop.lua'
 
 [[plugins]]
 repo = 'b3nj5m1n/kommentary'
