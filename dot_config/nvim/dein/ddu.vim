@@ -4,7 +4,8 @@ call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 
 " hook_add {{{
 " ddu-source-lsp
-nnoremap <silent> grf <Cmd>call ddu#start(#{ 
+function s:lsp_attach() abort
+nnoremap <silent><buffer> ;rf <Cmd>call ddu#start(#{ 
       \ sources: [#{ 
       \   name: 'lsp_references' ,
       \   params: #{
@@ -19,7 +20,7 @@ nnoremap <silent> grf <Cmd>call ddu#start(#{
       \   } 
       \ } 
       \ })<CR>
-nnoremap <silent> ;d <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> ;d <Cmd>call ddu#start(#{
       \ sources: [#{ 
       \   name: 'lsp_diagnostic' 
       \ }], 
@@ -29,7 +30,7 @@ nnoremap <silent> ;d <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> gd <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
       \ sources: [#{ 
       \   name: 'lsp_definition',
       \   params: #{
@@ -45,7 +46,7 @@ nnoremap <silent> gd <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> gD <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> gD <Cmd>call ddu#start(#{
       \ sources: [#{ 
       \   name: 'lsp_definition', 
       \   params: #{
@@ -61,7 +62,7 @@ nnoremap <silent> gD <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> gi <Cmd>call ddu#start(#{ 
+nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
       \ sources: [#{ 
       \   name: 'lsp_implementation', 
       \ }],
@@ -74,7 +75,7 @@ nnoremap <silent> gi <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> ;s <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> ;s <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_documentSymbol'
       \ }],
@@ -86,7 +87,7 @@ nnoremap <silent> ;s <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>
-nnoremap <silent> ;S <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> ;S <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_workspaceSymbol'
       \ }],
@@ -98,7 +99,7 @@ nnoremap <silent> ;S <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>
-nnoremap <silent> ;t <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> ;t <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_typeHierarchy',
       \   params: #{
@@ -114,7 +115,7 @@ nnoremap <silent> ;t <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>
-nnoremap <silent> ;c <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> ;c <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_callHierarchy',
       \   params: #{
@@ -130,7 +131,7 @@ nnoremap <silent> ;c <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>
-nnoremap <silent> <Leader>a <Cmd>call ddu#start(#{
+nnoremap <silent><buffer> <Leader>a <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'lsp_codeAction',
       \ }],
@@ -142,6 +143,9 @@ nnoremap <silent> <Leader>a <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>
+
+endfunction
+autocmd LspAttach * call s:lsp_attach()
 " ddu-source-buffer
 nnoremap <silent> ;b <Cmd>call ddu#start(#{ sources: [#{ name: 'buffer' }] })<CR>
 " ddu-source-rg
@@ -163,7 +167,7 @@ function! s:ddu_find() abort
         \ }
         \ })
 endfunction
-nnoremap <silent> ;r <Cmd>call <SID>ddu_find()<CR>
+nnoremap <silent> ;rg <Cmd>call <SID>ddu_find()<CR>
 " ddu-source-mr
 nnoremap <silent> ;mu <Cmd>call ddu#start(#{
       \ sources: [#{

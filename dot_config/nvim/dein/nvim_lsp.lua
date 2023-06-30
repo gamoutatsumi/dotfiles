@@ -65,6 +65,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
   vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
+  vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
   -- vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.buf.inlay_hint(bufnr, true)
