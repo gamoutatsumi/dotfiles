@@ -31,7 +31,6 @@ set clipboard=unnamed,unnamedplus
 set pumblend=15
 set winblend=15
 set noshowmode
-set grepprg="rg --vimgrep --smart-case --follow "
 set noincsearch
 set updatetime=100
 set directory=/tmp/nvim/swap
@@ -43,3 +42,4 @@ set laststatus=3
 set cmdheight=0
 set shortmess+=I
 set diffopt+=linematch:60
+let &grepprg="rg --vimgrep --smart-case --follow"
