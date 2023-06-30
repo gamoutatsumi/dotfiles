@@ -169,7 +169,7 @@ function! s:ddu_find() abort
 endfunction
 nnoremap <silent> ;rg <Cmd>call <SID>ddu_find()<CR>
 " ddu-source-mr
-nnoremap <silent> ;mu <Cmd>call ddu#start(#{
+nnoremap <silent> mu <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'mr', params: #{
       \     kind: 'mru', 
@@ -184,7 +184,7 @@ nnoremap <silent> ;mu <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> ;mw <Cmd>call ddu#start(#{
+nnoremap <silent> mw <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'mr',
       \   params: #{
