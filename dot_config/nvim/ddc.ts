@@ -42,7 +42,7 @@ export class Config extends BaseConfig {
           ignoreCase: true,
           isVolatile: true,
           converters: ["converter_lsp-kinds", "converter_fuzzy"],
-          dup: "force",
+          dup: "keep",
         },
         around: {
           mark: "A",
@@ -50,7 +50,7 @@ export class Config extends BaseConfig {
         },
         vsnip: {
           mark: "VS",
-          dup: "force",
+          dup: "keep",
         },
         file: {
           mark: "F",
