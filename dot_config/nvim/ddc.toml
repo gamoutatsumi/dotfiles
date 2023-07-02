@@ -45,6 +45,9 @@ merged = 0
 repo = 'hrsh7th/vim-vsnip-integ'
 
 [[plugins]]
+repo = 'uga-rosa/ddc-source-vsnip'
+
+[[plugins]]
 repo = 'Shougo/ddc-source-omni'
 
 [[plugins]]
