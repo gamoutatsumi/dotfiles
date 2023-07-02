@@ -16,8 +16,6 @@ local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
 require("neodev").setup({})
 
 local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.offsetEncoding = { 'utf-16' }
 
 local function setInlayHintHL()
   local has_hl, hl = pcall(vim.api.nvim_get_hl, 0, { name = 'LspInlayHint' })

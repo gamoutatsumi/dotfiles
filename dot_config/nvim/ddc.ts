@@ -4,6 +4,12 @@ import {
 } from "https://deno.land/x/ddc_vim@v3.5.0/types.ts";
 import { Denops } from "https://deno.land/x/ddc_vim@v3.5.0/deps.ts";
 
+const CONVERTERS = [
+  "converter_fuzzy",
+  "converter_remove_overlap",
+  "converter_truncate_abbr",
+];
+
 export class Config extends BaseConfig {
   override config({ contextBuilder }: {
     denops: Denops;
@@ -23,6 +29,13 @@ export class Config extends BaseConfig {
         ":": ["cmdline", "cmdline-history", "around"],
       },
       sourceParams: {
+        vsnip: {
+          menu: false,
+        },
+        file: {
+          displayFile: "",
+          displayDir: "",
+        },
         "nvim-lsp": {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
@@ -33,7 +46,7 @@ export class Config extends BaseConfig {
         "_": {
           matchers: ["matcher_fuzzy"],
           sorters: ["sorter_fuzzy"],
-          converters: ["converter_fuzzy"],
+          converters: CONVERTERS,
         },
         "nvim-lsp": {
           mark: "lsp",
@@ -41,7 +54,7 @@ export class Config extends BaseConfig {
             '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
           isVolatile: true,
-          converters: ["converter_lsp-kinds", "converter_fuzzy"],
+          converters: ["converter_lsp-kinds", ...CONVERTERS],
           dup: "keep",
         },
         around: {
@@ -51,12 +64,13 @@ export class Config extends BaseConfig {
         vsnip: {
           mark: "VS",
           dup: "keep",
+          isVolatile: true,
+          converters: ["converter_lsp-kinds", ...CONVERTERS],
         },
         file: {
           mark: "F",
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
-          converters: [],
           ignoreCase: true,
         },
         cmdline: {

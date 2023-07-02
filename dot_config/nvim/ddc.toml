@@ -71,3 +71,9 @@ repo = 'Shougo/ddc-source-cmdline'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline-history'
+
+[[plugins]]
+repo = 'Shougo/ddc-filter-converter_truncate_abbr'
+
+[[plugins]]
+repo = 'Shougo/ddc-filter-converter_remove_overlap'

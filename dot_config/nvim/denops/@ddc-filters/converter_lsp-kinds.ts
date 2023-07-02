@@ -11,7 +11,7 @@ export class Filter extends BaseFilter<Params> {
         item.kind = "Text";
       }
       if (item.kind in Kind2Icon) {
-        const kindWithIcon = `${Kind2Icon[item.kind as Kind]} ${item.kind}`;
+        const kindWithIcon = `${Kind2Icon[item.kind as Kind]}`;
         item = {
           ...item,
           kind: kindWithIcon,
