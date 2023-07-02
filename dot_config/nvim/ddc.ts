@@ -48,8 +48,11 @@ export class Config extends BaseConfig {
           sorters: ["sorter_fuzzy"],
           converters: CONVERTERS,
         },
+        "cmdline-history": {
+          mark: "[History]",
+        },
         "nvim-lsp": {
-          mark: "lsp",
+          mark: "[LSP]",
           forceCompletionPattern:
             '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
@@ -58,23 +61,23 @@ export class Config extends BaseConfig {
           dup: "keep",
         },
         around: {
-          mark: "A",
+          mark: "[Around]",
           isVolatile: true,
         },
         vsnip: {
-          mark: "VS",
+          mark: "[VSnip]",
           dup: "keep",
           isVolatile: true,
           converters: ["converter_lsp-kinds", ...CONVERTERS],
         },
         file: {
-          mark: "F",
+          mark: "[File]",
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
           ignoreCase: true,
         },
         cmdline: {
-          mark: "C",
+          mark: "[Cmd]",
           ignoreCase: true,
         },
       },
