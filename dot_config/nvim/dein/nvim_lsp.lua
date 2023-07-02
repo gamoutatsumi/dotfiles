@@ -8,10 +8,8 @@ local schemas = schema_catalog.schemas
 local saga = require("lspsaga")
 local null_ls = require("null-ls")
 
-local node_root_dir = util.root_pattern("package.json")
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
-local current_buf = vim.api.nvim_get_current_buf()
-local is_node_repo = node_root_dir(buf_name, current_buf) ~= nil
+local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
 
 require("neodev").setup({})
 
