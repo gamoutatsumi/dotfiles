@@ -64,18 +64,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
   -- vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
   if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.buf.inlay_hint(bufnr, true)
+    vim.lsp.inlay_hint(bufnr, true)
     setInlayHintHL()
     vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.inlay_hint(bufnr, false)
+        vim.lsp.inlay_hint(bufnr, false)
       end,
     })
     vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint(bufnr, true)
       end,
     })
   end
@@ -169,6 +169,11 @@ if vim.fn.executable("deno") then
     init_options = {
       suggest = {
         completeFunctionCalls = true
+      },
+      imports = {
+        hosts = {
+          ["https://deno.land"] = true,
+        },
       },
       lint = true,
       unstable = true,

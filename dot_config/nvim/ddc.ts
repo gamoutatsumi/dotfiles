@@ -39,7 +39,7 @@ export class Config extends BaseConfig {
         "nvim-lsp": {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
-          confirmBehavior: "replace",
+          confirmBehavior: "insert",
         },
       },
       sourceOptions: {
@@ -59,10 +59,11 @@ export class Config extends BaseConfig {
           isVolatile: true,
           converters: ["converter_lsp-kinds", ...CONVERTERS],
           dup: "keep",
-          keywordPattern: "\\k*"
+          keywordPattern: "\\k*",
         },
         around: {
           mark: "[Around]",
+          dup: "keep",
           isVolatile: true,
         },
         vsnip: {
@@ -76,6 +77,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
           ignoreCase: true,
+          dup: "keep",
         },
         cmdline: {
           mark: "[Cmd]",
