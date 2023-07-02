@@ -5,11 +5,11 @@ import {
 import { Denops } from "https://deno.land/x/ddc_vim@v3.5.0/deps.ts";
 
 export class Config extends BaseConfig {
-  override config(args: {
+  override config({ contextBuilder }: {
     denops: Denops;
     contextBuilder: ContextBuilder;
   }): Promise<void> {
-    args.contextBuilder.patchGlobal({
+    contextBuilder.patchGlobal({
       ui: "pum",
       sources: ["tsnip", "vsnip", "nvim-lsp", "file", "around"],
       keywordPattern: "(\\k|-|_)*",
@@ -66,7 +66,7 @@ export class Config extends BaseConfig {
       },
     });
     for (const filetype of ["sql", "mysql", "plsql"]) {
-      args.contextBuilder.patchFiletype(filetype, {
+      contextBuilder.patchFiletype(filetype, {
         sources: ["omni"],
         sourceOptions: {
           omni: {

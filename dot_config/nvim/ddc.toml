@@ -5,8 +5,11 @@ hook_post_source = '''
 '''
 
 [[plugins]]
+repo = 'uga-rosa/ddc-nvim-lsp-setup'
+
+[[plugins]]
 repo = 'Shougo/ddc.vim'
-hooks_file = ['$BASE_DIR/dein/ddc.vim', '$BASE_DIR/dein/ddc.lua']
+hooks_file = '$BASE_DIR/dein/ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
@@ -40,9 +43,6 @@ hook_add = '''
 [[plugins]]
 repo = 'hrsh7th/completion-snippet'
 merged = 0
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
 
 [[plugins]]
 repo = 'uga-rosa/ddc-source-vsnip'
