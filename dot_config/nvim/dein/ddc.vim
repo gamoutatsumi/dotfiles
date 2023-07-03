@@ -32,12 +32,5 @@ imap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '
 " ddc.vim
 lua require("ddc_nvim_lsp_setup").setup()
 call ddc#custom#load_config(expand(join([$BASE_DIR, 'ddc.ts'], '/')))
-call ddc#custom#patch_global('sourceParams', #{
-      \   nvim-lsp: #{
-      \     snippetEngine: denops#callback#register({
-      \           body -> vsnip#anonymous(body)
-      \     }),
-      \   }
-      \ })
 call ddc#enable()
 " }}}
