@@ -1,4 +1,5 @@
 " hook_post_source {{{
+call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
 call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 " }}}
 

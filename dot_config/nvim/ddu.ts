@@ -106,6 +106,19 @@ export class Config extends BaseConfig {
           defaultAction: "apply",
         },
       },
+      actionParams: {
+        preview_ripgrep: {
+          previewCmds: [
+            "bat",
+            "-n",
+            "%s",
+            "-r",
+            "%b:%e",
+            "--highlight-line",
+            "%l",
+          ],
+        },
+      },
       filterParams: {
         matcher_kensaku: {
           highlightMatched: "Search",
