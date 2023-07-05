@@ -84,6 +84,9 @@ export class Config extends BaseConfig {
         },
       },
       kindOptions: {
+        dein: {
+          defaultAction: "update",
+        },
         file: {
           defaultAction: "open",
         },

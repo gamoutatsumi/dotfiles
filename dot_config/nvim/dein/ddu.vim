@@ -6,144 +6,144 @@ call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 " hook_add {{{
 " ddu-source-lsp
 function s:lsp_attach() abort
-nnoremap <silent><buffer> ;rf <Cmd>call ddu#start(#{ 
-      \ sources: [#{ 
-      \   name: 'lsp_references' ,
-      \   params: #{
-      \     includeDeclaration: v:false
-      \   }
-      \ }], 
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{ 
-      \       name: 'preview' 
-      \     } 
-      \   } 
-      \ } 
-      \ })<CR>
-nnoremap <silent><buffer> ;d <Cmd>call ddu#start(#{
-      \ sources: [#{ 
-      \   name: 'lsp_diagnostic' 
-      \ }], 
-      \ uiParams: #{
-      \   ff: #{
-      \    autoAction: #{ name: 'preview' },
-      \   },
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
-      \ sources: [#{ 
-      \   name: 'lsp_definition',
-      \   params: #{
-      \     method: 'textDocument/definition' 
-      \   } 
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \    autoAction: #{
-      \     name: 'preview' 
-      \    },
-      \    immediateAction: 'open',
-      \   },
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> gD <Cmd>call ddu#start(#{
-      \ sources: [#{ 
-      \   name: 'lsp_definition', 
-      \   params: #{
-      \     method: 'textDocument/declaration' 
-      \   } 
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \    autoAction: #{ 
-      \     name: 'preview'
-      \    },
-      \    immediateAction: 'open',
-      \   },
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
-      \ sources: [#{ 
-      \   name: 'lsp_implementation', 
-      \ }],
-      \ uiParams: #{
-      \  ff: #{
-      \   autoAction: #{
-      \     name: 'preview' 
-      \   },
-      \   immediateAction: 'open',
-      \   },
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> ;s <Cmd>call ddu#start(#{
-      \ sources: [#{
-      \   name: 'lsp_documentSymbol'
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{
-      \       name: 'preview'
-      \     },
-      \   }
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> ;S <Cmd>call ddu#start(#{
-      \ sources: [#{
-      \   name: 'lsp_workspaceSymbol'
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{
-      \       name: 'preview'
-      \     },
-      \   }
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> ;t <Cmd>call ddu#start(#{
-      \ sources: [#{
-      \   name: 'lsp_typeHierarchy',
-      \   params: #{
-      \     method: 'typeHierarchy/supertypes',
-      \     autoExpandSingle: v:false,
-      \   }
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{
-      \       name: 'preview'
-      \     }
-      \   }
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> ;c <Cmd>call ddu#start(#{
-      \ sources: [#{
-      \   name: 'lsp_callHierarchy',
-      \   params: #{
-      \     method: 'callHierarchy/incomingCalls',
-      \     autoExpandSingle: v:false,
-      \   }
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{
-      \       name: 'preview'
-      \     }
-      \   }
-      \ }
-      \ })<CR>
-nnoremap <silent><buffer> <Leader>a <Cmd>call ddu#start(#{
-      \ sources: [#{
-      \   name: 'lsp_codeAction',
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \     autoAction: #{
-      \       name: 'preview'
-      \     }
-      \   }
-      \ }
-      \ })<CR>
+  nnoremap <silent><buffer> ;rf <Cmd>call ddu#start(#{ 
+        \ sources: [#{ 
+        \   name: 'lsp_references' ,
+        \   params: #{
+        \     includeDeclaration: v:false
+        \   }
+        \ }], 
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{ 
+        \       name: 'preview' 
+        \     } 
+        \   } 
+        \ } 
+        \ })<CR>
+  nnoremap <silent><buffer> ;d <Cmd>call ddu#start(#{
+        \ sources: [#{ 
+        \   name: 'lsp_diagnostic' 
+        \ }], 
+        \ uiParams: #{
+        \   ff: #{
+        \    autoAction: #{ name: 'preview' },
+        \   },
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
+        \ sources: [#{ 
+        \   name: 'lsp_definition',
+        \   params: #{
+        \     method: 'textDocument/definition' 
+        \   } 
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \    autoAction: #{
+        \     name: 'preview' 
+        \    },
+        \    immediateAction: 'open',
+        \   },
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> gD <Cmd>call ddu#start(#{
+        \ sources: [#{ 
+        \   name: 'lsp_definition', 
+        \   params: #{
+        \     method: 'textDocument/declaration' 
+        \   } 
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \    autoAction: #{ 
+        \     name: 'preview'
+        \    },
+        \    immediateAction: 'open',
+        \   },
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
+        \ sources: [#{ 
+        \   name: 'lsp_implementation', 
+        \ }],
+        \ uiParams: #{
+        \  ff: #{
+        \   autoAction: #{
+        \     name: 'preview' 
+        \   },
+        \   immediateAction: 'open',
+        \   },
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> ;s <Cmd>call ddu#start(#{
+        \ sources: [#{
+        \   name: 'lsp_documentSymbol'
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{
+        \       name: 'preview'
+        \     },
+        \   }
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> ;S <Cmd>call ddu#start(#{
+        \ sources: [#{
+        \   name: 'lsp_workspaceSymbol'
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{
+        \       name: 'preview'
+        \     },
+        \   }
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> ;t <Cmd>call ddu#start(#{
+        \ sources: [#{
+        \   name: 'lsp_typeHierarchy',
+        \   params: #{
+        \     method: 'typeHierarchy/supertypes',
+        \     autoExpandSingle: v:false,
+        \   }
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{
+        \       name: 'preview'
+        \     }
+        \   }
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> ;c <Cmd>call ddu#start(#{
+        \ sources: [#{
+        \   name: 'lsp_callHierarchy',
+        \   params: #{
+        \     method: 'callHierarchy/incomingCalls',
+        \     autoExpandSingle: v:false,
+        \   }
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{
+        \       name: 'preview'
+        \     }
+        \   }
+        \ }
+        \ })<CR>
+  nnoremap <silent><buffer> <Leader>a <Cmd>call ddu#start(#{
+        \ sources: [#{
+        \   name: 'lsp_codeAction',
+        \ }],
+        \ uiParams: #{
+        \   ff: #{
+        \     autoAction: #{
+        \       name: 'preview'
+        \     }
+        \   }
+        \ }
+        \ })<CR>
 
 endfunction
 autocmd LspAttach * call s:lsp_attach()
@@ -257,28 +257,34 @@ command! DeinUpdateAll call ddu#start(#{
       \   },
       \ }
       \ })
- " ddu-source-git_diff
- nnoremap <silent> ;gd <Cmd>call ddu#start(#{
-       \ sources: [#{
-       \   name: 'git_diff'
-       \ }],
-       \ uiParams: #{
-       \   ff: #{
-       \     autoAction: #{ name: 'preview' }
-       \   }
-       \ }
-       \ })<CR>
- " ddu-source-git
- nnoremap <silent> ;gs <Cmd>call ddu#start(#{
-       \ sources: [#{
-       \   name: 'git_status'
-       \ }],
-       \ uiParams: #{
-       \   ff: #{
-       \     autoAction: #{ name: 'preview' }
-       \   }
-       \ }
-       \ })<CR>    \ })
+" ddu-source-git_diff
+nnoremap <silent> ;gd <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'git_diff'
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{ name: 'preview' }
+      \   }
+      \ }
+      \ })<CR>
+" ddu-source-git
+nnoremap <silent> ;gs <Cmd>call ddu#start(#{
+      \ sources: [#{
+      \   name: 'git_status'
+      \ }],
+      \ uiParams: #{
+      \   ff: #{
+      \     autoAction: #{ name: 'preview' }
+      \   }
+      \ }
+      \ })<CR>    \ })
+" dein.vim
+command! Dein call ddu#start(#{
+      \ sources: [#{
+      \   name: 'dein',
+      \ }],
+      \ })
 " }}}
 
 " ddu-ff {{{
