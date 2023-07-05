@@ -265,7 +265,11 @@ if vim.fn.executable("vtsls") > 0 then
       client.server_capabilities.document_formatting = false
     end,
     settings = {
+      javascript = {
+        preferGoToSourceDefinition = true,
+      },
       typescript = {
+        preferGoToSourceDefinition = true,
         suggest = {
           completeFunctionCalls = true,
         },
