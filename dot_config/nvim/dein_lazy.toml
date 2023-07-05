@@ -141,8 +141,7 @@ hooks_file = '$BASE_DIR/dein/quickrun.vim'
 repo = 'machakann/vim-sandwich'
 on_map = ['<Plug>(operator-sandwich', '<Plug>(textobj-sandwich']
 hook_add = '''
-  let sandwich_no_default_key_mappings=1
-  let operator_sandwich_no_default_key_mappings=1
+  let g:sandwich_no_default_key_mappings = 1
   nmap <silent> ys <Plug>(operator-sandwich-add)
   nmap <silent> ds <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
   nmap <silent> cs <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)

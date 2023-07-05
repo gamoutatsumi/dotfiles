@@ -155,3 +155,7 @@ repo = 'folke/neodev.nvim'
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
 hooks_file = '$BASE_DIR/dein/aerial.lua'
+
+# [[plugins]]
+# repo = 'folke/flash.nvim'
+# hooks_file = '$BASE_DIR/dein/flash.lua'
