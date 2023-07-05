@@ -74,7 +74,7 @@ export class Config extends BaseConfig {
           converters: ["converter_lsp_symbol"],
         },
         lsp_diagnostic: {
-          converters: ["converter_lsp_symbol"],
+          converters: ["converter_lsp_diagnostic"],
         },
       },
       uiParams: {
