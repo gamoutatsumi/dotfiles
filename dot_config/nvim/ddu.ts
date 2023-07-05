@@ -1,9 +1,9 @@
 import {
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddu_vim@v3.2.4/types.ts";
+} from "https://deno.land/x/ddu_vim@v3.3.3/types.ts";
 import { Params as FFParams } from "https://deno.land/x/ddu_ui_ff@v1.0.2/ff.ts";
-import { Denops, op } from "https://deno.land/x/ddu_vim@v3.2.4/deps.ts";
+import { Denops, op } from "https://deno.land/x/ddu_vim@v3.3.3/deps.ts";
 
 const ffParams = (
   { width, lines, columns }: { width: number; lines: number; columns: number },
@@ -29,6 +29,7 @@ const ffParams = (
   winRow: Math.floor(lines * 0.1),
   winWidth: width,
   winCol: Math.floor(columns * 0.1),
+  autoResize: true,
 });
 
 export class Config extends BaseConfig {
