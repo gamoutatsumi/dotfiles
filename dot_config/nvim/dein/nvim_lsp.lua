@@ -92,7 +92,42 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   if server == "tsserver" then
     goto continue
   elseif server == "vtsls" then
-    goto continue
+    opts.autostart = is_node_repo
+    opts.on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      client.server_capabilities.document_formatting = false
+    end
+    opts.settings = {
+      javascript = {
+        preferGoToSourceDefinition = true,
+      },
+      typescript = {
+        preferGoToSourceDefinition = true,
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          parameterNames = {
+            enabled = "all"
+          },
+          variableTypes = {
+            enabled = true
+          },
+          propertyDeclarationTypes = {
+            enabled = true
+          },
+          functionLikeReturnTypes = {
+            enabled = true
+          },
+          enumMemberValues = {
+            enabled = true
+          },
+          parameterTypes = {
+            enabled = true
+          }
+        }
+      }
+    }
   elseif server == "gopls" then
     opts.on_attach = function(client, bufnr)
       on_attach(client, bufnr)
@@ -255,47 +290,6 @@ if vim.fn.executable("typescript-language-server") > 0 then
     },
   })
   table.insert(null_ls_sources, require("typescript.extensions.null-ls.code-actions"))
-end
-
-if vim.fn.executable("vtsls") > 0 then
-  lspconfig.vtsls.setup({
-    autostart = is_node_repo,
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-      client.server_capabilities.document_formatting = false
-    end,
-    settings = {
-      javascript = {
-        preferGoToSourceDefinition = true,
-      },
-      typescript = {
-        preferGoToSourceDefinition = true,
-        suggest = {
-          completeFunctionCalls = true,
-        },
-        inlayHints = {
-          parameterNames = {
-            enabled = "all"
-          },
-          variableTypes = {
-            enabled = true
-          },
-          propertyDeclarationTypes = {
-            enabled = true
-          },
-          functionLikeReturnTypes = {
-            enabled = true
-          },
-          enumMemberValues = {
-            enabled = true
-          },
-          parameterTypes = {
-            enabled = true
-          }
-        }
-      }
-    }
-  })
 end
 
 require("mason-null-ls").setup({
