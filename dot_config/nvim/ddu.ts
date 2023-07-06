@@ -2,7 +2,7 @@ import {
   BaseConfig,
   ContextBuilder,
 } from "https://deno.land/x/ddu_vim@v3.3.3/types.ts";
-import { Params as FFParams } from "https://deno.land/x/ddu_ui_ff@v1.0.2/ff.ts";
+import { Params as FFParams } from "https://deno.land/x/ddu_ui_ff@v1.0.3/ff.ts";
 import { Denops, op } from "https://deno.land/x/ddu_vim@v3.3.3/deps.ts";
 
 const ffParams = (
