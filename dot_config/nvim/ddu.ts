@@ -78,6 +78,7 @@ export class Config extends BaseConfig {
         lsp_diagnostic: {
           converters: ["converter_lsp_diagnostic"],
         },
+        dein: { defaultAction: "update" },
       },
       uiParams: {
         ff: ffParams({ width, lines, columns }),
@@ -86,9 +87,6 @@ export class Config extends BaseConfig {
         },
       },
       kindOptions: {
-        dein: {
-          defaultAction: "update",
-        },
         file: {
           defaultAction: "open",
         },
