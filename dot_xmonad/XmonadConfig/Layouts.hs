@@ -155,8 +155,12 @@ myManageHookFloat =
       stringProperty "WM_NAME" =? "LINE" --> doRectFloat (W.RationalRect 0.60 0.1 0.39 0.82),
       stringProperty "WM_NAME" =? "Google Keep" --> doRectFloat (W.RationalRect 0.3 0.1 0.4 0.82),
       stringProperty "WM_NAME" =? "tmptex.pdf - 1/1 (96 dpi)" --> doRectFloat (W.RationalRect 0.29 0.25 0.42 0.5),
-      stringProperty "WM_NAME" =? "Figure 1" --> doFloat
+      stringProperty "WM_NAME" =? "Figure 1" --> doFloat,
+      isRole =? "pop-up" --> doCenterFloat,
+      isRole =? "bubble" --> doCenterFloat
     ]
+  where
+    isRole = stringProperty "WM_WINDOW_ROLE"
 
 -- ManageHook setting
 myManageHookShift =
@@ -185,6 +189,7 @@ myLayoutHook =
         $ ResizableTall 0 (1 / 42) (1 / 2) [])
     -}
 
+myManageHook :: ManageHook
 myManageHook =
   manageDocks
     <+> myManageHookShift
