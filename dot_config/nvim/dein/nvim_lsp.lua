@@ -3,8 +3,7 @@ local util = require("lspconfig/util")
 local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
-local schema_catalog = require("plugins/schema-catalog")
-local schemas = schema_catalog.schemas
+local schemas = require("schemastore")
 local saga = require("lspsaga")
 local null_ls = require("null-ls")
 
@@ -153,7 +152,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     opts.filetypes = { "json", "jsonc" }
     opts.settings = {
       json = {
-        schemas = schemas,
+        schemas = schemas.json.schemas(),
       },
     }
     opts.init_options = {

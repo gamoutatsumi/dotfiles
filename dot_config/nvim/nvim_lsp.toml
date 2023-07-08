@@ -68,3 +68,6 @@ repo = 'hrsh7th/nvim-gtd'
 lua_post_source = '''
 require('gtd').setup({})
 '''
+
+[[plugins]]
+repo = 'b0o/schemastore.nvim'
