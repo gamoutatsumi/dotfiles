@@ -6,7 +6,7 @@ declare -Ar menu=(
   ['Lock']='xdg-screensaver lock'
   ['Shutdown']='systemctl poweroff'
   ['Reboot']='systemctl reboot'
-  ['Reboot Into Firmware']='systemctl reboot --firmware-setup'
+  ['Reboot-Into-Firmware']='systemctl reboot --firmware-setup'
   ['Monitor-Off']='sleep 1;xset dpms force suspend'
 )
 
