@@ -21,27 +21,6 @@ repo='ray-x/go.nvim'
 lua_post_source = '''
 '''
 
-[[plugins]]
-repo='jose-elias-alvarez/null-ls.nvim'
-hook_add = '''
-function! s:add_to_dotfiles_dict()
-  let word = expand("<cword>")
-  if word != ''
-    execute "silent! !sed -i '$a" . word . "' " . expand('~/.local/share/chezmoi/dot_config/cspell/dotfiles.txt')
-    execute "silent! !chezmoi apply"
-  endif
-endfunction
-command! CspellAddDot call s:add_to_dotfiles_dict()
-function! s:add_to_local_dict()
-  let word = expand("<cword>")
-  if word != ''
-    execute "silent! !sed -i '$a" . word . "' " . expand('~/.local/share/cspell/user.txt')
-    execute "silent! !chezmoi apply"
-  endif
-endfunction
-command! CspellAddLocal call s:add_to_local_dict()
-'''
-
 #[[plugins]]
 #repo = 'j-hui/fidget.nvim'
 #on_source = ['nvim-lspconfig']

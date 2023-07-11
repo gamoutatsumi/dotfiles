@@ -4,7 +4,7 @@ root-markers:
 
 tools:
   prettier: &prettier
-    format-command: 'npx --no-install prettier --stdin-filepath ${INPUT}'
+    format-command: 'prettierd ${INPUT}'
     format-stdin: true
   vint-lint: &vint-lint
     prefix: vint
@@ -65,25 +65,6 @@ tools:
     lint-ignore-exit-code: true
     lint-formats:
       - '%t:%f:%l:%c:%m'
-  eslint-lint: &eslint-lint
-    prefix: eslint
-    lint-command: 'npx --no-install eslint -f unix --stdin --stdin-filename ${INPUT}'
-    lint-ignore-exit-code: true
-    lint-stdin: true
-    root-markers:
-      - package.json
-      - .eslintrc.js
-      - .eslintrc.yaml
-      - .eslintrc.yml
-      - .eslintrc.json
-    commands:
-      - title: 'eslint fix'
-        command: npx
-        arguments:
-          - '--no-install'
-          - 'eslint'
-          - '--fix'
-          - '${INPUT}'
 
 languages:
   markdown:

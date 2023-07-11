@@ -5,7 +5,6 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local schemas = require("schemastore")
 local saga = require("lspsaga")
-local null_ls = require("null-ls")
 
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
@@ -256,8 +255,6 @@ if vim.fn.executable("satysfi-language-server") then
   })
 end
 
-local null_ls_sources = {}
-
 if vim.fn.executable("typescript-language-server") > 0 then
   require("typescript").setup({
     disable_commands = false,
@@ -288,59 +285,7 @@ if vim.fn.executable("typescript-language-server") > 0 then
       },
     },
   })
-  table.insert(null_ls_sources, require("typescript.extensions.null-ls.code-actions"))
 end
-
-require("mason-null-ls").setup({
-  ensure_installed = nil,
-  automatic_setup = true,
-})
-
-require("mason-null-ls").setup({
-  handlers = {
-    function()
-    end,
-    eslint_d = function(source_name, methods)
-      for i = 1, #methods do
-        null_ls.register(null_ls.builtins[methods[i]][source_name].with({
-          extra_filetypes = {
-            "markdownreact",
-            "astro",
-          },
-          condition = function()
-            return is_node_repo
-          end,
-        }))
-      end
-    end,
-    prettierd = function(source_name, methods)
-      for i = 1, #methods do
-        null_ls.register(null_ls.builtins[methods[i]][source_name].with({
-          extra_filetypes = {
-            "astro",
-          },
-          condition = function()
-            return is_node_repo
-          end,
-        }))
-      end
-    end,
-    cspell = function(source_name, methods)
-      for i = 1, #methods do
-        null_ls.register(null_ls.builtins[methods[i]][source_name].with({
-          diagnostics_postprocess = function(diagnostic)
-            diagnostic.severity = vim.diagnostic.severity["WARN"]
-          end,
-          extra_args = { "--config", vim.fn.expand("~/.config/cspell/cspell.yaml") },
-        }))
-      end
-    end,
-  }
-})
-null_ls.setup({
-  sources = null_ls_sources,
-  on_attach = on_attach,
-})
 
 require("go").setup({
   filstruct = "gopls",
