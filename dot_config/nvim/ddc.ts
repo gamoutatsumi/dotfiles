@@ -48,7 +48,7 @@ export class Config extends BaseConfig {
       sourceOptions: {
         "_": {
           matchers: ["matcher_fuzzy"],
-          sorters: ["sorter_fuzzy"],
+          sorters: ["sorter_ascii", "sorter_fuzzy"],
           converters: CONVERTERS,
         },
         "cmdline-history": {
