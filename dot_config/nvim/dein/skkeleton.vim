@@ -1,3 +1,7 @@
+" hook_source {{{
+call skkeleton#initialize()
+" }}}
+
 " hook_add {{{
 let g:skkeleton#mode = ''
 imap <C-j> <Plug>(skkeleton-toggle)
@@ -16,7 +20,6 @@ function s:skkeleton_init_kanatable() abort
 endfunction
 augroup skkeleton-user
   autocmd!
-  autocmd User DenopsPluginPost:skkeleton call skkeleton#initialize()
   autocmd User skkeleton-initialize-pre call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,
