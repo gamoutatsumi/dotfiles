@@ -156,3 +156,6 @@ hooks_file = '$BASE_DIR/dein/aerial.lua'
 # [[plugins]]
 # repo = 'folke/flash.nvim'
 # hooks_file = '$BASE_DIR/dein/flash.lua'
+
+[[plugins]]
+repo = 'tani/podium'
