@@ -206,11 +206,11 @@ if vim.fn.executable("deno") then
     init_options = {
       suggest = {
         completeFunctionCalls = true,
-        autoImports = false
-      },
-      imports = {
-        hosts = {
-          ["https://deno.land"] = true,
+        autoImports = false,
+        imports = {
+          hosts = {
+            ["https://deno.land"] = true,
+          },
         },
       },
       lint = true,
