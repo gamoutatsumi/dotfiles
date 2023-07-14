@@ -98,11 +98,15 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     opts.settings = {
       javascript = {
         preferGoToSourceDefinition = true,
+        suggest = {
+          autoImports = false
+        }
       },
       typescript = {
         preferGoToSourceDefinition = true,
         suggest = {
           completeFunctionCalls = true,
+          autoImports = false
         },
         inlayHints = {
           parameterNames = {
@@ -201,7 +205,8 @@ if vim.fn.executable("deno") then
     autostart = not is_node_repo,
     init_options = {
       suggest = {
-        completeFunctionCalls = true
+        completeFunctionCalls = true,
+        autoImports = false
       },
       imports = {
         hosts = {
