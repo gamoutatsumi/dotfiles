@@ -209,7 +209,6 @@ if vim.fn.executable("deno") then
         autoImports = false
       },
       imports = {
-        autoDiscover = false,
         hosts = {
           ["https://deno.land"] = true,
         },
