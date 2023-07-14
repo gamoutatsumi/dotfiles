@@ -90,3 +90,9 @@ repo = 'lambdalisue/kensaku.vim'
 hook_add = '''
 let g:kensaku_disable_v3_migration_warning = 1
 '''
+
+[[plugins]]
+repo = 'tani/vim-glance'
+hook_add = '''
+let g:glance#config = expand('$BASE_DIR/glance/init.ts')
+'''
