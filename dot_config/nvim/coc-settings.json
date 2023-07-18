@@ -21,7 +21,13 @@
     "haskell": {
       "command": "haskell-language-server-wrapper",
       "args": ["--lsp"],
-      "rootPatterns": ["*.cabal","stack.yaml", "cabal.project", "package.yanl", "hie.yanl"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yanl",
+        "hie.yanl"
+      ],
       "filetypes": ["haskell", "lhaskell"]
     },
     "satysfi-ls": {

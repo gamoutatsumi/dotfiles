@@ -8,6 +8,14 @@ local saga = require("lspsaga")
 
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
+local is_deno_repo = util.search_ancestors(buf_name, function(path)
+  if util.path.is_file(util.path.join(path, 'deno.json')) then
+    return path
+  end
+  if util.path.is_file(util.path.join(path, 'deno.jsonc')) then
+    return path
+  end
+end) ~= nil
 
 require("neodev").setup({})
 
@@ -193,6 +201,8 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
         },
       },
     }
+  elseif server == "efm" then
+    opts.autostart = not is_deno_repo
   end
   lspconfig[server].setup(opts)
   ::continue::

@@ -5,9 +5,15 @@ import {
 import { Params as FFParams } from "https://deno.land/x/ddu_ui_ff@v1.0.3/ff.ts";
 import { Denops, op } from "https://deno.land/x/ddu_vim@v3.3.3/deps.ts";
 
-const ffParams = (
-  { width, lines, columns }: { width: number; lines: number; columns: number },
-): Partial<FFParams> => ({
+const ffParams = ({
+  width,
+  lines,
+  columns,
+}: {
+  width: number;
+  lines: number;
+  columns: number;
+}): Partial<FFParams> => ({
   displayTree: true,
   startFilter: true,
   split: "floating",
@@ -51,6 +57,7 @@ export class Config extends BaseConfig {
           matchers: ["merge"],
           converters: ["converter_devicon"],
         },
+        help: { converters: [] },
         git_diff: {
           converters: [],
         },
@@ -130,10 +137,7 @@ export class Config extends BaseConfig {
           highlightMatched: "Search",
         },
         merge: {
-          filters: [
-            { name: "matcher_kensaku", weight: 2.0 },
-            "matcher_fzf",
-          ],
+          filters: [{ name: "matcher_kensaku", weight: 2.0 }, "matcher_fzf"],
           unique: true,
         },
       },

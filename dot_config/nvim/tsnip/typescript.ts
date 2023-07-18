@@ -9,7 +9,7 @@ const reftypes: Snippet = {
       type: "single_line",
     },
   ],
-  render: ({ module }) => `/// <reference types="${module?.text ?? ""}" />`
+  render: ({ module }) => `/// <reference types="${module?.text ?? ""}" />`,
 };
 
 export default {
