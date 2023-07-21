@@ -65,7 +65,10 @@ function s:lsp_attach() abort
         \ })<CR>
   nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
         \ sources: [#{ 
-        \   name: 'lsp_implementation', 
+        \   name: 'lsp_definition', 
+        \   params: #{
+        \     method: 'text document/implementation'
+        \   }
         \ }],
         \ uiParams: #{
         \  ff: #{
