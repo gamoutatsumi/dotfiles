@@ -11,7 +11,7 @@ const CONVERTERS = [
 ];
 
 export class Config extends BaseConfig {
-  override async config({ contextBuilder, denops }: {
+  override config({ contextBuilder, denops }: {
     denops: Denops;
     contextBuilder: ContextBuilder;
   }): Promise<void> {
@@ -40,9 +40,7 @@ export class Config extends BaseConfig {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
           confirmBehavior: "insert",
-          snippetEngine: await denops.eval(
-            "denops#callback#register({body -> vsnip#anonymous(body)})",
-          ),
+          snippetEngine: (body: string) => denops.call("vsnip#anonymous", body),
         },
       },
       sourceOptions: {
