@@ -23,7 +23,7 @@ packages:
   - name: terraform-linters/tflint@v0.47.0
   - name: ahmetb/kubectx@v0.9.5
   - name: ahmetb/kubectx/kubens@v0.9.5
-  - name: hashicorp/vault@v1.14.0
+  - name: hashicorp/vault@v1.14.1
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/go-jsonnet@v0.20.0
   - name: google/ko@v0.14.1
