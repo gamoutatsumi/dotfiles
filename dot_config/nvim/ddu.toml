@@ -79,3 +79,6 @@ repo = 'kuuote/ddu-source-git_diff'
 
 [[plugins]]
 repo = 'tennashi/ddu-source-git'
+
+[[plugins]]
+repo = 'kyoh86/ddu-filter-converter_hl_dir'

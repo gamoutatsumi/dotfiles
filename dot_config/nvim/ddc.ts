@@ -79,7 +79,7 @@ export class Config extends BaseConfig {
           isVolatile: true,
           forceCompletionPattern: "\\S/\\S*",
           ignoreCase: true,
-          dup: "keep",
+          dup: "force",
         },
         cmdline: {
           mark: "[Cmd]",
