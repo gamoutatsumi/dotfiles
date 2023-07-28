@@ -154,6 +154,7 @@ autocmd LspAttach * call s:lsp_attach()
 nnoremap <silent> ;b <Cmd>call ddu#start(#{ sources: [#{ name: 'buffer' }] })<CR>
 " ddu-source-rg
 function! s:ddu_find() abort
+  call SearchlinePre()
   let word = input("search word: ")
   call ddu#start(#{
         \ sources: [#{

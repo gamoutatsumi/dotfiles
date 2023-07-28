@@ -1,22 +1,38 @@
 " hook_add {{{ 
-function! CommandlinePre() abort
+function! s:commandlinePre() abort
     cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
     cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
     cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
     cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 
-    autocmd User DDCCmdlineLeave ++once call CommandlinePost()
+    autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
 
     " Enable command line completion for the buffer
     call ddc#enable_cmdline_completion()
 endfunction
-function! CommandlinePost() abort
+
+function! SearchlinePre() abort
+    cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+    cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+    cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+    cmap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+
+    autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
+
+    " Enable command line completion for the buffer
+    call ddc#enable_cmdline_completion()
+endfunction
+function! s:commandlinePost() abort
     silent! cunmap <Tab>
     silent! cunmap <S-Tab>
     silent! cunmap <C-e>
     silent! cunmap <CR>
+    silent! cunmap <C-y>
 endfunction
-nnoremap :       <Cmd>call CommandlinePre()<CR>:
+nnoremap :       <Cmd>call <SID>commandlinePre()<CR>:
+nnoremap /       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 1 })<CR>
+nnoremap ?       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 0 })<CR>
 " }}}
 
 " hook_post_source {{{

@@ -27,6 +27,7 @@ export class Config extends BaseConfig {
       ],
       cmdlineSources: {
         ":": ["cmdline", "cmdline-history", "around"],
+        "@": ["around"],
       },
       sourceParams: {
         vsnip: {
