@@ -52,7 +52,7 @@ packages:
   - name: nektos/act@v0.2.48
   - name: magefile/mage@v1.15.0
   - name: rossmacarthur/sheldon@0.7.3
-  - name: twpayne/chezmoi@v2.36.0
+  - name: twpayne/chezmoi@v2.36.1
   - name: svenstaro/miniserve@v0.24.0
   - name: suzuki-shunsuke/cmdx@v1.7.3
   - name: fatedier/frp@v0.51.2
