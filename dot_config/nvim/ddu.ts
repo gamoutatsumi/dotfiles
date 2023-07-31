@@ -57,6 +57,7 @@ export class Config extends BaseConfig {
           matchers: ["merge"],
           converters: ["converter_devicon", "converter_hl_dir"],
         },
+        mr: { matchers: ["matcher_relative", "merge"] },
         help: { converters: [] },
         git_diff: {
           converters: [],

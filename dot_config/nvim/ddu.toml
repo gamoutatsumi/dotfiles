@@ -82,3 +82,6 @@ repo = 'tennashi/ddu-source-git'
 
 [[plugins]]
 repo = 'kyoh86/ddu-filter-converter_hl_dir'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_relative'
