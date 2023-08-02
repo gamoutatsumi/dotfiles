@@ -55,9 +55,12 @@ export class Config extends BaseConfig {
         _: {
           ignoreCase: true,
           matchers: ["merge"],
-          converters: ["converter_devicon", "converter_hl_dir"],
+          converters: [
+            "converter_devicon",
+            "converter_hl_dir",
+          ],
         },
-        mr: { matchers: ["matcher_relative", "merge"] },
+        mr: { matchers: ["matcher_relative", "converter_filepath", "merge"] },
         help: { converters: [] },
         git_diff: {
           converters: [],
