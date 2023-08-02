@@ -60,7 +60,7 @@ export class Config extends BaseConfig {
             "converter_hl_dir",
           ],
         },
-        mr: { matchers: ["matcher_relative", "converter_filepath", "merge"] },
+        mr: { matchers: ["matcher_relative", "converter_relativepath", "merge"] },
         help: { converters: [] },
         git_diff: {
           converters: [],

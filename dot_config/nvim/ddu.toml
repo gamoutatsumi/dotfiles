@@ -87,4 +87,4 @@ repo = 'kyoh86/ddu-filter-converter_hl_dir'
 repo = 'Shougo/ddu-filter-matcher_relative'
 
 [[plugins]]
-repo = 'gamoutatsumi/ddu-filter-converter_filepath'
+repo = 'gamoutatsumi/ddu-filter-converter_relativepath'
