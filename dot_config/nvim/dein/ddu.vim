@@ -32,6 +32,7 @@ function s:lsp_attach() abort
         \ }
         \ })<CR>
   nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
+        \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition',
         \   params: #{
@@ -48,6 +49,7 @@ function s:lsp_attach() abort
         \ }
         \ })<CR>
   nnoremap <silent><buffer> gD <Cmd>call ddu#start(#{
+        \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
         \   params: #{
@@ -64,6 +66,7 @@ function s:lsp_attach() abort
         \ }
         \ })<CR>
   nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
+        \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
         \   params: #{

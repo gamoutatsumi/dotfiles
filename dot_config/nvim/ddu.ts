@@ -50,7 +50,6 @@ export class Config extends BaseConfig {
     const width = Math.floor(columns * 0.8);
     contextBuilder.patchGlobal({
       ui: "ff",
-      sync: true,
       sourceOptions: {
         _: {
           ignoreCase: true,
