@@ -202,6 +202,8 @@ completions:
     callback: "awk '{print $NF}'"
     options:
       --prompt: "'Workflow> '"
+      --preview-window: "right:50%"
+      --preview: "gh workflow view {1}"
   - name: Makefile
     patterns:
       - "^make $"
@@ -209,3 +211,13 @@ completions:
     callback: "awk '{printf $1}'"
     options:
       --prompt: "'Target> '"
+  - name: GitHub PRs
+    patterns:
+      - "^gh co $"
+      - "^gh pr view -w $"
+    sourceCommand: "gh pr list"
+    options:
+      --prompt: "'Checkout> '"
+      --preview-window: "right:50%"
+      --preview: "gh pr view {1}"
+    callback: awk '{print $1}'
