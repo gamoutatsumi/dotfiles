@@ -156,3 +156,15 @@ end, {})
 
 [[plugins]]
 repo = 'lewis6991/hover.nvim'
+
+[[plugins]]
+repo = 'uga-rosa/translate.nvim'
+lua_add = '''
+require("translate").setup {
+   default = {
+      command = "google",
+      output = "floating",
+      parse_after = "head"
+   }
+}
+'''
