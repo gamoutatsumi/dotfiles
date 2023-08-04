@@ -156,6 +156,7 @@ end, {})
 
 [[plugins]]
 repo = 'lewis6991/hover.nvim'
+hooks_file = ['$BASE_DIR/dein/hover.lua']
 
 [[plugins]]
 repo = 'uga-rosa/translate.nvim'
