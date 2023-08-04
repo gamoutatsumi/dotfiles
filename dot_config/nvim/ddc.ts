@@ -40,7 +40,7 @@ export class Config extends BaseConfig {
         "nvim-lsp": {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
-          confirmBehavior: "insert",
+          confirmBehavior: "replace",
           snippetEngine: (body: string) => denops.call("vsnip#anonymous", body),
         },
       },
@@ -55,13 +55,11 @@ export class Config extends BaseConfig {
         },
         "nvim-lsp": {
           mark: "[LSP]",
-          forceCompletionPattern:
-            '\\.\\w*|:\\w*|->\\w*|"\\w*|\\w*|\\+\\w*|/\\w*',
           ignoreCase: true,
           isVolatile: true,
           converters: ["converter_lsp-kinds", ...CONVERTERS],
           dup: "keep",
-          keywordPattern: "\\k*",
+          keywordPattern: "\\k+",
         },
         around: {
           mark: "[Around]",
