@@ -16,7 +16,6 @@ local is_deno_repo = util.search_ancestors(buf_name, function(path)
   end
 end) ~= nil
 
-require("neodev").setup({})
 require("ddc_nvim_lsp_setup").setup()
 
 local function setInlayHintHL()
@@ -79,7 +78,6 @@ mason_lspconfig.setup({})
 for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
   local opts = {}
   opts.on_attach = on_attach
-  opts.capabilities = capabilities
   opts.autostart = true
   if server == "tsserver" then
     goto continue
@@ -197,7 +195,6 @@ end
 if vim.fn.executable("deno") then
   lspconfig.denols.setup({
     on_attach = on_attach,
-    capabilities = capabilities,
     autostart = not is_node_repo,
     init_options = {
       suggest = {
@@ -244,7 +241,6 @@ if vim.fn.executable("haskell-language-server-wrapper") then
   lspconfig.hls.setup({
     on_attach = on_attach,
     autostart = true,
-    capabilities = capabilities,
   })
 end
 
@@ -252,7 +248,6 @@ if vim.fn.executable("satysfi-language-server") then
   lspconfig["satysfi-ls"].setup({
     on_attach = on_attach,
     autostart = true,
-    capabilities = capabilities,
   })
 end
 

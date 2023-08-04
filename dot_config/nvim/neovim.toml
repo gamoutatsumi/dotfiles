@@ -134,9 +134,6 @@ require('gitlinker').setup()
 '''
 
 [[plugins]]
-repo = 'folke/neodev.nvim'
-
-[[plugins]]
 repo = 'stevearc/aerial.nvim'
 hooks_file = '$BASE_DIR/dein/aerial.lua'
 
