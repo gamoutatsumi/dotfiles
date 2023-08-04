@@ -31,9 +31,6 @@ lua_post_source = '''
 #'''
 
 [[plugins]]
-repo = 'nvimdev/lspsaga.nvim'
-
-[[plugins]]
 repo = 'yioneko/nvim-vtsls'
 
 [[plugins]]

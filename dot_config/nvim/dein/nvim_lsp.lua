@@ -4,7 +4,6 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local schemas = require("schemastore")
-local saga = require("lspsaga")
 
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
@@ -43,8 +42,6 @@ local function setInlayHintHL()
 end
 
 local on_attach = function(client, bufnr)
-  saga.setup({})
-
   local function format()
     local formatOpts = {
       filter = function(formatterClient)
@@ -55,18 +52,10 @@ local on_attach = function(client, bufnr)
   end
   client.server_capabilities.semanticTokensProvider = nil
   local opts = { noremap = true, silent = true, buffer = bufnr }
-  -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-  -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-  vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-  vim.keymap.set("n", "<Leader>rn", "<Cmd>Lspsaga rename<CR>", opts)
-  -- vim.keymap.set({ "n", "v" }, "<Leader>a", "<Cmd>Lspsaga code_action<CR>", opts)
-  -- vim.keymap.set("n", "grf", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<Leader>e", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
-  vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-  vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+  vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
-  vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-  -- vim.keymap.set("n", "<Leader>ot", "<Cmd>Lspsaga outline<CR>", opts)
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint(bufnr, true)
     setInlayHintHL()
