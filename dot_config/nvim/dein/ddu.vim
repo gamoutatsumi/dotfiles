@@ -165,7 +165,7 @@ function! s:ddu_find() abort
         \   params: #{
         \     input: word, 
         \     inputType: 'migemo',
-        \     args: ['--ignore-case', '--json']
+        \     args: ['--smart-case', '--json']
         \   }
         \ }],
         \ uiParams: #{
