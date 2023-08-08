@@ -77,3 +77,6 @@ repo = 'Shougo/ddc-filter-converter_truncate_abbr'
 
 [[plugins]]
 repo = 'Shougo/ddc-filter-converter_remove_overlap'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-copilot'

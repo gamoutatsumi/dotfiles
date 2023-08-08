@@ -17,7 +17,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["tsnip", "vsnip", "nvim-lsp", "file", "around"],
+      sources: ["tsnip", "vsnip", "copilot", "nvim-lsp", "file", "around"],
       keywordPattern: "(\\k|-|_)*",
       autoCompleteEvents: [
         "InsertEnter",
@@ -49,6 +49,11 @@ export class Config extends BaseConfig {
           matchers: ["matcher_fuzzy"],
           sorters: ["sorter_ascii", "sorter_fuzzy"],
           converters: CONVERTERS,
+        },
+        copilot: {
+          mark: "[Copilot]",
+          matchers: [],
+          minAutoCompleteLength: 0,
         },
         "cmdline-history": {
           mark: "[History]",

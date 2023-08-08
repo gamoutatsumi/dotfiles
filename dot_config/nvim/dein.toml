@@ -109,3 +109,9 @@ if = 0
 [[plugins]]
 repo = 'tani/vim-artemis'
 if = 0
+
+[[plugins]]
+repo = 'github/copilot.vim'
+hook_add = '''
+let g:copilot_no_maps = v:true
+'''
