@@ -55,7 +55,7 @@ packages:
   - name: twpayne/chezmoi@v2.37.0
   - name: svenstaro/miniserve@v0.24.0
   - name: suzuki-shunsuke/cmdx@v1.7.3
-  - name: fatedier/frp@v0.51.2
+  - name: fatedier/frp@v0.51.3
   - name: haskell/ghcup-hs@v0.1.19.2
   - name: docker/compose@v2.20.3
   - name: protocolbuffers/protobuf/protoc@v24.0
