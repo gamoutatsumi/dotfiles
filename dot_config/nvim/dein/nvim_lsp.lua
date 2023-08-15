@@ -259,6 +259,13 @@ if vim.fn.executable("satysfi-language-server") then
   })
 end
 
+if vim.fn.executable("pylsp") then
+  lspconfig.pylsp.setup({
+    on_attach = on_attach,
+    autostart = true,
+  })
+end
+
 if vim.fn.executable("typescript-language-server") > 0 then
   require("typescript").setup({
     disable_commands = false,
