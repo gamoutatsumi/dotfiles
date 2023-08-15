@@ -36,7 +36,7 @@ const ffParams = ({
   winWidth: width,
   winCol: Math.floor(columns * 0.1),
   autoResize: true,
-  startAutoAction: true,
+  startAutoAction: false,
 });
 
 export class Config extends BaseConfig {
