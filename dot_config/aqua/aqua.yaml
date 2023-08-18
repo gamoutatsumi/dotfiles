@@ -65,7 +65,7 @@ packages:
   - name: grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2@v2.16.2
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.31.0
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.3.0
-  - name: jdxcode/rtx@v2023.8.1
+  - name: jdxcode/rtx@v2023.8.2
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.16.2
   - name: fullstorydev/grpcui@v1.3.1
