@@ -23,6 +23,7 @@
         "^\\s+go-version:\\s+\"(?<currentValue>.*)\"\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
       ],
       "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golang/go",
       "extractVersionTemplate": "^go(?<version>.*)$"
     },
     {
