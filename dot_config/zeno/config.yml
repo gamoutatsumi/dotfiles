@@ -214,7 +214,7 @@ completions:
   - name: GitHub PRs
     patterns:
       - "^gh co $"
-      - "^gh pr view -w $"
+      - "^gh prv $"
     sourceCommand: "gh pr list"
     options:
       --prompt: "'Checkout> '"

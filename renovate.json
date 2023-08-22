@@ -14,7 +14,24 @@
   "dependencyDashboard": true,
   "automerge": true,
   "platformAutomerge": true,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "golang/go"
+      ],
+      "versioning": "regex:^go(?<major>\\d+)\\.(?<minor>\\d+)$","
+    }
+  ],
   "regexManagers": [
+    {
+      "fileMatch": [
+        "^\\.github/workflows/.*\\.yml$"
+      ],
+      "matchStrings": [
+        "^go-version:\\s+(?<currentValue>.*)\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
     {
       "fileMatch": [
         "^dot_tool-versions$"
