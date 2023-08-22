@@ -25,7 +25,7 @@
   "regexManagers": [
     {
       "fileMatch": [
-        "^\\.github/workflows/.*\\.yml$"
+        "^\\.github/workflows/.*\\.ya?ml$"
       ],
       "matchStrings": [
         "^go-version:\\s+(?<currentValue>.*)\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
