@@ -19,7 +19,7 @@
       "matchPackageNames": [
         "golang/go"
       ],
-      "versioning": "regex:^go(?<major>\\d+)\\.(?<minor>\\d+)$","
+      "versioning": "regex:^go(?<major>\\d+)\\.(?<minor>\\d+)$",
     }
   ],
   "regexManagers": [
