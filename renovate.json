@@ -24,7 +24,8 @@
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "golang/go",
-      "extractVersionTemplate": "^go(?<version>.*)$"
+      "extractVersionTemplate": "^go(?<version>.*)$",
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
     },
     {
       "fileMatch": [
