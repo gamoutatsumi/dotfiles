@@ -20,7 +20,7 @@
         "^\\.github/workflows/aqua\\.yaml$"
       ],
       "matchStrings": [
-        "^\\s+go-version:\\s+\"(?<currentValue>.*)\"\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
+        " +go-version: \"(?<currentValue>.*)\" # renovate: depName=(?<depName>.*)"
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "golang/go",
