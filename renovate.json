@@ -14,23 +14,16 @@
   "dependencyDashboard": true,
   "automerge": true,
   "platformAutomerge": true,
-  "packageRules": [
-    {
-      "matchPackageNames": [
-        "golang/go"
-      ],
-      "versioning": "regex:^go(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-    }
-  ],
   "regexManagers": [
     {
       "fileMatch": [
-        "^\\.github/workflows/.*\\.ya?ml$"
+        "^\\.github/workflows/aqua\\.yaml$"
       ],
       "matchStrings": [
         "^\\s+go-version:\\s+\"(?<currentValue>.*)\"\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
       ],
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^go(?<version>.*)$"
     },
     {
       "fileMatch": [
