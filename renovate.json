@@ -19,7 +19,7 @@
       "matchPackageNames": [
         "golang/go"
       ],
-      "versioning": "regex:^\\s+go(?<major>\\d+)\\.(?<minor>\\d+)$",
+      "versioning": "regex:^go(?<major>\\d+)\\.(?<minor>\\d+)$",
     }
   ],
   "regexManagers": [
@@ -28,7 +28,7 @@
         "^\\.github/workflows/.*\\.ya?ml$"
       ],
       "matchStrings": [
-        "^go-version:\\s+\"(?<currentValue>.*)\"\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
+        "^\\s+go-version:\\s+\"(?<currentValue>.*)\"\\s+#\\srenovate:\\sdepName=(?<depName>.*)"
       ],
       "datasourceTemplate": "github-releases"
     },
