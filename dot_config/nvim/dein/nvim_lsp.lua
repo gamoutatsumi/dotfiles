@@ -195,6 +195,16 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
       codeAction = true,
       completion = true
     }
+  elseif server == "pyright" then
+    opts.settings = {
+      python = {
+        venvPath = ".",
+        pythonPath = ".venv/bin/python",
+        analysis = {
+          extraPaths = { "." }
+        }
+      }
+    }
   end
   lspconfig[server].setup(opts)
   ::continue::
