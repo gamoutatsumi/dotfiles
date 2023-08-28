@@ -106,12 +106,12 @@ lua_post_source = '''
   }
 '''
 
-[[plugins]]
-repo = 'folke/noice.nvim'
-lazy = 1
-on_event = ["VimEnter"]
-depends = ['nui.nvim', 'nvim-notify']
-hooks_file = "$BASE_DIR/dein/noice.lua"
+# [[plugins]]
+# repo = 'folke/noice.nvim'
+# lazy = 1
+# on_event = ["VimEnter"]
+# depends = ['nui.nvim', 'nvim-notify']
+# hooks_file = "$BASE_DIR/dein/noice.lua"
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
