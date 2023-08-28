@@ -60,7 +60,7 @@ packages:
   - name: docker/compose@v2.20.3
   - name: protocolbuffers/protobuf/protoc@v24.2
   - name: pseudomuto/protoc-gen-doc@v1.5.1
-  - name: cosmtrek/air@v1.44.0
+  - name: cosmtrek/air@v1.45.0
   - name: bufbuild/buf@v1.26.1
   - name: grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2@v2.17.1
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.31.0
