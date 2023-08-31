@@ -38,7 +38,7 @@ packages:
   - name: kubernetes-sigs/kustomize@kustomize/v5.1.1
   - name: stern/stern@v1.26.0
   - name: bitnami-labs/sealed-secrets@v0.23.1
-  - name: gohugoio/hugo@v0.117.0
+  - name: gohugoio/hugo@v0.118.2
   - name: kubernetes-sigs/krew@v0.4.4
   - name: cue-lang/cue@v0.6.0
   - name: jsonnet-bundler/jsonnet-bundler@v0.5.1
