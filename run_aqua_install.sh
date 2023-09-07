@@ -1,2 +1,2 @@
 #!/usr/bin/env zsh
-aqua i -a
+aqua update-aqua && aqua i -a
