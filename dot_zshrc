@@ -237,11 +237,11 @@ else
 fi
 
 # ls alias
-if exists exa; then
-  alias ls='exa --icons'
-  alias ll='exa --icons -lg --git'
-  alias la='exa --icons -lga --git'
-  alias tree='exa --icons -T'
+if exists lsd; then
+  alias ls='lsd'
+  alias ll='lsd -lg --git'
+  alias la='lsd -lga --git'
+  alias tree='lsd --tree'
 fi
 
 # Utilities
