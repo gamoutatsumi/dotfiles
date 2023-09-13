@@ -3,6 +3,21 @@
 # }}}
 
 # ZCOMPILE {{{
+function source {
+  ensure_zcompiled $1
+  builtin source $1
+}
+function ensure_zcompiled {
+  local compiled="$1.zwc"
+  if [[ ! -r "$compiled" || "$1" -nt "$compiled" ]]; then
+    echo "Compiling $1"
+    zcompile $1
+  fi
+}
+ensure_zcompiled ~/.zshrc
+ensure_zcompiled ~/.zshrc.local
+ensure_zcompiled ~/.zprofile
+ensure_zcompiled ~/.zshenv
 () {
   local src
   for src in $@; do
@@ -530,7 +545,7 @@ function dockercon() {
 }
 
 function sheldonupdate() {
-  sheldon lock --update && sheldon source > "${HOME}/.sheldon.lock.zsh" &&  zcompile "${HOME}/.sheldon.lock.zsh"
+  sheldon lock --update && sheldon source > "${HOME}/.sheldon.lock.zsh"
 }
 
 function fk() {
@@ -575,3 +590,5 @@ if exists opam; then
   . /tmp/opam.cache
 fi
 # }}}
+
+unfunction source
