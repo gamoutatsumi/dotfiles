@@ -6,7 +6,6 @@ call skkeleton#initialize()
 let g:skkeleton#mode = ''
 imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
-let s:dictPath = dein#get('dict').path
 function s:skkeleton_init_kanatable() abort
   call skkeleton#register_kanatable('rom', {
         \ "z\<Space>": ["\u3000", ''],
@@ -18,9 +17,9 @@ function s:skkeleton_init_kanatable() abort
         \ "z|": ['｜', ''],
         \ })
 endfunction
-augroup skkeleton-user
-  autocmd!
-  autocmd User skkeleton-initialize-pre call skkeleton#config(#{
+function s:skkeleton_init() abort
+  let s:dictPath = dein#get('dict').path
+  call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,
         \   skkServerResEnc: has("mac") ? "euc-jp" : "utf-8",
@@ -29,6 +28,10 @@ augroup skkeleton-user
         \     s:dictPath .. "/SKK-JISYO.L"
         \   ]
         \ })
+endfunction
+augroup skkeleton-user
+  autocmd!
+  autocmd User skkeleton-initialize-pre call s:skkeleton_init()
   autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
   autocmd User skkeleton-mode-changed redrawstatus
 augroup END
