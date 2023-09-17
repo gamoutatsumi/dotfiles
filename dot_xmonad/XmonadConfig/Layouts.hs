@@ -102,7 +102,7 @@ myScratchpads =
       myFullFloating,
     NS
       "vivaldi"
-      "vivaldi-stable --force-dark-mode"
+      "vivaldi-stable" 
       (className =? "Vivaldi-stable")
       myFullFloating,
     NS
