@@ -205,7 +205,7 @@ completions:
     options:
       --prompt: "'To> '" 
       --preview-window: "right:50%"
-      --preview: "exa --icons -l --no-user"
+      --preview: "lsd -l"
     callback: "awk '{print $1}'"
   - name: workflows
     patterns:
