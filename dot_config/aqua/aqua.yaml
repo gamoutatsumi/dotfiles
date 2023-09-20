@@ -7,7 +7,6 @@ packages:
   - name: sharkdp/bat@v0.23.0
   - name: x-motemen/ghq@v1.4.2
   - name: b4b4r07/gomi@v1.1.6
-  - name: ogham/exa@v0.10.1
   - name: dandavison/delta@0.16.5
   - name: jqlang/jq@jq-1.7
   - name: bootandy/dust@v0.8.6
