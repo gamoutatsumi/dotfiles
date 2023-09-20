@@ -104,6 +104,18 @@ export DOCKER_BUILDKIT=1
 
 export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
 
+export ASDF_VIM_CONFIG="\
+--with-tlib=ncurses \
+--with-compiledby=asdf \
+--enable-multibyte \
+--enable-cscope \
+--enable-terminal \
+--enable-perlinterp \
+--enable-python3interp \
+--enable-luainterp \
+--enable-gui=no \
+--without-x"
+
 if is_osx; then
   export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
   export ZSH_BASH_COMPLETIONS_FALLBACK_PATH=/opt/homebrew/share/bash-completion
