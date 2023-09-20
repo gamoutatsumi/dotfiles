@@ -2,52 +2,14 @@ import {
   BaseConfig,
   ContextBuilder,
 } from "https://deno.land/x/ddu_vim@v3.3.3/types.ts";
-import { Params as FFParams } from "https://deno.land/x/ddu_ui_ff@v1.0.3/ff.ts";
-import { Denops, op } from "https://deno.land/x/ddu_vim@v3.3.3/deps.ts";
-
-const ffParams = ({
-  width,
-  lines,
-  columns,
-}: {
-  width: number;
-  lines: number;
-  columns: number;
-}): Partial<FFParams> => ({
-  displayTree: true,
-  startFilter: true,
-  split: "floating",
-  prompt: "> ",
-  floatingBorder: "rounded",
-  previewFloating: true,
-  previewWidth: Math.round(width / 2),
-  previewFloatingTitle: "Preview",
-  previewFloatingZindex: 55,
-  previewFloatingBorder: "rounded",
-  previewSplit: "vertical",
-  filterSplitDirection: "floating",
-  filterFloatingPosition: "top",
-  highlights: {
-    floating: "Normal",
-    floatingBorder: "Normal",
-  },
-  winHeight: Math.floor(lines * 0.8),
-  winRow: Math.floor(lines * 0.1),
-  winWidth: width,
-  winCol: Math.floor(columns * 0.1),
-  autoResize: true,
-  startAutoAction: true,
-});
+import { Denops } from "https://deno.land/x/ddu_vim@v3.3.3/deps.ts";
 
 export class Config extends BaseConfig {
-  override async config(args: {
+  override config(args: {
     denops: Denops;
     contextBuilder: ContextBuilder;
   }): Promise<void> {
-    const { denops, contextBuilder } = args;
-    const columns = await op.columns.get(denops);
-    const lines = await op.lines.get(denops);
-    const width = Math.floor(columns * 0.8);
+    const { contextBuilder } = args;
     contextBuilder.patchGlobal({
       ui: "ff",
       sourceOptions: {
@@ -59,7 +21,9 @@ export class Config extends BaseConfig {
             "converter_hl_dir",
           ],
         },
-        mr: { matchers: ["matcher_relative", "converter_relativepath", "merge"] },
+        mr: {
+          matchers: ["matcher_relative", "converter_relativepath", "merge"],
+        },
         help: { converters: [] },
         git_diff: {
           converters: [],
@@ -91,7 +55,31 @@ export class Config extends BaseConfig {
         dein: { defaultAction: "update" },
       },
       uiParams: {
-        ff: ffParams({ width, lines, columns }),
+        ff: {
+          displayTree: true,
+          startFilter: true,
+          split: "floating",
+          prompt: "> ",
+          floatingBorder: "rounded",
+          previewFloating: true,
+          previewWidth: "round(floor(&columns * 0.8) / 2)",
+          previewFloatingTitle: "Preview",
+          previewFloatingZindex: 55,
+          previewFloatingBorder: "rounded",
+          previewSplit: "vertical",
+          filterSplitDirection: "floating",
+          filterFloatingPosition: "top",
+          highlights: {
+            floating: "Normal",
+            floatingBorder: "Normal",
+          },
+          winHeight: "floor(&lines * 0.8)",
+          winRow: "floor(&lines * 0.1)",
+          winWidth: "floor(&columns * 0.8)",
+          winCol: "floor(&columns * 0.1)",
+          autoResize: true,
+          startAutoAction: true,
+        },
         filer: {
           split: "floating",
         },
@@ -153,5 +141,6 @@ export class Config extends BaseConfig {
         },
       },
     });
+    return Promise.resolve();
   }
 }
