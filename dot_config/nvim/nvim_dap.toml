@@ -17,3 +17,6 @@ repo = 'rcarriga/nvim-dap-ui'
 hook_add = '''
 nnoremap <silent> <Leader>du <Cmd>lua require'dapui'.toggle()<CR>
 '''
+
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
