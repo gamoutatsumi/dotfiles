@@ -95,3 +95,4 @@ packages:
   - name: simonwhitaker/gibo@v3.0.7
   - name: microsoft/ripgrep-prebuilt@v13.0.0-10
   - name: tree-sitter/tree-sitter@v0.20.8
+  - name: aws/aws-cli@2.13.20
