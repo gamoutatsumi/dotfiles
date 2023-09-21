@@ -94,3 +94,4 @@ packages:
   - name: greymd/ojichat@v0.2.2
   - name: simonwhitaker/gibo@v3.0.7
   - name: microsoft/ripgrep-prebuilt@v13.0.0-10
+  - name: tree-sitter/tree-sitter@v0.20.8
