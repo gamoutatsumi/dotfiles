@@ -1,3 +1,7 @@
 [settings]
 legacy_version_file = true
 legacy_version_file_disable_tools = ["python"]
+
+[tools]
+neovim = "ref:master"
+vim = "ref:master"
