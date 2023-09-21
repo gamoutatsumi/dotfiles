@@ -1,6 +1,6 @@
 -- lua_post_source {{{
 local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
-vim.opt.runtimepath:append(parser_install_dir)
+vim.opt.runtimepath:prepend(parser_install_dir)
 require("nvim-treesitter.configs").setup({
   -- Modules and its options go here
   ensure_installed = {
