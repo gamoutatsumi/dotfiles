@@ -67,7 +67,7 @@ packages:
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.16.2
   - name: fullstorydev/grpcui@v1.3.1
-  - name: goreleaser/goreleaser@v1.20.0
+  - name: goreleaser/goreleaser@v1.21.0
   - name: bitwarden/clients@cli-v2023.4.0
   - name: editorconfig-checker/editorconfig-checker@2.7.1
   - name: docker/hub-tool@v0.4.5
