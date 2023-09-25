@@ -148,13 +148,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'lambdalisue/gina.vim'
-on_cmd = ['Gina']
-hook_add = '''
-vnoremap <silent> gu :Gina browse --exact --yank :<CR>
-'''
-
-[[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 hook_add = '''
