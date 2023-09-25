@@ -21,15 +21,6 @@ repo='ray-x/go.nvim'
 lua_post_source = '''
 '''
 
-#[[plugins]]
-#repo = 'j-hui/fidget.nvim'
-#on_source = ['nvim-lspconfig']
-#hook_source = '''
-#lua << EOF
-#  require('fidget').setup()
-#EOF
-#'''
-
 [[plugins]]
 repo = 'yioneko/nvim-vtsls'
 
