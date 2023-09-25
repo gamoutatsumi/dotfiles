@@ -18,6 +18,7 @@ ensure_zcompiled ~/.zshrc
 ensure_zcompiled ~/.zshrc.local
 ensure_zcompiled ~/.zprofile
 ensure_zcompiled ~/.zshenv
+ensure_zcompiled ~/.zshenv.local
 () {
   local src
   for src in $@; do

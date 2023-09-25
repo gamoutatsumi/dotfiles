@@ -114,13 +114,6 @@ depends = ['nui.nvim', 'nvim-notify']
 hooks_file = "$BASE_DIR/dein/noice.lua"
 
 [[plugins]]
-repo = 'j-hui/fidget.nvim'
-rev = 'legacy'
-lua_post_source = '''
-require('fidget').setup {}
-'''
-
-[[plugins]]
 repo = 'monaqa/dial.nvim'
 hooks_file = ['$BASE_DIR/dein/dial.lua']
 
