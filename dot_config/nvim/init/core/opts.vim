@@ -43,3 +43,4 @@ set cmdheight=0
 set shortmess+=I
 set diffopt+=linematch:60
 let &grepprg="rg --vimgrep --smart-case --follow"
+set history=100
