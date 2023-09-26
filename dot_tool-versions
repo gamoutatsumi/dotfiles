@@ -3,3 +3,4 @@ nodejs lts
 java   system
 python system
 ruby   system
+neovim ref:3387dc4a463c80a01702cdd069dde3d505a4e805 # renovate: depName=neovim/neovim
