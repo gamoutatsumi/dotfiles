@@ -45,7 +45,6 @@
       "matchStrings": [
         "^neovim\\s+ref:(?<currentDigest>.*)\\s#\\srenovate:\\sdepName=(?<depName>.*)"
       ],
-      "currentValueTemplate": "master",
       "datasourceTemplate": "git-refs",
       "depNameTemplate": "neovim/neovim",
       "packageNameTemplate": "https://github.com/neovim/neovim",
