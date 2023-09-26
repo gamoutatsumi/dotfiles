@@ -3,4 +3,4 @@ nodejs lts
 java   system
 python system
 ruby   system
-neovim ref:master # renovate: depName=neovim/neovim
+neovim ref:master
