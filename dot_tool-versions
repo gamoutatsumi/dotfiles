@@ -1,4 +1,4 @@
-deno   1.37.0 # renovate: depName=denoland/deno
+deno   1.37.0
 nodejs lts
 java   system
 python system
