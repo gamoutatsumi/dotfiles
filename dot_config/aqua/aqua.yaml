@@ -95,6 +95,6 @@ packages:
   - name: simonwhitaker/gibo@v3.0.7
   - name: microsoft/ripgrep-prebuilt@v13.0.0-10
   - name: tree-sitter/tree-sitter@v0.20.8
-  - name: aws/aws-cli@2.13.20
+  - name: aws/aws-cli@2.13.21
   - name: docker/cli@v24.0.6
   - name: suzuki-shunsuke/pinact@v0.1.2
