@@ -14,3 +14,4 @@ aliases:
     assigned: '!gh issue list -s all -a gamoutatsumi | fzf-tmux --prompt "issue preview>" --preview "echo {} | cut -f1 | xargs gh issue view " | cut -f1 | xargs --no-run-if-empty gh issue ${@:-view -w}'
     prs: '!gh pr list -s all | fzf-tmux --prompt "PR preview>" --preview "echo {} | cut -f1 | xargs gh pr view " | cut -f1 | xargs --no-run-if-empty gh pr ${@:-view -w}'
     prv: pr view -w
+    iv: issue view -w

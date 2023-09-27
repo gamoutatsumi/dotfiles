@@ -9,8 +9,7 @@
     "renovate"
   ],
   "schedule": [
-    "after 8:00 am",
-    "before 10:00 am"
+    "at any time",
   ],
   "dependencyDashboard": true,
   "automerge": true,

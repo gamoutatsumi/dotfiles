@@ -229,7 +229,16 @@ completions:
       - "^gh prv $"
     sourceCommand: "gh pr list"
     options:
-      --prompt: "'Checkout> '"
+      --prompt: "'Pull Request> '"
       --preview-window: "right:50%"
       --preview: "gh pr view {1}"
+    callback: awk '{print $1}'
+  - name: GitHub Issues
+    patterns:
+      - "^gh iv $"
+    sourceCommand: "gh issue list"
+    options:
+      --prompt: "'Issue> '"
+      --preview-window: "right:50%"
+      --preview: "gh issue view {1}"
     callback: awk '{print $1}'
