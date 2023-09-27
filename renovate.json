@@ -9,7 +9,7 @@
     "renovate"
   ],
   "schedule": [
-    "at any time",
+    "at any time"
   ],
   "dependencyDashboard": true,
   "automerge": true,
