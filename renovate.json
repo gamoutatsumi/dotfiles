@@ -1,5 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "asdf": {
+    "enabled": true,
+    "fileMatch": [
+      "^dot_tool-versions"
+    ]
+  },
+  "automerge": true,
+  "dependencyDashboard": true,
   "extends": [
     "config:base",
     "github>aquaproj/aqua-renovate-config#1.11.0"
@@ -8,30 +16,22 @@
     "dependencies",
     "renovate"
   ],
-  "schedule": [
-    "at any time"
-  ],
-  "dependencyDashboard": true,
-  "automerge": true,
   "platformAutomerge": true,
-  "asdf": {
-    "enabled": true,
-    "fileMatch": [
-      "^dot_tool-versions"
-    ]
-  },
   "regexManagers": [
     {
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "golang/go",
+      "extractVersionTemplate": "^go(?<version>.*)$",
       "fileMatch": [
         "^\\.github/workflows/aqua\\.yaml$"
       ],
       "matchStrings": [
         " +go-version: \"(?<currentValue>.*)\" # renovate: depName=(?<depName>.*)"
       ],
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "golang/go",
-      "extractVersionTemplate": "^go(?<version>.*)$",
       "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
     }
+  ],
+  "schedule": [
+    "at any time"
   ]
 }
