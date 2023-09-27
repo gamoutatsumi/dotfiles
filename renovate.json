@@ -10,7 +10,8 @@
   "dependencyDashboard": true,
   "extends": [
     "config:base",
-    "github>aquaproj/aqua-renovate-config#1.11.0"
+    "github>aquaproj/aqua-renovate-config#1.11.0",
+    "helpers:pinGitHubActionDigests"
   ],
   "labels": [
     "dependencies",
