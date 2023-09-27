@@ -66,7 +66,7 @@ packages:
   - name: jdxcode/rtx@v2023.9.2
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.16.2
-  - name: fullstorydev/grpcui@v1.3.1
+  - name: fullstorydev/grpcui@v1.3.2
   - name: goreleaser/goreleaser@v1.21.2
   - name: bitwarden/clients@cli-v2023.4.0
   - name: editorconfig-checker/editorconfig-checker@2.7.1
