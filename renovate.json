@@ -13,7 +13,7 @@
     "github>aquaproj/aqua-renovate-config#1.11.0",
     "helpers:pinGitHubActionDigests"
   ],
-  "github-github-actions": {
+  "github-actions": {
     "enabled": true,
     "labels": [
       "github-actions"
