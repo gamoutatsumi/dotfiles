@@ -12,4 +12,5 @@ repo = 'nvim-treesitter/nvim-treesitter-refactor'
 repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 
 [[plugins]]
-repo = 'HiPhish/nvim-ts-rainbow2'
+repo = 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
+hooks_file = '$BASE_DIR/dein/rainbow.lua'
