@@ -137,7 +137,7 @@ snippets:
       lbuffer: '.+\s+'
   - name: pipe grep
     keyword: "G"
-    snippet: "| rg '{{pattern}}'"
+    snippet: "| rg --json '{{pattern}}' | delta"
     context:
       lbuffer: '\s*'
   - name: pipe head
@@ -175,12 +175,15 @@ snippets:
     snippet: git symbolic-ref --short HEAD
     context: *checkout
     evaluate: true
-  - namme: git switch
+  - name: git switch
     keyword: gsw
     snippet: git switch {{branch}}
-  - namme: git switch create
+  - name: git switch create
     keyword: gswc
     snippet: git switch -c {{branch}}
+  - name: rg pipe to delta
+    keyword: rg
+    snippet: 'rg --json "{{pattern}}" | delta'
 
 completions:
   - name: kill
