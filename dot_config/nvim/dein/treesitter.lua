@@ -62,7 +62,7 @@ require("nvim-treesitter.configs").setup({
       'TSRainbowViolet',
       'TSRainbowCyan'
     },
-    strategy = require('ts-rainbow').strategy["local"]
+    strategy = require('ts-rainbow').strategy.global
   }
 })
 -- }}}
