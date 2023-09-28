@@ -17,19 +17,19 @@ jobs:
           - macos-latest
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-go@v3
+      - uses: actions/checkout@v3.6.0
+      - uses: actions/setup-go@v3.5.0
         with:
           go-version: "1.21.1" # renovate: depName=golang/go 
       - name: cache ~/.aqua
-        uses: actions/cache@v3
+        uses: actions/cache@v3.3.2
         with:
           path: |
             ~/.aqua/pkgs
             ~/.aqua/registries
           key: ${{ runner.os }}-${{ hashFiles('dot_config/aqua/aqua.yaml') }}
 
-      - uses: aquaproj/aqua-installer@v1.0.0
+      - uses: aquaproj/aqua-installer@v2.1.2
         with:
           aqua_version: v2.12.1
       - run: aqua -c dot_config/aqua/aqua.yaml i --test
