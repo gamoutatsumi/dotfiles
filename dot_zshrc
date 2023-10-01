@@ -322,7 +322,7 @@ stty start undef
 
 # opam configuration
 if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
-  . "$HOME/.opam/opam-init/init.zsh" 2>&1 /dev/null || true
+  source "$HOME/.opam/opam-init/init.zsh" 2>&1 /dev/null || true
 fi
 #}}}
 
@@ -580,16 +580,6 @@ function git_auto_save() {
     fi
   fi
 }
-# }}}
-
-# {{{ ENV
-if exists opam; then
-  if ! [ -f /tmp/opam.cache ]; then
-    opam env > /tmp/opam.cache
-    zcompile /tmp/opam.cache
-  fi
-  . /tmp/opam.cache
-fi
 # }}}
 
 unfunction source
