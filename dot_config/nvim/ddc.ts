@@ -62,7 +62,7 @@ export class Config extends BaseConfig {
           mark: "[LSP]",
           ignoreCase: true,
           isVolatile: true,
-          converters: ["converter_lsp-kinds", ...CONVERTERS],
+          converters: ["converter_kind_labels", ...CONVERTERS],
           dup: "keep",
           keywordPattern: "\\k+",
         },
@@ -75,7 +75,7 @@ export class Config extends BaseConfig {
           mark: "[VSnip]",
           dup: "keep",
           isVolatile: true,
-          converters: ["converter_lsp-kinds", ...CONVERTERS],
+          converters: ["converter_kind_labels", ...CONVERTERS],
         },
         file: {
           mark: "[File]",
