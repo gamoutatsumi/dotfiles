@@ -86,7 +86,7 @@ packages:
   - name: aquaproj/registry-tool@v0.1.10
   - name: junegunn/fzf@0.42.0
   - name: junegunn/fzf/fzf-tmux@0.42.0
-  - name: mitsuhiko/rye@0.15.0
+  - name: mitsuhiko/rye@0.15.1
   - name: lsd-rs/lsd@v1.0.0
   - name: sharkdp/hyperfine@v1.17.0
   - name: eza-community/eza@v0.14.0
