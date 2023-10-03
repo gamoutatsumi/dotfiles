@@ -20,4 +20,4 @@ templates:
 # to see the current sequence.
 # stack-colors: STYLES
 install-ghc: false
-system-ghc: true
+system-ghc: false
