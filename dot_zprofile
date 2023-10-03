@@ -64,8 +64,6 @@ exists() {
   fi
 }
 
-export AQUA_ROOT_DIR="${HOME}/.local/share/aquaproj-aqua"
-
 if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
@@ -79,7 +77,9 @@ if [[ -z "$P10K_CACHE_HOME" ]]; then
   export P10K_CACHE_HOME="/tmp/p10k"
 fi
 
-path=($XDG_DATA_HOME/aquaproj-aqua/bin(N-/) $path)
+export AQUA_ROOT_DIR="${XDG_DATA_HOME}/aquaproj-aqua"
+
+path=($AQUA_ROOT_DIR/bin(N-/) $path)
 
 export LUAROCKS_HOME="$HOME/.luarocks"
 if exists ruby; then
