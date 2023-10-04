@@ -1,0 +1,10 @@
+tmux_exe={{ lookPath "tmux" }}
+if [[ -z "$TMUX" ]] && [[ "$USE_TMUX" == "true" ]] ;then
+    ID="$( $tmux_exe list-session | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+  if [[ -z "$ID" ]]; then # if not available create a new one
+    exec $tmux_exe new-session
+  else
+    exec $tmux_exe attach-session -t "$ID" # if available attach to it
+  fi
+fi
+unset tmux_exe
