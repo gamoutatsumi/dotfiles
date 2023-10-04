@@ -18,7 +18,12 @@ shell = "zsh"
 github = "romkatv/zsh-defer"
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+defer = '''
+{% for file in files %}
+ensure_zcompiled "{{ file }}"
+zsh-defer source "{{ file }}"
+{% endfor %}
+'''
 
 [plugins.bashcompinit]
 inline = 'autoload bashcompinit && zsh-defer bashcompinit'

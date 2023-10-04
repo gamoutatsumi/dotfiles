@@ -1,0 +1,3 @@
+{{ if isExecutable "/usr/local/bin/brew" }}
+{{- output "/usr/local/bin/brew" "shellenv" | trim -}}
+{{ end }}

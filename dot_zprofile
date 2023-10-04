@@ -36,16 +36,6 @@ is_wsl() {
     return 1
   fi
 }
-if [[ -e /opt/homebrew/bin/brew ]] && [[ -e /usr/local/bin/brew ]]; then
-  path=($HOME/Library/Android/sdk/platform-tools(N-/) $HOME/Library/Android/sdk/build-tools/33.0.2(N-/) $path)
-  echo "Current Architecture: ${ARCH}"
-  if [[ $ARCH == arm64 ]]; then
-    eval $(/opt/homebrew/bin/brew shellenv)
-  else
-    eval $(/usr/local/bin/brew shellenv)
-  fi
-fi
-[[ -e /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Added by Toolbox App
 path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))

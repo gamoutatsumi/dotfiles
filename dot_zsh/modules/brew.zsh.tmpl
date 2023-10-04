@@ -1,0 +1,15 @@
+{{ if stat (joinPath .chezmoi.homeDir ".zsh/modules/brew/linux.zsh") }}
+source {{ joinPath .chezmoi.homeDir ".zsh/modules/brew/linx.zsh" }}
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".zsh/modules/brew/arm64.zsh")}}
+echo "Current Architecture: ${ARCH}"
+if [[ $ARCH == arm64 ]]; then
+  source {{ joinPath .chezmoi.homeDir ".zsh/modules/brew/arm64.zsh" }}
+else
+{{ end }}
+  {{ if stat (joinPath .chezmoi.homeDir ".zsh/modules/brew/x86.zsh") }}
+  source {{ joinPath .chezmoi.homeDir ".zsh/modules/brew/x86.zsh" }}
+  {{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".zsh/modules/brew/arm64.zsh")}}
+fi
+{{ end }}

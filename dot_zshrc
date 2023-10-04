@@ -557,7 +557,7 @@ function dockercon() {
 }
 
 function sheldonupdate() {
-  sheldon lock --update && sheldon source > "${HOME}/.sheldon.lock.zsh"
+  sheldon lock --update && sheldon source | grep -v "^$" > "${HOME}/.sheldon.lock.zsh"
 }
 
 function fk() {
