@@ -1,0 +1,3 @@
+{{ if lookPath "openstack" }}
+{{ output "zsh" "-c" "openstack complete |sed 's;local comp=\"${!i}\";local comp=\"${(P)i}\";'" | trim }}
+{{ end }}

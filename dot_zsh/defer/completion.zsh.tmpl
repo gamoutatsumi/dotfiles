@@ -55,5 +55,8 @@ _get_comp_words_by_ref ()
 fi
 fi
 
-exists aws_completer && complete -C "$(which aws_completer)" aws
-exists openstack && eval "$(openstack complete |sed 's;local comp="${!i}";local comp="${(P)i}";')"
+exists aws_completer && complete -C {{ lookPath "aws_completer" }} aws
+{{ if stat (joinPath .chezmoi.homeDir ".zsh/defer/completion/openstack.zsh") }}
+ensure_zcompiled
+source {{ joinPath .chezmoi.homeDir ".zsh/defer/completion/openstack.zsh" }}
+{{ end }}
