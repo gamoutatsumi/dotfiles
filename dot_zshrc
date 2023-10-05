@@ -50,10 +50,6 @@ fi
 
 export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' 
 
-if is_wsl; then
-  export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '{print $2}';)
-fi
-
 export PURE_GIT_PULL=0
 
 # }}}
@@ -224,9 +220,6 @@ bindkey "^x^e" edit-command-line
 # ALIAS {{{
 # OS Settings
 if is_osx; then
-  if exists pyenv; then
-    alias brew="env PATH=\${PATH//\$(pyenv root)\/shims:/} brew"
-  fi
   alias arm="exec arch -arch arm64e /bin/zsh --login"
   alias x86="exec arch -arch x86_64 /bin/zsh --login"
   alias ubuntu="limactl shell docker"
@@ -533,10 +526,6 @@ function vim-startuptime-detail() {
 }
 function zsh-profiler() {
   ZSHRC_PROFILE=1 zsh -i -c zprof
-}
-
-function denoupdate() {
-  rtx install deno $(rtx latest deno) && rtx global deno $(rtx latest deno)
 }
 
 function awsp() {
