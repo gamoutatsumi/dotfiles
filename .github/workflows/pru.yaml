@@ -12,3 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: winebarrel/pru-action@v0.3.0
+        with:
+          paths: |
+            *
