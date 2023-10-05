@@ -11,7 +11,7 @@ jobs:
     name: pru
     runs-on: ubuntu-latest
     steps:
-      - uses: winebarrel/pru-action@v0.3.0
+      - uses: winebarrel/pru-action@e3ac0c53c6155fc68fc8d24f91dc5c8ee58e19c0 # v0.3.0
         with:
           paths: |
             **/*
