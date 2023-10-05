@@ -14,4 +14,4 @@ jobs:
       - uses: winebarrel/pru-action@v0.3.0
         with:
           paths: |
-            *
+            **/*
