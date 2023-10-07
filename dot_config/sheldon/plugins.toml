@@ -24,6 +24,7 @@ ensure_zcompiled "{{ file }}"
 zsh-defer source "{{ file }}"
 {% endfor %}
 '''
+pnpm-install = 'cd {{ dir }}; ./zplug.zsh'
 
 [plugins.bashcompinit]
 inline = 'autoload bashcompinit && zsh-defer bashcompinit'
@@ -91,6 +92,10 @@ apply = ['fpath']
 [plugins.zeno]
 github = "yuki-yano/zeno.zsh"
 apply = ['defer']
+
+[plugins.pnpm-shell-completion]
+github = "g-plane/pnpm-shell-completion"
+apply = ['pnpm-install', 'defer']
 
 # For example:
 #
