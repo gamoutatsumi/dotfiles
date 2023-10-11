@@ -312,7 +312,7 @@ fi
 #}}}
 
 #{{{ HISTORY
-export HISTORY_IGNORE="cd|pwd|l[sal]|cp|mv|rm"
+export HISTORY_IGNORE="q|exit|cd|pwd|dot"
 
 zshaddhistory() {
   emulate -L zsh
