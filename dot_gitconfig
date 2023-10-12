@@ -15,6 +15,10 @@
 	quotepath = false
 [interactive]
   diffFilter = delta --color-only --features=interactive
+[diff]
+  tool = nvim -d
+[difftool]
+  prompt = false
 [push]
 	default = current
   useForceIfIncludes = true
