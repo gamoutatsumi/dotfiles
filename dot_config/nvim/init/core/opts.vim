@@ -41,6 +41,6 @@ set omnifunc=
 set laststatus=3
 set cmdheight=0
 set shortmess+=I
-set diffopt+=linematch:60
+set diffopt=internal,filler,algorithm:histogram,indent-heuristic
 let &grepprg="rg --vimgrep --smart-case --follow"
 set history=100
