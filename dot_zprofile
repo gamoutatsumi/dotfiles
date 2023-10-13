@@ -79,9 +79,9 @@ export CARGO_HOME="$HOME/.cargo"
 export DENO_BIN="$HOME/.deno/bin"
 export GOPATH="$HOME/go"
 export MANPAGER='nvim -c ASMANPAGER -'
-manpath=(/opt/homebrew/opt/coreutils/libexec/gnuman(N-/) /usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman(N-/) $manpath)
-path=(/opt/cuda/bin(N-/) $HOME/.rye/shims(N-/) $HOME/neovim/bin(N-/) /usr/local/opt/mysql-client/bin(N-/) /usr/local/sbin(N-/) $HOME/.ghcup/bin(N-/) ${KREW_ROOT:-$HOME/.krew}/bin(N-/) $HOME/.nimble/bin(N-/) $DENO_BIN(N-/) $LUAROCKS_HOME/bin(N-/) $GOPATH/bin(N-/) $CARGO_HOME/bin(N-/) $HOME/.local/bin(N-/) $GEM_HOME/bin(N-/) /opt/homebrew/opt/mysql-client/bin(N-/) $path)
-fpath=(/opt/homebrew/share/zsh/site-functions(N-/) $fpath)
+manpath=(/opt/homebrew/opt/curl/share/man /opt/homebrew/opt/coreutils/share/man(N-/) /usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman(N-/) $manpath)
+path=(/opt/homebrew/opt/curl/bin(N-/) /opt/cuda/bin(N-/) $HOME/.rye/shims(N-/) $HOME/neovim/bin(N-/) /usr/local/opt/mysql-client/bin(N-/) /usr/local/sbin(N-/) $HOME/.ghcup/bin(N-/) ${KREW_ROOT:-$HOME/.krew}/bin(N-/) $HOME/.nimble/bin(N-/) $DENO_BIN(N-/) $LUAROCKS_HOME/bin(N-/) $GOPATH/bin(N-/) $CARGO_HOME/bin(N-/) $HOME/.local/bin(N-/) $GEM_HOME/bin(N-/) /opt/homebrew/opt/mysql-client/bin(N-/) $path)
+fpath=(/opt/homebrew/opt/curl/share/zsh/site-functions(N-/) /opt/homebrew/share/zsh/site-functions(N-/) $fpath)
 
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
