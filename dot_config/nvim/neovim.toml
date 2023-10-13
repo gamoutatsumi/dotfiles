@@ -166,3 +166,6 @@ require("translate").setup {
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
 hooks_file = ["$BASE_DIR/dein/indent_blankline.lua"]
+
+[[plugins]]
+repo = 'sindrets/diffview.nvim'

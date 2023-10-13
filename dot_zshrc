@@ -262,6 +262,7 @@ alias vim='nvim'
 alias vi='vim'
 alias v='vi'
 alias vimdiff='nvim -d'
+alias vimmerge='nvim -c vnew -c "windo diffthis" -c "setl scrollbind" -c "windo setl buftype=nofile"'
 
 # dotfiles
 alias dot='cd ~/.local/share/chezmoi'
