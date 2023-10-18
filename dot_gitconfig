@@ -46,6 +46,8 @@
   plus-style = syntax "#012800"
   minus-style = syntax "#340001"
   hunk-header-style = file line-number
+  side-by-side = true
+  tabs = 0
 [delta "interactive"]
   keep-plus-minus-markers = false
 [credential "https://github.com"]

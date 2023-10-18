@@ -127,12 +127,14 @@ KeyBind:
         - "PageUp"
         - "b"
         - "alt+v"
+        - "ctrl+b"
     page_down:
         - "PageDown"
         - "ctrl+v"
         - "alt+space"
         - "f"
         - "z"
+        - "ctrl+f"
     page_half_up:
         - "u"
         - "ctrl+u"
