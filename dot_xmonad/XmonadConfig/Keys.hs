@@ -93,8 +93,8 @@ myAdditionalKeysP =
     ("M-b", namedScratchpadAction myScratchpads "sidekick"),
     ("M-y", namedScratchpadAction myScratchpads "mpsyt"),
     -- Volume setting media keys
-    ("<XF86AudioRaiseVolume>", spawn "$HOME/.xmonad/changeVolume +5%"),
-    ("<XF86AudioLowerVolume>", spawn "$HOME/.xmonad/changeVolume -5%"),
+    ("<XF86AudioRaiseVolume>", spawn "$HOME/.xmonad/changeVolume +1%"),
+    ("<XF86AudioLowerVolume>", spawn "$HOME/.xmonad/changeVolume -1%"),
     ("<XF86AudioMute>", spawn "$HOME/.xmonad/changeVolume mute"),
     ("<XF86AudioMicMute>", spawn "$HOME/.xmonad/toggleMicMute"),
     ("S-<XF86AudioMute>", spawn "$HOME/.xmonad/toggleMicMute"),
