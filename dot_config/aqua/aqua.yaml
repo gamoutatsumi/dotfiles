@@ -27,7 +27,7 @@ packages:
   - name: google/ko@v0.15.0
   - name: ducaale/xh@v0.19.4
   - name: itchyny/gojq@v0.12.13
-  - name: dagger/dagger@v0.9.1
+  - name: dagger/dagger@v0.9.2
   - name: kubernetes-sigs/kubebuilder@v3.12.0
   - name: helm/helm@v3.13.1
   - name: yannh/kubeconform@v0.6.3
