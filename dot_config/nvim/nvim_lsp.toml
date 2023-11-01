@@ -46,3 +46,9 @@ on_event = ["LspAttach"]
 lua_post_source = '''
 require('fidget').setup {}
 '''
+
+[[plugins]]
+repo = 'VidocqH/lsp-lens.nvim'
+lua_post_source = '''
+require('lsp-plpost_solens').setup()
+'''
