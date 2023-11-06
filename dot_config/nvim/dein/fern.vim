@@ -11,7 +11,6 @@ let g:fern_disable_startup_warnings=1
 nnoremap <silent> <C-e> <cmd>Fern . -drawer -reveal=%:p -toggle<CR>
 nnoremap <silent> <Plug>(fern-close-drawer) <cmd>FernDo close -drawer -stay<CR>
 " }}}
-
 " fern {{{
 nmap <buffer><silent><nowait> <Plug>(fern-action-open-and-close) <Plug>(fern-action-open:select)<Plug>(fern-close-drawer)
 nmap <buffer><silent><nowait><expr> <Plug>(fern-expand-or-collapse) fern#smart#leaf("<Plug>(fern-action-collapse)", "<Plug>(fern-action-expand)", "<Plug>(fern-action-collapse)")

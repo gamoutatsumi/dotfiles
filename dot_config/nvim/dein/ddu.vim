@@ -264,7 +264,6 @@ command! Dein call ddu#start(#{
 call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
 call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 " }}}
-
 " ddu-ff {{{
 nnoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("itemAction")<CR>
 nnoremap <buffer> <Space> <Cmd>call ddu#ui#do_action("toggleSelectItem")<CR>
@@ -277,12 +276,10 @@ nnoremap <buffer> l <Cmd>call ddu#ui#filer#do_action('expandItem')<CR>
 nnoremap <buffer> h <Cmd>call ddu#ui#filer#do_action('collapseItem')<CR>
 setlocal cursorline
 " }}}
-
 " ddu-ff-filter {{{
 inoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR><Esc>
 nnoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("closeFilterWindow")<CR>
 " }}}
-
 " ddu-filer {{{
 nnoremap <buffer><silent> <CR>
       \ <Cmd>call ddu#ui#filer#do_action('itemAction')<CR>

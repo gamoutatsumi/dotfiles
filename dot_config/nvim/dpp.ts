@@ -110,8 +110,6 @@ export class Config extends BaseConfig {
       },
     ) as LazyMakeStateResult;
 
-    console.log(lazyResult.plugins)
-
     return {
       checkFiles: await fn.globpath(
         args.denops,

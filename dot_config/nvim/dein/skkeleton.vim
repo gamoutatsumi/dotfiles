@@ -1,7 +1,6 @@
 " hook_source {{{
 call skkeleton#initialize()
 " }}}
-
 " hook_add {{{
 let g:skkeleton#mode = ''
 imap <C-j> <Plug>(skkeleton-toggle)
