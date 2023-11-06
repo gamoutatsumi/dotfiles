@@ -121,13 +121,6 @@ repo = 'tweekmonster/helpful.vim'
 on_cmd = ['HelpfulVersion']
 
 [[plugins]]
-repo = 'tyru/capture.vim'
-hook_add = '''
-cnoremap <C-c> <Home>Capture <CR>
-'''
-on_cmd = ['Capture']
-
-[[plugins]]
 repo = 'reireias/vim-cheatsheet'
 on_cmd = ['Cheat']
 

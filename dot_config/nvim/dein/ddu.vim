@@ -254,12 +254,16 @@ nnoremap <silent> ;gs <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>    \ })
-" dein.vim
-command! Dein call ddu#start(#{
+command -nargs=1 Capture call ddu#start(#{
       \ sources: [#{
-      \   name: 'dein',
-      \ }],
-      \ })
+      \   name: 'output',
+      \   params: #{
+      \     command: <q-args>
+      \   }
+      \ }]
+      \})
+
+cnoremap <C-c> <Home>Capture <CR>
 
 call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
 call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))

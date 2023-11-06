@@ -88,3 +88,9 @@ repo = 'Shougo/ddu-filter-matcher_relative'
 
 [[plugins]]
 repo = 'gamoutatsumi/ddu-filter-converter_relativepath'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-output'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-word'
