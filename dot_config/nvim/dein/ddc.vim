@@ -33,9 +33,6 @@ endfunction
 nnoremap :       <Cmd>call <SID>commandlinePre()<CR>:
 nnoremap /       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 1 })<CR>
 nnoremap ?       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 0 })<CR>
-" }}}
-
-" hook_post_source {{{
 " pum.vim
 imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<TAB>'
 imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1)<CR>'

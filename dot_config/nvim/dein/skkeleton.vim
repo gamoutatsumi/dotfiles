@@ -18,7 +18,7 @@ function s:skkeleton_init_kanatable() abort
         \ })
 endfunction
 function s:skkeleton_init() abort
-  let s:dictPath = dein#get('dict').path
+  let s:dictPath = dpp#get('dict').rtp
   call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,

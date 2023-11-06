@@ -1,4 +1,4 @@
-" hook_post_source {{{
+" hook_add {{{
 let g:lexima_map_escape = '<Plug>(lexima-escape)'
 let g:lexima_no_default_rules = v:true
 let g:lexima_accept_pum_with_enter = 0

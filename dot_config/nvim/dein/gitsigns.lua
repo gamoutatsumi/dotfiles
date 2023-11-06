@@ -1,4 +1,4 @@
--- lua_post_source {{{
+-- lua_add {{{
 require('gitsigns').setup {
   current_line_blame = true,
   current_line_blame_opts = {

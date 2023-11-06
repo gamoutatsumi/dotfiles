@@ -1,4 +1,4 @@
--- lua_post_source {{{
+-- lua_add {{{
 local util = require("lspconfig/util")
 local lspconfig = require("lspconfig")
 local mason = require("mason")

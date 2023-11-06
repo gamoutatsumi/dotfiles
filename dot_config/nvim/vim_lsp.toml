@@ -40,7 +40,7 @@ repo = 'mattn/vim-lsp-settings'
 [[plugins]]
 repo = 'shun/ddc-vim-lsp'
 on_source = ['ddc.vim']
-hook_post_source = '''
+hook_add = '''
   call ddc#custom#patch_global('sources', ['vim-lsp', 'file', 'vsnip', 'emoji', 'around'])
   call ddc#custom#patch_global('sourceOptions', {
   \ 'vim-lsp': { 

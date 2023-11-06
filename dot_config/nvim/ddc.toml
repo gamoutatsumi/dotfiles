@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
-hook_post_source = '''
+hook_add = '''
   call popup_preview#enable()
 '''
 

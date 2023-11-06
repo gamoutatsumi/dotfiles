@@ -1,8 +1,3 @@
-" hook_post_source {{{
-call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
-call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
-" }}}
-
 " hook_add {{{
 " ddu-source-lsp
 function s:lsp_attach() abort
@@ -237,33 +232,6 @@ nnoremap <silent> ;h <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-" ddu-source-dein_update
-command! DeinUpdate call ddu#start(#{
-      \ sources: [#{
-      \   name: 'dein_update',
-      \   params: #{
-      \     useGraphQL: v:true
-      \   },
-      \ }], 
-      \ uiParams: #{
-      \   ff: #{
-      \    autoAction: #{ name: 'preview' },
-      \   },
-      \ }
-      \ })
-command! DeinUpdateAll call ddu#start(#{ 
-      \ sources: [#{ 
-      \   name: 'dein_update',
-      \   params: #{
-      \     useGraphQL: v:false
-      \   }
-      \ }],
-      \ uiParams: #{
-      \   ff: #{
-      \    autoAction: #{ name: 'preview' },
-      \   },
-      \ }
-      \ })
 " ddu-source-git_diff
 nnoremap <silent> ;gd <Cmd>call ddu#start(#{
       \ sources: [#{
@@ -292,6 +260,9 @@ command! Dein call ddu#start(#{
       \   name: 'dein',
       \ }],
       \ })
+
+call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
+call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
 " }}}
 
 " ddu-ff {{{

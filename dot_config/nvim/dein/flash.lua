@@ -1,4 +1,4 @@
---- lua_post_source {{{
+--- lua_add {{{
 local flash = require("flash")
 local mode = {"n", "x", "o"}
 --- }}}

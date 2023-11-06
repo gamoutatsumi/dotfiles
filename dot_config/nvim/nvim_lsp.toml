@@ -18,8 +18,6 @@ hook_source = '''
 
 [[plugins]]
 repo='ray-x/go.nvim'
-lua_post_source = '''
-'''
 
 [[plugins]]
 repo = 'yioneko/nvim-vtsls'
@@ -32,7 +30,7 @@ repo = 'jose-elias-alvarez/typescript.nvim'
 
 [[plugins]]
 repo = 'hrsh7th/nvim-gtd'
-lua_post_source = '''
+lua_add = '''
 require('gtd').setup({})
 '''
 
@@ -43,12 +41,12 @@ repo = 'b0o/schemastore.nvim'
 repo = 'j-hui/fidget.nvim'
 rev = 'legacy'
 on_event = ["LspAttach"]
-lua_post_source = '''
+lua_add = '''
 require('fidget').setup {}
 '''
 
 [[plugins]]
 repo = 'VidocqH/lsp-lens.nvim'
-lua_post_source = '''
+lua_add = '''
 require('lsp-lens').setup()
 '''

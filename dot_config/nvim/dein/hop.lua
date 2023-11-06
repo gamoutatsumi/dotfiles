@@ -1,9 +1,6 @@
--- lua_post_source {{{
-require 'hop'.setup()
--- }}}
-
 -- lua_add {{{
 local hop = require 'hop'
+hop.setup()
 local directions = require('hop.hint').HintDirection
 local opts = { remap = true }
 vim.keymap.set({ 'v', 'n' }, 'gff', function()

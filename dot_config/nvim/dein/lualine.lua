@@ -1,4 +1,4 @@
--- lua_post_source {{{
+-- lua_add {{{
 local function skkstatus()
   local alias = { [''] = 'A', hira = 'あ', kata = 'ア', hankata = 'ｱ', zenkaku = "Ａ", abbrev = '@' }
   return alias[vim.g['skkeleton#mode']]
