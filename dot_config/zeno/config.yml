@@ -137,7 +137,7 @@ snippets:
       lbuffer: '.+\s+'
   - name: pipe grep
     keyword: "G"
-    snippet: "| rg --json '{{pattern}}' | delta"
+    snippet: "| rg '{{pattern}}'"
     context:
       lbuffer: '\s*'
   - name: pipe head
@@ -181,9 +181,6 @@ snippets:
   - name: git switch create
     keyword: gswc
     snippet: git switch -c {{branch}}
-  - name: rg pipe to delta
-    keyword: rg
-    snippet: 'rg --json "{{pattern}}" | delta'
 
 completions:
   - name: kill
