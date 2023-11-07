@@ -9,7 +9,11 @@ function source {
 }
 function ensure_zcompiled {
   local compiled="$1.zwc"
-  if [[ ! -r "$compiled" || "$1" -nt "$compiled" ]]; then
+  local target="$1"
+  if [[ -L "$1" ]]; then
+    target=$(readlink "$1")
+  fi
+  if [[ ! -r "$compiled" || "$target" -nt "$compiled" ]]; then
     echo "Compiling $1"
     zcompile $1
   fi
