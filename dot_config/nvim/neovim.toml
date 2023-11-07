@@ -94,7 +94,8 @@ require('tint').setup {}
 
 [[plugins]]
 repo = 'uga-rosa/ccc.nvim'
-lua_add = '''
+on_ft = ["css", "html"]
+lua_post_source = '''
 require('ccc').setup {}
 '''
 
