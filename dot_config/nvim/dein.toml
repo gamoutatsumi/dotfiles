@@ -104,11 +104,11 @@ repo = 'tpope/vim-dadbod'
 
 [[plugins]]
 repo = 'skk-dev/dict'
-if = 0
+if = false
 
 [[plugins]]
 repo = 'tani/vim-artemis'
-if = 0
+if = false
 
 [[plugins]]
 repo = 'github/copilot.vim'
