@@ -1,7 +1,7 @@
-deno   1.38.0
-nodejs lts
-java   system
-python system
-ruby   system
-neovim ref:master
-bun    1.0.11
+deno        1.38.0
+nodejs      lts
+java        system
+python      system
+ruby        system
+neovim      ref:master
+bun         1.0.11
