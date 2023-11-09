@@ -65,7 +65,7 @@ function s:lsp_attach() abort
         \ sources: [#{ 
         \   name: 'lsp_definition', 
         \   params: #{
-        \     method: 'text document/implementation'
+        \     method: 'textDocument/implementation'
         \   }
         \ }],
         \ uiParams: #{
