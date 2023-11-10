@@ -21,18 +21,18 @@ repo = 'folke/which-key.nvim'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-hooks_file = '$BASE_DIR/dein/gitsigns.lua'
+hooks_file = '$BASE_DIR/dpp/gitsigns.lua'
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hooks_file = '$BASE_DIR/dein/lualine.lua'
+hooks_file = '$BASE_DIR/dpp/lualine.lua'
 
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
-hooks_file = "$BASE_DIR/dein/barbar.vim"
+hooks_file = "$BASE_DIR/dpp/barbar.vim"
 
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'
@@ -42,7 +42,7 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'phaazon/hop.nvim'
-hooks_file = '$BASE_DIR/dein/hop.lua'
+hooks_file = '$BASE_DIR/dpp/hop.lua'
 
 # [[plugins]]
 # repo = 'b3nj5m1n/kommentary'
@@ -112,11 +112,11 @@ repo = 'folke/noice.nvim'
 lazy = 1
 on_event = ["VimEnter"]
 depends = ['nui.nvim', 'nvim-notify']
-hooks_file = "$BASE_DIR/dein/noice.lua"
+hooks_file = "$BASE_DIR/dpp/noice.lua"
 
 [[plugins]]
 repo = 'monaqa/dial.nvim'
-hooks_file = ['$BASE_DIR/dein/dial.lua']
+hooks_file = ['$BASE_DIR/dpp/dial.lua']
 
 [[plugins]]
 repo = 'ray-x/guihua.lua'
@@ -129,11 +129,11 @@ require('gitlinker').setup()
 
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
-hooks_file = '$BASE_DIR/dein/aerial.lua'
+hooks_file = '$BASE_DIR/dpp/aerial.lua'
 
 # [[plugins]]
 # repo = 'folke/flash.nvim'
-# hooks_file = '$BASE_DIR/dein/flash.lua'
+# hooks_file = '$BASE_DIR/dpp/flash.lua'
 
 [[plugins]]
 repo = 'tani/podium'
@@ -150,7 +150,7 @@ end, {})
 
 [[plugins]]
 repo = 'lewis6991/hover.nvim'
-hooks_file = ['$BASE_DIR/dein/hover.lua']
+hooks_file = ['$BASE_DIR/dpp/hover.lua']
 
 [[plugins]]
 repo = 'uga-rosa/translate.nvim'
@@ -166,11 +166,11 @@ require("translate").setup {
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
-hooks_file = ["$BASE_DIR/dein/indent_blankline.lua"]
+hooks_file = ["$BASE_DIR/dpp/indent_blankline.lua"]
 
 [[plugins]]
 repo = 'sindrets/diffview.nvim'
 
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
-hooks_file = ['$BASE_DIR/dein/comment.lua']
+hooks_file = ['$BASE_DIR/dpp/comment.lua']

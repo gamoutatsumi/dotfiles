@@ -9,7 +9,7 @@ repo = 'gamoutatsumi/dps-ghosttext.vim'
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
-hooks_file = '$BASE_DIR/dein/skkeleton.vim'
+hooks_file = '$BASE_DIR/dpp/skkeleton.vim'
 
 [[plugins]]
 repo = 'gamoutatsumi/gyazoupload.vim'

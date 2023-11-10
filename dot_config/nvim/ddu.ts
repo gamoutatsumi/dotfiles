@@ -28,9 +28,6 @@ export class Config extends BaseConfig {
         git_diff: {
           converters: [],
         },
-        dein_update: {
-          matchers: ["matcher_dein_update"],
-        },
         lsp_references: {
           converters: ["converter_lsp_symbol"],
         },
@@ -52,7 +49,6 @@ export class Config extends BaseConfig {
         lsp_diagnostic: {
           converters: ["converter_lsp_diagnostic"],
         },
-        dein: { defaultAction: "update" },
       },
       uiParams: {
         ff: {
@@ -99,9 +95,6 @@ export class Config extends BaseConfig {
         },
         action: {
           defaultAction: "do",
-        },
-        dein_update: {
-          defaultAction: "viewDiff",
         },
         lsp_codeAction: {
           defaultAction: "apply",

@@ -42,9 +42,8 @@ export class Config extends BaseConfig {
 
     for (
       const toml of [
-        "$BASE_DIR/dein.toml",
         "$BASE_DIR/dpp.toml",
-        "$BASE_DIR/dein_lazy.toml",
+        "$BASE_DIR/dpp_lazy.toml",
         "$BASE_DIR/denops.toml",
         "$BASE_DIR/ddc.toml",
         "$BASE_DIR/ddu.toml",

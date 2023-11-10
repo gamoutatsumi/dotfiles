@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hooks_file = '$BASE_DIR/dein/treesitter.lua'
+hooks_file = '$BASE_DIR/dpp/treesitter.lua'
 
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'
@@ -13,7 +13,7 @@ repo = 'nvim-treesitter/nvim-treesitter-textobjects'
 
 [[plugins]]
 repo = 'https:gitlab.com/HiPhish/rainbow-delimiters.nvim'
-hooks_file = '$BASE_DIR/dein/rainbow.lua'
+hooks_file = '$BASE_DIR/dpp/rainbow.lua'
 
 [[plugins]]
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'

@@ -9,7 +9,7 @@ repo = 'uga-rosa/ddc-nvim-lsp-setup'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-hooks_file = '$BASE_DIR/dein/ddc.vim'
+hooks_file = '$BASE_DIR/dpp/ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
@@ -31,7 +31,7 @@ repo = 'LumaKernel/ddc-source-file'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-hooks_file = '$BASE_DIR/dein/pum.vim'
+hooks_file = '$BASE_DIR/dpp/pum.vim'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'

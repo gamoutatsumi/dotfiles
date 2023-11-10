@@ -7,11 +7,7 @@ function! s:check_large_file() abort
 
   if fsize > max_file_size
     if input(printf('"%s" is too large file.(%s lines, %s byte) Continue? [y/N]', @%, line_num, fsize)) !~? '^y\%[es]$'
-      if dein#tap('vim-bbye')
-        Bwipeout
-      else
-        bwipeout
-      endif
+      bwipeout
       return
     else
       syntax off

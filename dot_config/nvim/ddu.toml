@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-hooks_file = '$BASE_DIR/dein/ddu.vim'
+hooks_file = '$BASE_DIR/dpp/ddu.vim'
 
 [[plugins]]
 repo = 'Shougo/ddu-ui-ff'
@@ -70,9 +70,6 @@ repo = 'uga-rosa/ddu-filter-converter_devicon'
 
 [[plugins]]
 repo = 'Shougo/ddu-source-action'
-
-[[plugins]]
-repo = 'matsui54/ddu-source-dein_update'
 
 [[plugins]]
 repo = 'kuuote/ddu-source-git_diff'
