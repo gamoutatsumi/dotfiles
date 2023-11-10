@@ -17,11 +17,7 @@ export class Config extends BaseConfig {
   }): Promise<ConfigReturn> {
     const hasNvim = args.denops.meta.host === "nvim";
     args.contextBuilder.setGlobal({
-      extParams: {
-        installer: {
-          checkDiff: true,
-        },
-      },
+      extParams: {},
       protocols: ["git"],
     });
 
