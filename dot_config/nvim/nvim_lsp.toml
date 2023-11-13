@@ -37,16 +37,16 @@ require('gtd').setup({})
 [[plugins]]
 repo = 'b0o/schemastore.nvim'
 
-# [[plugins]]
-# repo = 'j-hui/fidget.nvim'
-# rev = 'legacy'
-# on_event = ["LspAttach"]
-# lua_add = '''
-# require('fidget').setup {}
-# '''
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+rev = 'legacy'
+on_event = ["LspAttach"]
+lua_add = '''
+require('fidget').setup {}
+'''
 
-# [[plugins]]
-# repo = 'VidocqH/lsp-lens.nvim'
-# lua_add = '''
-# require('lsp-lens').setup()
-# '''
+[[plugins]]
+repo = 'VidocqH/lsp-lens.nvim'
+lua_add = '''
+require('lsp-lens').setup()
+'''
