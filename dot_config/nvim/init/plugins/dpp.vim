@@ -1,13 +1,7 @@
 const s:dpp_dir = stdpath('data') .. '/dpp'
 
-" let g:dein#install_github_api_token = $GITHUB_API_TOKEN
-" let g:dein#install_progress_type = 'floating'
-
 function InitPlugin(plugin)
-  " Search from ~/work directory
-  " Search from $CACHE directory
   let dir = s:dpp_dir .. '/repos/github.com/' .. a:plugin
-  " Install plugin automatically.
   if !(dir->isdirectory())
     execute '!git clone https://github.com/' .. a:plugin dir
   endif
@@ -42,4 +36,4 @@ else
   augroup END
 endif
 
-command DppUpdate call dpp#async_ext_action('installer', 'update')
+command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')

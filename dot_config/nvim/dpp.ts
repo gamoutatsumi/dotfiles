@@ -17,7 +17,11 @@ export class Config extends BaseConfig {
   }): Promise<ConfigReturn> {
     const hasNvim = args.denops.meta.host === "nvim";
     args.contextBuilder.setGlobal({
-      extParams: {},
+      extParams: {
+        installer: {
+          githubAPIToken: Deno.env.get("GITHUB_API_TOKEN"),
+        },
+      },
       protocols: ["git"],
     });
 
