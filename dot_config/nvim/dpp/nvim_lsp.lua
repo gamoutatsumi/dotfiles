@@ -55,18 +55,18 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
   if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.inlay_hint(bufnr, true)
+    vim.lsp.inlay_hint.enable(bufnr, true)
     setInlayHintHL()
     vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
       buffer = bufnr,
       callback = function()
-        vim.lsp.inlay_hint(bufnr, false)
+        vim.lsp.inlay_hint.enable(bufnr, false)
       end,
     })
     vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
       buffer = bufnr,
       callback = function()
-        vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(bufnr, true)
       end,
     })
   end
@@ -181,7 +181,8 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
       yaml = {
         schemas = {
           ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-          ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.24.3-standalone-strict/all.json"] = "/*.k8s.yaml",
+          ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.24.3-standalone-strict/all.json"] =
+          "/*.k8s.yaml",
         },
       },
     }
@@ -214,44 +215,46 @@ if vim.fn.executable("deno") then
   lspconfig.denols.setup({
     on_attach = on_attach,
     autostart = not is_node_repo,
-    init_options = {
-      suggest = {
-        completeFunctionCalls = true,
-        autoImports = false,
-        imports = {
-          hosts = {
-            ["https://deno.land"] = true,
+    settings = {
+      typescript = {
+        suggest = {
+          completeFunctionCalls = true,
+          autoImports = false,
+          imports = {
+            hosts = {
+              ["https://deno.land"] = true,
+            },
           },
         },
-      },
-      lint = true,
-      unstable = true,
-      editor = {
+        lint = true,
+        unstable = true,
+        editor = {
+          inlayHints = {
+            enabled = true
+          }
+        },
         inlayHints = {
-          enabled = true
+          parameterNames = {
+            enabled = "all"
+          },
+          variableTypes = {
+            enabled = true
+          },
+          propertyDeclarationTypes = {
+            enabled = true
+          },
+          functionLikeReturnTypes = {
+            enabled = true
+          },
+          enumMemberValues = {
+            enabled = true
+          },
+          parameterTypes = {
+            enabled = true
+          }
         }
       },
-      inlayHints = {
-        parameterNames = {
-          enabled = "all"
-        },
-        variableTypes = {
-          enabled = true
-        },
-        propertyDeclarationTypes = {
-          enabled = true
-        },
-        functionLikeReturnTypes = {
-          enabled = true
-        },
-        enumMemberValues = {
-          enabled = true
-        },
-        parameterTypes = {
-          enabled = true
-        }
-      }
-    },
+    }
   })
 end
 

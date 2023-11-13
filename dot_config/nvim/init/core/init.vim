@@ -66,4 +66,4 @@ runtime init/core/keys.vim
 syntax on
 
 command! ToggleNum set rnu!
-command! InlayHintToggle lua vim.lsp.inlay_hint(0)
+command! InlayHintToggle lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
