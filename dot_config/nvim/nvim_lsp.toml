@@ -45,8 +45,8 @@ repo = 'b0o/schemastore.nvim'
 # require('fidget').setup {}
 # '''
 
-[[plugins]]
-repo = 'VidocqH/lsp-lens.nvim'
-lua_add = '''
-require('lsp-lens').setup()
-'''
+# [[plugins]]
+# repo = 'VidocqH/lsp-lens.nvim'
+# lua_add = '''
+# require('lsp-lens').setup()
+# '''

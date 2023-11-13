@@ -33,20 +33,6 @@ let g:loaded_node_provider = 0
 let g:loaded_python3_provider = 0
 let $BASE_DIR = join([$XDG_CONFIG_HOME, $NVIM_APPNAME ?? 'nvim'], '/')
 
-lua << EOF
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.clipboard.osc52').copy,
-    ['*'] = require('vim.clipboard.osc52').copy,
-  },
-  paste = {
-    ['+'] = require('vim.clipboard.osc52').paste,
-    ['*'] = require('vim.clipboard.osc52').paste,
-  },
-}
-EOF
-
 augroup MyAutoCmd
 autocmd!
 augroup END
