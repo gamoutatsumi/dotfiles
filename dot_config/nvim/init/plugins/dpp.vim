@@ -37,3 +37,4 @@ else
 endif
 
 command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')
+command DppUpdateAll call dpp#async_ext_action('installer', 'update')
