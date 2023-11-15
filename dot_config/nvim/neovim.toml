@@ -32,7 +32,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
-hooks_file = "$BASE_DIR/dpp/barbar.vim"
+hooks_file = ["$BASE_DIR/dpp/barbar.vim", "$BASE_DIR/dpp/barbar.lua"]
 
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'

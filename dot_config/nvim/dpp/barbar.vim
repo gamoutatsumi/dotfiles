@@ -12,18 +12,4 @@ nnoremap <silent> <A-6> :BufferGoto 6<CR>
 nnoremap <silent> <A-7> :BufferGoto 7<CR>
 nnoremap <silent> <A-8> :BufferGoto 8<CR>
 nnoremap <silent> <A-9> :BufferLast<CR>
-lua << EOF
-require('barbar').setup({
-  icons = {
-    diagnostics = {
-      [vim.diagnostic.severity.ERROR] = {
-        enabled = true
-      },
-      [vim.diagnostic.severity.WARN] = {
-        enabled = true
-      }
-    }
-  }
-})
-EOF
 " }}}
