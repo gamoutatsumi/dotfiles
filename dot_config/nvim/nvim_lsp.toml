@@ -39,7 +39,6 @@ repo = 'b0o/schemastore.nvim'
 
 [[plugins]]
 repo = 'j-hui/fidget.nvim'
-rev = 'legacy'
 on_event = ["LspAttach"]
 lua_add = '''
 require('fidget').setup {}
