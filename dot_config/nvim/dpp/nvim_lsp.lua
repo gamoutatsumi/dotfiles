@@ -191,6 +191,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     }
   elseif server == "efm" then
     opts.autostart = not is_deno_repo
+    opts.cmd = { "efm-langserver", "-q" }
     opts.init_options = {
       documentFormatting = true,
       rangeFormatting = true,
