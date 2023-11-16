@@ -54,6 +54,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
+  if client.supports_method("textDocument/hover") then
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  end
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint.enable(bufnr, true)
     setInlayHintHL()
