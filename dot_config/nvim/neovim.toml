@@ -44,15 +44,6 @@ repo = 'nvim-lua/plenary.nvim'
 repo = 'phaazon/hop.nvim'
 hooks_file = '$BASE_DIR/dpp/hop.lua'
 
-# [[plugins]]
-# repo = 'b3nj5m1n/kommentary'
-# lua_post_source = '''
-# require('kommentary.config').configure_language("typescriptreact", {
-#   single_line_comment_string = "//",
-#   multi_line_comment_strings = {"{/*", "*/}"}
-# })
-# '''
-
 [[plugins]]
 repo = 'kwkarlwang/bufresize.nvim'
 
