@@ -24,7 +24,7 @@ packages:
   - name: hashicorp/vault@v1.15.2
   - name: XAMPPRocky/tokei@v12.1.2
   - name: google/go-jsonnet@v0.20.0
-  - name: google/ko@v0.15.0
+  - name: google/ko@v0.15.1
   - name: ducaale/xh@v0.19.4
   - name: itchyny/gojq@v0.12.13
   - name: dagger/dagger@v0.9.3
