@@ -59,6 +59,7 @@ export class Config extends BaseConfig {
           floatingBorder: "rounded",
           previewFloating: true,
           previewWidth: "round(floor(&columns * 0.8) / 2)",
+          previewHeight: "floor(&lines * 0.8)",
           previewFloatingTitle: "Preview",
           previewFloatingZindex: 55,
           previewFloatingBorder: "rounded",

@@ -32,7 +32,7 @@ if dpp#min#load_state(s:dpp_dir)
   augroup END
 else
   augroup MyAutoCmd
-    autocmd BufWritePost *.lua,*.vim,*.toml,*.ts,vimrc,.vimrc call dpp#check_files()
+    autocmd BufWritePost *.lua,*.vim,*.toml,*.ts,vimrc,.vimrc call dpp#check_files() | call dpp#make_state()
   augroup END
 endif
 
