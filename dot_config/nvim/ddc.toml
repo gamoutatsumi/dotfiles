@@ -1,6 +1,7 @@
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
-hook_add = '''
+on_source = 'ddc.vim'
+hook_post_source = '''
   call popup_preview#enable()
 '''
 
@@ -9,32 +10,41 @@ repo = 'uga-rosa/ddc-nvim-lsp-setup'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
 hooks_file = '$BASE_DIR/dpp/ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'LumaKernel/ddc-source-file'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
 hooks_file = '$BASE_DIR/dpp/pum.vim'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
+on_source = 'ddc.vim'
 hook_add = '''
   let g:vsnip_snippet_dirs = get(g:, 'vsnip_snippet_dirs', [])
   let g:vsnip_snippet_dirs += [join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')]
@@ -46,18 +56,22 @@ merged = 0
 
 [[plugins]]
 repo = 'uga-rosa/ddc-source-vsnip'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-omni'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'kristijanhusak/vim-dadbod-completion'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-nvim-lsp'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'yuki-yano/tsnip.nvim'
+on_source = 'ddc.vim'
 if = "has('nvim')"
 hook_add = '''
   let g:tsnip_snippet_dir = $HOME .. '/.config/nvim/tsnip'
@@ -65,18 +79,24 @@ hook_add = '''
 
 [[plugins]]
 repo = 'gamoutatsumi/ddc-sorter_ascii'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline-history'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-filter-converter_truncate_abbr'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-filter-converter_remove_overlap'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-copilot'
+on_source = 'ddc.vim'

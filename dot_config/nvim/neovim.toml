@@ -1,11 +1,9 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
-lua_add = '''
+on_event = 'VimEnter'
+lua_post_source = '''
 require('registers').setup {}
 '''
-
-[[plugins]]
-repo = 'folke/which-key.nvim'
 
 # [[plugins]]
 # repo = 'kevinhwang91/nvim-hlslens'
@@ -21,34 +19,43 @@ repo = 'folke/which-key.nvim'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
+lazy = false
 hooks_file = '$BASE_DIR/dpp/gitsigns.lua'
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
+lazy = false
 hooks_file = '$BASE_DIR/dpp/lualine.lua'
 
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
+lazy = false
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
+lazy = false
 hooks_file = ["$BASE_DIR/dpp/barbar.vim", "$BASE_DIR/dpp/barbar.lua"]
 
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'
+lazy = false
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
+lazy = false
 
 [[plugins]]
 repo = 'phaazon/hop.nvim'
+lazy = false
 hooks_file = '$BASE_DIR/dpp/hop.lua'
 
 [[plugins]]
 repo = 'kwkarlwang/bufresize.nvim'
+lazy = false
 
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
+lazy = false
 lua_add = '''
 require('tmux').setup({
   navigation = {
@@ -62,12 +69,15 @@ require('tmux').setup({
 
 [[plugins]]
 repo = 'MunifTanjim/nui.nvim'
+on_event = ["VimEnter"]
 
 [[plugins]]
 repo = 'zah/nim.vim'
+lazy = false
 
 [[plugins]]
 repo = 'gamoutatsumi/orgmode'
+lazy = false
 rev = 'feature/support-emacsclient'
 lua_add = '''
 require('orgmode').setup_ts_grammar()
@@ -79,6 +89,7 @@ require('orgmode').setup {
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
+lazy = false
 lua_add = '''
 require('tint').setup {}
 '''
@@ -92,7 +103,8 @@ require('ccc').setup {}
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
-lua_add = '''
+on_event = ["VimEnter"]
+lua_post_source = '''
   require('notify').setup {
     background_colour = "#000000",
   }
@@ -100,34 +112,34 @@ lua_add = '''
 
 [[plugins]]
 repo = 'folke/noice.nvim'
-lazy = 1
 on_event = ["VimEnter"]
 depends = ['nui.nvim', 'nvim-notify']
 hooks_file = "$BASE_DIR/dpp/noice.lua"
 
 [[plugins]]
 repo = 'monaqa/dial.nvim'
+lazy = false
 hooks_file = ['$BASE_DIR/dpp/dial.lua']
 
 [[plugins]]
 repo = 'ray-x/guihua.lua'
+lazy = false
 
 [[plugins]]
 repo = 'ruifm/gitlinker.nvim'
+lazy = false
 lua_add = '''
 require('gitlinker').setup()
 '''
 
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
+lazy = false
 hooks_file = '$BASE_DIR/dpp/aerial.lua'
-
-# [[plugins]]
-# repo = 'folke/flash.nvim'
-# hooks_file = '$BASE_DIR/dpp/flash.lua'
 
 [[plugins]]
 repo = 'tani/podium'
+lazy = false
 lua_add = '''
 vim.api.nvim_create_user_command("Podium", function()
   local podium = require("podium")
@@ -141,6 +153,7 @@ end, {})
 
 [[plugins]]
 repo = 'uga-rosa/translate.nvim'
+lazy = false
 lua_add = '''
 require("translate").setup {
    default = {
@@ -153,11 +166,14 @@ require("translate").setup {
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
+lazy = false
 hooks_file = ["$BASE_DIR/dpp/indent_blankline.lua"]
 
 [[plugins]]
 repo = 'sindrets/diffview.nvim'
+lazy = false
 
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
+lazy = false
 hooks_file = ['$BASE_DIR/dpp/comment.lua']

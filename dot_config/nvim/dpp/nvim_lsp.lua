@@ -16,8 +16,6 @@ local is_deno_repo = util.search_ancestors(buf_name, function(path)
   end
 end) ~= nil
 
-require("ddc_nvim_lsp_setup").setup {}
-
 local function setInlayHintHL()
   local has_hl, hl = pcall(vim.api.nvim_get_hl, 0, { name = 'LspInlayHint' })
   if has_hl and (hl['fg'] or hl['bg']) then

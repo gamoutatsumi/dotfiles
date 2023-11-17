@@ -1,18 +1,23 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+on_event = ['BufRead', 'CursorHold']
 
 [[plugins]]
 repo = 'vim-denops/denops-shared-server.vim'
 
 [[plugins]]
 repo = 'gamoutatsumi/dps-ghosttext.vim'
+depends = 'denops.vim'
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 hooks_file = '$BASE_DIR/dpp/skkeleton.vim'
+on_map = { ict = '<Plug>(skkeleton-toggle)' }
+on_event = 'CursorHold'
 
 [[plugins]]
 repo = 'gamoutatsumi/gyazoupload.vim'
+depends = 'denops.vim'
 hook_add = '''
   let g:gyazo#token=$GYAZO_TOKEN
 '''
@@ -20,31 +25,35 @@ hook_add = '''
 [[plugins]]
 repo = 'kat0h/bufpreview.vim'
 build = 'deno task prepare'
-
-[[plugins]]
-repo = 'skanehira/denops-docker.vim'
+depends = 'denops.vim'
 
 [[plugins]]
 repo = 'yuki-yano/fuzzy-motion.vim'
+depends = 'denops.vim'
 hook_add = '''
   nnoremap gfs <Cmd>FuzzyMotion<CR>
 '''
 
 [[plugins]]
 repo = 'lambdalisue/gin.vim'
+depends = 'denops.vim'
 
 [[plugins]]
 repo = 'skanehira/k8s.vim'
+depends = 'denops.vim'
 on_path = ['k8s://*']
 
 [[plugins]]
 repo = 'lambdalisue/kensaku.vim'
+depends = 'denops.vim'
+denops_wait = false
 hook_add = '''
 let g:kensaku_disable_v3_migration_warning = 1
 '''
 
 [[plugins]]
 repo = 'tani/vim-glance'
+depends = 'denops.vim'
 hook_add = '''
 let g:glance#config = expand('$BASE_DIR/glance/init.ts')
 '''

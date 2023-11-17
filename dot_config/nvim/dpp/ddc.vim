@@ -43,7 +43,6 @@ smap <silent><expr> <S-TAB> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S
 imap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
 " ddc.vim
-lua require("ddc_nvim_lsp_setup").setup()
 call ddc#custom#load_config(expand(join([$BASE_DIR, 'ddc.ts'], '/')))
 call ddc#enable()
 " }}}
