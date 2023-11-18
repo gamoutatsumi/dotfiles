@@ -15,8 +15,14 @@ export class Config extends BaseConfig {
     basePath: string;
     dpp: Dpp;
   }): Promise<ConfigReturn> {
+    const inlineVimrcs = [
+      "$BASE_DIR/init/core/vars.vim",
+      "$BASE_DIR/init/core/opts.vim",
+      "$BASE_DIR/init/core/keys.vim",
+    ];
     const hasNvim = args.denops.meta.host === "nvim";
     args.contextBuilder.setGlobal({
+      inlineVimrcs,
       extParams: {
         installer: {
           githubAPIToken: Deno.env.get("GITHUB_API_TOKEN"),

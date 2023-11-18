@@ -1,5 +1,3 @@
-syntax off
-
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_matchparen = 1
@@ -31,25 +29,3 @@ let g:did_indent_on = 1
 let g:loaded_fzf = 1
 let g:loaded_node_provider = 0
 let g:loaded_python3_provider = 0
-let $BASE_DIR = join([$XDG_CONFIG_HOME, $NVIM_APPNAME ?? 'nvim'], '/')
-
-augroup MyAutoCmd
-autocmd!
-augroup END
-
-if exists('g:nvui')
-  runtime init/core/nvui.vim
-endif
-
-let g:mapleader = ' '
-
-lua vim.loader.enable()
-
-runtime init/core/opts.vim
-runtime init/plugins/dpp.vim
-runtime init/core/keys.vim
-
-syntax on
-
-command! ToggleNum set rnu!
-command! InlayHintToggle lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())

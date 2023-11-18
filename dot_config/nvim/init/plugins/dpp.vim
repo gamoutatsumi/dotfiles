@@ -19,6 +19,7 @@ if dpp#min#load_state(s:dpp_dir)
         \   'Shougo/dpp-ext-installer',
         \   'Shougo/dpp-ext-local',
         \   'Shougo/dpp-ext-toml',
+        \   'Shougo/dpp-ext-packspec',
         \   'Shougo/dpp-protocol-git',
         \   'vim-denops/denops.vim',
         \ ]

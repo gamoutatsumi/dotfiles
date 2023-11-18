@@ -1,1 +1,1 @@
-runtime init/core/init.vim
+execute 'source' $"{'<sfile>'->expand()->fnamemodify(':h')}/init/init.vim"
