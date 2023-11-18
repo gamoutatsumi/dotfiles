@@ -266,7 +266,7 @@ command -nargs=1 Capture call ddu#start(#{
 cnoremap <C-c> <Home>Capture <CR>
 
 call ddu#custom#alias('action', 'preview_ripgrep', 'preview')
-call ddu#custom#load_config(expand(join([$BASE_DIR, 'ddu.ts'], '/')))
+call join([$BASE_DIR, 'ddu.ts'], '/')->expand()->ddu#custom#load_config()
 " }}}
 " ddu-ff {{{
 nnoremap <buffer> <CR> <Cmd>call ddu#ui#do_action("itemAction")<CR>
