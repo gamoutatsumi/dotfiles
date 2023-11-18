@@ -177,3 +177,8 @@ lazy = false
 repo = 'numToStr/Comment.nvim'
 lazy = false
 hooks_file = ['$BASE_DIR/dpp/comment.lua']
+
+[[plugins]]
+repo = 'lewis6991/hover.nvim'
+lazy = false
+hooks_file = ['$BASE_DIR/dpp/hover.lua']
