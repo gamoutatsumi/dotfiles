@@ -121,6 +121,31 @@ export class Config extends BaseConfig {
       }
     });
 
+    const packSpecPlugins = await args.dpp.extAction(
+      args.denops,
+      context,
+      options,
+      "packspec",
+      "load",
+      {
+        basePath: args.basePath,
+        plugins: Object.values(recordPlugins),
+      },
+    ) as Plugin[] | undefined;
+
+    if (packSpecPlugins) {
+      for (const plugin of packSpecPlugins) {
+        if (plugin.name in recordPlugins) {
+          recordPlugins[plugin.name] = Object.assign(
+            recordPlugins[plugin.name],
+            plugin,
+          );
+        } else {
+          recordPlugins[plugin.name] = plugin;
+        }
+      }
+    }
+
     const lazyResult = await args.dpp.extAction(
       args.denops,
       context,
@@ -130,7 +155,7 @@ export class Config extends BaseConfig {
       {
         plugins: Object.values(recordPlugins),
       },
-    ) as LazyMakeStateResult;
+    ) as LazyMakeStateResult | undefined;
 
     return {
       checkFiles: await fn.globpath(
@@ -140,8 +165,8 @@ export class Config extends BaseConfig {
         1,
         1,
       ) as unknown as string[],
-      plugins: lazyResult.plugins,
-      stateLines: lazyResult.stateLines,
+      plugins: lazyResult?.plugins ?? [],
+      stateLines: lazyResult?.stateLines ?? [],
       hooksFiles,
       ftplugins,
     };
