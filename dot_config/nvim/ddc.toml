@@ -44,20 +44,8 @@ hooks_file = '$BASE_DIR/dpp/pum.vim'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-on_source = 'ddc.vim'
-hook_add = '''
-  let g:vsnip_snippet_dirs = get(g:, 'vsnip_snippet_dirs', [])
-  let g:vsnip_snippet_dirs += [join([$XDG_CONFIG_HOME, 'nvim', 'vsnip'], '/')]
-'''
-
-[[plugins]]
 repo = 'hrsh7th/completion-snippet'
 merged = 0
-
-[[plugins]]
-repo = 'uga-rosa/ddc-source-vsnip'
-on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-omni'
