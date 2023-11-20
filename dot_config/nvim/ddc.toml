@@ -7,6 +7,7 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'uga-rosa/ddc-nvim-lsp-setup'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
@@ -99,4 +100,9 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-copilot'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'uga-rosa/denippet.vim'
+hooks_file = "$BASE_DIR/dpp/denippet.lua"
 on_source = 'ddc.vim'

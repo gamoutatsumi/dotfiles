@@ -17,7 +17,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["tsnip", "vsnip", "copilot", "nvim-lsp", "file", "around"],
+      sources: ["denippet", "copilot", "nvim-lsp", "file", "around"],
       keywordPattern: "(\\k|-|_)*",
       filterParams: {
         converter_kind_labels: {
@@ -70,9 +70,6 @@ export class Config extends BaseConfig {
         "@": ["around"],
       },
       sourceParams: {
-        vsnip: {
-          menu: false,
-        },
         file: {
           displayFile: "",
           displayDir: "",
@@ -81,7 +78,7 @@ export class Config extends BaseConfig {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
           confirmBehavior: "replace",
-          snippetEngine: (body: string) => denops.call("vsnip#anonymous", body),
+          snippetEngine: (body: string) => denops.call("denippet#anonymous", body),
         },
       },
       sourceOptions: {
@@ -112,8 +109,8 @@ export class Config extends BaseConfig {
           dup: "keep",
           isVolatile: true,
         },
-        vsnip: {
-          mark: "[VSnip]",
+        denippet: {
+          mark: "[Denippet]",
           dup: "keep",
           isVolatile: true,
           converters: [...CONVERTERS, "converter_kind_labels"],
