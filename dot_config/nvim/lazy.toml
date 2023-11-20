@@ -211,7 +211,3 @@ on_cmd = ['Scouter']
 [[plugins]]
 repo = 'thinca/vim-partedit'
 on_cmd = ['Partedit']
-
-[[plugins]]
-repo = 'chrisbra/csv.vim'
-on_ft = ['csv']

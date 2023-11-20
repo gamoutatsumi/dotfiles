@@ -127,3 +127,5 @@ hook_add = '''
   xmap as <Plug>(textobj-sandwich-query-a)
 '''
 
+[[plugins]]
+repo = 'chrisbra/csv.vim'
