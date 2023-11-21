@@ -154,6 +154,9 @@ nnoremap <silent> ;b <Cmd>call ddu#start(#{ sources: [#{ name: 'buffer' }] })<CR
 function! s:ddu_find() abort
   call SearchlinePre()
   let word = input("search word: ")
+  if word == ""
+    return
+  endif
   call ddu#start(#{
         \ sources: [#{
         \   name: 'rg',
