@@ -25,13 +25,22 @@ if dpp#min#load_state(s:dpp_dir)
         \ ]
     call InitPlugin(s:plugin)
   endfor
-  runtime! plugin/denops.vim
-  augroup MyAutoCmd
-    autocmd User DenopsReady call dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts')
-    autocmd User Dpp:makeStatePost
-          \ echohl WarningMsg | echomsg 'dpp make_state() is done' | echohl NONE
-  augroup END
+  if has('nvim')
+    runtime! plugin/denops.vim
+  endif
+  autocmd MyAutoCmd User DenopsReady 
+        \ : echohl WarningMsg 
+        \ | echomsg 'dpp load_state() is failed'
+        \ | echohl NONE
+        \ | call dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts')
+else
+  autocmd MyAutoCmd BufWritePost ~/.local/share/chezmoi/dot_config/nvim/*
+        \ call dpp#check_files()
 endif
+autocmd MyAutoCmd User Dpp:makeStatePost
+      \ : echohl WarningMsg
+      \ | echomsg 'dpp make_state() is done'
+      \ | echohl NONE
 
 command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')
 command DppUpdateAll call dpp#async_ext_action('installer', 'update')
