@@ -44,7 +44,6 @@ repo = 'lambdalisue/nerdfont.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-type__depth = '1'
 hook_add = '''
   set helplang=ja,en
 '''
@@ -64,15 +63,6 @@ repo = 'lambdalisue/fern-git-status.vim'
 
 [[plugins]]
 repo = 'lambdalisue/mr.vim'
-
-[[plugins]]
-repo = 'arthurxavierx/vim-caser'
-hook_add = '''
-  let g:caser_no_mappings = 1
-  nmap gs_ <Plug>CaserSnakeCase
-  nmap gsc <Plug>CaserCamelCase
-  nmap gsm <Plug>CaserMixedCase
-'''
 
 [[plugins]]
 repo = 'vimpostor/vim-tpipeline'
@@ -108,23 +98,6 @@ if = false
 repo = 'github/copilot.vim'
 hook_add = '''
 let g:copilot_no_maps = v:true
-'''
-
-[[plugins]]
-repo = 'machakann/vim-sandwich'
-hook_add = '''
-  let g:sandwich_no_default_key_mappings = 1
-  nmap <silent> ys <Plug>(operator-sandwich-add)
-  nmap <silent> ds <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-  nmap <silent> cs <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-  omap ib <Plug>(textobj-sandwich-auto-i)
-  xmap ib <Plug>(textobj-sandwich-auto-i)
-  omap ab <Plug>(textobj-sandwich-auto-a)
-  xmap ab <Plug>(textobj-sandwich-auto-a)
-  omap is <Plug>(textobj-sandwich-query-i)
-  xmap is <Plug>(textobj-sandwich-query-i)
-  omap as <Plug>(textobj-sandwich-query-a)
-  xmap as <Plug>(textobj-sandwich-query-a)
 '''
 
 [[plugins]]

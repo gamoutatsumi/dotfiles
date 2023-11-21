@@ -118,8 +118,8 @@ hooks_file = "$BASE_DIR/dpp/noice.lua"
 
 [[plugins]]
 repo = 'monaqa/dial.nvim'
-lazy = false
-hooks_file = ['$BASE_DIR/dpp/dial.lua']
+on_map = '<Plug>(dial-'
+hooks_file = ['$BASE_DIR/dpp/dial.vim']
 
 [[plugins]]
 repo = 'ray-x/guihua.lua'
@@ -168,10 +168,6 @@ require("translate").setup {
 repo = 'lukas-reineke/indent-blankline.nvim'
 lazy = false
 hooks_file = ["$BASE_DIR/dpp/indent_blankline.lua"]
-
-[[plugins]]
-repo = 'sindrets/diffview.nvim'
-lazy = false
 
 [[plugins]]
 repo = 'numToStr/Comment.nvim'

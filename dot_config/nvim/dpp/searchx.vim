@@ -25,10 +25,10 @@ let g:searchx.nohlsearch = {}
 let g:searchx.nohlsearch.jump = v:true
 
 " Convert search pattern.
-" function g:searchx.convert(input) abort
-"   if a:input !~# '\k'
-"     return '\V' .. a:input
-"   endif
-"   return kensaku#query(a:input)
-" endfunction
+function g:searchx.convert(input) abort
+  if a:input !~# '\k'
+    return '\V' .. a:input
+  endif
+  return kensaku#query(a:input)
+endfunction
 " }}}

@@ -31,10 +31,6 @@ if dpp#min#load_state(s:dpp_dir)
     autocmd User Dpp:makeStatePost
           \ echohl WarningMsg | echomsg 'dpp make_state() is done' | echohl NONE
   augroup END
-else
-  augroup MyAutoCmd
-    autocmd BufWritePost *.lua,*.vim,*.toml,*.ts,vimrc,.vimrc call dpp#check_files() | call dpp#make_state()
-  augroup END
 endif
 
 command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')

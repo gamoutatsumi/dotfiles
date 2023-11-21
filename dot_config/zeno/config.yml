@@ -242,3 +242,30 @@ completions:
       --preview-window: "right:50%"
       --preview: "gh issue view {1}"
     callback: awk '{print $1}'
+  - name: docker images
+    patterns:
+      - "^docker rmi $"
+    options:
+      --prompt: "'Image> '"
+      --preview-window: "right:50%"
+      --preview: "docker image inspect {1}"
+    callback: awk '{print $1":"$2}'
+    sourceCommand: 'docker images | sed 1d'
+  - name: docker containers (all)
+    patterns:
+      - "^docker rm $"
+    options:
+      --prompt: "'Container> '"
+      --preview-window: "right:50%"
+      --preview: "docker container inspect {1}"
+    callback: awk '{print $1}'
+    sourceCommand: 'docker ps -a | sed 1d'
+  - name: docker containers (running)
+    patterns:
+      - "^docker stop $"
+    options:
+      --prompt: "'Container> '"
+      --preview-window: "right:50%"
+      --preview: "docker container inspect {1}"
+    callback: awk '{print $1}'
+    sourceCommand: 'docker ps | sed 1d'
