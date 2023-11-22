@@ -1,5 +1,5 @@
 -- lua_add {{{
-local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
+local parser_install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "treesitter")
 vim.opt.runtimepath:prepend(parser_install_dir)
 require("nvim-treesitter.configs").setup({
   -- Modules and its options go here
@@ -48,6 +48,8 @@ require("nvim-treesitter.configs").setup({
   autotag = {
     enable = true,
   },
-  parser_install_dir = parser_install_dir
+  parser_install_dir = parser_install_dir,
+  sync_install = false,
+  ignore_install = {}
 })
 -- }}}
