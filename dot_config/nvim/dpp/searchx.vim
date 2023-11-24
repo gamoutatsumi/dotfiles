@@ -31,4 +31,5 @@ function g:searchx.convert(input) abort
   endif
   return kensaku#query(a:input)
 endfunction
+autocmd User SearchxEnter call SearchlinePre()
 " }}}

@@ -31,8 +31,6 @@ function! s:commandlinePost() abort
     silent! cunmap <C-y>
 endfunction
 nnoremap :       <Cmd>call <SID>commandlinePre()<CR>:
-nnoremap /       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 1 })<CR>
-nnoremap ?       <Cmd>call <SID>commandlinePre()<CR><Cmd>call searchx#start({ 'dir': 0 })<CR>
 " pum.vim
 imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : denippet#jumpable(1) ? '<Plug>(denippet-jump-next)' : '<TAB>'
 imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1)<CR>'

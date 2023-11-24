@@ -259,7 +259,7 @@ completions:
       --preview-window: "right:50%"
       --preview: "docker container inspect {1}"
     callback: awk '{print $1}'
-    sourceCommand: 'docker ps -a | sed 1d'
+    sourceCommand: 'docker ps --filter status=exited | sed 1d'
   - name: docker containers (running)
     patterns:
       - "^docker stop $"
