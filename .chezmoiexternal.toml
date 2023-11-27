@@ -18,3 +18,7 @@ url = "https://github.com/tmux-plugins/tpm"
 type = "file"
 url = "https://raw.githubusercontent.com/bluz71/vim-nightfly-colors/master/extras/alacritty.yml"
 refreshPeriod = "730h"
+
+[".config/bat/themes/fly16.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/bluz71/fly16-bat/master/fly16.tmTheme"
