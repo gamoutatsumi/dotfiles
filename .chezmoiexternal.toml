@@ -13,3 +13,8 @@ executable = true
 [".tmux/plugins/tpm"]
 type = "git-repo"
 url = "https://github.com/tmux-plugins/tpm"
+
+[".config/alacritty/nightfly.yml"]
+type = "file"
+url = "https://raw.githubusercontent.com/bluz71/vim-nightfly-colors/master/extras/alacritty.yml"
+refreshPeriod = "730h"
