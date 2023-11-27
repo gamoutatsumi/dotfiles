@@ -78,7 +78,7 @@ export class Config extends BaseConfig {
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
           confirmBehavior: "replace",
-          snippetEngine: (body: string) => denops.call("denippet#expand", body),
+          snippetEngine: (body: string) => denops.call("denippet#anonymous", body),
         },
       },
       sourceOptions: {
