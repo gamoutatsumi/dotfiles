@@ -244,8 +244,8 @@ fi
 # ls alias
 if exists lsd; then
   alias ls='lsd'
-  alias ll='lsd -lg --git'
-  alias la='lsd -lga --git'
+  alias ll='lsd -l'
+  alias la='lsd -la'
   alias tree='lsd --tree'
 fi
 

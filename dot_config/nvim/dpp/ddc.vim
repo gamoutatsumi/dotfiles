@@ -1,6 +1,6 @@
 " hook_add {{{ 
 function! s:commandlinePre() abort
-    cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+    cmap <silent><expr> <Tab>   pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#insert_relative(+1)<CR>'
     cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
     cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
     cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
