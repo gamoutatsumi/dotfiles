@@ -99,4 +99,4 @@ packages:
   - name: suzuki-shunsuke/pinact@v0.1.2
   - name: noborus/ov@v0.32.1
   - name: charmbracelet/vhs@v0.6.0
-  - name: BurntSushi/ripgrep@14.0.1
+  - name: BurntSushi/ripgrep@14.0.2
