@@ -81,7 +81,7 @@ packages:
   - name: cloudflare/cfssl/cfssl-certinfo@v1.6.4
   - name: cloudflare/cfssl/cfssl-bundle@v1.6.4
   - name: danielfoehrKn/kubeswitch@0.8.0
-  - name: danielfoehrKn/kubeswitch/switch-sh@0.8.0
+  - name: danielfoehrKn/kubeswitch/switch-sh@0.8.1
   - name: sbstp/kubie@v0.22.0
   - name: aquaproj/registry-tool@v0.2.3
   - name: junegunn/fzf@0.44.1
