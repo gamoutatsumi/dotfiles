@@ -31,9 +31,6 @@ ensure_zcompiled ~/.zshenv.local
 } ~/.zshrc ~/.zprofile ~/.zshrc.local
 # }}}
 
-# TMUX {{{
-# }}}
-
 # INITIALIZE {{{
 bindkey -e
 

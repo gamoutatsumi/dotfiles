@@ -1,4 +1,118 @@
+export ARCH=$(uname -m)
 source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 export ESLINT_D_LOCAL_ESLINT_ONLY=1
 export GYAZO_TOKEN={{ (bitwardenFields "item" "gyazo.com").cli_token.value }}
+
+# ostype returns the lowercase OS name
+ostype() {
+  uname | tr "[:upper:]" "[:lower:]"
+}
+
+# os_detect export the PLATFORM variable as you see fit
+case "$(ostype)" in
+  *'linux'*)  
+    if grep -iq 'microsoft' "/proc/sys/kernel/osrelease"; then
+      PLATFORM='wsl'
+    else
+      PLATFORM='linux'
+      fi                         ;;
+    *'darwin'*) PLATFORM='osx'     ;;
+    *'bsd'*)    PLATFORM='bsd'     ;;
+    *)          PLATFORM='unknown' ;;
+  esac
+  export PLATFORM
+
+# is_osx returns true if running OS is Macintosh
+is_osx() {
+  if [[ "$PLATFORM" = "osx" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+is_wsl() {
+  if [[ "$PLATFORM" = "wsl" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# Added by Toolbox App
+path=($HOME/.ghcup/bin(N-/) $path $HOME/.local/share/JetBrains/Toolbox/scripts(N-/))
+for d in /opt/homebrew/opt/*/libexec/gnubin(N-/); do
+  path=($d $path)
+done
+for d in /opt/homebrew/opt/gnu-tar/libexec/gnuman(N-/); do
+  manpath=($d $manpath)
+done
+
+exists() {
+  if (( $+commands[$@] )); then
+    return 0
+  else
+    return 1
+  fi
+}
+
+if [[ -z "$XDG_DATA_HOME" ]]; then
+  export XDG_DATA_HOME="$HOME/.local/share"
+fi
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [[ -z "$XDG_CACHE_HOME" ]]; then
+  export XDG_CACHE_HOME="$HOME/.cache"
+fi
+if [[ -z "$P10K_CACHE_HOME" ]]; then
+  export P10K_CACHE_HOME="/tmp/p10k"
+fi
+
+export AQUA_ROOT_DIR="${XDG_DATA_HOME}/aquaproj-aqua"
+
+path=($AQUA_ROOT_DIR/bin(N-/) $path)
+
+export LUAROCKS_HOME="$HOME/.luarocks"
+if exists ruby; then
+  export GEM_HOME=$(/usr/bin/ruby -e 'print Gem.user_dir')
+fi
+export CARGO_HOME="$HOME/.cargo"
+export DENO_BIN="$HOME/.deno/bin"
+export GOPATH="$HOME/go"
+export MANPAGER='nvim -c ASMANPAGER -'
+manpath=(/opt/homebrew/opt/curl/share/man /opt/homebrew/opt/coreutils/share/man(N-/) /usr/local/opt/coreutils/libexec/gnuman/usr/local/opt/grep/libexec/gnuman(N-/) $manpath)
+path=(/opt/homebrew/opt/curl/bin(N-/) /opt/cuda/bin(N-/) $HOME/.rye/shims(N-/) $HOME/neovim/bin(N-/) /usr/local/opt/mysql-client/bin(N-/) /usr/local/sbin(N-/) $HOME/.ghcup/bin(N-/) ${KREW_ROOT:-$HOME/.krew}/bin(N-/) $HOME/.nimble/bin(N-/) $DENO_BIN(N-/) $LUAROCKS_HOME/bin(N-/) $GOPATH/bin(N-/) $CARGO_HOME/bin(N-/) $HOME/.local/bin(N-/) $GEM_HOME/bin(N-/) /opt/homebrew/opt/mysql-client/bin(N-/) $path)
+fpath=(/opt/homebrew/opt/curl/share/zsh/site-functions(N-/) /opt/homebrew/share/zsh/site-functions(N-/) $fpath)
+
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+export LC_ALL=ja_JP.UTF-8
+export LANG=ja_JP.UTF-8
+export EDITOR="nvim"
+export PAGER="ov"
+
+export DOCKER_BUILDKIT=1
+
+export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
+
+export ASDF_VIM_CONFIG="\
+--with-tlib=ncurses \
+--with-compiledby=asdf \
+--enable-multibyte \
+--enable-cscope \
+--enable-terminal \
+--enable-perlinterp \
+--enable-python3interp \
+--enable-luainterp \
+--enable-gui=no \
+--without-x"
+
+if is_osx; then
+  export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
+  export ZSH_BASH_COMPLETIONS_FALLBACK_PATH=/opt/homebrew/share/bash-completion
+fi
+
+
