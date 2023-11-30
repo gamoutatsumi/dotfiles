@@ -33,6 +33,7 @@ if dpp#min#load_state(s:dpp_dir)
         \ | echomsg 'dpp load_state() is failed'
         \ | echohl NONE
         \ | call dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts')
+        \ | call dpp#min#load_state(s:dpp_dir)
 else
   autocmd MyAutoCmd BufWritePost ~/.local/share/chezmoi/dot_config/nvim/*
         \ call dpp#check_files()
