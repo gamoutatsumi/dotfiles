@@ -37,6 +37,8 @@ local function setInlayHintHL()
   vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
 end
 
+require("ddc_source_lsp_setup").setup()
+
 local on_attach = function(client, bufnr)
   local function format()
     local formatOpts = {
@@ -46,7 +48,6 @@ local on_attach = function(client, bufnr)
     }
     vim.lsp.buf.format(formatOpts)
   end
-  client.server_capabilities.semanticTokensProvider = nil
   local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)

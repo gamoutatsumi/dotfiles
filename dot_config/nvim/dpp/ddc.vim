@@ -45,6 +45,3 @@ call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
 call ddc#enable()
 " }}}
 
-" hook_source {{{
-lua require("ddc_nvim_lsp_setup").setup {}
-" }}}

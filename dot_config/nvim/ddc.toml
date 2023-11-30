@@ -6,10 +6,6 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'uga-rosa/ddc-nvim-lsp-setup'
-on_source = 'ddc.vim'
-
-[[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 hooks_file = '$BASE_DIR/dpp/ddc.vim'
@@ -55,10 +51,6 @@ on_source = 'ddc.vim'
 repo = 'kristijanhusak/vim-dadbod-completion'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-nvim-lsp'
-on_source = 'ddc.vim'
-
-[[plugins]]
 repo = 'yuki-yano/tsnip.nvim'
 on_source = 'ddc.vim'
 if = "has('nvim')"
@@ -94,3 +86,12 @@ on_source = 'ddc.vim'
 repo = 'uga-rosa/denippet.vim'
 hooks_file = "$BASE_DIR/dpp/denippet.lua"
 on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-nvim-lsp'
+on_lua = 'ddc_source_lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'uga-rosa/ddc-source-lsp-setup'
+on_lua = 'ddc_source_lsp_setup'

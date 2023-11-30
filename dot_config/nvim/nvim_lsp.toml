@@ -9,14 +9,6 @@ repo = 'williamboman/mason-lspconfig.nvim'
 hooks_file = '$BASE_DIR/dpp/nvim_lsp.lua'
 
 [[plugins]]
-repo = 'Shougo/ddc-nvim-lsp'
-lazy = 1
-on_source = 'ddc.vim'
-hook_source = '''
-  call ddc#custom#alias('source', 'lsp', 'nvim-lsp')
-'''
-
-[[plugins]]
 repo='ray-x/go.nvim'
 
 [[plugins]]

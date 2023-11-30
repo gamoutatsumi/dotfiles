@@ -17,7 +17,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["denippet", "copilot", "nvim-lsp", "file", "around"],
+      sources: ["denippet", "copilot", "lsp", "file", "around"],
       keywordPattern: "(\\k|-|_)*",
       filterParams: {
         converter_kind_labels: {
@@ -74,11 +74,13 @@ export class Config extends BaseConfig {
           displayFile: "",
           displayDir: "",
         },
-        "nvim-lsp": {
+        lsp: {
+          lspEngine: "nvim-lsp",
           enableAdditionalTextEdit: true,
           enableResolveItem: true,
           confirmBehavior: "replace",
-          snippetEngine: (body: string) => denops.call("denippet#anonymous", body),
+          snippetEngine: (body: string) =>
+            denops.call("denippet#anonymous", body),
         },
       },
       sourceOptions: {
@@ -95,7 +97,7 @@ export class Config extends BaseConfig {
         "cmdline-history": {
           mark: "[History]",
         },
-        "nvim-lsp": {
+        lsp: {
           mark: "[LSP]",
           ignoreCase: true,
           isVolatile: true,
