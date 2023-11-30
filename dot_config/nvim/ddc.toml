@@ -88,7 +88,7 @@ hooks_file = "$BASE_DIR/dpp/denippet.lua"
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-nvim-lsp'
+repo = 'Shougo/ddc-source-lsp'
 on_lua = 'ddc_source_lsp'
 on_source = 'ddc.vim'
 

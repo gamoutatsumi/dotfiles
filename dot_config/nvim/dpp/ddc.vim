@@ -1,34 +1,34 @@
 " hook_add {{{ 
 function! s:commandlinePre() abort
-    cmap <silent><expr> <Tab>   pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#insert_relative(+1)<CR>'
-    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-    cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-    cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+  cmap <silent><expr> <Tab>   pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#insert_relative(+1)<CR>'
+  cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+  cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+  cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 
-    autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
+  autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
 
-    " Enable command line completion for the buffer
-    call ddc#enable_cmdline_completion()
+  " Enable command line completion for the buffer
+  call ddc#enable_cmdline_completion()
 endfunction
 
 function! SearchlinePre() abort
-    cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-    cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-    cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-    cmap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+  cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+  cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+  cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+  cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+  cmap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
-    autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
+  autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
 
-    " Enable command line completion for the buffer
-    call ddc#enable_cmdline_completion()
+  " Enable command line completion for the buffer
+  call ddc#enable_cmdline_completion()
 endfunction
 function! s:commandlinePost() abort
-    silent! cunmap <Tab>
-    silent! cunmap <S-Tab>
-    silent! cunmap <C-e>
-    silent! cunmap <CR>
-    silent! cunmap <C-y>
+  silent! cunmap <Tab>
+  silent! cunmap <S-Tab>
+  silent! cunmap <C-e>
+  silent! cunmap <CR>
+  silent! cunmap <C-y>
 endfunction
 nnoremap :       <Cmd>call <SID>commandlinePre()<CR>:
 " pum.vim
@@ -40,8 +40,10 @@ imap <silent><expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1)
 smap <silent><expr> <S-TAB> denippet#jumpable(-1) ? '<Plug>(denippet-jump-prev)' : '<S-TAB>'
 imap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
-" ddc.vim
-call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
-call ddc#enable()
 " }}}
 
+" hook_post_source {{{
+" ddc.vim
+call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
+call ddc#enable(#{context_filetype: "treesitter"})
+" }}}
