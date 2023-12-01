@@ -17,3 +17,7 @@ hooks_file = '$BASE_DIR/dpp/rainbow.lua'
 
 [[plugins]]
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'
+
+[[plugins]]
+repo = "nvim-treesitter/nvim-treesitter-context"
+hooks_file = '$BASE_DIR/dpp/context.lua'
