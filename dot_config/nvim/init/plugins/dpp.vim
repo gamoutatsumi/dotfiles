@@ -10,6 +10,21 @@ function InitPlugin(plugin)
         \ .. dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endfunction
 
+function InitFennel()
+  let dir = s:dpp_dir .. '/repos/github.com/bakpakin/Fennel'
+  if !(dir->isdirectory())
+    execute '!git clone https://github.com/bakpakin/Fennel ' .. dir
+  endif
+
+  echomsg dir
+  call mkdir(dir .. '/nvim/lua', 'p')
+  execute 'cd ' .. dir
+  execute '!make LUA="nvim -ll" fennel.lua'
+  execute '!mv fennel.lua nvim/lua/fennel.lua'
+  execute 'set runtimepath^='
+        \ .. (dir .. '/nvim')->fnamemodify(':p')->substitute('[/\\]$', '', '')
+endfunction
+
 call InitPlugin('Shougo/dpp.vim')
 call InitPlugin('Shougo/dpp-ext-lazy')
 
@@ -26,6 +41,7 @@ if dpp#min#load_state(s:dpp_dir)
     call InitPlugin(s:plugin)
   endfor
   if has('nvim')
+    call InitFennel()
     runtime! plugin/denops.vim
   endif
   autocmd MyAutoCmd User DenopsReady 
