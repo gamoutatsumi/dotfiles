@@ -266,6 +266,12 @@ command -nargs=1 Capture call ddu#start(#{
       \ }]
       \})
 
+command Dpp call ddu#start(#{
+      \ sources: [#{
+      \   name: 'dpp',
+      \ }]
+      \})
+
 cnoremap <C-c> <Home>Capture <CR>
 
 call ddu#custom#alias('action', 'preview_ripgrep', 'preview')

@@ -6,7 +6,7 @@ repo = 'williamboman/mason.nvim'
 
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
-hooks_file = '$BASE_DIR/dpp/nvim_lsp.lua'
+hooks_file = ['$BASE_DIR/dpp/nvim_lsp.lua']
 
 [[plugins]]
 repo='ray-x/go.nvim'

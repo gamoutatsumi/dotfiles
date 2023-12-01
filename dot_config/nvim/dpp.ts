@@ -5,8 +5,21 @@ import {
   Dpp,
   Plugin,
 } from "https://deno.land/x/dpp_vim@v0.0.7/types.ts";
+import {
+  convert2List,
+  parseHooksFile,
+} from "https://deno.land/x/dpp_vim@v0.0.7/utils.ts";
 import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.7/deps.ts";
-import { is } from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+import { assert, is } from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+
+async function fennelCompile(denops: Denops, text: string): Promise<string> {
+  const compiled = await denops.call(
+    "luaeval",`require'fennel'.install().compileString(_A)`, text.trim(),
+  );
+  assert(compiled, is.String);
+
+  return compiled;
+}
 
 export class Config extends BaseConfig {
   override async config(args: {
@@ -101,7 +114,6 @@ export class Config extends BaseConfig {
 
     const recordPlugins: Record<string, Plugin> = {};
     const ftplugins: Record<string, string> = {};
-    const hooksFiles: string[] = [];
 
     tomls.forEach((toml) => {
       for (const plugin of toml.plugins ?? []) {
@@ -115,14 +127,6 @@ export class Config extends BaseConfig {
           } else {
             ftplugins[filetype] = toml.ftplugins[filetype];
           }
-        }
-      }
-
-      if (toml.hooks_file) {
-        if (is.Array(toml.hooks_file)) {
-          hooksFiles.push(...toml.hooks_file);
-        } else {
-          hooksFiles.push(toml.hooks_file);
         }
       }
     });
@@ -151,6 +155,52 @@ export class Config extends BaseConfig {
         }
       }
     }
+    const plugins = await Promise.all(
+      Object.values(recordPlugins).map(async (plugin) => {
+        for (const hooksFile of convert2List(plugin.hooks_file)) {
+          const hooksFilePath = await args.denops.call(
+            "dpp#util#_expand",
+            hooksFile,
+          ) as string;
+          const hooksFileLines = (await Deno.readTextFile(hooksFilePath)).split(
+            "\n",
+          );
+
+          const hooks = parseHooksFile(options.hooksFileMarker, hooksFileLines);
+          plugin = Object.assign(plugin, hooks);
+        }
+        plugin.hooks_file = undefined;
+        return plugin;
+      }),
+    );
+
+    const compiledPlugins = await Promise.all(plugins.map(async (plugin) => {
+      if (!plugin.ftplugin) {
+        return plugin;
+      }
+      if (is.String(plugin.ftplugin.fennel_add)) {
+        plugin.lua_add = await fennelCompile(
+          args.denops,
+          plugin.ftplugin.fennel_add,
+        );
+        delete plugin.ftplugin.fennel_add;
+      }
+      if (is.String(plugin.ftplugin.fennel_source)) {
+        plugin.lua_source = await fennelCompile(
+          args.denops,
+          plugin.ftplugin.fennel_source,
+        );
+        delete plugin.ftplugin.fennel_source;
+      }
+      if (is.String(plugin.ftplugin.fennel_post_source)) {
+        plugin.lua_post_source = await fennelCompile(
+          args.denops,
+          plugin.ftplugin.fennel_post_source,
+        );
+        delete plugin.ftplugin.fennel_post_source;
+      }
+      return plugin;
+    }));
 
     const lazyResult = await args.dpp.extAction(
       args.denops,
@@ -159,7 +209,7 @@ export class Config extends BaseConfig {
       "lazy",
       "makeState",
       {
-        plugins: Object.values(recordPlugins),
+        plugins: compiledPlugins,
       },
     ) as LazyMakeStateResult | undefined;
 
@@ -173,7 +223,6 @@ export class Config extends BaseConfig {
       ) as unknown as string[],
       plugins: lazyResult?.plugins ?? [],
       stateLines: lazyResult?.stateLines ?? [],
-      hooksFiles,
       ftplugins,
     };
   }
