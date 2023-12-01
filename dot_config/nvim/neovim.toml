@@ -178,3 +178,9 @@ hooks_file = ['$BASE_DIR/dpp/comment.lua']
 repo = 'lewis6991/hover.nvim'
 lazy = false
 hooks_file = ['$BASE_DIR/dpp/hover.lua']
+
+[[plugins]]
+repo = 'bakpakin/Fennel'
+lazy = false
+rtp = 'nvim'
+build = 'mkdir -p nvim/lua && make LUA="nvim -ll" fennel.lua && mv fennel.lua nvim/lua/fennel.lua'
