@@ -11,7 +11,6 @@ function! s:check_large_file() abort
       return
     else
       syntax off
-      call <SID>treesitter_disable()
     endif
   endif
 endfunction
