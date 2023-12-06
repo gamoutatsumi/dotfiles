@@ -1,5 +1,5 @@
 [[plugins]]
-repo = 'bluz71/vim-nightfly-guicolors'
+repo = 'bluz71/vim-nightfly-colors'
 hook_add = '''
   if !exists('g:nvui')
     let g:nightflyTransparent = 1

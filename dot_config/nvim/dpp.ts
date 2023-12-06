@@ -14,7 +14,9 @@ import { assert, is } from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(
-    "luaeval",`require'fennel'.install().compileString(_A)`, text.trim(),
+    "luaeval",
+    `require'fennel'.install().compileString(_A)`,
+    text.trim(),
   );
   assert(compiled, is.String);
 
