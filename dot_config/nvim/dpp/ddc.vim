@@ -45,5 +45,7 @@ imap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '
 " ddc.vim
 call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
 call ddc#enable(#{context_filetype: "treesitter"})
+" }}}
+" hook_post_update {{{
 call ddc#set_static_import_path()
 " }}}

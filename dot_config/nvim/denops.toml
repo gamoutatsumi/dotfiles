@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+lazy = 0
 
 [[plugins]]
 repo = 'vim-denops/denops-shared-server.vim'
