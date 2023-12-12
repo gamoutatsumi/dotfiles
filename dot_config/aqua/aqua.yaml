@@ -100,3 +100,4 @@ packages:
   - name: noborus/ov@v0.32.1
   - name: charmbracelet/vhs@v0.6.0
   - name: BurntSushi/ripgrep@14.0.3
+  - name: ikanago/omekasy@v1.2.3
