@@ -7,7 +7,7 @@ packages:
   - name: x-motemen/ghq@v1.4.2
   - name: b4b4r07/gomi@v1.1.6
   - name: dandavison/delta@0.16.5
-  - name: jqlang/jq@jq-1.7
+  - name: jqlang/jq@jq-1.7.1
   - name: bootandy/dust@v0.8.6
   - name: sharkdp/fd@v8.7.1
   - name: ogham/dog@v0.1.0
