@@ -3,8 +3,6 @@
 killall -q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 0.1; done
 
-tray_output=$(xrandr --query | grep "primary" | cut -d" " -f1)
-
 i=0
 while true; do
   if [[ $i -eq 10 ]]; then
@@ -17,14 +15,13 @@ while true; do
   let "i++"
   sleep 1
 done
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-  export MONITOR=$m
-  export TRAY_POSITION=none
-  if [[ $m == "$tray_output" ]]; then
-    TRAY_POSITION=right
+IFS=$'\n'
+for m in $(polybar --list-monitors); do
+  echo $m
+  export MONITOR=$(echo $m | cut -d":" -f1)
+  if grep -q primary <(echo $m); then
+    nohup polybar --reload main >/dev/null 2>&1 &
+  else
+    nohup polybar --reload sub >/dev/null 2>&1 &
   fi
-  if [[ -z $tray_output ]]; then
-    TRAY_POSITION=right
-  fi
-  polybar --reload main &
 done
