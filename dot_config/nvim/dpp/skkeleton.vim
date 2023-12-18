@@ -21,8 +21,6 @@ function s:skkeleton_init() abort
   call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,
-        \   skkServerResEnc: has("mac") ? "euc-jp" : "utf-8",
-        \   useSkkServer: v:true, skkServerHost: $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1",
         \   globalDictionaries: [
         \     s:dictPath .. "/SKK-JISYO.L"
         \   ]
@@ -30,6 +28,8 @@ function s:skkeleton_init() abort
 endfunction
 augroup skkeleton-user
   autocmd!
+  autocmd User skkeleton-enable-pre call ddc#disable()
+  autocmd User skkeleton-disable-post call ddc#enable()
   autocmd User skkeleton-initialize-pre call s:skkeleton_init()
   autocmd User skkeleton-initialize-post call s:skkeleton_init_kanatable()
   autocmd User skkeleton-mode-changed redrawstatus

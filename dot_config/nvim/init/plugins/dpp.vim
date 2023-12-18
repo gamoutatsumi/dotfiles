@@ -51,7 +51,7 @@ if dpp#min#load_state(s:dpp_dir)
         \ | call dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts')
         \ | call dpp#min#load_state(s:dpp_dir)
 else
-  autocmd MyAutoCmd BufWritePost ~/.local/share/chezmoi/dot_config/nvim/*
+  autocmd MyAutoCmd BufWritePost ~/.local/share/chezmoi/dot_config/nvim/**/*
         \ call dpp#check_files()
 endif
 autocmd MyAutoCmd User Dpp:makeStatePost
