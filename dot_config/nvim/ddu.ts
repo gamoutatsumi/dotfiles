@@ -82,6 +82,12 @@ export class Config extends BaseConfig {
         },
       },
       kindOptions: {
+        "ai-review-request": {
+          defaultAction: "open",
+        },
+        "ai-review-log": {
+          defaultAction: "resume",
+        },
         file: {
           defaultAction: "open",
         },
