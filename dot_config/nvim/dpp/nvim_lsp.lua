@@ -159,7 +159,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
           globals = { "vim" },
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          library = vim.api.nvim_list_runtime_paths()
         },
       },
     }
@@ -185,7 +185,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
           enable = true
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          library = vim.api.nvim_list_runtime_paths()
         },
       },
     }
@@ -237,6 +237,7 @@ if vim.fn.executable("deno") then
           imports = {
             hosts = {
               ["https://deno.land"] = true,
+              ["https://x.nest.land"] = false
             },
           },
         },
