@@ -16,7 +16,6 @@ function InitFennel()
     execute '!git clone https://github.com/bakpakin/Fennel ' .. dir
   endif
 
-  echomsg dir
   call mkdir(dir .. '/nvim/lua', 'p')
   execute 'cd ' .. dir
   execute '!make LUA="nvim -ll" fennel.lua'
@@ -27,6 +26,7 @@ endfunction
 
 call InitPlugin('Shougo/dpp.vim')
 call InitPlugin('Shougo/dpp-ext-lazy')
+call InitPlugin('tani/vim-artemis')
 
 if dpp#min#load_state(s:dpp_dir)
   echohl WarningMsg | echomsg 'dpp load_state() is failed' | echohl NONE
