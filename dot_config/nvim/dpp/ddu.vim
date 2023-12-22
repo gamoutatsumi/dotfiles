@@ -86,6 +86,7 @@ function s:lsp_attach() abort
         \     autoAction: #{
         \       name: 'preview'
         \     },
+        \     displayTree: v:true,
         \   }
         \ }
         \ })<CR>
@@ -98,6 +99,7 @@ function s:lsp_attach() abort
         \     autoAction: #{
         \       name: 'preview'
         \     },
+        \     displayTree: v:true,
         \   }
         \ }
         \ })<CR>

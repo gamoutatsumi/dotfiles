@@ -7,6 +7,7 @@ require("nvim-treesitter.configs").setup({
     "org",
     "lua",
     "vim",
+    "vimdoc",
     "toml",
     "json",
     "yaml",
