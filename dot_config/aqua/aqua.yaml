@@ -92,7 +92,7 @@ packages:
   - name: eza-community/eza@v0.17.0
   - name: abice/go-enum@v0.6.0
   - name: greymd/ojichat@v0.2.2
-  - name: simonwhitaker/gibo@v3.0.10
+  - name: simonwhitaker/gibo@v3.0.11
   - name: tree-sitter/tree-sitter@v0.20.8
   - name: aws/aws-cli@2.15.4
   - name: docker/cli@v24.0.6
