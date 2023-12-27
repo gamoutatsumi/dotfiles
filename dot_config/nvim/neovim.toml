@@ -5,18 +5,6 @@ lua_post_source = '''
 require('registers').setup {}
 '''
 
-# [[plugins]]
-# repo = 'kevinhwang91/nvim-hlslens'
-# hook_add = '''
-# noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>
-# noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>
-# noremap * *<Cmd>lua require('hlslens').start()<CR>
-# noremap # #<Cmd>lua require('hlslens').start()<CR>
-# noremap g* g*<Cmd>lua require('hlslens').start()<CR>
-# noremap g# g#<Cmd>lua require('hlslens').start()<CR>
-# nnoremap <silent> <Esc><Esc> <Cmd>nohlsearch<CR>
-# '''
-
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 lazy = false

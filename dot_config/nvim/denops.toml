@@ -11,6 +11,7 @@ depends = 'denops.vim'
 
 [[plugins]]
 repo = 'vim-skk/skkeleton'
+rev = 'write'
 hooks_file = '$BASE_DIR/dpp/skkeleton.vim'
 on_map = { ict = '<Plug>(skkeleton-toggle)' }
 on_event = 'CursorHold'

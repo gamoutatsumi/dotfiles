@@ -21,6 +21,7 @@ function s:skkeleton_init() abort
   call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,
+        \   useSkkServer: v:true, skkServerHost: $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1",
         \   globalDictionaries: [
         \     s:dictPath .. "/SKK-JISYO.L"
         \   ]

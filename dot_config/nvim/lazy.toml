@@ -42,47 +42,6 @@ on_path = '*.go.y'
 repo = 'qnighy/satysfi.vim'
 on_ft = ['satysfi']
 
-# [[plugins]]
-# repo = 'Shougo/denite.nvim'
-# on_cmd = ['Denite']
-# hook_add = '''
-# autocmd FileType denite call s:denite_my_settings()
-# nnoremap <silent> ;f <Cmd>Denite file/rec<CR>
-# nnoremap <silent> ;h <Cmd>Denite help<CR>
-# nnoremap <silent> ;g <Cmd>Denite grep<CR>
-# function! s:denite_my_settings() abort
-#   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-#   nnoremap <silent><buffer><expr> d denite#do_map('do_action', 'delete')
-#   nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-#   nnoremap <silent><buffer><expr> q denite#do_map('quit')
-#   nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-#   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
-# endfunction
-# '''
-# hook_post_source = '''
-#   let s:preview_width_ratio = 0.5
-#   let s:height_ratio = 0.7
-#   call denite#custom#var('grep', 'command', ['rg', '--follow'])
-#   call denite#custom#var('file/rec', 'command', ['rg', '--follow', '--files', '--glob', '!.git'])
-#   call denite#custom#option('_', {
-#     \ 'match_highlight': v:true,
-#     \ 'prompt': '> ',
-#     \ 'highlight_matched_char': 'None',
-#     \ 'highlight_matched_range': 'Search',
-#     \ 'auto_action': 'preview_bat',
-#     \ 'preview_height': float2nr(&lines * s:height_ratio),
-#     \ 'preview_width': float2nr(&columns * s:preview_width_ratio),
-#     \ 'vertical_preview': v:true,
-#     \})
-# '''
-
-# [[plugins]]
-# repo = 'Shougo/neomru.vim'
-# on_source = ['denite.nvim']
-# hook_add = '''
-# nnoremap <silent> ;m <Cmd>Denite file_mru<CR>
-# '''
-
 [[plugins]]
 repo = 'Shougo/deol.nvim'
 on_cmd = ['Deol']
