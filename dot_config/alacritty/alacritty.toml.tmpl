@@ -1,0 +1,30 @@
+import = ["~/.config/alacritty/nightfly.toml"]
+
+[env]
+TERM = "alacritty"
+USE_TMUX = "true"
+
+[font]
+{{ if (eq .chezmoi.os "darwin") }}
+size = 15.5
+{{ else }}
+size = 11.5
+{{ end }}
+
+[font.normal]
+family = "PlemolJP Console NF"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+[[mouse.bindings]]
+action = "none"
+mouse = "Middle"
+
+[shell]
+args = ["--login"]
+program = "zsh"
+
+[window]
+option_as_alt = "Both"
