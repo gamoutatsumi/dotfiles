@@ -27,4 +27,6 @@ args = ["--login"]
 program = "zsh"
 
 [window]
+{{ if (eq .chezmoi.os "darwin") }}
 option_as_alt = "Both"
+{{ end }}
