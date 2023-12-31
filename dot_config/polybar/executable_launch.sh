@@ -17,7 +17,6 @@ while true; do
 done
 IFS=$'\n'
 for m in $(polybar --list-monitors); do
-  echo $m
   export MONITOR=$(echo $m | cut -d":" -f1)
   if grep -q primary <(echo $m); then
     nohup polybar --reload main >/dev/null 2>&1 &
