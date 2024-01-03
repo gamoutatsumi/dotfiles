@@ -5,3 +5,4 @@ python      system
 ruby        system
 neovim      ref:master
 bun         1.0.21
+zig    0.11.0

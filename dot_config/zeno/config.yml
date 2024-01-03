@@ -249,7 +249,8 @@ completions:
       --prompt: "'Image> '"
       --preview-window: "right:50%"
       --preview: "docker image inspect {1}"
-    callback: awk '{print $1":"$2}'
+      --multi: true
+    callback: awk '{print $3}'
     sourceCommand: 'docker images | sed 1d'
   - name: docker containers (all)
     patterns:

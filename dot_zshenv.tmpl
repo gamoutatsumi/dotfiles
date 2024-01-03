@@ -11,23 +11,23 @@ ostype() {
   uname | tr "[:upper:]" "[:lower:]"
 }
 
-# os_detect export the PLATFORM variable as you see fit
+# os_detect export the SHELL_ENVIRONMENT variable as you see fit
 case "$(ostype)" in
   *'linux'*)  
     if grep -iq 'microsoft' "/proc/sys/kernel/osrelease"; then
-      PLATFORM='wsl'
+      SHELL_ENVIRONMENT='wsl'
     else
-      PLATFORM='linux'
+      SHELL_ENVIRONMENT='linux'
       fi                         ;;
-    *'darwin'*) PLATFORM='osx'     ;;
-    *'bsd'*)    PLATFORM='bsd'     ;;
-    *)          PLATFORM='unknown' ;;
+    *'darwin'*) SHELL_ENVIRONMENT='osx'     ;;
+    *'bsd'*)    SHELL_ENVIRONMENT='bsd'     ;;
+    *)          SHELL_ENVIRONMENT='unknown' ;;
   esac
-  export PLATFORM
+  export SHELL_ENVIRONMENT
 
 # is_osx returns true if running OS is Macintosh
 is_osx() {
-  if [[ "$PLATFORM" = "osx" ]]; then
+  if [[ "$SHELL_ENVIRONMENT" = "osx" ]]; then
     return 0
   else
     return 1
@@ -35,7 +35,7 @@ is_osx() {
 }
 
 is_wsl() {
-  if [[ "$PLATFORM" = "wsl" ]]; then
+  if [[ "$SHELL_ENVIRONMENT" = "wsl" ]]; then
     return 0
   else
     return 1
