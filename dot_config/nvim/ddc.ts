@@ -17,7 +17,7 @@ export class Config extends BaseConfig {
   }): Promise<void> {
     contextBuilder.patchGlobal({
       ui: "pum",
-      sources: ["denippet", "lsp", "file", "around"],
+      sources: ["denippet", "copilot", "lsp", "file", "around"],
       keywordPattern: "(\\k|-|_)*",
       filterParams: {
         converter_kind_labels: {
@@ -93,6 +93,7 @@ export class Config extends BaseConfig {
           mark: "[Copilot]",
           matchers: [],
           minAutoCompleteLength: 0,
+          isVolatile: true,
         },
         "cmdline-history": {
           mark: "[History]",
