@@ -35,10 +35,11 @@ nmap <buffer><silent><nowait> ? <Plug>(fern-action-help)
 nmap <buffer><silent><nowait> <C-c> <Plug>(fern-action-cancel)
 nmap <buffer><silent><nowait> . <Plug>(fern-action-repeat)
 nmap <buffer><silent><nowait> R <Plug>(fern-action-redraw)
-nmap <buffer><silent><nowait> q <cmd>quit<CR>
-nmap <buffer><silent><nowait> Q <cmd>bwipe!<CR>
+nmap <buffer><silent><nowait> q <Plug>(fern-close-drawer)
 setlocal nonu
 setlocal signcolumn=no
 setlocal nornu
 call glyph_palette#apply()
+syn on
+autocmd BufLeave <buffer> ++once syntax off
 " }}}
