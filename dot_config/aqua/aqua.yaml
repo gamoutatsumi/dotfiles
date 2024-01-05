@@ -63,7 +63,6 @@ packages:
   - name: grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2@v2.19.0
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.32.0
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.3.0
-  - name: jdx/rtx@v2024.0.0
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.17.0
   - name: fullstorydev/grpcui@v1.3.3
@@ -101,3 +100,4 @@ packages:
   - name: charmbracelet/vhs@v0.7.1
   - name: BurntSushi/ripgrep@14.0.3
   - name: ikanago/omekasy@v1.2.3
+  - name: jdx/mise@v2024.1.6

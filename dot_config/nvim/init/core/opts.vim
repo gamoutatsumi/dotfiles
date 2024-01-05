@@ -19,7 +19,9 @@ set sessionoptions=buffers,curdir,tabpages,winsize
 set signcolumn=yes
 set number
 set relativenumber
-set foldmethod=marker
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
 set autoindent
 set smartindent
 set tabstop=2

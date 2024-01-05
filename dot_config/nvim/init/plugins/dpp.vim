@@ -10,6 +10,10 @@ function InitPlugin(plugin)
         \ .. dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endfunction
 
+function DppMakeState()
+  call denops#server#wait_async({ -> dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts' )})
+endfunction
+
 function InitFennel()
   let dir = s:dpp_dir .. '/repos/github.com/bakpakin/Fennel'
   if !(dir->isdirectory())
@@ -29,7 +33,6 @@ call InitPlugin('Shougo/dpp-ext-lazy')
 call InitPlugin('tani/vim-artemis')
 
 if dpp#min#load_state(s:dpp_dir)
-  echohl WarningMsg | echomsg 'dpp load_state() is failed' | echohl NONE
   for s:plugin in [
         \   'Shougo/dpp-ext-installer',
         \   'Shougo/dpp-ext-local',
@@ -48,8 +51,7 @@ if dpp#min#load_state(s:dpp_dir)
         \ : echohl WarningMsg 
         \ | echomsg 'dpp load_state() is failed'
         \ | echohl NONE
-        \ | call dpp#make_state(s:dpp_dir, stdpath('config') .. '/dpp.ts')
-        \ | call dpp#min#load_state(s:dpp_dir)
+        \ | call DppMakeState()
 else
   autocmd MyAutoCmd BufWritePost ~/.local/share/chezmoi/dot_config/nvim/**/*
         \ call dpp#check_files()
