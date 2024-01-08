@@ -18,7 +18,7 @@ packages:
   - name: docker-slim/docker-slim@1.40.8
   - name: okteto/okteto@2.23.2
   - name: kubernetes/kubectl@v1.29.0
-  - name: terraform-linters/tflint@v0.50.0
+  - name: terraform-linters/tflint@v0.50.1
   - name: ahmetb/kubectx@v0.9.5
   - name: ahmetb/kubectx/kubens@v0.9.5
   - name: hashicorp/vault@v1.15.4
