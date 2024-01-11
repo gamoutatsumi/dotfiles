@@ -132,22 +132,6 @@ export class Config extends BaseConfig {
         },
       },
     });
-    for (const filetype of ["sql", "mysql", "plsql"]) {
-      contextBuilder.patchFiletype(filetype, {
-        sources: ["omni"],
-        sourceOptions: {
-          omni: {
-            forceCompletionPattern: '\\w+|\\.|"|\\[|`',
-            mark: "O",
-          },
-        },
-        sourceParams: {
-          omni: {
-            omnifunc: "vim_dadbod_completion#omni",
-          },
-        },
-      });
-    }
     return Promise.resolve();
   }
 }

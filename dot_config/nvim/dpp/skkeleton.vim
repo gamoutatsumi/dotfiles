@@ -21,11 +21,12 @@ function s:skkeleton_init() abort
   call skkeleton#config(#{
         \   eggLikeNewline: v:true, 
         \   keepState: v:true,
-        \   useSkkServer: v:true, skkServerHost: $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1",
+        \   skkServerHost: $SKK_SERVER_HOST != "" ? $SKK_SERVER_HOST : "127.0.0.1",
         \   databasePath: stdpath("cache") .. "/skkeleton.db",
         \   globalDictionaries: [
         \     s:dictPath .. "/SKK-JISYO.L"
-        \   ]
+        \   ],
+        \   sources: ["deno_kv", "skk_server"]
         \ })
 endfunction
 augroup skkeleton-user
