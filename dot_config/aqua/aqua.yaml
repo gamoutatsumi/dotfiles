@@ -100,5 +100,5 @@ packages:
   - name: charmbracelet/vhs@v0.7.1
   - name: BurntSushi/ripgrep@14.1.0
   - name: ikanago/omekasy@v1.2.3
-  - name: jdx/mise@v2024.1.20
+  - name: jdx/mise@v2024.1.21
   - name: rancher/rke@v1.5.1
