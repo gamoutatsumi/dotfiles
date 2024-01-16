@@ -1,6 +1,6 @@
 syntax off
 
-let $BASE_DIR = join([$XDG_CONFIG_HOME, $NVIM_APPNAME ?? 'nvim'], '/')
+let $BASE_DIR = has('nvim') ? stdpath('config') : join([$XDG_CONFIG_HOME, 'vim'], '/')
 
 augroup MyAutoCmd
 autocmd!

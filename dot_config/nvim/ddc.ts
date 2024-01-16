@@ -18,7 +18,6 @@ export class Config extends BaseConfig {
     contextBuilder.patchGlobal({
       ui: "pum",
       sources: ["denippet", "copilot", "lsp", "file", "around"],
-      keywordPattern: "(\\k|-|_)*",
       filterParams: {
         converter_kind_labels: {
           kindLabels: {
@@ -87,6 +86,7 @@ export class Config extends BaseConfig {
         "_": {
           matchers: ["matcher_fuzzy"],
           sorters: ["sorter_ascii", "sorter_fuzzy"],
+          keywordPattern: "(\\k|-|_)*",
           converters: CONVERTERS,
         },
         copilot: {

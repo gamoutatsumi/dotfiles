@@ -315,5 +315,4 @@ nnoremap <buffer><silent> q
       \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
 nnoremap <buffer><silent> <C-e>
       \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
-'''
 " }}}

@@ -9,8 +9,13 @@ import {
   convert2List,
   parseHooksFile,
 } from "https://deno.land/x/dpp_vim@v0.0.7/utils.ts";
-import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.0.7/deps.ts";
-import { assert, is } from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+import { Denops } from "https://deno.land/x/dpp_vim@v0.0.7/deps.ts";
+import {
+  assert,
+  ensure,
+  is,
+} from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+import { joinGlobs } from "https://deno.land/std@0.205.0/path/mod.ts";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(
@@ -216,12 +221,11 @@ export class Config extends BaseConfig {
     ) as LazyMakeStateResult | undefined;
 
     return {
-      checkFiles: await fn.globpath(
-        args.denops,
-        Deno.env.get("BASE_DIR"),
-        "*",
-        1,
-        1,
+      checkFiles: joinGlobs(
+        [
+          ensure(Deno.env.get("BASE_DIR"), is.String),
+          "*",
+        ],
       ) as unknown as string[],
       plugins: lazyResult?.plugins ?? [],
       stateLines: lazyResult?.stateLines ?? [],
