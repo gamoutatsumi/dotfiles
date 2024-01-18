@@ -16,6 +16,7 @@ import {
   is,
 } from "https://deno.land/x/unknownutil@v3.14.1/mod.ts";
 import { joinGlobs } from "https://deno.land/std@0.212.0/path/join_globs.ts";
+import { expandGlob } from "https://deno.land/std@0.212.0/fs/expand_glob.ts";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(
@@ -220,14 +221,31 @@ export class Config extends BaseConfig {
       },
     ) as LazyMakeStateResult | undefined;
 
-    return {
-      checkFiles: joinGlobs(
+    const checkFiles: string[] = [];
+    for await (
+      const entry of expandGlob(joinGlobs(
         [
           ensure(Deno.env.get("BASE_DIR"), is.String),
           "**",
           "*",
         ],
-      ) as unknown as string[],
+      ))
+    ) {
+      if (!entry.isFile) {
+        if (entry.isSymlink) {
+          const file = await Deno.stat(entry.path);
+          if (!file.isFile) {
+            continue;
+          }
+        } else {
+          continue;
+        }
+      }
+      checkFiles.push(entry.path);
+    }
+
+    return {
+      checkFiles,
       plugins: lazyResult?.plugins ?? [],
       stateLines: lazyResult?.stateLines ?? [],
       ftplugins,
