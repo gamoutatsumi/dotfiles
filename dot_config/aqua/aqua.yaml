@@ -35,7 +35,7 @@ packages:
   - name: shyiko/kubesec@0.9.2
   - name: kubernetes-sigs/kustomize@kustomize/v5.3.0
   - name: stern/stern@v1.28.0
-  - name: bitnami-labs/sealed-secrets@v0.24.5
+  - name: bitnami-labs/sealed-secrets@v0.25.0
   - name: gohugoio/hugo@v0.121.2
   - name: kubernetes-sigs/krew@v0.4.4
   - name: cue-lang/cue@v0.7.0
