@@ -101,4 +101,4 @@ packages:
   - name: BurntSushi/ripgrep@14.1.0
   - name: ikanago/omekasy@v1.2.3
   - name: jdx/mise@v2024.1.22
-  - name: rancher/rke@v1.5.1
+  - name: rancher/rke@v1.5.2
