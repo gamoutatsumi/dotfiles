@@ -15,7 +15,7 @@ import {
   ensure,
   is,
 } from "https://deno.land/x/unknownutil@v3.14.1/mod.ts";
-import { joinGlobs } from "https://deno.land/std@0.212.0/path/glob.ts";
+import { joinGlobs } from "https://deno.land/std@0.212.0/path/join_globs.ts";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(
@@ -224,6 +224,7 @@ export class Config extends BaseConfig {
       checkFiles: joinGlobs(
         [
           ensure(Deno.env.get("BASE_DIR"), is.String),
+          "**",
           "*",
         ],
       ) as unknown as string[],
