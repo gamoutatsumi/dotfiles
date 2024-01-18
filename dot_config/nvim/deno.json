@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "lint": "deno lint && deno check ./**/*.ts",
+    "udd": "deno run -A https://deno.land/x/udd/main.ts $(find . -name '*.ts' -not -name '.deno')"
+  },
+  "fmt": {
+    "exclude": [
+      ".deno",
+      ".git"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      ".deno",
+      ".git"
+    ]
+  }
+}

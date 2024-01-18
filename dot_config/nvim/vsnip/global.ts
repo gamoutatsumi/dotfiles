@@ -1,4 +1,4 @@
-import { TSSnippet } from "https://deno.land/x/denippet_vim@v0.1.0/loader.ts";
+import { TSSnippet } from "https://deno.land/x/denippet_vim@v0.5.5/loader.ts";
 
 export const snippets: Record<string, TSSnippet> = {
   uuid: {
