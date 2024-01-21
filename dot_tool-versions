@@ -4,5 +4,5 @@ java        system
 python      system
 ruby        system
 neovim      ref:master
-bun         1.0.24
+bun         1.0.25
 zig    0.11.0
