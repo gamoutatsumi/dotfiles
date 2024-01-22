@@ -1,4 +1,4 @@
 #!/bin/sh
-REPO_NAME="https://github.com/gamoutatsumi/dotfiles.git"
-go run github.com/twpayne/chezmoi@latest init --apply $REPO_NAME
+GITHUB_USERNAME=gamoutatsumi
+go run github.com/twpayne/chezmoi@latest init --apply $GITHUB_USERNAME
 go run github.com/aquaproj/aqua-installer@latest
