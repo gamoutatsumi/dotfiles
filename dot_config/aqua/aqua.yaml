@@ -67,7 +67,6 @@ packages:
   - name: golang-migrate/migrate@v4.17.0
   - name: fullstorydev/grpcui@v1.3.3
   - name: goreleaser/goreleaser@v1.23.0
-  - name: bitwarden/clients@cli-v2023.4.0
   - name: editorconfig-checker/editorconfig-checker@2.8.0
   - name: docker/hub-tool@v0.4.5
   - name: casey/just@1.23.0
@@ -102,3 +101,4 @@ packages:
   - name: ikanago/omekasy@v1.2.3
   - name: jdx/mise@v2024.1.24
   - name: rancher/rke@v1.5.2
+  - name: bitwarden/clients@cli-v2024.1.0
