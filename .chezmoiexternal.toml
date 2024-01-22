@@ -14,9 +14,9 @@ executable = true
 type = "git-repo"
 url = "https://github.com/tmux-plugins/tpm"
 
-[".config/alacritty/nightfly.yml"]
+[".config/alacritty/nightfly.toml"]
 type = "file"
-url = "https://raw.githubusercontent.com/bluz71/vim-nightfly-colors/master/extras/alacritty.yml"
+url = "https://raw.githubusercontent.com/bluz71/vim-nightfly-colors/master/extras/nightfly-alacritty.toml"
 refreshPeriod = "730h"
 
 [".config/bat/themes/fly16.tmTheme"]
