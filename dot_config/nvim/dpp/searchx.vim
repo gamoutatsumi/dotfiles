@@ -29,9 +29,7 @@ function g:searchx.convert(input) abort
   if a:input !~# '\k'
     return '\V' .. a:input
   endif
-  return kensaku#query(a:input, {
-        \ 'rxop': g:kensaku#rxop#vim,
-        \ })
+  return kensaku#query(a:input)
 endfunction
 autocmd User SearchxEnter call SearchlinePre()
 " }}}
