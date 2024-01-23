@@ -559,7 +559,7 @@ function fk() {
 function envinit() {
   if exists bw; then
     echo "export BW_SESSION=$(bw unlock --raw)\nexport GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN\nexport AQUA_GITHUB_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
-  else if exists rbw; then
+  elif exists rbw; then
     echo "export BW_SESSION=$(rbw unlock --raw)\nexport GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN\nexport AQUA_GITHUB_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
   fi
   source ~/.zshenv.local
