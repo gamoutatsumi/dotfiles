@@ -1,0 +1,10 @@
+---
+registries:
+  - name: gamoutatsumi
+    type: local
+    path: registry.yaml
+  - type: standard
+    ref: semver(">= 3.0.0")
+packages:
+  - registry: gamoutatsumi
+  - registry: standard

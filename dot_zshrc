@@ -359,12 +359,14 @@ RPROMPT=""
 # {{{ GPG-SSH
 export GPG_TTY=$(tty)
 
-if type "gpg" > /dev/null 2>&1; then
-  if ! is_wsl; then
-    if [[ -z $SSH_AUTH_SOCK ]]; then
-      gpg-connect-agent updatestartuptty /bye >/dev/null
-      gpgconf --launch gpg-agent
-      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+if ! is_ssh; then
+  if type "gpg" > /dev/null 2>&1; then
+    if ! is_wsl; then
+      if [[ -z $SSH_AUTH_SOCK ]]; then
+        gpg-connect-agent updatestartuptty /bye >/dev/null
+        gpgconf --launch gpg-agent
+        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+      fi
     fi
   fi
 fi
@@ -557,11 +559,7 @@ function fk() {
 }
 
 function envinit() {
-  if exists bw; then
-    echo "export BW_SESSION=$(bw unlock --raw)\nexport GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN\nexport AQUA_GITHUB_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
-  elif exists rbw; then
-    echo "export BW_SESSION=$(rbw unlock --raw)\nexport GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN\nexport AQUA_GITHUB_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
-  fi
+  echo "export GITHUB_API_TOKEN=$(gh auth token)\nexport HOMEBREW_GITHUB_API_TOKEN=\$GITHUB_API_TOKEN\nexport AQUA_GITHUB_TOKEN=\$GITHUB_API_TOKEN" > ~/.zshenv.local
   source ~/.zshenv.local
 }
 # }}}

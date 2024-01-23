@@ -2,8 +2,8 @@ export ARCH=$(uname -m)
 source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 export ESLINT_D_LOCAL_ESLINT_ONLY=1
-{{ if or (lookPath "rbw") (lookPath "bw") }}
-export GYAZO_TOKEN={{ (bitwardenFields "item" "gyazo.com").cli_token.value }}
+{{ if (lookPath "rbw") }}
+export GYAZO_TOKEN={{ (rbwFields "gyazo.com").cli_token.value }}
 {{ end }}
 
 # ostype returns the lowercase OS name
@@ -36,6 +36,14 @@ is_osx() {
 
 is_wsl() {
   if [[ "$SHELL_ENVIRONMENT" = "wsl" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+is_ssh() {
+  if [[ -n "$SSH_CONNECTION" ]]; then
     return 0
   else
     return 1
@@ -99,6 +107,7 @@ export PAGER="ov"
 export DOCKER_BUILDKIT=1
 
 export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME/aqua/aqua.yaml"
+export AQUA_POLICY_CONFIG="$XDG_CONFIG_HOME/aqua/aqua-policy.yaml"
 
 export ASDF_VIM_CONFIG="\
 --with-tlib=ncurses \

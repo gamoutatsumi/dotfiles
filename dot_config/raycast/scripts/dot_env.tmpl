@@ -1,4 +1,4 @@
-{{ if or (lookPath "rbw") (lookPath "bw") }}
-NOTION_TOKEN={{ (bitwardenFields "item" "34a6b350-0a8e-48ab-95f3-b0c000c9aa21").internal_integration_secret.value }}
-NOTION_DATABASE={{ (bitwardenFields "item" "34a6b350-0a8e-48ab-95f3-b0c000c9aa21").database_id.value }}
+{{ if (lookPath "rbw") }}
+NOTION_TOKEN={{ (rbwFields "34a6b350-0a8e-48ab-95f3-b0c000c9aa21").internal_integration_secret.value }}
+NOTION_DATABASE={{ (rbwFields "34a6b350-0a8e-48ab-95f3-b0c000c9aa21").database_id.value }}
 {{ end }}
