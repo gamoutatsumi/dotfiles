@@ -2,7 +2,7 @@ export ARCH=$(uname -m)
 source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 export ESLINT_D_LOCAL_ESLINT_ONLY=1
-{{ if (lookPath "bw") }}
+{{ if or (lookPath "rbw") (lookPath "bw") }}
 export GYAZO_TOKEN={{ (bitwardenFields "item" "gyazo.com").cli_token.value }}
 {{ end }}
 
