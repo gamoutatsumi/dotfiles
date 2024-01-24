@@ -1,13 +1,13 @@
 const s:dpp_dir = stdpath('data') .. '/dpp'
 
 function InitPlugin(plugin)
-  let dir = s:dpp_dir .. '/repos/github.com/' .. a:plugin
-  if !(dir->isdirectory())
-    execute '!git clone https://github.com/' .. a:plugin dir
+  let s:dir = s:dpp_dir .. '/repos/github.com/' .. a:plugin
+  if !(s:dir->isdirectory())
+    execute '!git clone --filter=blob:none https://github.com/' .. a:plugin s:dir
   endif
 
   execute 'set runtimepath^='
-        \ .. dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
+        \ .. s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endfunction
 
 function DppMakeState()
@@ -15,17 +15,18 @@ function DppMakeState()
 endfunction
 
 function InitFennel()
-  let dir = s:dpp_dir .. '/repos/github.com/bakpakin/Fennel'
-  if !(dir->isdirectory())
-    execute '!git clone https://github.com/bakpakin/Fennel ' .. dir
+  let s:version = '1.3.1'
+  let s:dir = s:dpp_dir .. '/repos/github.com/bakpakin/Fennel_' .. s:version
+  if !(s:dir->isdirectory())
+    execute '!git clone --filter=blob:none -b ' .. s:version .. ' https://github.com/bakpakin/Fennel ' .. s:dir
   endif
 
-  call mkdir(dir .. '/nvim/lua', 'p')
-  execute 'cd ' .. dir
+  call mkdir(s:dir .. '/nvim/lua', 'p')
+  execute 'cd ' .. s:dir
   execute '!make LUA="nvim -ll" fennel.lua'
   execute '!mv fennel.lua nvim/lua/fennel.lua'
   execute 'set runtimepath^='
-        \ .. (dir .. '/nvim')->fnamemodify(':p')->substitute('[/\\]$', '', '')
+        \ .. (s:dir .. '/nvim')->fnamemodify(':p')->substitute('[/\\]$', '', '')
 endfunction
 
 call InitPlugin('Shougo/dpp.vim')

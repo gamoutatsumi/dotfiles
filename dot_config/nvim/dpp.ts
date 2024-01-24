@@ -49,6 +49,11 @@ export class Config extends BaseConfig {
           githubAPIToken: Deno.env.get("GITHUB_API_TOKEN"),
         },
       },
+      protocolParams: {
+        git: {
+          enablePartialClone: true,
+        },
+      },
       protocols: ["git"],
     });
 
