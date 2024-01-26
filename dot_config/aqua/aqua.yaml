@@ -105,6 +105,6 @@ packages:
   - name: rancher/rke@v1.5.3
   - name: crates.io/rbw@1.9.0
     registry: gamoutatsumi
-  - name: LukeChannings/deno-arm64@v1.39.4
+  - name: LukeChannings/deno-arm64@v1.40.1
   - name: crates.io/ripgrep@14.1.0
     registry: gamoutatsumi
