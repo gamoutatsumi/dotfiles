@@ -18,6 +18,7 @@ build = 'git update-index --skip-worktree test && /bin/rm -rf test'
 
 [[plugins]]
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'
+on_ft = ['typescript','javascript','javascriptreact','typescriptreact']
 
 [[plugins]]
 repo = "nvim-treesitter/nvim-treesitter-context"
