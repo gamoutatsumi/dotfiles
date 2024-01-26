@@ -28,6 +28,8 @@ jobs:
             ~/.aqua/pkgs
             ~/.aqua/registries
           key: ${{ runner.os }}-${{ hashFiles('dot_config/aqua/aqua.yaml') }}
+        env:
+          AQUA_POLICY_CONFIG: "dot_config/aqua/aqua-policy.yaml"
 
       - uses: aquaproj/aqua-installer@v2.1.2
         with:
