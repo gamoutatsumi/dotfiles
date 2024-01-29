@@ -259,6 +259,7 @@ completions:
       --prompt: "'Container> '"
       --preview-window: "right:50%"
       --preview: "docker container inspect {1}"
+      --multi: true
     callback: awk '{print $1}'
     sourceCommand: 'docker ps --filter status=exited | sed 1d'
   - name: docker containers (running)
@@ -268,5 +269,6 @@ completions:
       --prompt: "'Container> '"
       --preview-window: "right:50%"
       --preview: "docker container inspect {1}"
+      --multi: true
     callback: awk '{print $1}'
     sourceCommand: 'docker ps | sed 1d'
