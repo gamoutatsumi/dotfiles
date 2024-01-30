@@ -200,15 +200,15 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
       },
     }
   elseif server == "efm" then
-    opts.autostart = false
+    opts.autostart = true
     opts.cmd = { "efm-langserver", "-q" }
     opts.init_options = {
       documentFormatting = true,
+      completion = false,
       rangeFormatting = true,
       hover = true,
       documentSymbol = true,
       codeAction = true,
-      completion = true
     }
   elseif server == "pyright" then
     opts.settings = {
