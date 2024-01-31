@@ -206,7 +206,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
       documentFormatting = true,
       completion = false,
       rangeFormatting = true,
-      hover = true,
+      hover = false,
       documentSymbol = true,
       codeAction = true,
     }
