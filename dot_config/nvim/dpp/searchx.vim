@@ -1,14 +1,14 @@
 " hook_add {{{
 " Overwrite / and ?.
-nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
-xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
-" Move to next/prev match.
-nnoremap N <Cmd>call searchx#prev_dir()<CR>
-nnoremap n <Cmd>call searchx#next_dir()<CR>
-xnoremap N <Cmd>call searchx#prev_dir()<CR>
-xnoremap n <Cmd>call searchx#next_dir()<CR>
+" nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+" nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+" xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+" xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+" " Move to next/prev match.
+" nnoremap N <Cmd>call searchx#prev_dir()<CR>
+" nnoremap n <Cmd>call searchx#next_dir()<CR>
+" xnoremap N <Cmd>call searchx#prev_dir()<CR>
+" xnoremap n <Cmd>call searchx#next_dir()<CR>
 
 " Clear highlights
 nnoremap <Esc><Esc> <Cmd>call searchx#clear()<CR>
