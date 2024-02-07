@@ -1,49 +1,39 @@
 [[plugins]]
 repo = 'tversteeg/registers.nvim'
-on_event = 'VimEnter'
-lua_post_source = '''
+lua_add = '''
 require('registers').setup {}
 '''
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-lazy = false
 hooks_file = '$BASE_DIR/dpp/gitsigns.lua'
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-lazy = false
 hooks_file = '$BASE_DIR/dpp/lualine.lua'
 
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
-lazy = false
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
-lazy = false
 hooks_file = ["$BASE_DIR/dpp/barbar.vim", "$BASE_DIR/dpp/barbar.lua"]
 
 [[plugins]]
 repo = 'nvim-lua/popup.nvim'
-lazy = false
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
-lazy = false
 
 [[plugins]]
 repo = 'phaazon/hop.nvim'
-lazy = false
 hooks_file = '$BASE_DIR/dpp/hop.lua'
 
 [[plugins]]
 repo = 'kwkarlwang/bufresize.nvim'
-lazy = false
 
 [[plugins]]
 repo = 'aserowy/tmux.nvim'
-lazy = false
 lua_add = '''
 require('tmux').setup({
   navigation = {
@@ -57,15 +47,12 @@ require('tmux').setup({
 
 [[plugins]]
 repo = 'MunifTanjim/nui.nvim'
-on_event = ["VimEnter"]
 
 [[plugins]]
 repo = 'zah/nim.vim'
-lazy = false
 
 [[plugins]]
 repo = 'gamoutatsumi/orgmode'
-lazy = false
 rev = 'feature/support-emacsclient'
 lua_add = '''
 require('orgmode').setup_ts_grammar()
@@ -77,57 +64,43 @@ require('orgmode').setup {
 
 [[plugins]]
 repo = 'levouh/tint.nvim'
-lazy = false
 lua_add = '''
 require('tint').setup {}
 '''
 
 [[plugins]]
 repo = 'uga-rosa/ccc.nvim'
-on_ft = ["css", "html"]
-lua_post_source = '''
+lua_add = '''
 require('ccc').setup {}
 '''
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
-on_event = ["VimEnter"]
-lua_post_source = '''
+lua_add = '''
   require('notify').setup {
     background_colour = "#000000",
   }
 '''
 
 [[plugins]]
-repo = 'folke/noice.nvim'
-on_event = ["VimEnter"]
-depends = ['nui.nvim', 'nvim-notify']
-hooks_file = "$BASE_DIR/dpp/noice.lua"
-
-[[plugins]]
 repo = 'monaqa/dial.nvim'
-on_map = '<Plug>(dial-'
 hooks_file = ['$BASE_DIR/dpp/dial.vim']
 
 [[plugins]]
 repo = 'ray-x/guihua.lua'
-lazy = false
 
 [[plugins]]
 repo = 'ruifm/gitlinker.nvim'
-lazy = false
 lua_add = '''
 require('gitlinker').setup()
 '''
 
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
-lazy = false
 hooks_file = '$BASE_DIR/dpp/aerial.lua'
 
 [[plugins]]
 repo = 'tani/podium'
-lazy = false
 lua_add = '''
 vim.api.nvim_create_user_command("Podium", function()
   local podium = require("podium")
@@ -141,7 +114,6 @@ end, {})
 
 [[plugins]]
 repo = 'uga-rosa/translate.nvim'
-lazy = false
 lua_add = '''
 require("translate").setup {
    default = {
@@ -154,23 +126,23 @@ require("translate").setup {
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
-lazy = false
 hooks_file = ["$BASE_DIR/dpp/indent_blankline.lua"]
 
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
-lazy = false
 hooks_file = ['$BASE_DIR/dpp/comment.lua']
 
 [[plugins]]
 repo = 'bakpakin/Fennel'
-lazy = false
 rev = '1.3.1'
 rtp = 'nvim'
 build = 'make LUA="nvim -ll" fennel.lua && mv fennel.lua nvim/lua/fennel.lua'
 
 [[plugins]]
 repo = 'ziontee113/ollama.nvim'
-depends = ['nui.nvim', 'plenary.nvim']
-lazy = false
 hooks_file = ['$BASE_DIR/dpp/ollama.lua']
+
+[[plugins]]
+repo = 'j-hui/fidget.nvim'
+rev = 'v1.3.0'
+hooks_file = ['$BASE_DIR/dpp/fidget.lua']

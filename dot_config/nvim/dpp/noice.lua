@@ -1,11 +1,14 @@
--- lua_post_source {{{
+-- lua_add {{{
 require("noice").setup {
   popupmenu = {
-    enabled = false,     -- enables the Noice popupmenu UI
+    enabled = false, -- enables the Noice popupmenu UI
+  },
+  messages = {
+    enabled = false,
   },
   lsp = {
     progress = {
-      enabled = true,
+      enabled = false,
       -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
       -- See the section on formatting for more details on how to customize.
       format = "lsp_progress",

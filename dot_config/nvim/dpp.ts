@@ -79,7 +79,7 @@ export class Config extends BaseConfig {
         hasNvim ? "$BASE_DIR/treesitter.toml" : null,
         hasNvim ? "$BASE_DIR/nvim_dap.toml" : null,
         hasNvim ? "$BASE_DIR/nvim_lsp.toml" : "$BASE_DIR/vim_lsp.toml",
-        hasNvim ? null : "$BASE_DIR/vim.toml",
+        hasNvim ? "$BASE_DIR/neovim.toml" : "$BASE_DIR/vim.toml",
       ].filter(is.String)
     ) {
       tomls.push(
@@ -105,7 +105,6 @@ export class Config extends BaseConfig {
         "$BASE_DIR/denops.toml",
         "$BASE_DIR/ddc.toml",
         "$BASE_DIR/ddu.toml",
-        hasNvim ? "$BASE_DIR/neovim.toml" : null,
       ].filter(is.String)
     ) {
       tomls.push(
