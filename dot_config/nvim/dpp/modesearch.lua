@@ -3,7 +3,7 @@ vim.keymap.set("n", "/", '', {
   silent = true,
   expr = true,
   callback = function()
-   require("modesearch").keymap.prompt.show("rawstr") 
+    return require("modesearch").keymap.prompt.show("rawstr")
   end
 })
 
