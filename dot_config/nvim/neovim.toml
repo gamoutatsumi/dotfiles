@@ -147,6 +147,6 @@ repo = 'j-hui/fidget.nvim'
 rev = 'v1.3.0'
 hooks_file = ['$BASE_DIR/dpp/fidget.lua']
 
-[[plugins]]
-repo = 'monaqa/modesearch.nvim'
-hooks_file = ['$BASE_DIR/dpp/modesearch.lua']
+# [[plugins]]
+# repo = 'monaqa/modesearch.nvim'
+# hooks_file = ['$BASE_DIR/dpp/modesearch.lua']
