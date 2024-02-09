@@ -77,6 +77,23 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
+  nnoremap <silent><buffer> gt <Cmd>call ddu#start(#{ 
+        \ sync: v:true,
+        \ sources: [#{ 
+        \   name: 'lsp_definition', 
+        \   params: #{
+        \     method: 'textDocument/typeDefinition'
+        \   }
+        \ }],
+        \ uiParams: #{
+        \  ff: #{
+        \   autoAction: #{
+        \     name: 'preview' 
+        \   },
+        \   immediateAction: 'open',
+        \   },
+        \ }
+        \ })<CR>
   nnoremap <silent><buffer> ;s <Cmd>call ddu#start(#{
         \ sources: [#{
         \   name: 'lsp_documentSymbol'
