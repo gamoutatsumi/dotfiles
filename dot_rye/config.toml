@@ -1,0 +1,12 @@
+[default]
+requires_python = '>=3.10'
+toolchain = 'cpython@3.12.2'
+build-system = 'hatchling'
+license = 'MIT'
+author = 'Tatsumi Gamou <tatsumi@gamou.dev>'
+dependency-operator = '>='
+[behavior]
+force-rye-managed = false
+global-python = false
+use-uv = true
+venv-mark-sync-ignore = true
