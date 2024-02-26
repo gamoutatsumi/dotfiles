@@ -12,5 +12,7 @@ lua vim.loader.enable()
 
 execute 'source' $"{'<sfile>'->expand()->fnamemodify(':h')}/plugins/dpp.vim"
 
+filetype plugin indent on
+
 command! ToggleNum set rnu!
 command! InlayHintToggle lua vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
