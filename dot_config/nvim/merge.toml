@@ -96,9 +96,7 @@ if = false
 
 [[plugins]]
 repo = 'github/copilot.vim'
-hook_add = '''
-let g:copilot_no_maps = v:true
-'''
+hooks_file = '$BASE_DIR/dpp/copilot.vim'
 
 [[plugins]]
 repo = 'chrisbra/csv.vim'

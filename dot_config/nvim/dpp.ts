@@ -14,9 +14,9 @@ import {
   assert,
   ensure,
   is,
-} from "https://deno.land/x/unknownutil@v3.14.1/mod.ts";
-import { joinGlobs } from "https://deno.land/std@0.212.0/path/join_globs.ts";
-import { expandGlob } from "https://deno.land/std@0.212.0/fs/expand_glob.ts";
+} from "https://deno.land/x/unknownutil@v3.16.3/mod.ts";
+import { joinGlobs } from "https://deno.land/std@0.217.0/path/join_globs.ts";
+import { expandGlob } from "https://deno.land/std@0.217.0/fs/expand_glob.ts";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(

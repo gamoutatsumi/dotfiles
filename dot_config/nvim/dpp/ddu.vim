@@ -268,7 +268,10 @@ nnoremap <silent> ;gd <Cmd>call ddu#start(#{
 " ddu-source-git
 nnoremap <silent> ;gs <Cmd>call ddu#start(#{
       \ sources: [#{
-      \   name: 'git_status'
+      \   name: 'git_status',
+    	\   options: #{
+    	\     path: expand('%:p'),
+    	\   },
       \ }],
       \ uiParams: #{
       \   ff: #{

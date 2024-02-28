@@ -101,7 +101,7 @@ repo = 'kuuote/ddu-source-git_diff'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = 'tennashi/ddu-source-git'
+repo = 'kuuote/ddu-source-git_status'
 on_source = 'ddu.vim'
 
 [[plugins]]
