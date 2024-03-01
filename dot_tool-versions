@@ -1,5 +1,5 @@
 deno        1.41.0
-nodejs      lts/iron
+nodejs      20.11.1
 java        system
 python      system
 ruby        system
