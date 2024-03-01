@@ -56,8 +56,6 @@ export PURE_GIT_PULL=0
 # }}}
 
 # {{{ PLUGINS
-export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
-
 export ZENO_ENABLE_SOCK=1
 export ZENO_ENABLE_FZF_TMUX=1
 exists bat && export ZENO_GIT_CAT="bat"
