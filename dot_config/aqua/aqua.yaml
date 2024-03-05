@@ -75,7 +75,7 @@ packages:
   - name: casey/just@1.24.0
   - name: cloudflare/cfssl@v1.6.5
   - name: cloudflare/cfssl/mkbundle@v1.6.4
-  - name: cloudflare/cfssl/cfssl-newkey@v1.6.4
+  - name: cloudflare/cfssl/cfssl-newkey@v1.6.5
   - name: cloudflare/cfssl/cfssljson@v1.6.4
   - name: cloudflare/cfssl/cfssl-scan@v1.6.4
   - name: cloudflare/cfssl/multirootca@v1.6.4
