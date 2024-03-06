@@ -7,7 +7,7 @@ import {
 import { Denops } from "https://deno.land/x/ddu_vim@v3.10.2/deps.ts";
 import * as stdpath from "https://deno.land/std@0.217.0/path/mod.ts";
 import * as u from "https://deno.land/x/unknownutil@v3.16.3/mod.ts";
-import { ActionData as GitStatusActionData } from "https://pax.deno.dev/kuuote/ddu-source-git_status@v1.0.0/denops/@ddu-kinds/git_status.ts";
+import { ActionData as GitStatusActionData } from "https://raw.githubusercontent.com/kuuote/ddu-source-git_status/main/denops/%40ddu-kinds/git_status.ts";
 
 type Never = Record<never, never>;
 
