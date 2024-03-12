@@ -123,8 +123,3 @@ on_source = 'ddu.vim'
 [[plugins]]
 repo = 'Shougo/ddu-kind-word'
 on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'yuki-yano/ai-review.vim'
-on_source = 'ddu.vim'
-hooks_file = ['$BASE_DIR/dpp/aiReview.vim']

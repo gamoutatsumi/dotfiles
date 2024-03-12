@@ -139,14 +139,14 @@ rtp = 'nvim'
 build = 'make LUA="nvim -ll" fennel.lua && mv fennel.lua nvim/lua/fennel.lua'
 
 [[plugins]]
-repo = 'ziontee113/ollama.nvim'
-hooks_file = ['$BASE_DIR/dpp/ollama.lua']
-
-[[plugins]]
 repo = 'j-hui/fidget.nvim'
 rev = 'v1.3.0'
 hooks_file = ['$BASE_DIR/dpp/fidget.lua']
 
-# [[plugins]]
-# repo = 'monaqa/modesearch.nvim'
-# hooks_file = ['$BASE_DIR/dpp/modesearch.lua']
+[[plugins]]
+repo = 'CopilotC-Nvim/CopilotChat.nvim'
+lua_add = '''
+require('CopilotChat').setup {
+  language = 'Japanese'
+}
+'''

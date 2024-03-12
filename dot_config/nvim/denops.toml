@@ -10,6 +10,7 @@ repo = 'vim-denops/denops-shared-server.vim'
 
 [[plugins]]
 repo = 'gamoutatsumi/dps-ghosttext.vim'
+rev = 'update/denops-6'
 depends = 'denops.vim'
 on_cmd = 'GhostStart'
 

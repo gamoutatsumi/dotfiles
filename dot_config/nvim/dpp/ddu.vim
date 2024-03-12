@@ -215,7 +215,7 @@ nnoremap <silent> mu <Cmd>call <SID>ddu_start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> mw <Cmd>call <SID>ddu_start(#{
+nnoremap <silent> mw <Cmd>call ddu#start(#{
       \ sources: [#{
       \   name: 'mr',
       \   params: #{
