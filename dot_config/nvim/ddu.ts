@@ -63,7 +63,6 @@ export class Config extends BaseConfig {
       uiParams: {
         ff: {
           displayTree: true,
-          startFilter: true,
           split: "floating",
           prompt: "> ",
           floatingBorder: "rounded",

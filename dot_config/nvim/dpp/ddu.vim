@@ -1,7 +1,13 @@
 " hook_add {{{
+function s:ddu_start(opts) abort
+  let l:opts = extend(#{
+      \ input: 'Pattern: '->input(),
+      \ }, a:opts)
+  call ddu#start(l:opts)
+endfunction
 " ddu-source-lsp
 function s:lsp_attach() abort
-  nnoremap <silent><buffer> ;rf <Cmd>call ddu#start(#{ 
+  nnoremap <silent><buffer> ;rf <Cmd>call <SID>ddu_start(#{ 
         \ sources: [#{ 
         \   name: 'lsp_references' ,
         \   params: #{
@@ -16,7 +22,7 @@ function s:lsp_attach() abort
         \   } 
         \ } 
         \ })<CR>
-  nnoremap <silent><buffer> ;d <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> ;d <Cmd>call <SID>ddu_start(#{
         \ sources: [#{ 
         \   name: 'lsp_diagnostic' 
         \ }], 
@@ -26,7 +32,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> gd <Cmd>call <SID>ddu_start(#{
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition',
@@ -43,7 +49,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gD <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> gD <Cmd>call <SID>ddu_start(#{
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
@@ -60,7 +66,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gi <Cmd>call ddu#start(#{ 
+  nnoremap <silent><buffer> gi <Cmd>call <SID>ddu_start(#{ 
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
@@ -77,7 +83,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gt <Cmd>call ddu#start(#{ 
+  nnoremap <silent><buffer> gt <Cmd>call <SID>ddu_start(#{ 
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
@@ -94,7 +100,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> ;s <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> ;s <Cmd>call <SID>ddu_start(#{
         \ sources: [#{
         \   name: 'lsp_documentSymbol'
         \ }],
@@ -107,7 +113,7 @@ function s:lsp_attach() abort
         \   }
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> ;S <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> ;S <Cmd>call <SID>ddu_start(#{
         \ sources: [#{
         \   name: 'lsp_workspaceSymbol'
         \ }],
@@ -120,7 +126,7 @@ function s:lsp_attach() abort
         \   }
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> ;t <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> ;t <Cmd>call <SID>ddu_start(#{
         \ sources: [#{
         \   name: 'lsp_typeHierarchy',
         \   params: #{
@@ -136,7 +142,7 @@ function s:lsp_attach() abort
         \   }
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> ;c <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> ;c <Cmd>call <SID>ddu_start(#{
         \ sources: [#{
         \   name: 'lsp_callHierarchy',
         \   params: #{
@@ -152,7 +158,7 @@ function s:lsp_attach() abort
         \   }
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> <Leader>a <Cmd>call ddu#start(#{
+  nnoremap <silent><buffer> <Leader>a <Cmd>call <SID>ddu_start(#{
         \ sources: [#{
         \   name: 'lsp_codeAction',
         \ }],
@@ -168,7 +174,7 @@ function s:lsp_attach() abort
 endfunction
 autocmd LspAttach * call s:lsp_attach()
 " ddu-source-buffer
-nnoremap <silent> ;b <Cmd>call ddu#start(#{ sources: [#{ name: 'buffer' }] })<CR>
+nnoremap <silent> ;b <Cmd>call <SID>ddu_start(#{ sources: [#{ name: 'buffer' }] })<CR>
 " ddu-source-rg
 function! s:ddu_find() abort
   call SearchlinePre()
@@ -194,7 +200,7 @@ function! s:ddu_find() abort
 endfunction
 nnoremap <silent> ;rg <Cmd>call <SID>ddu_find()<CR>
 " ddu-source-mr
-nnoremap <silent> mu <Cmd>call ddu#start(#{
+nnoremap <silent> mu <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'mr', params: #{
       \     kind: 'mru', 
@@ -209,7 +215,7 @@ nnoremap <silent> mu <Cmd>call ddu#start(#{
       \   },
       \ }
       \ })<CR>
-nnoremap <silent> mw <Cmd>call ddu#start(#{
+nnoremap <silent> mw <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'mr',
       \   params: #{
@@ -226,7 +232,7 @@ nnoremap <silent> mw <Cmd>call ddu#start(#{
       \ }
       \ })<CR>
 " ddu-source-file_external
-nnoremap <silent> ;f <Cmd>call ddu#start(#{
+nnoremap <silent> ;f <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'file_external',
       \   params: #{
@@ -242,7 +248,7 @@ nnoremap <silent> ;f <Cmd>call ddu#start(#{
       \ }
       \ })<CR>
 " ddu-source-help
-nnoremap <silent> ;h <Cmd>call ddu#start(#{
+nnoremap <silent> ;h <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'help'
       \ }],
@@ -255,7 +261,7 @@ nnoremap <silent> ;h <Cmd>call ddu#start(#{
       \ }
       \ })<CR>
 " ddu-source-git_diff
-nnoremap <silent> ;gd <Cmd>call ddu#start(#{
+nnoremap <silent> ;gd <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'git_diff'
       \ }],
@@ -266,7 +272,7 @@ nnoremap <silent> ;gd <Cmd>call ddu#start(#{
       \ }
       \ })<CR>
 " ddu-source-git
-nnoremap <silent> ;gs <Cmd>call ddu#start(#{
+nnoremap <silent> ;gs <Cmd>call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'git_status',
     	\   options: #{
@@ -279,7 +285,7 @@ nnoremap <silent> ;gs <Cmd>call ddu#start(#{
       \   }
       \ }
       \ })<CR>    \ })
-command -nargs=1 Capture call ddu#start(#{
+command -nargs=1 Capture call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'output',
       \   params: #{
@@ -288,7 +294,7 @@ command -nargs=1 Capture call ddu#start(#{
       \ }]
       \})
 
-command Dpp call ddu#start(#{
+command Dpp call <SID>ddu_start(#{
       \ sources: [#{
       \   name: 'dpp',
       \ }]
