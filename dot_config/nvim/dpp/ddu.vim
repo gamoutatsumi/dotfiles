@@ -317,8 +317,8 @@ nnoremap <buffer> q <Cmd>call ddu#ui#do_action("quit")<CR>
 nnoremap <buffer> p <Cmd>call ddu#ui#do_action("previewPath")<CR>
 nnoremap <buffer> P <Cmd>call ddu#ui#do_action("toggleAutoAction")<CR>
 nnoremap <buffer> a <Cmd>call ddu#ui#do_action("chooseAction")<CR>
-nnoremap <buffer> l <Cmd>call ddu#ui#filer#do_action('expandItem')<CR>
-nnoremap <buffer> h <Cmd>call ddu#ui#filer#do_action('collapseItem')<CR>
+nnoremap <buffer> l <Cmd>call ddu#ui#do_action('expandItem')<CR>
+nnoremap <buffer> h <Cmd>call ddu#ui#do_action('collapseItem')<CR>
 setlocal cursorline
 " }}}
 " ddu-ff-filter {{{
