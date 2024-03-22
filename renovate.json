@@ -9,8 +9,8 @@
   "automerge": true,
   "dependencyDashboard": true,
   "extends": [
-    "config:best-practices",
-    "github>aquaproj/aqua-renovate-config#2.2.0"
+    "github>aquaproj/aqua-renovate-config#2.2.0",
+    "config:best-practices"
   ],
   "labels": [
     "dependencies",
