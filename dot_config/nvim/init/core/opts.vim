@@ -46,16 +46,3 @@ set shortmess+=Ic
 set diffopt=internal,filler,algorithm:histogram,indent-heuristic
 let &grepprg="rg --vimgrep --smart-case --follow"
 set history=100
-lua << EOF
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
-EOF
