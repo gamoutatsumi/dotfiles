@@ -32,7 +32,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gd <Cmd>call <SID>ddu_start(#{
+  nnoremap <silent><buffer> gd <Cmd>call ddu#start(#{
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition',
