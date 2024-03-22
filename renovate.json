@@ -10,15 +10,16 @@
   "dependencyDashboard": true,
   "extends": [
     "config:best-practices",
-    "github>aquaproj/aqua-renovate-config#2.2.0",
+    "github>aquaproj/aqua-renovate-config#2.2.0"
   ],
   "labels": [
     "dependencies",
     "renovate"
   ],
   "platformAutomerge": true,
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "golang/go",
       "extractVersionTemplate": "^go(?<version>.*)$",
