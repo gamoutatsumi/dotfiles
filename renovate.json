@@ -9,7 +9,7 @@
   "automerge": true,
   "dependencyDashboard": true,
   "extends": [
-    "config:best-practices",
+    "config:base",
     "github>aquaproj/aqua-renovate-config#2.2.0"
   ],
   "labels": [
@@ -34,5 +34,14 @@
   ],
   "schedule": [
     "at any time"
+  ],
+  "packageRules": [
+    {
+      "matchDepTypes": [
+        "action"
+      ],
+      "excludePackagePrefixes": [],
+      "pinDigests": true
+    }
   ]
 }
