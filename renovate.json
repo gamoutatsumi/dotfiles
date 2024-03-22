@@ -9,7 +9,6 @@
   "automerge": true,
   "dependencyDashboard": true,
   "extends": [
-    "github>aquaproj/aqua-renovate-config#2.2.0",
     "config:best-practices"
   ],
   "labels": [
