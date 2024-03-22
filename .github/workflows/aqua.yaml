@@ -29,7 +29,7 @@ jobs:
             ~/.aqua/registries
           key: ${{ runner.os }}-${{ hashFiles('dot_config/aqua/aqua.yaml') }}
 
-      - uses: aquaproj/aqua-installer@v2.1.2
+      - uses: aquaproj/aqua-installer@v3.0.0
         with:
           aqua_version: v2.25.0
       - run: aqua -c dot_config/aqua/aqua.yaml i --test
