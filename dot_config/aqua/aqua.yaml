@@ -11,7 +11,7 @@ packages:
   - name: b4b4r07/gomi@v1.1.6
   - name: dandavison/delta@0.17.0
   - name: jqlang/jq@jq-1.7.1
-  - name: bootandy/dust@v0.9.0
+  - name: bootandy/dust@v1.0.0
   - name: sharkdp/fd@v9.0.0
   - name: ogham/dog@v0.1.0
   - name: Songmu/gocredits@v0.3.0
