@@ -19,7 +19,8 @@ require("nvim-treesitter.configs").setup({
     "markdown_inline",
     "proto",
     "regex",
-    "bash"
+    "bash",
+    "sql"
   },
   highlight = {
     enable = true,
