@@ -7,14 +7,6 @@ local schemas = require("schemastore")
 
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
-local is_deno_repo = util.search_ancestors(buf_name, function(path)
-  if util.path.is_file(util.path.join(path, 'deno.json')) then
-    return path
-  end
-  if util.path.is_file(util.path.join(path, 'deno.jsonc')) then
-    return path
-  end
-end) ~= nil
 
 local function setInlayHintHL()
   local has_hl, hl = pcall(vim.api.nvim_get_hl, 0, { name = 'LspInlayHint' })
@@ -53,6 +45,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
+  require("lsp_signature").on_attach({
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
   if client.supports_method("textDocument/inlayHint") then
     vim.lsp.inlay_hint.enable(bufnr, true)
     setInlayHintHL()

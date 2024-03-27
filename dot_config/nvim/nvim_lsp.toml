@@ -34,3 +34,6 @@ repo = 'VidocqH/lsp-lens.nvim'
 lua_add = '''
 require('lsp-lens').setup()
 '''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
