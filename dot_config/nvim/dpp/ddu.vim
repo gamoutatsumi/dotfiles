@@ -1,7 +1,7 @@
 " hook_add {{{
 function s:ddu_start(opts) abort
   let l:opts = extend(#{
-      \ input: 'Pattern: '->input(),
+      \ input: 'Pattern: '->cmdline#input(),
       \ }, a:opts)
   call ddu#start(l:opts)
 endfunction

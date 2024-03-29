@@ -105,3 +105,6 @@ hooks_file = '$BASE_DIR/dpp/copilot.vim'
 
 [[plugins]]
 repo = 'chrisbra/csv.vim'
+
+[[plugins]]
+repo = 'Shougo/cmdline.vim'

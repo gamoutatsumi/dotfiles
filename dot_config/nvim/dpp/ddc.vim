@@ -4,6 +4,7 @@ function! s:commandlinePre() abort
   cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1, 'loop')<CR>
   cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
   cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+  call cmdline#enable()
 
   autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
 
@@ -17,6 +18,8 @@ function! SearchlinePre() abort
   cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
   cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
   cmap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+
+  call cmdline#enable()
 
   autocmd User DDCCmdlineLeave ++once call s:commandlinePost()
 
