@@ -154,3 +154,9 @@ require('CopilotChat').setup {
 [[plugins]]
 repo = 'stevearc/dressing.nvim'
 hooks_file = ['$BASE_DIR/dpp/dressing.lua']
+
+[[plugins]]
+repo = 'stevearc/oil.nvim'
+lua_add = '''
+require('oil').setup()
+'''
