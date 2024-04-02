@@ -65,7 +65,6 @@ packages:
   - name: bufbuild/buf@v1.30.0
   - name: grpc-ecosystem/grpc-gateway/protoc-gen-openapiv2@v2.19.1
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.33.0
-  - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.3.0
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.17.0
   - name: fullstorydev/grpcui@v1.3.3
