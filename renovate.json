@@ -34,5 +34,6 @@
   ],
   "schedule": [
     "at any time"
-  ]
+  ],
+  "platformCommit": true
 }
