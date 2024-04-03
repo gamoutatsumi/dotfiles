@@ -68,7 +68,7 @@ packages:
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.17.0
   - name: fullstorydev/grpcui@v1.3.3
-  - name: goreleaser/goreleaser@v1.24.0
+  - name: goreleaser/goreleaser@v1.25.0
   - name: editorconfig-checker/editorconfig-checker@v3.0.0
   - name: docker/hub-tool@v0.4.6
   - name: casey/just@1.25.2
