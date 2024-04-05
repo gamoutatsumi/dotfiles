@@ -36,7 +36,7 @@ packages:
   - name: yannh/kubeconform@v0.6.4
   - name: kubernetes-sigs/cluster-api@v1.6.3
   - name: shyiko/kubesec@0.9.2
-  - name: kubernetes-sigs/kustomize@kustomize/v5.3.0
+  - name: kubernetes-sigs/kustomize@kustomize/v5.4.1
   - name: stern/stern@v1.28.0
   - name: bitnami-labs/sealed-secrets@v0.26.2
   - name: gohugoio/hugo@v0.124.1
