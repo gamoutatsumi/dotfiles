@@ -106,4 +106,4 @@ packages:
     registry: gamoutatsumi
   - name: crates.io/ripgrep@14.1.0
     registry: gamoutatsumi
-  - name: ast-grep/ast-grep@0.20.2
+  - name: ast-grep/ast-grep@0.20.3
