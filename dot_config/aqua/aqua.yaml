@@ -67,7 +67,7 @@ packages:
   - name: protocolbuffers/protobuf-go/protoc-gen-go@v1.33.0
   - name: golang/mock@v1.6.0
   - name: golang-migrate/migrate@v4.17.0
-  - name: fullstorydev/grpcui@v1.3.3
+  - name: fullstorydev/grpcui@v1.4.1
   - name: goreleaser/goreleaser@v1.25.1
   - name: editorconfig-checker/editorconfig-checker@v3.0.1
   - name: docker/hub-tool@v0.4.6
