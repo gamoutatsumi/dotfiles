@@ -35,5 +35,6 @@
   "schedule": [
     "at any time"
   ],
-  "platformCommit": true
+  "platformCommit": true,
+  "platform": "github"
 }
