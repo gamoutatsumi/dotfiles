@@ -160,3 +160,11 @@ repo = 'stevearc/oil.nvim'
 lua_add = '''
 require('oil').setup()
 '''
+
+[[plugins]]
+repo = 'tani/dmacro.nvim'
+lua_add = '''
+require('dmacro').setup {
+  dmacro_key = '<C-t>'
+}
+'''
