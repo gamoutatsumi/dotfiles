@@ -80,7 +80,7 @@ packages:
   - name: cloudflare/cfssl/multirootca@v1.6.5
   - name: cloudflare/cfssl/cfssl-certinfo@v1.6.5
   - name: cloudflare/cfssl/cfssl-bundle@v1.6.5
-  - name: danielfoehrKn/kubeswitch@0.8.1
+  - name: danielfoehrKn/kubeswitch@0.9.0
   - name: danielfoehrKn/kubeswitch/switch-sh@0.9.0
   - name: sbstp/kubie@v0.23.0
   - name: aquaproj/registry-tool@v0.2.3
