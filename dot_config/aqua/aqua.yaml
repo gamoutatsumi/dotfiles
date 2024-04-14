@@ -93,7 +93,7 @@ packages:
   - name: abice/go-enum@v0.6.0
   - name: greymd/ojichat@v0.2.2
   - name: simonwhitaker/gibo@v3.0.11
-  - name: tree-sitter/tree-sitter@v0.22.4
+  - name: tree-sitter/tree-sitter@v0.22.5
   - name: aws/aws-cli@2.15.38
   - name: docker/cli@v24.0.6
   - name: suzuki-shunsuke/pinact@v0.1.2
