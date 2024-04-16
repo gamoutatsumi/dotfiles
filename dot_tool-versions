@@ -3,7 +3,7 @@ nodejs      20.12.2
 java        system
 python      system
 ruby        system
-neovim      ref:master
+neovim      ref:3ce85b7c8a83daaffe5c77b4324c71c8c37cdd1b
 bun         1.1.3
 zig         0.11.0
 vim         9.1.0336
