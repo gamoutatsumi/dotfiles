@@ -30,6 +30,31 @@
         " +go-version: \"(?<currentValue>.*)\" # renovate: depName=(?<depName>.*)"
       ],
       "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "vim/vim",
+      "extractVersionTemplate": "^v(?<version>.*)$",
+      "fileMatch": [
+        "^dot_tool-version$"
+      ],
+      "matchStrings": [
+        "vim +(?<currentValue>.*) # renovate: depName=(?<depName>.*)"
+      ],
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
+    },
+    {
+      "customType": "regex",
+      "datasourceTemplate": "git-refs",
+      "depNameTemplate": "neovim/neovim",
+      "fileMatch": [
+        "^dot_tool-version$"
+      ],
+      "matchStrings": [
+        "neovim +ref:(?<currentValue>.*) # renovate: depName=(?<depName>.*)"
+      ],
+      "packageNameTemplate": "https://github.com/neovim/neovim"
     }
   ],
   "schedule": [
