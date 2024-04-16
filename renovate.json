@@ -37,7 +37,7 @@
       "depNameTemplate": "vim/vim",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "fileMatch": [
-        "^dot_tool-version$"
+        "^dot_tool-versions$"
       ],
       "matchStrings": [
         "vim +(?<currentValue>.*) # renovate: depName=(?<depName>.*)"
@@ -49,7 +49,7 @@
       "datasourceTemplate": "git-refs",
       "depNameTemplate": "neovim/neovim",
       "fileMatch": [
-        "^dot_tool-version$"
+        "^dot_tool-versions$"
       ],
       "matchStrings": [
         "neovim +ref:(?<currentValue>.*) # renovate: depName=(?<depName>.*)"
