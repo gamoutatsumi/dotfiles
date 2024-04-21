@@ -102,7 +102,7 @@ packages:
   - name: ikanago/omekasy@v1.2.3
   - name: jdx/mise@v2024.4.5
   - name: rancher/rke@v1.5.8
-  - name: crates.io/rbw@1.9.0
+  - name: crates.io/rbw@1.10.0
     registry: gamoutatsumi
   - name: crates.io/ripgrep@14.1.0
     registry: gamoutatsumi
