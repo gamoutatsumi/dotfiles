@@ -7,7 +7,7 @@ function s:ddu_start(opts) abort
 endfunction
 " ddu-source-lsp
 function s:lsp_attach() abort
-  nnoremap <silent><buffer> ;rf <Cmd>call <SID>ddu_start(#{ 
+  nnoremap <silent><buffer> ;rf <Cmd>call <SID>ddu#start(#{ 
         \ sources: [#{ 
         \   name: 'lsp_references' ,
         \   params: #{
@@ -49,7 +49,7 @@ function s:lsp_attach() abort
         \   },
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> gD <Cmd>call <SID>ddu_start(#{
+  nnoremap <silent><buffer> gD <Cmd>call <SID>ddu#start(#{
         \ sync: v:true,
         \ sources: [#{ 
         \   name: 'lsp_definition', 
@@ -158,7 +158,7 @@ function s:lsp_attach() abort
         \   }
         \ }
         \ })<CR>
-  nnoremap <silent><buffer> <Leader>a <Cmd>call <SID>ddu_start(#{
+  nnoremap <silent><buffer> <Leader>a <Cmd>call <SID>ddu#start(#{
         \ sources: [#{
         \   name: 'lsp_codeAction',
         \ }],
@@ -200,7 +200,7 @@ function! s:ddu_find() abort
 endfunction
 nnoremap <silent> ;rg <Cmd>call <SID>ddu_find()<CR>
 " ddu-source-mr
-nnoremap <silent> mu <Cmd>call <SID>ddu_start(#{
+nnoremap <silent> mu <Cmd>call <SID>ddu#start(#{
       \ sources: [#{
       \   name: 'mr', params: #{
       \     kind: 'mru', 
