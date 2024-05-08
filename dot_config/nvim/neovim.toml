@@ -90,7 +90,7 @@ hooks_file = ['$BASE_DIR/dpp/dial.vim']
 repo = 'ray-x/guihua.lua'
 
 [[plugins]]
-repo = 'ruifm/gitlinker.nvim'
+repo = 'linrongbin16/gitlinker.nvim'
 lua_add = '''
 require('gitlinker').setup()
 '''
