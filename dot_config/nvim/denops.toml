@@ -40,7 +40,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'lambdalisue/gin.vim'
+repo = 'lambdalisue/vim-gin'
 depends = 'denops.vim'
 
 [[plugins]]
@@ -49,7 +49,7 @@ depends = 'denops.vim'
 on_path = ['k8s://*']
 
 [[plugins]]
-repo = 'lambdalisue/kensaku.vim'
+repo = 'lambdalisue/vim-kensaku'
 depends = 'denops.vim'
 denops_wait = false
 hook_add = '''

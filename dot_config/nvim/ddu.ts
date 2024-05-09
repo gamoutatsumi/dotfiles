@@ -143,7 +143,7 @@ export class Config extends BaseConfig {
               return ActionFlags.None;
             },
             // fire GinPatch command to selected items
-            // using https://github.com/lambdalisue/gin.vim
+            // using https://github.com/lambdalisue/vim-gin
             patch: async (args: ActionArguments<Never>) => {
               for (const item of args.items) {
                 const action = item.action as GitStatusActionData;

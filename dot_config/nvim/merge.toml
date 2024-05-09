@@ -40,7 +40,7 @@ repo = 'itchyny/vim-parenmatch'
 #'''
 
 [[plugins]]
-repo = 'lambdalisue/nerdfont.vim'
+repo = 'lambdalisue/vim-nerdfont'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
@@ -52,17 +52,17 @@ hook_add = '''
 repo = 'kana/vim-textobj-user'
 
 [[plugins]]
-repo = 'lambdalisue/fern.vim'
+repo = 'lambdalisue/vim-fern'
 hooks_file = '$BASE_DIR/dpp/fern.vim'
 
 [[plugins]]
-repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+repo = 'lambdalisue/vim-fern-renderer-nerdfont'
 
 [[plugins]]
-repo = 'lambdalisue/fern-git-status.vim'
+repo = 'lambdalisue/vim-fern-git-status'
 
 [[plugins]]
-repo = 'lambdalisue/mr.vim'
+repo = 'lambdalisue/vim-mr'
 
 [[plugins]]
 repo = 'vimpostor/vim-tpipeline'

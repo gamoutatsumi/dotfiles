@@ -102,7 +102,7 @@ repo = 'mattn/sonictemplate-vim'
 on_cmd = ['Template']
 
 [[plugins]]
-repo = 'lambdalisue/glyph-palette.vim'
+repo = 'lambdalisue/vim-glyph-palette'
 on_func = ['glyph_palette#apply']
 
 [[plugins]]
@@ -118,7 +118,7 @@ on_func = ['searchx#*']
 hooks_file = '$BASE_DIR/dpp/searchx.vim'
 
 [[plugins]]
-repo = 'lambdalisue/suda.vim'
+repo = 'lambdalisue/vim-suda'
 on_event = 'BufRead'
 hook_add = '''
   let g:suda_smart_edit=v:true
