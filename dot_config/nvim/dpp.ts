@@ -4,19 +4,15 @@ import {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.0.9/types.ts";
+} from "https://deno.land/x/dpp_vim@v0.2.0/types.ts";
 import {
   convert2List,
   parseHooksFile,
-} from "https://deno.land/x/dpp_vim@v0.0.9/utils.ts";
-import { Denops } from "https://deno.land/x/dpp_vim@v0.0.9/deps.ts";
-import {
-  assert,
-  ensure,
-  is,
-} from "https://deno.land/x/unknownutil@v3.16.3/mod.ts";
-import { joinGlobs } from "https://deno.land/std@0.217.0/path/join_globs.ts";
-import { expandGlob } from "https://deno.land/std@0.217.0/fs/expand_glob.ts";
+} from "https://deno.land/x/dpp_vim@v0.2.0/utils.ts";
+import { Denops } from "https://deno.land/x/dpp_vim@v0.2.0/deps.ts";
+import { assert, ensure, is } from "jsr:@core/unknownutil@3.18.0";
+import { joinGlobs } from "jsr:@std/path@0.224.0";
+import { expandGlob } from "jsr:@std/fs@0.224.0";
 
 async function fennelCompile(denops: Denops, text: string): Promise<string> {
   const compiled = await denops.call(
@@ -83,7 +79,7 @@ export class Config extends BaseConfig {
       ].filter(is.String)
     ) {
       tomls.push(
-        await args.dpp.extAction(
+        (await args.dpp.extAction(
           args.denops,
           context,
           options,
@@ -95,7 +91,7 @@ export class Config extends BaseConfig {
               lazy: false,
             },
           },
-        ) as Toml,
+        )) as Toml,
       );
     }
 
@@ -108,7 +104,7 @@ export class Config extends BaseConfig {
       ].filter(is.String)
     ) {
       tomls.push(
-        await args.dpp.extAction(
+        (await args.dpp.extAction(
           args.denops,
           context,
           options,
@@ -120,7 +116,7 @@ export class Config extends BaseConfig {
               lazy: true,
             },
           },
-        ) as Toml,
+        )) as Toml,
       );
     }
 
@@ -143,7 +139,7 @@ export class Config extends BaseConfig {
       }
     });
 
-    const packSpecPlugins = await args.dpp.extAction(
+    const packSpecPlugins = (await args.dpp.extAction(
       args.denops,
       context,
       options,
@@ -153,7 +149,7 @@ export class Config extends BaseConfig {
         basePath: args.basePath,
         plugins: Object.values(recordPlugins),
       },
-    ) as Plugin[] | undefined;
+    )) as Plugin[] | undefined;
 
     if (packSpecPlugins) {
       for (const plugin of packSpecPlugins) {
@@ -170,10 +166,10 @@ export class Config extends BaseConfig {
     const plugins = await Promise.all(
       Object.values(recordPlugins).map(async (plugin) => {
         for (const hooksFile of convert2List(plugin.hooks_file)) {
-          const hooksFilePath = await args.denops.call(
+          const hooksFilePath = (await args.denops.call(
             "dpp#util#_expand",
             hooksFile,
-          ) as string;
+          )) as string;
           const hooksFileLines = (await Deno.readTextFile(hooksFilePath)).split(
             "\n",
           );
@@ -186,35 +182,37 @@ export class Config extends BaseConfig {
       }),
     );
 
-    const compiledPlugins = await Promise.all(plugins.map(async (plugin) => {
-      if (!plugin.ftplugin) {
+    const compiledPlugins = await Promise.all(
+      plugins.map(async (plugin) => {
+        if (!plugin.ftplugin) {
+          return plugin;
+        }
+        if (is.String(plugin.ftplugin.fennel_add)) {
+          plugin.lua_add = await fennelCompile(
+            args.denops,
+            plugin.ftplugin.fennel_add,
+          );
+          delete plugin.ftplugin.fennel_add;
+        }
+        if (is.String(plugin.ftplugin.fennel_source)) {
+          plugin.lua_source = await fennelCompile(
+            args.denops,
+            plugin.ftplugin.fennel_source,
+          );
+          delete plugin.ftplugin.fennel_source;
+        }
+        if (is.String(plugin.ftplugin.fennel_post_source)) {
+          plugin.lua_post_source = await fennelCompile(
+            args.denops,
+            plugin.ftplugin.fennel_post_source,
+          );
+          delete plugin.ftplugin.fennel_post_source;
+        }
         return plugin;
-      }
-      if (is.String(plugin.ftplugin.fennel_add)) {
-        plugin.lua_add = await fennelCompile(
-          args.denops,
-          plugin.ftplugin.fennel_add,
-        );
-        delete plugin.ftplugin.fennel_add;
-      }
-      if (is.String(plugin.ftplugin.fennel_source)) {
-        plugin.lua_source = await fennelCompile(
-          args.denops,
-          plugin.ftplugin.fennel_source,
-        );
-        delete plugin.ftplugin.fennel_source;
-      }
-      if (is.String(plugin.ftplugin.fennel_post_source)) {
-        plugin.lua_post_source = await fennelCompile(
-          args.denops,
-          plugin.ftplugin.fennel_post_source,
-        );
-        delete plugin.ftplugin.fennel_post_source;
-      }
-      return plugin;
-    }));
+      }),
+    );
 
-    const lazyResult = await args.dpp.extAction(
+    const lazyResult = (await args.dpp.extAction(
       args.denops,
       context,
       options,
@@ -223,17 +221,13 @@ export class Config extends BaseConfig {
       {
         plugins: compiledPlugins,
       },
-    ) as LazyMakeStateResult | undefined;
+    )) as LazyMakeStateResult | undefined;
 
     const checkFiles: string[] = [];
     for await (
-      const entry of expandGlob(joinGlobs(
-        [
-          ensure(Deno.env.get("BASE_DIR"), is.String),
-          "**",
-          "*",
-        ],
-      ))
+      const entry of expandGlob(
+        joinGlobs([ensure(Deno.env.get("BASE_DIR"), is.String), "**", "*"]),
+      )
     ) {
       if (!entry.isFile) {
         if (entry.isSymlink) {

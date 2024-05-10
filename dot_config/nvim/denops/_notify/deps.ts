@@ -4,5 +4,5 @@ export * as helper from "https://deno.land/x/denops_std@v6.1.0/helper/mod.ts";
 export * as autocmd from "https://deno.land/x/denops_std@v6.1.0/autocmd/mod.ts";
 export * as fn from "https://deno.land/x/denops_std@v6.1.0/function/mod.ts";
 export * as opts from "https://deno.land/x/denops_std@v6.1.0/option/mod.ts";
-export { assert, is } from "https://deno.land/x/unknownutil@v3.16.3/mod.ts";
+export { assert, is } from "jsr:@core/unknownutil@3.18.0";
 export * as notify from "https://deno.land/x/deno_notify@1.4.3/ts/mod.ts";
