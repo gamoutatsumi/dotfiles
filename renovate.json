@@ -63,7 +63,7 @@
   ],
   "packageRules": [
     {
-      "groupName": "fzf",
+      "groupName": "fzf monorepo",
       "matchPackageNames": [
         "junegunn/fzf/fzf-tmux",
         "junegunn/fzf"
