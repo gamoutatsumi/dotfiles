@@ -70,7 +70,7 @@ on_source = 'ddu.vim'
 [[plugins]]
 repo = 'Milly/ddu-filter-kensaku'
 on_source = 'ddu.vim'
-depends = ['kensaku.vim']
+depends = ['vim-kensaku']
 
 [[plugins]]
 repo = 'kuuote/ddu-filter-fuse'
