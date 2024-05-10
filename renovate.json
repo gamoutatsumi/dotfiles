@@ -61,5 +61,14 @@
   "schedule": [
     "at any time"
   ],
+  "packageRules": [
+    {
+      "groupName": "fzf",
+      "matchPackageNames": [
+        "junegunn/fzf/fzf-tmux",
+        "junegunn/fzf"
+      ]
+    }
+  ],
   "platformCommit": true
 }
