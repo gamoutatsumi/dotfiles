@@ -11,6 +11,8 @@ ostype() {
   uname | tr "[:upper:]" "[:lower:]"
 }
 
+export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+
 # os_detect export the SHELL_ENVIRONMENT variable as you see fit
 case "$(ostype)" in
   *'linux'*)  
