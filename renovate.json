@@ -24,7 +24,7 @@
       "depNameTemplate": "golang/go",
       "extractVersionTemplate": "^go(?<version>.*)$",
       "fileMatch": [
-        "^\\.github/workflows/aqua\\.yaml$"
+        "^\\.github/workflows/check\\.yaml$"
       ],
       "matchStrings": [
         " +go-version: \"(?<currentValue>.*)\" # renovate: depName=(?<depName>.*)"

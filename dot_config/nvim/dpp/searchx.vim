@@ -25,7 +25,7 @@ let g:searchx.nohlsearch = {}
 let g:searchx.nohlsearch.jump = v:true
 
 function g:searchx.regex_converter(input) abort
-  return '\v' .. escape(a:input, '/')
+  return '\m' .. escape(a:input, '/')
 endfunction
 
 function g:searchx.raw_converter(input) abort
