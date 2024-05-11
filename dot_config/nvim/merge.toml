@@ -108,3 +108,7 @@ repo = 'chrisbra/csv.vim'
 
 [[plugins]]
 repo = 'Shougo/cmdline.vim'
+
+[[plugins]]
+repo = 'hrsh7th/vim-searchx'
+hooks_file = '$BASE_DIR/dpp/searchx.vim'

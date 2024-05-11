@@ -113,11 +113,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'hrsh7th/vim-searchx'
-on_func = ['searchx#*']
-hooks_file = '$BASE_DIR/dpp/searchx.vim'
-
-[[plugins]]
 repo = 'lambdalisue/vim-suda'
 on_event = 'BufRead'
 hook_add = '''
