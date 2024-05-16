@@ -107,4 +107,4 @@ packages:
   - name: crates.io/ripgrep@14.1.0
     registry: gamoutatsumi
   - name: ast-grep/ast-grep@0.22.3
-  - name: jetify-com/devbox@0.10.6
+  - name: jetify-com/devbox@0.10.7
