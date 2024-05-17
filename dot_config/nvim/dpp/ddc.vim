@@ -12,7 +12,7 @@ function! s:commandlinePre() abort
   call ddc#enable_cmdline_completion()
 endfunction
 
-function! s:searchlinePre() abort
+function! SearchlinePre() abort
   cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1, 'loop')<CR>
   cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1, 'loop')<CR>
   cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
@@ -27,7 +27,7 @@ function! s:searchlinePre() abort
   call ddc#enable_cmdline_completion()
 endfunction
 
-autocmd User SearchxEnter call <SID>searchlinePre()
+autocmd User SearchxEnter call SearchlinePre()
 
 function! s:commandlinePost() abort
   silent! cunmap <Tab>
