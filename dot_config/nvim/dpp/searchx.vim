@@ -40,7 +40,6 @@ function g:searchx.kensaku_converter(input) abort
 endfunction
 
 let g:searchx.convert = g:searchx.raw_converter
-autocmd User SearchxEnter call SearchlinePre()
 
 nnoremap ? <Cmd>call searchx#start({ 'dir': 0, 'convert': g:searchx.raw_converter })<CR>
 nnoremap / <Cmd>call searchx#start({ 'dir': 1, 'convert': g:searchx.raw_converter })<CR>

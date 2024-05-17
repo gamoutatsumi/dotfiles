@@ -12,7 +12,7 @@ function! s:commandlinePre() abort
   call ddc#enable_cmdline_completion()
 endfunction
 
-function! SearchlinePre() abort
+function! s:searchlinePre() abort
   cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1, 'loop')<CR>
   cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1, 'loop')<CR>
   cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
@@ -26,6 +26,9 @@ function! SearchlinePre() abort
   " Enable command line completion for the buffer
   call ddc#enable_cmdline_completion()
 endfunction
+
+autocmd User SearchxEnter call <SID>searchlinePre()
+
 function! s:commandlinePost() abort
   silent! cunmap <Tab>
   silent! cunmap <S-Tab>
@@ -34,6 +37,9 @@ function! s:commandlinePost() abort
   silent! cunmap <C-y>
 endfunction
 nnoremap :       <Cmd>call <SID>commandlinePre()<CR>:
+
+call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
+call ddc#enable(#{context_filetype: "treesitter"})
 " pum.vim
 imap <silent><expr> <TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(+1, "loop")<CR>' : denippet#jumpable(1) ? '<Plug>(denippet-jump-next)' : '<TAB>'
 imap <silent><expr> <C-n> pum#visible() ? '<Cmd>call pum#map#select_relative(+1, "loop")<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(+1, "loop")<CR>'
@@ -42,12 +48,6 @@ imap <silent><expr> <S-TAB> pum#visible() ? '<Cmd>call pum#map#insert_relative(-
 imap <silent><expr> <C-p> pum#visible() ? '<Cmd>call pum#map#select_relative(-1, "loop")<CR>' : '<Cmd>call ddc#map#manual_complete()<CR><Cmd>call pum#map#select_relative(-1, "loop")<CR>'
 smap <silent><expr> <S-TAB> denippet#jumpable(-1) ? '<Plug>(denippet-jump-prev)' : '<S-TAB>'
 imap <silent><expr> <CR>   pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
-
-" }}}
-" hook_source {{{
-" ddc.vim
-call join([$BASE_DIR, 'ddc.ts'], '/')->expand()->ddc#custom#load_config()
-call ddc#enable(#{context_filetype: "treesitter"})
 " }}}
 " hook_post_update {{{
 call ddc#set_static_import_path()
