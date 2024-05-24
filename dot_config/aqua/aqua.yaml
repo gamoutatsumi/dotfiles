@@ -109,3 +109,4 @@ packages:
   - name: ast-grep/ast-grep@0.22.3
   - name: jetify-com/devbox@0.10.7
   - name: b3nj5m1n/xdg-ninja@v0.2.0.2
+  - name: charmbracelet/glow@v1.5.1
