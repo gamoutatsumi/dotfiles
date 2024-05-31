@@ -100,7 +100,7 @@ packages:
   - name: noborus/ov@v0.34.1
   - name: charmbracelet/vhs@v0.7.2
   - name: ikanago/omekasy@v1.2.3
-  - name: jdx/mise@v2024.5.26
+  - name: jdx/mise@v2024.5.27
   - name: rancher/rke@v1.5.9
   - name: crates.io/rbw@1.10.2
     registry: gamoutatsumi
