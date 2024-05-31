@@ -1,7 +1,7 @@
 {
   "tasks": {
     "lint": "deno lint && deno check ./**/*.ts",
-    "udd": "deno run -A https://deno.land/x/udd/main.ts $(find . -name '*.ts' -not -name '.deno')"
+    "molt": "deno run --allow-env --allow-read --allow-write --allow-run=git,deno --allow-net jsr:@molt/cli ./**/*.ts --write"
   },
   "fmt": {
     "exclude": [

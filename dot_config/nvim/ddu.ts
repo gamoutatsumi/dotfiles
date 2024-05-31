@@ -3,10 +3,10 @@ import {
   ActionFlags,
   BaseConfig,
   ContextBuilder,
-} from "https://deno.land/x/ddu_vim@v4.0.0/types.ts";
-import { Denops } from "https://deno.land/x/ddu_vim@v4.0.0/deps.ts";
-import * as stdpath from "jsr:@std/path@0.224.0";
-import * as u from "jsr:@core/unknownutil@3.18.0";
+} from "https://deno.land/x/ddu_vim@v4.1.0/types.ts";
+import { Denops } from "https://deno.land/x/ddu_vim@v4.1.0/deps.ts";
+import * as stdpath from "jsr:@std/path@0.225.1";
+import * as u from "jsr:@core/unknownutil@3.18.1";
 import { ActionData as GitStatusActionData } from "https://raw.githubusercontent.com/kuuote/ddu-source-git_status/main/denops/%40ddu-kinds/git_status.ts";
 
 type Never = Record<never, never>;
@@ -63,26 +63,10 @@ export class Config extends BaseConfig {
       uiParams: {
         ff: {
           displayTree: true,
-          split: "floating",
+          split: "horizontal",
           prompt: "> ",
-          floatingBorder: "rounded",
-          previewFloating: true,
           previewWidth: "round(floor(&columns * 0.8) / 2)",
-          previewHeight: "floor(&lines * 0.8)",
-          previewFloatingTitle: "Preview",
-          previewFloatingZindex: 55,
-          previewFloatingBorder: "rounded",
           previewSplit: "vertical",
-          filterSplitDirection: "floating",
-          filterFloatingPosition: "top",
-          highlights: {
-            floating: "Normal",
-            floatingBorder: "Normal",
-          },
-          winHeight: "floor(&lines * 0.8)",
-          winRow: "floor(&lines * 0.1)",
-          winWidth: "floor(&columns * 0.8)",
-          winCol: "floor(&columns * 0.1)",
           autoResize: true,
           startAutoAction: true,
         },
