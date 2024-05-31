@@ -85,5 +85,4 @@ let g:glance#config = expand('$BASE_DIR/glance/init.ts')
 
 [[plugins]]
 repo = 'lambdalisue/vim-guise'
-depends = 'denops.vim'
-on_event = 'CursorHold'
+lazy = 0
