@@ -168,3 +168,10 @@ require('dmacro').setup {
   dmacro_key = '<C-y>'
 }
 '''
+
+[[plugins]]
+repo = 'stevearc/overseer.nvim'
+lua_add = '''
+require('overseer').setup()
+'''
+

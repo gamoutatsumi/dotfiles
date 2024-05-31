@@ -46,7 +46,27 @@ depends = 'denops.vim'
 [[plugins]]
 repo = 'skanehira/k8s.vim'
 depends = 'denops.vim'
-on_path = ['k8s://*']
+hook_add = '''
+  function! s:k8s_nodes_keymap() abort
+    nmap <buffer> <CR> <Plug>(k8s:nodes:pods)
+    nmap <buffer> gd <Plug>(k8s:nodes:describe)
+    nmap <buffer> gy <Plug>(k8s:nodes:yaml)
+  endfunction
+
+  function! s:k8s_pods_keymap() abort
+    nmap <buffer> <CR> <Plug>(k8s:pods:containers)
+    nmap <buffer> gl <Plug>(k8s:pods:logs)
+    nmap <buffer> gd <Plug>(k8s:pods:describe)
+    nmap <buffer> gy <Plug>(k8s:pods:yaml)
+    nmap <buffer> ge <Plug>(k8s:pods:edit)
+  endfunction
+
+  augroup k8s-keymap
+    au!
+    au FileType k8s-pods call s:k8s_pods_keymap()
+    au FileType k8s-nodes call s:k8s_nodes_keymap()
+  augroup END
+'''
 
 [[plugins]]
 repo = 'lambdalisue/vim-kensaku'
@@ -62,3 +82,8 @@ depends = 'denops.vim'
 hook_add = '''
 let g:glance#config = expand('$BASE_DIR/glance/init.ts')
 '''
+
+[[plugins]]
+repo = 'lambdalisue/vim-guise'
+depends = 'denops.vim'
+on_event = 'CursorHold'
