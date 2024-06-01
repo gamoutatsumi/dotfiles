@@ -44,7 +44,7 @@ packages:
   - name: cue-lang/cue@v0.8.2
   - name: jsonnet-bundler/jsonnet-bundler@v0.5.1
   - name: mikefarah/yq@v4.44.1
-  - name: tilt-dev/tilt@v0.33.14
+  - name: tilt-dev/tilt@v0.33.15
   - name: kubernetes-sigs/controller-tools/controller-gen@v0.15.0
   - name: tomnomnom/gron@v0.7.1
   - name: kubernetes-sigs/kind@v0.23.0
