@@ -111,3 +111,4 @@ packages:
   - name: b3nj5m1n/xdg-ninja@v0.2.0.2
   - name: charmbracelet/glow@v1.5.1
   - name: mike-engel/jwt-cli@6.1.0
+  - name: rustwasm/wasm-pack@v0.12.1

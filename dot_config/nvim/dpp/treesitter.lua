@@ -4,6 +4,7 @@ vim.opt.runtimepath:prepend(parser_install_dir)
 require("nvim-treesitter.configs").setup({
   -- Modules and its options go here
   ensure_installed = {
+    "rust",
     "org",
     "lua",
     "vim",
