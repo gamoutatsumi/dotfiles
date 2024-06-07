@@ -317,6 +317,13 @@ if vim.fn.executable("typescript-language-server") > 0 then
   })
 end
 
+if vim.fn.executable("sourcekit-lsp") > 0 then
+  lspconfig.sourcekit.setup({
+    on_attach = on_attach,
+    autostart = true,
+  })
+end
+
 require("go").setup({
   filstruct = "gopls",
   dap_debug = true,
