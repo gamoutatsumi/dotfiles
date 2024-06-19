@@ -21,7 +21,8 @@ require("nvim-treesitter.configs").setup({
     "proto",
     "regex",
     "bash",
-    "sql"
+    "sql",
+    "swift"
   },
   highlight = {
     enable = true,

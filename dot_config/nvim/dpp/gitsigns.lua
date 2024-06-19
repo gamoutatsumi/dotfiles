@@ -9,6 +9,7 @@ require('gitsigns').setup {
   current_line_blame_formatter_opts = {
     relative_time = false
   },
+  signs_staged_enable = false,
   on_attach = function(bufnr)
     local gs = require("gitsigns")
 
@@ -20,13 +21,13 @@ require('gitsigns').setup {
 
     map('n', ']c', function()
       if vim.wo.diff then return ']c' end
-      vim.schedule(function() gs.next_hunk() end)
+      vim.schedule(function() gs.nav_hunk("next") end)
       return '<Ignore>'
     end, { expr = true })
 
     map('n', '[c', function()
       if vim.wo.diff then return '[c' end
-      vim.schedule(function() gs.prev_hunk() end)
+      vim.schedule(function() gs.nav_hunk("prev") end)
       return '<Ignore>'
     end, { expr = true })
 
