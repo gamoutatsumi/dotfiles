@@ -6,9 +6,6 @@ require('gitsigns').setup {
     virt_text_pos = 'eol',
     delay = 1000
   },
-  current_line_blame_formatter_opts = {
-    relative_time = false
-  },
   signs_staged_enable = false,
   on_attach = function(bufnr)
     local gs = require("gitsigns")
