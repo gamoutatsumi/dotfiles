@@ -11,6 +11,7 @@ function! s:check_large_file() abort
       return
     else
       syntax off
+      TSDisable hightlight
     endif
   endif
 endfunction
