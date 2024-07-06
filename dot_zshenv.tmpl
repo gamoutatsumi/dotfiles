@@ -1,3 +1,4 @@
+unsetopt global_rcs
 export ARCH=$(uname -m)
 source ~/.zshenv.local
 [[ -e "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
@@ -60,6 +61,7 @@ done
 for d in /opt/homebrew/opt/gnu-tar/libexec/gnuman(N-/); do
   manpath=($d $manpath)
 done
+path=(/opt/homebrew/opt/swift/bin(N-/) $path)
 
 exists() {
   if (( $+commands[$@] )); then
