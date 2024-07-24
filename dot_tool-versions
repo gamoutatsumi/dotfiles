@@ -6,6 +6,6 @@ ruby        system
 neovim      ref:b4b4cf46a7a2b6d7b4e997179166444b0e338ac8 # renovate: depName=neovim/neovim
 bun         1.1.20
 zig         0.13.0
-vim         9.1.0611 # renovate: depName=vim/vim
+vim         9.1.0613 # renovate: depName=vim/vim
 usage       0.1.18
 go          1.22.3
