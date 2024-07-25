@@ -97,7 +97,7 @@ packages:
   - name: aws/aws-cli@2.17.17
   - name: docker/cli@v24.0.6
   - name: suzuki-shunsuke/pinact@v0.2.1
-  - name: noborus/ov@v0.35.0
+  - name: noborus/ov@v0.36.0
   - name: charmbracelet/vhs@v0.7.2
   - name: ikanago/omekasy@v1.3.1
   - name: jdx/mise@v2024.7.4
