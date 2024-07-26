@@ -173,3 +173,5 @@ lua_add = '''
 require('overseer').setup()
 '''
 
+[[plugins]]
+repo = 'wojciech-kulik/xcodebuild.nvim'

@@ -51,8 +51,7 @@ local on_attach = function(client, bufnr)
       border = "rounded"
     }
   }, bufnr)
-  if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  if client.supports_method("textDocument/inlayHint") or client.name == "sourcekit" then
     setInlayHintHL()
     vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
       buffer = bufnr,
@@ -66,6 +65,10 @@ local on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
       end,
     })
+    local timer = vim.uv.new_timer()
+    timer:start(100, 0, vim.schedule_wrap(function()
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end))
   end
 end
 
@@ -321,6 +324,14 @@ if vim.fn.executable("sourcekit-lsp") > 0 then
   lspconfig.sourcekit.setup({
     on_attach = on_attach,
     autostart = true,
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true
+        },
+      },
+    },
+    cmd = { "xcrun", "sourcekit-lsp", "-Xswiftc", "-sdk", "-Xswiftc", vim.fn.trim(vim.fn.system("xcrun --show-sdk-path --sdk iphonesimulator")), "-Xswiftc", "-target", "-Xswiftc", "arm64-apple-ios17.5-simulator" },
   })
 end
 
