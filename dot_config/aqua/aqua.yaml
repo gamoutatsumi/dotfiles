@@ -94,7 +94,7 @@ packages:
   - name: greymd/ojichat@v0.2.2
   - name: simonwhitaker/gibo@v3.0.12
   - name: tree-sitter/tree-sitter@v0.22.6
-  - name: aws/aws-cli@2.17.32
+  - name: aws/aws-cli@2.17.33
   - name: docker/cli@v24.0.6
   - name: suzuki-shunsuke/pinact@v0.2.1
   - name: noborus/ov@v0.36.0
