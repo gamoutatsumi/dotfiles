@@ -12,7 +12,7 @@ packages:
   - name: dandavison/delta@0.18.0
   - name: jqlang/jq@jq-1.7.1
   - name: bootandy/dust@v1.1.1
-  - name: sharkdp/fd@v10.1.0
+  - name: sharkdp/fd@v10.2.0
   - name: ogham/dog@v0.1.0
   - name: Songmu/gocredits@v0.3.1
   - name: git-lfs/git-lfs@v3.5.1
