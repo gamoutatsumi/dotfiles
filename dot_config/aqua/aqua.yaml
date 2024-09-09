@@ -104,7 +104,7 @@ packages:
   - name: rancher/rke@v1.6.1
   - name: crates.io/rbw@1.12.1
     registry: gamoutatsumi
-  - name: crates.io/ripgrep@14.1.0
+  - name: crates.io/ripgrep@14.1.1
     registry: gamoutatsumi
   - name: ast-grep/ast-grep@0.27.1
   - name: jetify-com/devbox@0.12.0
