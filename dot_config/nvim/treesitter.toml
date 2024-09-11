@@ -20,6 +20,6 @@ build = 'git update-index --skip-worktree test && /bin/rm -rf test'
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'
 on_ft = ['typescript','javascript','javascriptreact','typescriptreact']
 
-[[plugins]]
-repo = "nvim-treesitter/nvim-treesitter-context"
-hooks_file = '$BASE_DIR/dpp/context.lua'
+# [[plugins]]
+# repo = "nvim-treesitter/nvim-treesitter-context"
+# hooks_file = '$BASE_DIR/dpp/context.lua'

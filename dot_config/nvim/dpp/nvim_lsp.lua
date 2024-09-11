@@ -7,6 +7,12 @@ local schemas = require("schemastore")
 
 local buf_name = vim.api.nvim_buf_get_name(0) == "" and vim.fn.getcwd() or vim.api.nvim_buf_get_name(0)
 local is_node_repo = util.find_node_modules_ancestor(buf_name) ~= nil
+local is_deno_repo = util.search_ancestors(buf_name, function(path)
+  if util.path.is_file(util.path.join(path, 'deno.json')) then
+    return path
+  end
+end
+) ~= nil
 
 local function setInlayHintHL()
   local has_hl, hl = pcall(vim.api.nvim_get_hl, 0, { name = 'LspInlayHint' })
@@ -41,9 +47,17 @@ local on_attach = function(client, bufnr)
     vim.lsp.buf.format(formatOpts)
   end
   local opts = { noremap = true, silent = true, buffer = bufnr }
+  local function jumpNext()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end
+
+  local function jumpPrev()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end
+
   vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+  vim.keymap.set("n", "[d", jumpPrev, opts)
+  vim.keymap.set("n", "]d", jumpNext, opts)
   vim.keymap.set("n", "<Leader>f", format, opts)
   require("lsp_signature").on_attach({
     bind = true,
@@ -201,7 +215,7 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
       },
     }
   elseif server == "efm" then
-    opts.autostart = true
+    opts.autostart = not is_deno_repo
     opts.cmd = { "efm-langserver", "-q" }
     opts.init_options = {
       documentFormatting = true,
@@ -230,6 +244,7 @@ if vim.fn.executable("deno") then
   lspconfig.denols.setup({
     on_attach = on_attach,
     autostart = not is_node_repo,
+    provideFormatter = true,
     settings = {
       typescript = {
         suggest = {

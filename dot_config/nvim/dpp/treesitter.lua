@@ -25,6 +25,7 @@ require("nvim-treesitter.configs").setup({
     "sql",
     "swift"
   },
+  modules = {},
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = { "org" },
