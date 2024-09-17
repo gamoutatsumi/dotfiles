@@ -17,7 +17,6 @@ packages:
   - name: Songmu/gocredits@v0.3.1
   - name: git-lfs/git-lfs@v3.5.1
   - name: harelba/q@v3.1.6
-  - name: hashicorp/terraform@v1.9.5
   - name: docker-slim/docker-slim@1.40.11
   - name: okteto/okteto@2.31.0
   - name: kubernetes/kubectl@v1.31.1
@@ -115,3 +114,4 @@ packages:
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.5.1
   - name: pipe-cd/pipecd/pipectl@v0.48.9
   - name: docker/buildx@v0.17.1
+  - name: gruntwork-io/terragrunt@v0.67.4

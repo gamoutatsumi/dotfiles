@@ -9,3 +9,4 @@ zig         0.13.0
 vim         9.1.0733 # renovate: depName=vim/vim
 usage       0.1.18
 go          1.22.3
+coursier    2.1.9
