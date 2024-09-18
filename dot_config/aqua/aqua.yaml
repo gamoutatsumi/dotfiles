@@ -100,7 +100,7 @@ packages:
   - name: charmbracelet/vhs@v0.8.0
   - name: ikanago/omekasy@v1.3.1
   - name: jdx/mise@v2024.9.5
-  - name: rancher/rke@v1.6.1
+  - name: rancher/rke@v1.6.2
   - name: crates.io/rbw@1.12.1
     registry: gamoutatsumi
   - name: crates.io/ripgrep@14.1.1
