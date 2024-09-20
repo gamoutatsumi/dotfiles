@@ -175,3 +175,7 @@ require('overseer').setup()
 
 [[plugins]]
 repo = 'wojciech-kulik/xcodebuild.nvim'
+
+[[plugins]]
+repo = 'nomnivore/ollama.nvim'
+hooks_file = ['$BASE_DIR/dpp/ollama.lua']
