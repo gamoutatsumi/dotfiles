@@ -114,4 +114,4 @@ packages:
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.5.1
   - name: pipe-cd/pipecd/pipectl@v0.49.0
   - name: docker/buildx@v0.17.1
-  - name: gruntwork-io/terragrunt@v0.67.13
+  - name: gruntwork-io/terragrunt@v0.67.14
