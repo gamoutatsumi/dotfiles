@@ -36,7 +36,7 @@ packages:
   - name: kubernetes-sigs/cluster-api@v1.8.3
   - name: shyiko/kubesec@0.9.2
   - name: kubernetes-sigs/kustomize@kustomize/v5.4.3
-  - name: stern/stern@v1.30.0
+  - name: stern/stern@v1.31.0
   - name: bitnami-labs/sealed-secrets@v0.27.1
   - name: gohugoio/hugo@v0.135.0
   - name: kubernetes-sigs/krew@v0.4.4
