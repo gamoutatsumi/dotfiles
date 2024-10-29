@@ -3,7 +3,7 @@ nodejs      20.18.0
 java        system
 python      system
 ruby        system
-neovim      ref:34c44c355646311aa67fe53e1e5ce040789430c6 # renovate: depName=neovim/neovim
+neovim      ref:4a4b52dca493342c83a4b21bb10e184325b5af94 # renovate: depName=neovim/neovim
 bun         1.1.33
 zig         0.13.0
 vim         9.1.0821 # renovate: depName=vim/vim
