@@ -57,7 +57,7 @@ packages:
   - name: suzuki-shunsuke/cmdx@v1.7.4
   - name: fatedier/frp@v0.61.0
   - name: haskell/ghcup-hs@v0.1.19.2
-  - name: docker/compose@v2.30.2
+  - name: docker/compose@v2.30.3
   - name: protocolbuffers/protobuf/protoc@v28.3
   - name: pseudomuto/protoc-gen-doc@v1.5.1
   - name: cosmtrek/air@v1.61.1
