@@ -47,7 +47,7 @@ packages:
   - name: kubernetes-sigs/controller-tools/controller-gen@v0.16.5
   - name: tomnomnom/gron@v0.7.1
   - name: kubernetes-sigs/kind@v0.25.0
-  - name: golangci/golangci-lint@v1.61.0
+  - name: golangci/golangci-lint@v1.62.0
   - name: Aloxaf/silicon@v0.5.2
   - name: nektos/act@v0.2.69
   - name: magefile/mage@v1.15.0
