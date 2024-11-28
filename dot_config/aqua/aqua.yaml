@@ -109,7 +109,7 @@ packages:
   - name: jetify-com/devbox@0.13.6
   - name: b3nj5m1n/xdg-ninja@v0.2.0.2
   - name: charmbracelet/glow@v2.0.0
-  - name: mike-engel/jwt-cli@6.1.1
+  - name: mike-engel/jwt-cli@6.2.0
   - name: rustwasm/wasm-pack@v0.13.1
   - name: grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/v1.5.1
   - name: pipe-cd/pipecd/pipectl@v0.49.4
