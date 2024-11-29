@@ -4,7 +4,7 @@ java        system
 python      system
 ruby        system
 neovim      ref:c867a4f5e335a1e62e699c01056f9553c0ce151a # renovate: depName=neovim/neovim
-bun         1.1.37
+bun         1.1.38
 zig         0.13.0
 vim         9.1.0895 # renovate: depName=vim/vim
 usage       0.1.18
