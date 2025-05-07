@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "asdf": {
     "enabled": true,
-    "fileMatch": [
-      "^dot_tool-versions"
+    "managerFilePatterns": [
+      "/^dot_tool-versions/"
     ]
   },
   "automerge": true,
@@ -23,8 +23,8 @@
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "golang/go",
       "extractVersionTemplate": "^go(?<version>.*)$",
-      "fileMatch": [
-        "^\\.github/workflows/check\\.yaml$"
+      "managerFilePatterns": [
+        "/^\\.github/workflows/check\\.yaml$/"
       ],
       "matchStrings": [
         " +go-version: \"(?<currentValue>.*)\" # renovate: depName=(?<depName>.*)"
@@ -36,8 +36,8 @@
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "vim/vim",
       "extractVersionTemplate": "^v(?<version>.*)$",
-      "fileMatch": [
-        "^dot_tool-versions$"
+      "managerFilePatterns": [
+        "/^dot_tool-versions$/"
       ],
       "matchStrings": [
         "vim +(?<currentValue>.*) # renovate: depName=(?<depName>.*)"
@@ -48,8 +48,8 @@
       "customType": "regex",
       "datasourceTemplate": "git-refs",
       "depNameTemplate": "neovim/neovim",
-      "fileMatch": [
-        "^dot_tool-versions$"
+      "managerFilePatterns": [
+        "/^dot_tool-versions$/"
       ],
       "currentValueTemplate": "master",
       "matchStrings": [
@@ -70,5 +70,5 @@
       ]
     }
   ],
-  "platformCommit": true
+  "platformCommit": "enabled"
 }
